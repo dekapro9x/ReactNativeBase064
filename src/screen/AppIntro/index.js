@@ -1,8 +1,15 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import RNBootSplash from 'react-native-bootsplash';
 import {Text, TouchableOpacity, StyleSheet, View} from 'react-native';
 import {keyNavigation} from '../../navigation/KeyNavigations';
 
 export default function AppIntro({navigation, router}) {
+  useEffect(() => {
+    const init = async () => {};
+    init().finally(async () => {
+      await RNBootSplash.hide({fade: true});
+    });
+  }, []);
   const navigateLogin = () => {
     navigation.navigate(keyNavigation.LOGIN);
   };
@@ -20,7 +27,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'green'
+    backgroundColor: 'green',
   },
   bnt_mid: {
     height: 45,
