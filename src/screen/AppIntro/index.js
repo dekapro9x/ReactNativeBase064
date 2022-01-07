@@ -19,7 +19,7 @@ export default function AppIntro({ navigation, router }) {
   };
   return (
     <View style={styles.container}>
-      <Loading />
+      <Loading typeLoading={"Bar"}/>
       {/* <TouchableOpacity onPress={navigateLogin}>
         <Text>APP INTRO</Text>
       </TouchableOpacity> */}
