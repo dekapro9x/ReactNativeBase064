@@ -17,9 +17,18 @@ export default function AppIntro({ navigation, router }) {
   const navigateLogin = () => {
     navigation.navigate(keyNavigation.LOGIN);
   };
+  const randomLoadingStartApp = () => {
+    const key = Math.floor(Math.random() * 2);
+    switch (key) {
+      case 0:
+        return "Bar";
+      case 1:
+        return "Pie";
+    }
+  };
   return (
     <View style={styles.container}>
-      <Loading typeLoading={"Bar"}/>
+      <Loading typeLoading={randomLoadingStartApp()} />
       {/* <TouchableOpacity onPress={navigateLogin}>
         <Text>APP INTRO</Text>
       </TouchableOpacity> */}

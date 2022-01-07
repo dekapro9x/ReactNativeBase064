@@ -22,21 +22,30 @@ const Loading = props => {
     ) {
       (function(index) {
         timeLoading = setTimeout(function() {
-          console.log(index, processLoading[index]);
           setStateProcess(processLoading[index] / 100);
-        }, 1000 * index);
+        }, 800 * index);
       })(indexProcess);
     }
   };
   renderLoading = () => {
-    const { typeLoading } = props;
+    const { typeLoading = "Bar" } = props;
     switch (typeLoading) {
       case "Bar":
-        return <Progress.Bar progress={process} width={300} />;
+        return (
+          <Progress.Bar
+            animated={true}
+            progress={process}
+            width={300}
+            useNativeDriver={true}
+            height={10}
+            animationConfig={{ bounciness: 2 }}
+            animationType={"spring"}
+          />
+        );
       case "Pie":
-        return <Progress.Pie progress={0.4} size={50} />;
+        return <Progress.Pie progress={process} size={250} />;
       case "Circle":
-        return <Progress.Circle size={30} indeterminate={true} />;
+        return <Progress.Circle size={50} indeterminate={true} />;
       case "CircleSnail":
         return <Progress.CircleSnail color={["red", "green", "blue"]} />;
     }
