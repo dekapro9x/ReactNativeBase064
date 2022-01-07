@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { View, StyleSheet, Image } from "react-native";
 import * as Progress from "react-native-progress";
+import Icon from "react-native-vector-icons/FontAwesome";
 import { pink50 } from "../const/Color";
 import { SizeRpScreen } from "../resources/ResponsiveScreen";
-
 const Loading = props => {
   let timeLoading = 0;
   const processLoading = [15, 30, 45, 60, 80, 100];
@@ -26,6 +26,9 @@ const Loading = props => {
         }, 800 * index);
       })(indexProcess);
     }
+  };
+  const renderIconApp = () => {
+    return <Icon name={"grav"} size={50} color={"red"} />;
   };
   renderLoading = () => {
     const { typeLoading = "Bar" } = props;
@@ -50,7 +53,7 @@ const Loading = props => {
         return <Progress.CircleSnail color={["red", "green", "blue"]} />;
     }
   };
-  
+
   const renderGifFrog = () => {
     return (
       <Image
@@ -62,6 +65,7 @@ const Loading = props => {
 
   return (
     <View style={styles.container}>
+      {renderIconApp()}
       {renderGifFrog()}
       {renderLoading()}
     </View>
