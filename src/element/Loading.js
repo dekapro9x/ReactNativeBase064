@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Image } from "react-native";
 import * as Progress from "react-native-progress";
 import { pink50 } from "../const/Color";
 import { SizeRpScreen } from "../resources/ResponsiveScreen";
@@ -50,9 +50,19 @@ const Loading = props => {
         return <Progress.CircleSnail color={["red", "green", "blue"]} />;
     }
   };
+  
+  const renderGifFrog = () => {
+    return (
+      <Image
+        source={require("../images/Frog.gif")}
+        style={{ width: 100, height: 100 }}
+      />
+    );
+  };
 
   return (
     <View style={styles.container}>
+      {renderGifFrog()}
       {renderLoading()}
     </View>
   );
