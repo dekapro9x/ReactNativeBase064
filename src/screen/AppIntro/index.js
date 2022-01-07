@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import RNBootSplash from "react-native-bootsplash";
 import { Text, TouchableOpacity, StyleSheet, View } from "react-native";
 import { keyNavigation } from "../../navigation/KeyNavigations";
+import Loading from "../../element/Loading";
 
 export default function AppIntro({ navigation, router }) {
   useEffect(() => {
@@ -18,9 +19,10 @@ export default function AppIntro({ navigation, router }) {
   };
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={navigateLogin}>
+      <Loading />
+      {/* <TouchableOpacity onPress={navigateLogin}>
         <Text>APP INTRO</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   );
 }
