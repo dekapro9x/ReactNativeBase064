@@ -4,9 +4,10 @@ import * as Progress from "react-native-progress";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { pink50 } from "../const/Color";
 import { SizeRpScreen } from "../resources/ResponsiveScreen";
+
 const Loading = props => {
   let timeLoading = 0;
-  const processLoading = [15, 30, 45, 60, 80, 100];
+  const processLoading = [15, 20, 30, 60, 70, 80, 100];
   const [process, setStateProcess] = useState(0);
   useEffect(() => {
     processActions();
@@ -15,6 +16,7 @@ const Loading = props => {
     };
   }, []);
   const processActions = () => {
+    const timeNextProcess = 500;
     for (
       let indexProcess = 0;
       indexProcess <= processLoading.length - 1;
@@ -23,7 +25,14 @@ const Loading = props => {
       (function(index) {
         timeLoading = setTimeout(function() {
           setStateProcess(processLoading[index] / 100);
-        }, 800 * index);
+          if (
+            index == processLoading.length - 1 &&
+            props &&
+            props.stopLoadingStartAppIntro
+          ) {
+            props.stopLoadingStartAppIntro();
+          }
+        }, timeNextProcess * index);
       })(indexProcess);
     }
   };
