@@ -1,12 +1,23 @@
-import React from "react";
-import { View, Text } from "react-native";
+import React, { useContext } from "react";
+import { View } from "react-native";
 import { SizeRpScreen } from "../resources/ResponsiveScreen";
 import { ColorPicker } from "react-native-color-picker";
+import { ContextContainer } from "../context/AppContext";
+
 export default function SetingApp() {
+  const { setAppData } = useContext(ContextContainer);
   const settingBackGround = () => {
     return (
       <ColorPicker
-        onColorSelected={color => alert(`Color selected: ${color}`)}
+        onColorSelected={colorSelect => {
+          const defineDataConfigNew = {
+            colorApp: {
+              backgroundColor: colorSelect
+            }
+          };
+          setAppData(defineDataConfigNew);
+          alert(`Color selected: ${colorSelect}`);
+        }}
         style={{ flex: 1 }}
       />
     );

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useLayoutEffect, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import RNBootSplash from "react-native-bootsplash";
-import { red, white } from "../../const/Color";
+import { white } from "../../const/Color";
 import { FontAppType } from "../../const/TypeFontFamily";
 import { ContextContainer } from "../../context/AppContext";
 import { AppContainer } from "../../element/AppContainer";
