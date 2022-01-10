@@ -40,9 +40,7 @@ const AppModalContent = (props, ref) => {
         margin: 0,
       }}>
       <SafeAreaView >
-        <TouchableOpacity
-         onPress={closeModalContent}
-         style={{height:50, width:50, backgroundColor:'red'}}>
+        <TouchableOpacity onPress={closeModalContent}>
         <>{content}</>
         </TouchableOpacity>
       </SafeAreaView>

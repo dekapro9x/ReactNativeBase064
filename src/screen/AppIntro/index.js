@@ -8,6 +8,7 @@ import { AppContainer } from "../../element/AppContainer";
 import { AppIcon } from "../../element/AppIcon";
 import { AppText } from "../../element/AppText";
 import LoadingProcess from "../../element/LoadingProcess";
+import SetingApp from "../../element/SetingApp";
 import { keyNavigation } from "../../navigation/KeyNavigations";
 import { SizeRpScreen } from "../../resources/ResponsiveScreen";
 import ServiceAppModalContent from "../../services/ServiceAppModalContent";
@@ -49,11 +50,21 @@ function AppIntro({ navigation, router }) {
     }
   };
 
-  const pressSeting = () => {
-    ServiceAppModalContent.showModal(<Text>hasjdhjashdasd</Text>);
+  const btnSetting = () => {
+    return (
+      <TouchableOpacity
+        onPress={pressSeting}
+        style={styles.touchConfigColorApp}
+      >
+        <AppIcon type="Ionicons" name="settings" iconSize={25} color="black" />
+      </TouchableOpacity>
+    );
   };
 
-  //Render:
+  const pressSeting = () => {
+    ServiceAppModalContent.showModal(<SetingApp />);
+  };
+
   if (loading) {
     return (
       <LoadingProcess
@@ -63,23 +74,12 @@ function AppIntro({ navigation, router }) {
     );
   }
 
-  const btnSetupColorBackGround = () => {
-    return (
-      <TouchableOpacity
-        onPress={pressSeting}
-        style={styles.touchConfigColorApp}
-      >
-       <AppIcon type="Entypo" name="500px" iconSize={22} color="black" />
-      </TouchableOpacity>
-    );
-  };
-
   return (
     <AppContainer
       nameScreen={""}
       goBackScreen={false}
       flexWrapHeader
-      rightHeaderComponent={btnSetupColorBackGround()}
+      rightHeaderComponent={btnSetting()}
     >
       <View style={styles.container}>
         <TouchableOpacity onPress={navigateLogin}>
@@ -128,9 +128,8 @@ const styles = StyleSheet.create({
     alignSelf: "center"
   },
   touchConfigColorApp: {
-    height: 45,
+    flex: 1,
     width: 45,
-    backgroundColor: red,
     alignItems: "center",
     justifyContent: "center"
   }

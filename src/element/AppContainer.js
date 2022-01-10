@@ -124,9 +124,8 @@ const AppContainer = props => {
             uri: logoApp
           }}
           style={{
-            height: SizeRpScreen.icon_button * 2,
-            width: SizeRpScreen.width(60),
-            alignSelf: "center"
+            height: SizeRpScreen.height(6),
+            width: SizeRpScreen.width(20),
           }}
           resizeMode ="contain"
         /> }
