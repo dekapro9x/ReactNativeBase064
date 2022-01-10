@@ -10,6 +10,7 @@ import { AppText } from "../../element/AppText";
 import LoadingProcess from "../../element/LoadingProcess";
 import { keyNavigation } from "../../navigation/KeyNavigations";
 import { SizeRpScreen } from "../../resources/ResponsiveScreen";
+import ServiceAppModalContent from "../../services/ServiceAppModalContent";
 
 function AppIntro({ navigation, router }) {
   const [loading, setStateLoading] = useState(true);
@@ -48,6 +49,10 @@ function AppIntro({ navigation, router }) {
     }
   };
 
+  const pressSeting = () => {
+    ServiceAppModalContent.showModal(<Text>hasjdhjashdasd</Text>);
+  };
+
   //Render:
   if (loading) {
     return (
@@ -59,13 +64,20 @@ function AppIntro({ navigation, router }) {
   }
 
   const btnSetupColorBackGround = () => {
-    return <TouchableOpacity style={styles.touchConfigColorApp} />;
+    return (
+      <TouchableOpacity
+        onPress={pressSeting}
+        style={styles.touchConfigColorApp}
+      >
+       <AppIcon type="Entypo" name="500px" iconSize={22} color="black" />
+      </TouchableOpacity>
+    );
   };
 
   return (
     <AppContainer
-      goBackScreen
-      haveLogoApp
+      nameScreen={""}
+      goBackScreen={false}
       flexWrapHeader
       rightHeaderComponent={btnSetupColorBackGround()}
     >
@@ -118,6 +130,8 @@ const styles = StyleSheet.create({
   touchConfigColorApp: {
     height: 45,
     width: 45,
-    backgroundColor: red
+    backgroundColor: red,
+    alignItems: "center",
+    justifyContent: "center"
   }
 });

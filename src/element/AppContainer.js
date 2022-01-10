@@ -21,11 +21,8 @@ const AppContainer = props => {
   const {
     children,
     style,
-    haveLogoApp,
     goBackScreen,
-    flexWrapHeader,
     rightHeaderComponent,
-    midHeaderComponent,
     nameScreen,
     warningGoback,
     textWairning
@@ -108,30 +105,31 @@ const AppContainer = props => {
           justifyContent: "center"
         }}
       >
-        {haveLogoApp
+        {nameScreen
           ? 
-              <AppImage
-                source={{
-                  uri: logoApp
-                }}
-                style={{
-                  height: SizeRpScreen.icon_button * 2,
-                  width: SizeRpScreen.width(60),
-                  alignSelf: "center"
-                }}
-                resizeMode="contain"
-              />
-          : <AppText
-              style={{
-                fontSize:
-                  nameScreen && nameScreen.length > 7
-                    ? SizeRpScreen.H5 * 1.2
-                    : SizeRpScreen.H4,
-                fontWeight: "bold"
-              }}
-            >
-              {nameScreen}
-            </AppText>}
+          <AppText
+          style={{
+            fontSize:
+              nameScreen && nameScreen.length > 7
+                ? SizeRpScreen.H5 * 1.2
+                : SizeRpScreen.H4,
+            fontWeight: "bold"
+          }}
+        >
+          {nameScreen}
+        </AppText>
+          :
+          <AppImage
+          source={{
+            uri: logoApp
+          }}
+          style={{
+            height: SizeRpScreen.icon_button * 2,
+            width: SizeRpScreen.width(60),
+            alignSelf: "center"
+          }}
+          resizeMode ="contain"
+        /> }
       </View>
     );
   };
