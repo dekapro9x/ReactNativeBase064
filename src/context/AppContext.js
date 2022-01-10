@@ -4,6 +4,7 @@ const ContextContainer = React.createContext();
 
 const AppContext = props => {
   const [appData, setStateAppData] = useState({
+    logoApp: "https://www.filepicker.io/api/file/4C6yPDywSUeWYLyg1h9G",
     colorApp: {
       backgroundColor: white
     }
