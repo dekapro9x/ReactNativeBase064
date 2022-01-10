@@ -22,3 +22,14 @@ module.exports = {
   # Bước 4: Chạy lệnh 
  + yarn react-native link 
  Auto config link vào file info.splist 
+ + Build lại bằng Android Studio.
+ Cách lấy mã font trong:
+ + ios => info.splist:
+ 		<string>MotoyaLMaru.ttf</string>
+		<string>Champagne.ttf</string>
+		<string>KGHAPPY.ttf</string>
+		<string>KGHAPPYShadows.ttf</string>
+		<string>KGHAPPYSolid.ttf</string>
+		<string>Letter Magic.ttf</string>
+		<string>SUNRISE-ISLAND.ttf</string>
+		<string>The Blacklight.ttf</string>
