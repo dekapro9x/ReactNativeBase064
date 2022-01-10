@@ -6,14 +6,12 @@ import { FontAppType } from "../../const/TypeFontFamily";
 import { ContextContainer } from "../../context/AppContext";
 import { AppContainer } from "../../element/AppContainer";
 import { AppIcon } from "../../element/AppIcon";
-import { AppImage } from "../../element/AppImage";
 import { AppText } from "../../element/AppText";
 import LoadingProcess from "../../element/LoadingProcess";
 import { keyNavigation } from "../../navigation/KeyNavigations";
 import { SizeRpScreen } from "../../resources/ResponsiveScreen";
 
 function AppIntro({ navigation, router }) {
-  const sourceImg = "https://www.filepicker.io/api/file/4C6yPDywSUeWYLyg1h9G";
   const [loading, setStateLoading] = useState(true);
   const { colorApp, setAppData } = useContext(ContextContainer);
   console.log("colorApp", colorApp, setAppData);
@@ -60,22 +58,22 @@ function AppIntro({ navigation, router }) {
     );
   }
 
+  const btnSetupColorBackGround = () => {
+    return <TouchableOpacity style={styles.touchConfigColorApp} />;
+  };
+
   return (
-    <AppContainer>
+    <AppContainer
+      goBackScreen
+      haveLogoApp
+      flexWrapHeader
+      rightHeaderComponent={btnSetupColorBackGround()}
+    >
       <View style={styles.container}>
-        <TouchableOpacity style={styles.touchConfigColorApp} />
-        <AppImage
-          source={{ uri: sourceImg }}
-          style={styles.imgHeader}
-          resizeMode="cover"
-        />
         <TouchableOpacity onPress={navigateLogin}>
           <Text>APP INTRO</Text>
           <AppIcon type="Entypo" name="500px" iconSize={22} color="red" />
           <AppText fontFamily={FontAppType.MotoyaLMaru}>
-            Test App Text Font
-          </AppText>
-          <AppText fontFamily={FontAppType.Champagne}>
             Test App Text Font
           </AppText>
           <AppText fontFamily={FontAppType.Champagne}>

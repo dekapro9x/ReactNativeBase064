@@ -1,37 +1,37 @@
 //Library:
-import React, {useContext, useState, useRef, useEffect} from 'react';
+import { useNavigation } from "@react-navigation/core";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import {
+  Alert,
+  SafeAreaView,
   StatusBar,
   StyleSheet,
-  SafeAreaView,
-  View,
-  Alert,
   TouchableOpacity,
-} from 'react-native';
-import {useNavigation} from '@react-navigation/core';
-import AntDesign from 'react-native-vector-icons/AntDesign';
+  View
+} from "react-native";
+import AntDesign from "react-native-vector-icons/AntDesign";
+import { black, grey800, white } from "../const/Color";
+import { ContextContainer } from "../context/AppContext";
 import { SizeRpScreen } from "../resources/ResponsiveScreen";
-import {AppImage} from './AppImage';
-import {AppText} from './AppText';
-import { ContextContainer } from '../context/AppContext';
-import { black, grey800, white } from '../const/Color';
+import { AppImage } from "./AppImage";
+import { AppText } from "./AppText";
 
-const AppContainer = (props) => {
-  const {logoApp} = useContext(ContextContainer);
+const AppContainer = props => {
+  const { logoApp } = useContext(ContextContainer);
   const {
     children,
     style,
-    noHeader,
+    haveLogoApp,
     goBackScreen,
-    haveTitle,
-    rightTitle,
-    midTitle,
+    flexWrapHeader,
+    rightHeaderComponent,
+    midHeaderComponent,
     nameScreen,
     warningGoback,
-    textWairning,
+    textWairning
   } = props;
   const navigation = useNavigation();
-  const {goBack} = navigation;
+  const { goBack } = navigation;
   const timeCountActive = useRef(0);
   const [active, setActive] = useState(false);
   useEffect(() => {
@@ -48,21 +48,21 @@ const AppContainer = (props) => {
     if (warningGoback) {
       Alert.alert(
         `${textWairning}`,
-        '',
+        "",
         [
           {
-            text: 'Hủy bỏ',
-            style: 'cancel',
+            text: "Hủy bỏ",
+            style: "cancel"
           },
           {
-            text: 'Đồng ý',
-            style: 'cancel',
+            text: "Đồng ý",
+            style: "cancel",
             onPress: () => {
               goBack();
-            },
-          },
+            }
+          }
         ],
-        {cancelable: false},
+        { cancelable: false }
       );
     } else {
       goBack();
@@ -70,7 +70,7 @@ const AppContainer = (props) => {
   };
 
   //Nút quay lại
-  const renderButtonGoBack = () => {
+  const leftHeader = () => {
     return (
       <>
         {goBackScreen ? (
@@ -81,6 +81,7 @@ const AppContainer = (props) => {
               flex: 1,
               flexDirection: 'row',
               alignItems: 'center',
+              marginLeft:SizeRpScreen.width(2)
             }}>
             <AntDesign
               style={{marginLeft: SizeRpScreen.width(2)}}
@@ -98,92 +99,82 @@ const AppContainer = (props) => {
   };
 
   //Giữa
-  const renderMid = () => {
+  const midHeader = () => {
     return (
       <View
         style={{
           flex: 1,
-          alignItems: 'center',
-          minWidth: SizeRpScreen.width(20),
-          justifyContent: 'center',
-        }}>
-        {midTitle ? (
-          midTitle
-        ) : (
-          <AppText
-            style={{
-              fontSize:
-                nameScreen && nameScreen.length > 7 ? SizeRpScreen.H5 * 1.2 : SizeRpScreen.H4,
-              fontWeight: 'bold',
-            }}>
-            {nameScreen}
-          </AppText>
-        )}
+          alignItems: "center",
+          justifyContent: "center"
+        }}
+      >
+        {haveLogoApp
+          ? 
+              <AppImage
+                source={{
+                  uri: logoApp
+                }}
+                style={{
+                  height: SizeRpScreen.icon_button * 2,
+                  width: SizeRpScreen.width(60),
+                  alignSelf: "center"
+                }}
+                resizeMode="contain"
+              />
+          : <AppText
+              style={{
+                fontSize:
+                  nameScreen && nameScreen.length > 7
+                    ? SizeRpScreen.H5 * 1.2
+                    : SizeRpScreen.H4,
+                fontWeight: "bold"
+              }}
+            >
+              {nameScreen}
+            </AppText>}
       </View>
     );
   };
 
   //Phải:
-  const renderRight = () => {
+  const rightHeader = () => {
     return (
       <View
         style={{
           flex: 1,
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
-        {rightTitle}
+          marginRight: SizeRpScreen.width(2),
+         alignItems:"flex-end"
+        }}
+      >
+        {rightHeaderComponent}
       </View>
     );
   };
 
-  const renderTitle = () => {
+  const renderHeader = () => {
     return (
-      <View style={{backgroundColor: white}}>
-        {!noHeader && (
-          <View
-            style={{
-              height: SizeRpScreen.width(12),
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexDirection: 'row',
-            }}>
-            <AppImage
-              source={{
-                uri: logoApp,
-              }}
-              style={{
-                height: SizeRpScreen.icon_button * 2,
-                width: SizeRpScreen.width(60),
-                alignSelf: 'center',
-              }}
-              resizeMode="contain"
-            />
-          </View>
-        )}
-        {haveTitle ? (
-          <View
-            style={{
-              height: SizeRpScreen.width(9),
-              width: SizeRpScreen.width(100),
-              justifyContent: 'space-between',
-              flexDirection: 'row',
-              borderBottomWidth: StyleSheet.hairlineWidth,
-              borderColor: grey800,
-            }}>
-            {renderButtonGoBack()}
-            {renderMid()}
-            {renderRight()}
-          </View>
-        ) : null}
+      <View
+        style={{
+          backgroundColor: white,
+          flexDirection: "row",
+          justifyContent: "space-between",
+          width: SizeRpScreen.width(100),
+          height: SizeRpScreen.width(10),
+          borderBottomWidth: StyleSheet.hairlineWidth,
+          borderColor: grey800
+        }}
+      >
+        {leftHeader()}
+        {midHeader()}
+        {rightHeader()}
       </View>
     );
   };
 
   return (
     <SafeAreaView style={[styles.container, style]}>
-      <StatusBar barStyle={'dark-content'} />
-      {renderTitle()}
+      <StatusBar barStyle={"dark-content"} />
+      {renderHeader()}
       {children}
     </SafeAreaView>
   );
@@ -193,7 +184,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: white,
-    justifyContent: 'flex-start',
-  },
+    justifyContent: "flex-start"
+  }
 });
-export {AppContainer};
+export { AppContainer };
