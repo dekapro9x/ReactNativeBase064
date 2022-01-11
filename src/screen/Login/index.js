@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, TouchableOpacity, View, StyleSheet} from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { keyNavigation } from '../../navigation/KeyNavigations';
 
 export default function Login({navigation, router}) {

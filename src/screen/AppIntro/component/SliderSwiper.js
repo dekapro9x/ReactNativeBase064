@@ -1,19 +1,18 @@
 //Library:
-import React, {useEffect, useState} from 'react';
-import {StyleSheet, View, TouchableOpacity} from 'react-native';
-import Swiper from 'react-native-swiper';
-import {useNavigation} from '@react-navigation/core';
-
-//Setup:
-import {SIZE, COLOR, KEY_NAVIGATION} from '../../../utils';
-import {AppImage} from '../../../elements/AppImage';
-import {AppText} from '../../../elements/AppText';
-
-//Component:
-import {Loading} from '../../../elements/Loading';
+import React, { useEffect, useState } from "react";
+import { StyleSheet, View, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/core";
+import { blue300, green300, white } from "../../../const/Color";
+import { keyNavigation } from "../../../navigation/KeyNavigations";
+import { AppImage } from "../../../element/AppImage";
+import { AppText } from "../../../element/AppText";
+import Banner from "../../../element/AppBanner";
+import { Loading } from "../../../element/Loading";
+import { SizeRpScreen } from "../../../resources/ResponsiveScreen";
+import DataSlider from "./Data";
 
 export default function SliderSwiper(props) {
-  const {dataSlider, alwayShowSlider} = props;
+  const { alwayShowSlider } = props;
   const navigation = useNavigation();
   const [loading, setStateLoading] = useState(true);
   useEffect(() => {
@@ -38,33 +37,28 @@ export default function SliderSwiper(props) {
   };
 
   //Chuyển slider.
-  const onIndexChangeSlider = (index) => {
-    console.log('index', index);
-  };
+  const onIndexChangeSlider = index => {};
 
   //Bắt đầu dùng app:
   const onPressStartApp = () => {
-    navigation.replace(KEY_NAVIGATION.auth_navigator, {
-      screen: KEY_NAVIGATION.policy,
-      params: {},
-    });
+    navigation.replace(keyNavigation.LOGIN);
   };
 
   //Danh sách slider.
   const listSlider = () => {
-    let listSlider = dataSlider.map((item, index) => {
-      console.log(index, dataSlider.length);
-      if (index < dataSlider.length - 1) {
+    let listSlider = DataSlider.map((item, index) => {
+      console.log(index, DataSlider.length);
+      if (index < DataSlider.length - 1) {
         return (
           <View key={`${index}`} style={styles.slider}>
             <AppImage
               source={{
-                uri: item.img,
+                uri: item.img
               }}
               style={{
-                height: '100%',
-                width: '100%',
-                alignSelf: 'center',
+                height: "100%",
+                width: "100%",
+                alignSelf: "center"
               }}
               resizeMode="stretch"
             />
@@ -75,27 +69,28 @@ export default function SliderSwiper(props) {
           <View key={`${index}`} style={styles.slider}>
             <AppImage
               source={{
-                uri: item.img,
+                uri: item.img
               }}
               style={{
-                height: '100%',
-                width: '100%',
-                alignSelf: 'center',
+                height: "100%",
+                width: "100%",
+                alignSelf: "center"
               }}
               resizeMode="stretch"
             />
             <TouchableOpacity
               onPress={onPressStartApp}
               style={{
-                position: 'absolute',
-                height: SIZE.height(3),
-                width: SIZE.width(26),
-                bottom: SIZE.height(2),
-                right: SIZE.width(2),
-                backgroundColor: COLOR.yellowLight,
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
+                position: "absolute",
+                height: SizeRpScreen.height(3),
+                width: SizeRpScreen.width(26),
+                bottom: SizeRpScreen.height(2),
+                right: SizeRpScreen.width(2),
+                backgroundColor: white,
+                alignItems: "center",
+                justifyContent: "center"
+              }}
+            >
               <AppText>START</AppText>
             </TouchableOpacity>
           </View>
@@ -106,34 +101,34 @@ export default function SliderSwiper(props) {
   };
 
   if (loading) {
-    return <Loading></Loading>;
+    return <Loading />;
   }
 
   if (alwayShowSlider) {
     return (
-      <Swiper
+      <Banner
         dotStyle={styles.dotStyle}
         activeDotStyle={styles.activeDotStyle}
         index={0}
         loop={false}
         autoplayDirection={true}
-        autoplayTimeout={5}
+        autoplayTimeout={3}
         pagingEnabled={true}
         autoplay={false}
-        style={styles.wrapper}
+        style={{}}
         showsButtons={true}
         showsHorizontalScrollIndicator={false}
         horizontal={true}
-        onIndexChanged={(index) => onIndexChangeSlider(index)}
+        onIndexChanged={index => onIndexChangeSlider(index)}
         nextButton={rederNextButton()}
         prevButton={renderPrevButton()}
-        // onTouchStartCapture={() => {}}
-        // onTouchStart={() => {}}
-        // onTouchEnd={() => {}}
-        // onMomentumScrollEnd={() => {}}
+        onTouchStartCapture={() => {}}
+        onTouchStart={() => {}}
+        onTouchEnd={() => {}}
+        onMomentumScrollEnd={() => {}}
       >
         {listSlider()}
-      </Swiper>
+      </Banner>
     );
   } else {
     return null;
@@ -142,36 +137,35 @@ export default function SliderSwiper(props) {
 
 const styles = StyleSheet.create({
   activeDotStyle: {
-    height: SIZE.width(2),
-    width: SIZE.width(2),
-    borderRadius: SIZE.width(1),
-    backgroundColor: COLOR.main_color,
+    height: SizeRpScreen.width(5),
+    width: SizeRpScreen.width(5),
+    borderRadius: SizeRpScreen.width(2.5),
+    backgroundColor: white
   },
-
   slider: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center"
   },
   dotStyle: {
-    height: SIZE.width(2),
-    width: SIZE.width(2),
-    borderRadius: SIZE.width(1),
-    backgroundColor: COLOR.main_color_2,
+    height: SizeRpScreen.width(2),
+    width: SizeRpScreen.width(2),
+    borderRadius: SizeRpScreen.width(1),
+    backgroundColor: green300
   },
   textNextSlider: {
-    color: COLOR.white,
-    fontSize: SIZE.H1,
-    fontWeight: 'bold',
+    color: white,
+    fontSize: SizeRpScreen.H1,
+    fontWeight: "bold"
   },
   buttonNextSlider: {
-    position: 'absolute',
-    height: SIZE.height(8.5),
-    width: SIZE.width(50),
-    top: SIZE.height(25),
-    left: SIZE.width(-72),
-    backgroundColor: COLOR.blue_light_3,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    position: "absolute",
+    height: SizeRpScreen.height(8.5),
+    width: SizeRpScreen.width(50),
+    top: SizeRpScreen.height(25),
+    left: SizeRpScreen.width(-72),
+    backgroundColor: blue300,
+    alignItems: "center",
+    justifyContent: "center"
+  }
 });

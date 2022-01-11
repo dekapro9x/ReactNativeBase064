@@ -21,6 +21,7 @@
     "react-native-bottom-sheet": "^1.0.3",
     "react-native-color-picker": "^0.6.0",
     "react-native-fast-image": "^8.5.11",
+    "react-native-gesture-handler": "^2.1.1",
     "react-native-modal": "^13.0.0",
     "react-native-progress": "^5.0.0",
     "react-native-responsive-screen": "^1.4.2",
