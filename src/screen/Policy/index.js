@@ -16,6 +16,8 @@ function Policy({ navigation, router }) {
 
   useEffect(() => {}, []);
 
+  const pressAgreePolicy = () => {};
+
   const renderContent = () => {
     return (
       <View style={styles.container}>
@@ -43,7 +45,23 @@ function Policy({ navigation, router }) {
           }}
         />
         {/* Nút đồng ý điều khoản sử dụng */}
-        <DebounceButton />
+        <DebounceButton
+          useDelay={true}
+          onPress={pressAgreePolicy}
+          loadingColor="#FFFFFF"
+          title={"Tôi đồng ý với điều khoản sử dụng"}
+          textStyle={{
+            color: "#FFFFFF",
+            fontSize: SizeRpScreen.H5 * 1.2,
+            fontWeight: "bold",
+            textAlign: "center"
+          }}
+          style={{
+            backgroundColor: "#06B050",
+            justifyContent: "center",
+            alignItems: "center"
+          }}
+        />
       </View>
     );
   };
