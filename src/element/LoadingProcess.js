@@ -3,7 +3,9 @@ import { View, StyleSheet, Image } from "react-native";
 import * as Progress from "react-native-progress";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { pink50 } from "../const/Color";
+import { FontAppType } from "../const/TypeFontFamily";
 import { SizeRpScreen } from "../resources/ResponsiveScreen";
+import { AppText } from "./AppText";
 
 const LoadingProcess = props => {
   let timeLoading = 0;
@@ -72,8 +74,22 @@ const LoadingProcess = props => {
     );
   };
 
+  const renderTextTitle = () => {
+    return (
+      <>
+      <AppText fontFamily={FontAppType.Happy} style={{ fontSize: 45 }}>
+        React Native
+      </AppText>
+      <AppText fontFamily={FontAppType.LetterMagic} style={{ fontSize: 45 }}>
+        App Base
+      </AppText>
+      </>
+    );
+  };
+
   return (
     <View style={styles.container}>
+      {renderTextTitle()}
       {renderIconApp()}
       {renderGifFrog()}
       {renderLoading()}

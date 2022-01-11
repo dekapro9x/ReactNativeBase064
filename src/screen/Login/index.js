@@ -4,8 +4,8 @@ import { keyNavigation } from '../../navigation/KeyNavigations';
 
 export default function Login({navigation, router}) {
   const navigateHome = () => {
-    // navigation.navigate(keyNavigation.HOME);
-    navigation.navigate(keyNavigation.BASIC);
+    navigation.navigate(keyNavigation.HOME);
+    // navigation.navigate(keyNavigation.BASIC);
   };
   return (
     <View style={styles.container}>
