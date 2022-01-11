@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { View, StyleSheet, Image } from "react-native";
 import * as Progress from "react-native-progress";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { pink50 } from "../const/Color";
+import { black, pink50 } from "../const/Color";
 import { FontAppType } from "../const/TypeFontFamily";
 import { SizeRpScreen } from "../resources/ResponsiveScreen";
 import { AppText } from "./AppText";
+import AppTextTicker from "./AppTextTicker";
 
 const LoadingProcess = props => {
   let timeLoading = 0;
@@ -87,12 +88,28 @@ const LoadingProcess = props => {
     );
   };
 
+  const renderTextTicker = ()=>{
+    return (
+      <AppTextTicker
+      style={{ fontSize: 14, color: black , fontFamily:FontAppType.LetterMagic}}
+      duration={2000}
+      loop
+      bounce
+      repeatSpacer={100}
+      marqueeDelay={0}
+    >
+ Made by BeoTran. Contact dekapro9x@gmail.com 
+    </AppTextTicker>
+    )
+  }
+
   return (
     <View style={styles.container}>
       {renderTextTitle()}
       {renderIconApp()}
       {renderGifFrog()}
       {renderLoading()}
+      {renderTextTicker()}
     </View>
   );
 };

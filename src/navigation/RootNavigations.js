@@ -12,6 +12,7 @@ import AppIntroScreen from "../screen/AppIntro";
 import HomeScreen from "../screen/Home";
 import LoginScreen from "../screen/Login";
 import BasicScreen from "../screen/Basic";
+import PolicyScreen from "../screen/Policy";
 
 export default (RootNavigations = () => {
   return (
@@ -26,6 +27,7 @@ export default (RootNavigations = () => {
       <RootStack.Screen name={keyNavigation.LOGIN} component={LoginScreen} />
       <RootStack.Screen name={keyNavigation.HOME} component={HomeScreen} />
       <RootStack.Screen name={keyNavigation.BASIC} component={BasicScreen} />
+      <RootStack.Screen name={keyNavigation.POLICY} component={PolicyScreen} />
     </RootStack.Navigator>
     <AppModalContent ref={ServiceAppAlertModal.modalRef} />
     </>

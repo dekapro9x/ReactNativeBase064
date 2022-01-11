@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Alert } from "react-native";
-import { white } from "../const/Color";
+import { white, blue900 } from "../const/Color";
 const ContextContainer = React.createContext();
 
 const AppContext = props => {
@@ -8,7 +8,8 @@ const AppContext = props => {
     logoApp:
       "https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png",
     colorApp: {
-      backgroundColor: white
+      backgroundColor: white,
+      backgroundColorButton: blue900
     }
   });
   //Set cấu hình App:

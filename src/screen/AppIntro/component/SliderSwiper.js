@@ -47,7 +47,7 @@ export default function SliderSwiper(props) {
   };
 
   const navigateScreen = () => {
-    navigation.replace(keyNavigation.LOGIN);
+    navigation.replace(keyNavigation.POLICY);
   };
 
   //Kiểm tra đã ấn nút bắt đầu app chưa?
