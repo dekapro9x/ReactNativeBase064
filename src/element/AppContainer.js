@@ -7,7 +7,9 @@ import {
   StatusBar,
   StyleSheet,
   TouchableOpacity,
-  View
+  View,
+  Animated, 
+  Easing
 } from "react-native";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import { black, grey800, white } from "../const/Color";
@@ -18,6 +20,12 @@ import { AppText } from "./AppText";
 
 const AppContainer = props => {
   const { logoApp } = useContext(ContextContainer);
+  const animation = useRef(new Animated.Value(0));
+  const spin = animation.current.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['0deg', '360deg'],
+  });
+ 
   const {
     children,
     style,
@@ -32,10 +40,21 @@ const AppContainer = props => {
   const timeCountActive = useRef(0);
   const [active, setActive] = useState(false);
   useEffect(() => {
+    startAnimation();
     return () => {
       clearTimeout(timeCountActive.current);
     };
   }, []);
+
+  const startAnimation = () => {
+    animation.current.setValue(0);
+    Animated.timing(animation.current, {
+      toValue: 1,
+      duration: 5000,
+      useNativeDriver: true,
+      easing: Easing.linear,
+    }).start(startAnimation);
+  };
 
   const onPressGoBack = () => {
     setActive(true);
@@ -119,16 +138,14 @@ const AppContainer = props => {
           {nameScreen}
         </AppText>
           :
-          <AppImage
+          <Animated.Image
+          style={{width:  SizeRpScreen.height(5), height: SizeRpScreen.width(18), transform: [{rotate: spin}]}}
           source={{
             uri: logoApp
           }}
-          style={{
-            height: SizeRpScreen.height(6),
-            width: SizeRpScreen.width(20),
-          }}
-          resizeMode ="contain"
-        /> }
+          resizeMode ="contain">
+          </Animated.Image>
+        }
       </View>
     );
   };
