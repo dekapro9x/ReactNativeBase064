@@ -7,4 +7,5 @@ Link: https://reactnavigation.org/docs/getting-started/
 react-native-screens 
 react-native-safe-area-context 
 @react-navigation/native-stack
+@react-navigation/core
 2. Bước 2: Cấu hình trong RootNavigations.js
