@@ -4,5 +4,4 @@ const keyNavigation = {
   LOGIN : "LOGIN"
 };
 
-
 export {keyNavigation}

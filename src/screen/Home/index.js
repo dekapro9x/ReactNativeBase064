@@ -35,8 +35,12 @@ export default function Home({ navigation, router }) {
       flexWrapHeader
       rightHeaderComponent={btnSetting()}
     >
-      <View style={styles.container}>
-        <View style={[styles.container, { backgroundColor: colorApp }]} />
+      <View
+        style={[
+          styles.container,
+          { backgroundColor: colorApp.backgroundColor }
+        ]}
+      >
         <TouchableOpacity
           styles={{
             height: 45,

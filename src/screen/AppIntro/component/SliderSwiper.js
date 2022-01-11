@@ -1,13 +1,15 @@
 //Library:
-import React, { useEffect, useState } from "react";
-import { StyleSheet, View, TouchableOpacity } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/core";
+import React, { useEffect, useState, useRef } from "react";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { blue300, green300, white } from "../../../const/Color";
-import { keyNavigation } from "../../../navigation/KeyNavigations";
+import { keyAsyncStorage } from "../../../const/KeySyncStorage";
+import Banner from "../../../element/AppBanner";
 import { AppImage } from "../../../element/AppImage";
 import { AppText } from "../../../element/AppText";
-import Banner from "../../../element/AppBanner";
 import { Loading } from "../../../element/Loading";
+import { keyNavigation } from "../../../navigation/KeyNavigations";
 import { SizeRpScreen } from "../../../resources/ResponsiveScreen";
 import DataSlider from "./Data";
 
@@ -15,7 +17,9 @@ export default function SliderSwiper(props) {
   const { alwayShowSlider } = props;
   const navigation = useNavigation();
   const [loading, setStateLoading] = useState(true);
+  const startApp = useRef(null);
   useEffect(() => {
+    checkStartApp();
     let timeCount = setTimeout(() => {
       setStateLoading(false);
     }, 2000);
@@ -23,12 +27,38 @@ export default function SliderSwiper(props) {
       clearTimeout(timeCount);
     };
   }, []);
+
   const rederNextButton = () => {
     return (
       <View style={styles.buttonNextSlider}>
         <AppText style={styles.textNextSlider}> NEXT</AppText>
       </View>
     );
+  };
+
+  //Bắt đầu dùng app:
+  const onPressStartApp = async () => {
+    const startApp = "START_APP";
+    await AsyncStorage.setItem(
+      keyAsyncStorage.startAppClick,
+      JSON.stringify(startApp)
+    );
+    navigateScreen();
+  };
+
+  const navigateScreen = () => {
+    navigation.replace(keyNavigation.LOGIN);
+  };
+
+  //Kiểm tra đã ấn nút bắt đầu app chưa?
+  const checkStartApp = async () => {
+    const startAppClick = await AsyncStorage.getItem(
+      keyAsyncStorage.startAppClick
+    );
+    if (startAppClick) {
+      startApp.current = startAppClick;
+      navigateScreen();
+    }
   };
 
   //Nút ấn lùi lại slider trước.
@@ -39,15 +69,9 @@ export default function SliderSwiper(props) {
   //Chuyển slider.
   const onIndexChangeSlider = index => {};
 
-  //Bắt đầu dùng app:
-  const onPressStartApp = () => {
-    navigation.replace(keyNavigation.LOGIN);
-  };
-
   //Danh sách slider.
   const listSlider = () => {
     let listSlider = DataSlider.map((item, index) => {
-      console.log(index, DataSlider.length);
       if (index < DataSlider.length - 1) {
         return (
           <View key={`${index}`} style={styles.slider}>
@@ -104,7 +128,7 @@ export default function SliderSwiper(props) {
     return <Loading />;
   }
 
-  if (alwayShowSlider) {
+  if (alwayShowSlider && !startApp.current) {
     return (
       <Banner
         dotStyle={styles.dotStyle}
