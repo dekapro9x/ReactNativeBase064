@@ -2,20 +2,17 @@
 import { useNavigation } from "@react-navigation/core";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import {
-  Alert,
-  SafeAreaView,
+  Alert, Animated,
+  Easing, SafeAreaView,
   StatusBar,
   StyleSheet,
   TouchableOpacity,
-  View,
-  Animated, 
-  Easing
+  View
 } from "react-native";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import { black, grey800, white } from "../const/Color";
 import { ContextContainer } from "../context/AppContext";
 import { SizeRpScreen } from "../resources/ResponsiveScreen";
-import { AppImage } from "./AppImage";
 import { AppText } from "./AppText";
 
 const AppContainer = props => {
@@ -202,3 +199,4 @@ const styles = StyleSheet.create({
   }
 });
 export { AppContainer };
+

@@ -37,7 +37,7 @@ const LoadingProcess = props => {
     }
   };
   const renderIconApp = () => {
-    return <Icon name={"grav"} size={50} color={"red"} />;
+    return <Icon name={"grav"} size={150} color={"red"} />;
   };
   renderLoading = () => {
     const { typeLoading = "Bar" } = props;
