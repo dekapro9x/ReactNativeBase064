@@ -16,7 +16,7 @@ const LoadingProcess = props => {
     };
   }, []);
   const processActions = () => {
-    const timeNextProcess = 200;
+    const timeNextProcess = 300;
     for (
       let indexProcess = 0;
       indexProcess <= processLoading.length - 1;

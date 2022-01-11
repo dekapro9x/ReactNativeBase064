@@ -8,7 +8,7 @@ import { AppContainer } from "../../element/AppContainer";
 import { AppIcon } from "../../element/AppIcon";
 import { AppText } from "../../element/AppText";
 import LoadingProcess from "../../element/LoadingProcess";
-import SetingApp from "../../element/SetingApp";
+import AppSettingScreen from "../../element/AppSetting";
 import { keyNavigation } from "../../navigation/KeyNavigations";
 import { SizeRpScreen } from "../../resources/ResponsiveScreen";
 import ServiceAppModalContent from "../../services/ServiceAppModalContent";
@@ -62,7 +62,7 @@ function AppIntro({ navigation, router }) {
   };
 
   const pressSeting = () => {
-    ServiceAppModalContent.showModal(<SetingApp />);
+    ServiceAppModalContent.showModal(<AppSettingScreen />);
   };
 
   if (loading) {
@@ -81,7 +81,7 @@ function AppIntro({ navigation, router }) {
       flexWrapHeader
       rightHeaderComponent={btnSetting()}
     >
-      <View style={styles.container}>
+      <View style={[styles.container, { backgroundColor: colorApp.backgroundColor }]}>
         <TouchableOpacity onPress={navigateLogin}>
           <Text>APP INTRO</Text>
           <AppIcon type="Entypo" name="500px" iconSize={22} color="red" />
@@ -112,8 +112,7 @@ export default React.memo(AppIntro);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    backgroundColor: white
+    alignItems: "center"
   },
   bnt_mid: {
     height: 45,
