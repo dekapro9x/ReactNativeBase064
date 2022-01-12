@@ -1,9 +1,9 @@
+import PropTypes from "prop-types";
 import React, { Component } from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
-import { blue900, red } from "../const/Color";
+import { blue900 } from "../const/Color";
 import { SizeRpScreen } from "../resources/ResponsiveScreen";
 import { Loading } from "./Loading";
-import PropTypes from "prop-types";
 export class DebounceButton extends Component {
   static propTypes = {
     useDelay: PropTypes.bool.isRequired

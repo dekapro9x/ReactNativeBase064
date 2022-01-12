@@ -3,7 +3,8 @@ const keyNavigation = {
   HOME: "HOME",
   LOGIN: "LOGIN",
   BASIC: "BASIC",
-  POLICY:"POLICY"
+  POLICY: "POLICY",
+  BOTTOM_TAB: "BOTTOMTAB"
 };
 
 export { keyNavigation };

@@ -43,11 +43,11 @@ export default function SliderSwiper(props) {
       keyAsyncStorage.startAppClick,
       JSON.stringify(startApp)
     );
-    navigateScreen();
+    navigateScreen(keyNavigation.POLICY);
   };
 
-  const navigateScreen = () => {
-    navigation.replace(keyNavigation.POLICY);
+  const navigateScreen = keyNavigation => {
+    navigation.replace(keyNavigation);
   };
 
   //Kiểm tra đã ấn nút bắt đầu app chưa?
@@ -55,9 +55,16 @@ export default function SliderSwiper(props) {
     const startAppClick = await AsyncStorage.getItem(
       keyAsyncStorage.startAppClick
     );
-    if (startAppClick) {
+    const checkPolicy = await AsyncStorage.getItem(
+      keyAsyncStorage.agreePolicyClick
+    );
+    if (startAppClick && !checkPolicy) {
       startApp.current = startAppClick;
-      navigateScreen();
+      navigateScreen(keyNavigation.POLICY);
+    }
+    if (startAppClick && checkPolicy) {
+      startApp.current = startAppClick;
+      navigateScreen(keyNavigation.HOME);
     }
   };
 

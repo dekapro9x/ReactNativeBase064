@@ -1,41 +1,25 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { useContext, useEffect, useLayoutEffect } from "react";
-import { StyleSheet, View, ScrollView, Linking } from "react-native";
+import { Linking, ScrollView, StyleSheet, View } from "react-native";
+import RenderHtml from "react-native-render-html";
 import { black, deepPurpleA400 } from "../../const/Color";
+import { keyAsyncStorage } from "../../const/KeySyncStorage";
 import { FontAppType } from "../../const/TypeFontFamily";
 import { ContextContainer } from "../../context/AppContext";
 import { AppContainer } from "../../element/AppContainer";
 import AppTextTicker from "../../element/AppTextTicker";
 import { DebounceButton } from "../../element/DebounceButton";
-import { SizeRpScreen } from "../../resources/ResponsiveScreen";
-import RenderHtml from "react-native-render-html";
-import { sourceHTML } from "./HtmlPolicy";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { keyAsyncStorage } from "../../const/KeySyncStorage";
 import { keyNavigation } from "../../navigation/KeyNavigations";
+import { SizeRpScreen } from "../../resources/ResponsiveScreen";
+import { sourceHTML } from "./HtmlPolicy";
 function Policy({ navigation, router }) {
   const { colorApp } = useContext(ContextContainer);
 
   useLayoutEffect(() => {
-    checkAgreePolicy();
     return () => {};
   }, []);
 
   useEffect(() => {}, []);
-
-  //Kiểm tra đã đồng ý điều khoản sử dụng chưa?
-  const checkAgreePolicy = async () => {
-    const checkPolicy = await AsyncStorage.getItem(
-      keyAsyncStorage.agreePolicyClick
-    );
-    if (checkPolicy) {
-      //Đã đồng ý điều khoản:
-      navigateHomeScreen();
-      return false;
-    } else {
-      //Chưa đồng ý điều khoản.
-      return true;
-    }
-  };
 
   //Đồng ý với điều khoản sử dụng:
   const pressAgreePolicy = async () => {
@@ -66,73 +50,76 @@ function Policy({ navigation, router }) {
     return { html: `<div>${customContent}</div>` };
   };
 
+  function provideEmbeddedHeaders(uri, tagName, params) {
+    if (tagName === "img" && uri.startsWith("https://example.com")) {
+      return {
+        Authorization: "Bearer daem6QuaeloopheiD7Oh"
+      };
+    }
+  }
+
   //Hiển thị HTML:
   const renderContent = () => {
-    const renderHTML = checkAgreePolicy();
-    if (renderHTML) {
-      return (
-        <View style={styles.container}>
-          <AppTextTicker
-            style={styles.textTicker}
-            duration={12000}
-            loop
-            bounce
-            repeatSpacer={100}
-            marqueeDelay={0}
-          >
-            Made by BeoTran ( Contact: dekapro9x@gmail.com - 0962294434 )
-          </AppTextTicker>
-          {/* Khung ô vuông */}
-          <View style={styles.windowsHTML}>
-            {/* HTML */}
-            <ScrollView>
-              <RenderHtml
-                tagsStyles={{
-                  a: styles.tagA,
-                  h6: styles.tagH6,
-                  div: styles.tagDiv,
-                  p: styles.tagP,
-                  em: styles.tagEm,
-                  i: styles.tagI
-                }}
-                contentWidth={{ width: SizeRpScreen.width(98) }}
-                source={convertHtmlContent(sourceHTML.html)}
-                imagesMaxWidth={SizeRpScreen.width(95)}
-                onLinkPress={(e, href) => {
-                  Linking.canOpenURL(href).then(supported => {
-                    if (supported) {
-                      Linking.openURL(href);
-                    } else {
-                      openUlrBrowser(href);
-                    }
-                  });
-                }}
-              />
-            </ScrollView>
-          </View>
-          {/* Nút đồng ý điều khoản sử dụng */}
-          <DebounceButton
-            useDelay={true}
-            onPress={pressAgreePolicy}
-            loadingColor="#FFFFFF"
-            title={"Tôi đồng ý với điều khoản sử dụng"}
-            textStyle={{
-              color: "#FFFFFF",
-              fontSize: SizeRpScreen.H5 * 1.2,
-              fontWeight: "bold",
-              textAlign: "center"
-            }}
-            style={{
-              backgroundColor: "#06B050",
-              justifyContent: "center",
-              alignItems: "center"
-            }}
-          />
+    return (
+      <View style={styles.container}>
+        <AppTextTicker
+          style={styles.textTicker}
+          duration={12000}
+          loop
+          bounce
+          repeatSpacer={100}
+          marqueeDelay={0}
+        >
+          Made by BeoTran ( Contact: dekapro9x@gmail.com - 0962294434 )
+        </AppTextTicker>
+        {/* Khung ô vuông */}
+        <View style={styles.windowsHTML}>
+          {/* HTML */}
+          <ScrollView>
+            <RenderHtml
+              provideEmbeddedHeaders={provideEmbeddedHeaders}
+              source={convertHtmlContent(sourceHTML.html)}
+              imagesMaxWidth={SizeRpScreen.width(95)}
+              onLinkPress={(e, href) => {
+                Linking.canOpenURL(href).then(supported => {
+                  if (supported) {
+                    Linking.openURL(href);
+                  } else {
+                    openUlrBrowser(href);
+                  }
+                });
+              }}
+              tagsStyles={{
+                a: styles.tagA,
+                h6: styles.tagH6,
+                div: styles.tagDiv,
+                p: styles.tagP,
+                em: styles.tagEm,
+                i: styles.tagI
+              }}
+            />
+          </ScrollView>
         </View>
-      );
-    } else {
-      return null;
-    }
+        {/* Nút đồng ý điều khoản sử dụng */}
+        <DebounceButton
+          useDelay={true}
+          onPress={pressAgreePolicy}
+          loadingColor="#FFFFFF"
+          title={"Tôi đồng ý với điều khoản sử dụng"}
+          textStyle={{
+            color: "#FFFFFF",
+            fontSize: SizeRpScreen.H5 * 1.2,
+            fontWeight: "bold",
+            textAlign: "center"
+          }}
+          style={{
+            backgroundColor: "#06B050",
+            justifyContent: "center",
+            alignItems: "center"
+          }}
+        />
+      </View>
+    );
   };
 
   return (
@@ -146,6 +133,7 @@ function Policy({ navigation, router }) {
     </AppContainer>
   );
 }
+
 export default React.memo(Policy);
 
 const styles = StyleSheet.create({
