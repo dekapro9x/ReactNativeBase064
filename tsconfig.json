@@ -41,7 +41,7 @@
         "baseUrl": ".",
         "paths": {
             "@assets/*": [
-                "assets/*"
+                "src/assets/*"
             ],
             "@constants/*": [
                 "src/const/*"
@@ -55,6 +55,12 @@
             "*": [
                 "./*",
                 "node_modules/*"
+            ],
+            "@context/*": [
+                "src/context/*"
+            ],
+            "@navigation/*":[
+                "src/navigation/*"
             ]
         }
     },
