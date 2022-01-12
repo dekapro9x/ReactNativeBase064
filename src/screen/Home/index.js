@@ -12,8 +12,9 @@ import ServiceAppModalContent from "../../services/ServiceAppModalContent";
 
 export default function Home({ navigation, router }) {
   const { colorApp } = useContext(ContextContainer);
-  const navigateAppIntro = () => {
-    navigation.navigate(keyNavigation.APP_INTRO);
+  const navigateToScreen = () => {
+    // navigation.navigate(keyNavigation.BASIC_JS);
+    navigation.navigate(keyNavigation.BASIC_TS);
   };
   const btnSetting = () => {
     return (
@@ -49,7 +50,7 @@ export default function Home({ navigation, router }) {
             boderRadius: 10,
             backgroundColor: "green"
           }}
-          onPress={navigateAppIntro}
+          onPress={navigateToScreen}
         >
           <Text>HOME SCREEN</Text>
           <AppIcon type="Entypo" name="500px" iconSize={22} color="red" />

@@ -12,11 +12,11 @@ function AppIntro({ navigation, router }) {
   useEffect(() => {}, []);
 
   const renderContent = () => {
-    return <View >
-      <Text>
-        hashdhashdahsd
-      </Text>
-    </View>
+    return (
+      <View style={styles.containerContent}>
+        <Text>Basic JS Screen</Text>
+      </View>
+    );
   };
 
   return (
@@ -35,5 +35,9 @@ export default React.memo(AppIntro);
 const styles = StyleSheet.create({
   container: {
     flex: 1
+  },
+  containerContent: {
+    flex: 1,
+    alignSelf: "center"
   }
 });
