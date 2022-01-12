@@ -6,7 +6,7 @@ import { black, pink50 } from "../const/Color";
 import { FontAppType } from "../const/TypeFontFamily";
 import { SizeRpScreen } from "../resources/ResponsiveScreen";
 import { AppText } from "./AppText";
-import AppTextTicker from "./AppTextTicker";
+import AppTextTicker from "../libJS/react-native-text-ticker/AppTextTicker";
 
 const LoadingProcess = props => {
   let timeLoading = 0;

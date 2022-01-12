@@ -7,7 +7,7 @@ import { keyAsyncStorage } from "../../const/KeySyncStorage";
 import { FontAppType } from "../../const/TypeFontFamily";
 import { ContextContainer } from "../../context/AppContext";
 import { AppContainer } from "../../element/AppContainer";
-import AppTextTicker from "../../element/AppTextTicker";
+import AppTextTicker from "../../libJS/react-native-text-ticker/AppTextTicker";
 import { DebounceButton } from "../../element/DebounceButton";
 import { keyNavigation } from "../../navigation/KeyNavigations";
 import { SizeRpScreen } from "../../resources/ResponsiveScreen";
@@ -34,7 +34,7 @@ function Policy({ navigation, router }) {
   //Điều hướng đến màn hình Home:
   const navigateHomeScreen = () => {
     // navigation.navigate(keyNavigation.HOME);
-    navigation.replace(keyNavigation.HOME);
+    navigation.replace(keyNavigation.LOGIN);
   };
 
   //Chuyển đổi định dạng thẻ HTML:

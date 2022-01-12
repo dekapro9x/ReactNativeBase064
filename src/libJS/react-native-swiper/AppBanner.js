@@ -2,18 +2,11 @@
  * react-native-swiper
  * @author leecade<leecade@163.com>
  */
- import React, { Component } from 'react'
  import PropTypes from 'prop-types'
- import {
-   Text,
-   View,
-   ViewPropTypes,
-   ScrollView,
-   Dimensions,
-   TouchableOpacity,
-   Platform,
-   ActivityIndicator
- } from 'react-native'
+import React, { Component } from 'react'
+import {
+  ActivityIndicator, Dimensions, Platform, ScrollView, Text, TouchableOpacity, View
+} from 'react-native'
  
  /**
   * Default styles
@@ -96,7 +89,7 @@
  
  // missing `module.exports = exports['default'];` with babel6
  // export default React.createClass({
- export default class extends Component {
+ export default class AppBanner extends Component {
    /**
     * Props Validation
     * @type {Object}

@@ -5,7 +5,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { blue300, green300, white } from "../../../const/Color";
 import { keyAsyncStorage } from "../../../const/KeySyncStorage";
-import Banner from "../../../element/AppBanner";
+import AppBanner from "../../../libJS/react-native-swiper/AppBanner";
 import { AppImage } from "../../../element/AppImage";
 import { AppText } from "../../../element/AppText";
 import { Loading } from "../../../element/Loading";
@@ -64,7 +64,8 @@ export default function SliderSwiper(props) {
     }
     if (startAppClick && checkPolicy) {
       startApp.current = startAppClick;
-      navigateScreen(keyNavigation.HOME);
+      // navigateScreen(keyNavigation.HOME);
+      navigateScreen(keyNavigation.LOGIN);
     }
   };
 
@@ -137,7 +138,7 @@ export default function SliderSwiper(props) {
 
   if (alwayShowSlider && !startApp.current) {
     return (
-      <Banner
+      <AppBanner
         dotStyle={styles.dotStyle}
         activeDotStyle={styles.activeDotStyle}
         index={0}
@@ -159,7 +160,7 @@ export default function SliderSwiper(props) {
         onMomentumScrollEnd={() => {}}
       >
         {listSlider()}
-      </Banner>
+      </AppBanner>
     );
   } else {
     return null;

@@ -1,14 +1,10 @@
 import React, { PureComponent } from 'react'
 import {
   Animated,
-  Easing,
-  StyleSheet,
+  Easing, findNodeHandle,
+  I18nManager, NativeModules, ScrollView, StyleSheet,
   Text,
-  View,
-  ScrollView,
-  NativeModules,
-  findNodeHandle,
-  I18nManager
+  View
 } from 'react-native'
 
 const { UIManager } = NativeModules
@@ -19,7 +15,7 @@ export const TextTickAnimationType = Object.freeze({
   bounce: 'bounce'
 })
 
-export default class TextMarquee extends PureComponent {
+export default class AppTextTicker extends PureComponent {
   static defaultProps = {
     style:             {},
     loop:              true,
