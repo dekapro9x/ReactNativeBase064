@@ -29,14 +29,32 @@ export default function SetingApp() {
     );
   };
 
-  const pressRemoveDataLocal = async () => {
-    try {
-      await AsyncStorage.clear();
-    } catch (error) {
-      Alert.alert("", "Lỗi xóa dữ liệu!");
-    }
-    ServiceAppAlertModal.hideModal();
-    Alert.alert("Xóa dữ liệu ứng dụng thành công!", "");
+  const pressRemoveDataLocal =  () => {
+    Alert.alert(
+      `Xóa toàn bộ dữ liệu ứng dụng`,
+      'Bạn có đồng ý?',
+      [
+        {
+          text: 'Quay lại',
+          style: 'cancel',
+        },
+        {
+          text: 'Đồng ý',
+          style: 'cancel',
+          onPress: async() => {
+            try {
+              await AsyncStorage.clear();
+            } catch (error) {
+              Alert.alert("", "Lỗi xóa dữ liệu!");
+            }
+            ServiceAppAlertModal.hideModal();
+            Alert.alert("Đã xóa dữ liệu", "Xóa dữ liệu ứng dụng thành công!");
+          },
+        },
+      ],
+      {cancelable: false},
+    );
+  
   };
 
   return (
