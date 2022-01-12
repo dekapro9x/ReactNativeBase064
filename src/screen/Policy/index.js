@@ -28,9 +28,13 @@ function Policy({ navigation, router }) {
       keyAsyncStorage.agreePolicyClick
     );
     if (checkPolicy) {
+      //Đã đồng ý điều khoản:
       navigateHomeScreen();
+      return false;
+    } else {
+      //Chưa đồng ý điều khoản.
+      return true;
     }
-    return true;
   };
 
   //Đồng ý với điều khoản sử dụng:
@@ -64,71 +68,70 @@ function Policy({ navigation, router }) {
 
   //Hiển thị HTML:
   const renderContent = () => {
-    if (checkAgreePolicy()) {
-      return null;
-    } else {
-      {
-        return (
-          <View style={styles.container}>
-            <AppTextTicker
-              style={styles.textTicker}
-              duration={12000}
-              loop
-              bounce
-              repeatSpacer={100}
-              marqueeDelay={0}
-            >
-              Made by BeoTran ( Contact: dekapro9x@gmail.com - 0962294434 )
-            </AppTextTicker>
-            {/* Khung ô vuông */}
-            <View style={styles.windowsHTML}>
-              {/* HTML */}
-              <ScrollView>
-                <RenderHtml
-                  tagsStyles={{
-                    a: styles.tagA,
-                    h6: styles.tagH6,
-                    div: styles.tagDiv,
-                    p: styles.tagP,
-                    em: styles.tagEm,
-                    i: styles.tagI
-                  }}
-                  contentWidth={{ width: SizeRpScreen.width(98) }}
-                  source={convertHtmlContent(sourceHTML.html)}
-                  imagesMaxWidth={SizeRpScreen.width(95)}
-                  onLinkPress={(e, href) => {
-                    Linking.canOpenURL(href).then(supported => {
-                      if (supported) {
-                        Linking.openURL(href);
-                      } else {
-                        openUlrBrowser(href);
-                      }
-                    });
-                  }}
-                />
-              </ScrollView>
-            </View>
-            {/* Nút đồng ý điều khoản sử dụng */}
-            <DebounceButton
-              useDelay={true}
-              onPress={pressAgreePolicy}
-              loadingColor="#FFFFFF"
-              title={"Tôi đồng ý với điều khoản sử dụng"}
-              textStyle={{
-                color: "#FFFFFF",
-                fontSize: SizeRpScreen.H5 * 1.2,
-                fontWeight: "bold",
-                textAlign: "center"
-              }}
-              style={{
-                backgroundColor: "#06B050",
-                justifyContent: "center",
-                alignItems: "center"
-              }}
-            />
+    const renderHTML = checkAgreePolicy();
+    if (renderHTML) {
+      return (
+        <View style={styles.container}>
+          <AppTextTicker
+            style={styles.textTicker}
+            duration={12000}
+            loop
+            bounce
+            repeatSpacer={100}
+            marqueeDelay={0}
+          >
+            Made by BeoTran ( Contact: dekapro9x@gmail.com - 0962294434 )
+          </AppTextTicker>
+          {/* Khung ô vuông */}
+          <View style={styles.windowsHTML}>
+            {/* HTML */}
+            <ScrollView>
+              <RenderHtml
+                tagsStyles={{
+                  a: styles.tagA,
+                  h6: styles.tagH6,
+                  div: styles.tagDiv,
+                  p: styles.tagP,
+                  em: styles.tagEm,
+                  i: styles.tagI
+                }}
+                contentWidth={{ width: SizeRpScreen.width(98) }}
+                source={convertHtmlContent(sourceHTML.html)}
+                imagesMaxWidth={SizeRpScreen.width(95)}
+                onLinkPress={(e, href) => {
+                  Linking.canOpenURL(href).then(supported => {
+                    if (supported) {
+                      Linking.openURL(href);
+                    } else {
+                      openUlrBrowser(href);
+                    }
+                  });
+                }}
+              />
+            </ScrollView>
           </View>
-        );
-      }
+          {/* Nút đồng ý điều khoản sử dụng */}
+          <DebounceButton
+            useDelay={true}
+            onPress={pressAgreePolicy}
+            loadingColor="#FFFFFF"
+            title={"Tôi đồng ý với điều khoản sử dụng"}
+            textStyle={{
+              color: "#FFFFFF",
+              fontSize: SizeRpScreen.H5 * 1.2,
+              fontWeight: "bold",
+              textAlign: "center"
+            }}
+            style={{
+              backgroundColor: "#06B050",
+              justifyContent: "center",
+              alignItems: "center"
+            }}
+          />
+        </View>
+      );
+    } else {
+      return null;
     }
   };
 
