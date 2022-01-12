@@ -1,0 +1,75 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "lib": [
+            "es6"
+        ],
+        "module": "commonjs",
+        "sourceMap": true,
+        "jsx": "react",
+        "moduleResolution": "node",
+        "noResolve": false,
+        "removeComments": true,
+        "allowJs": true,
+        "types": [
+            "lodash",
+            "react",
+            "react-dom"
+          ],
+        "noImplicitAny": false,
+        "skipLibCheck": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "isolatedModules": true,
+        "noEmit": false,
+        "strict": false,
+        "importHelpers": true,
+        "declaration": true,
+        "rootDir": "./",
+        "outDir": "./",
+        "strictNullChecks": true,
+        "strictFunctionTypes": false,
+        "strictPropertyInitialization": true,
+        "noImplicitThis": false,
+        "alwaysStrict": true,
+        "noUnusedLocals": false,
+        "downlevelIteration": true,
+        "noUnusedParameters": false,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "resolveJsonModule": true,
+        "baseUrl": ".",
+        "paths": {
+            "@assets/*": [
+                "assets/*"
+            ],
+            "@constants/*": [
+                "src/const/*"
+            ],
+            "@screens/*": [
+                "src/screens/*"
+            ],
+            "@utils/*": [
+                "src/util/*"
+            ],
+            "*": [
+                "./*",
+                "node_modules/*"
+            ]
+        }
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "./node_modules/**/*",
+        "build",
+        "babel.config.js",
+        "metro.config.js",
+        "jest.config.js",
+    ],
+    "typeRoots": [
+        "../@types",
+        "./node_modules/@types/"
+      ]
+}
