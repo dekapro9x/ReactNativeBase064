@@ -1,7 +1,7 @@
+// import AppImageZoom from "@element/AppImageZoom";
 import React, { useContext } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
-import AppImageZoom from "../../element/AppImageZoom";
 import { ContextContainer } from "../../context/AppContext";
 import { AppContainer } from "../../element/AppContainer";
 import { keyNavigation } from "../../navigation/KeyNavigations";
@@ -25,7 +25,6 @@ export default function Login({ navigation, router }) {
             styles.containerContent,
           ]}
         >
-          <AppImageZoom></AppImageZoom>
           <TouchableOpacity
             styles={{
               height: 45,

@@ -1,29 +1,26 @@
 Cấu hình TS: 
 Tạo file TS config + Apptree.
-1. Tạo file tsconfig.json
+# Bước 1: yarn add eslint-import-resolver-typescript -D
+
+# Bước 2: Tạo file tsconfig.json
 Cấu hình paths: 
-VD (Driver):
-    "paths": {
+VD :
+        "paths": {
             "@assets/*": [
                 "assets/*"
             ],
-            "@constants/*": [
-                "src/const/*"
+            "@api/*": [
+                "src/api/*"
             ],
-            "@screens/*": [
-                "src/screens/*"
-            ],
-            "@utils/*": [
-                "src/util/*"
-            ],
+          "src/const/*"
+        
             "*": [
                 "./*",
                 "node_modules/*"
-            ]
+            ],
         }
 
-2. Chạy lệnh lấy cấu hình AppTree: 
-# tree      
+# Bước 3: Chạy lệnh lấy cấu hình AppTree (cmd => tree )
 
 Chú ý mấy thư viện react TS báo đỏ sai cấu hình:
 Tham khảo: 
@@ -33,8 +30,7 @@ Tham khảo:
 
 + https://www.codegrepper.com/code-examples/typescript/Could+not+find+a+declaration+file+for+module+%27validator%27
 
-Các file cần cấu hình: 
-yarn add eslint-import-resolver-typescript -D
+Kiểm tra các file cần cấu hình: 
 # package.json
 "eslint-import-resolver-typescript": "^2.5.0",
 // Add in .eslintrc
@@ -43,6 +39,7 @@ yarn add eslint-import-resolver-typescript -D
             "typescript": {}	
         }
     }
+
 # .eslintrc.js
 module.exports = {
   root: true,
