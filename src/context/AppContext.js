@@ -1,3 +1,4 @@
+import { AppLogo } from "../const/Setting";
 import React, { useState } from "react";
 import { Alert } from "react-native";
 import { white, blue900 } from "../const/Color";
@@ -5,8 +6,7 @@ const ContextContainer = React.createContext();
 
 const AppContext = props => {
   const [appData, setStateAppData] = useState({
-    logoApp:
-      "https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png",
+    logoApp: AppLogo,
     colorApp: {
       backgroundColor: white,
       backgroundColorButton: blue900

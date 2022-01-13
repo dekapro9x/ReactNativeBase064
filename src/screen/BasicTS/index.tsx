@@ -3,13 +3,14 @@ import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { keyNavigation } from "../../navigation/KeyNavigations";
 import { DebounceButton } from "../../element/DebounceButton";
-// import AppImageZoom from "@element/AppImageZoom";
+import { AppImageScaleZoom } from "@element/AppImageScaleZoom";
+import { SizeRpScreen } from "@resources/ResponsiveScreen";
 
-const Login: FunctionComponent = ({navigation, router}) => {
+const Login: FunctionComponent = ({ navigation, router }) => {
 
- const navigateBasicJS = ()=>{
-  navigation.navigate(keyNavigation.BASIC_JS);
- }
+  const navigateBasicJS = () => {
+    navigation.navigate(keyNavigation.BASIC_JS);
+  }
   return (
     <LinearGradient
       colors={["#481E34", "#16192B"]}
@@ -27,9 +28,19 @@ const Login: FunctionComponent = ({navigation, router}) => {
           Don't have an account?{" "}
           <Text style={styles.textSignUp}>Sign up now!</Text>
         </Text>
-        <DebounceButton 
-        onPress={navigateBasicJS}
-        useDelay={true}
+        <AppImageScaleZoom
+          useAutoScale={true}
+          url={"https://media.istockphoto.com/vectors/abstract-blurred-colorful-background-vector-id1248542684?k=20&m=1248542684&s=612x612&w=0&h=1yKiRrtPhiqUJXS_yJDwMGVHVkYRk2pJX4PG3TT4ZYM="}
+          style={{
+            width: SizeRpScreen.device_width - 32,
+            height:0,
+          }}
+          resizeMode={'cover'}
+          useZoom={false}
+        ></AppImageScaleZoom>
+        <DebounceButton
+          onPress={navigateBasicJS}
+          useDelay={true}
         ></DebounceButton>
       </SafeAreaView>
       {/* <AppImageZoom></AppImageZoom> */}

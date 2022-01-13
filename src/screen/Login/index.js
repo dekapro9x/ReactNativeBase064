@@ -1,31 +1,14 @@
-import { AppImageZoom } from "@element/AppImageZoom";
-import React, { useContext, useRef } from "react";
+
+import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
-import { ContextContainer } from "../../context/AppContext";
 import { AppContainer } from "../../element/AppContainer";
 import { keyNavigation } from "../../navigation/KeyNavigations";
-import { SizeRpScreen } from "../../resources/ResponsiveScreen";
 
 export default function Login({ navigation, router }) {
-  const { colorApp } = useContext(ContextContainer);
-  const refZoom = useRef(null);
-  const arrImages = [
-    {
-      url: "https://avatars2.githubusercontent.com/u/7970947?v=3&s=460",
-      props: {}
-    },
-    {
-      url: "",
-      props: {
-        source: require("../../images/Frog.gif")
-      }
-    }
-  ];
 
   const navigateHome = () => {
-    // navigation.navigate(keyNavigation.HOME);
-    refZoom.current.showModal();
+    navigation.navigate(keyNavigation.HOME);
   };
 
   const renderContent = () => {
@@ -36,15 +19,8 @@ export default function Login({ navigation, router }) {
         start={{ x: 0, y: 0 }}
         style={[styles.linearGradientContainer]}
       >
+     
         <View style={[styles.containerContent]}>
-          <AppImageZoom
-            getRefZoomImg={ref => {
-              refZoom.current = ref;
-            }}
-            deviceWidth={SizeRpScreen.width(100)}
-            imgZoom={arrImages}
-            indexImgZoomStart={0}
-          />;
           <TouchableOpacity
             styles={{
               height: 45,
