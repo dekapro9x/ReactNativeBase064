@@ -58,6 +58,9 @@
             "@element/*": [
                 "src/element/*"
             ],
+            "@fireBase/*": [
+                "src/fireBase/*"
+            ],
             "@HOC/*": [
                 "src/HOC/*"
             ],
@@ -102,6 +105,9 @@
             ],
             "@sql/*": [
                 "src/sql/*"
+            ],
+            "@socket/*": [
+                "src/socket/*"
             ],
             "@util/*": [
                 "src/util/*"
