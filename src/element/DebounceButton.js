@@ -6,6 +6,7 @@ import { blue900, white } from "../const/Color";
 import { SizeRpScreen } from "../resources/ResponsiveScreen";
 import { Loading } from "./Loading";
 export class DebounceButton extends Component {
+  
   static propTypes = {
     useDelay: PropTypes.bool.isRequired,
     onPress: PropTypes.func.isRequired,
@@ -15,6 +16,10 @@ export class DebounceButton extends Component {
     super(props);
     this.timeCountDelay = 0;
     this.state = { disabled: false, loading: false };
+  }
+  
+  componentWillUnmount() {
+    clearTimeout(this.timeCountDelay);
   }
 
   componentDidUpdate(prevProps, prevState) {
