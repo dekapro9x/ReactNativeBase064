@@ -43,6 +43,9 @@
             "@assets/*": [
                 "assets/*"
             ],
+            "@analytics/*": [
+                "analytics/*"
+            ],
             "@api/*": [
                 "src/api/*"
             ],
@@ -81,6 +84,9 @@
             ],
             "@security/*": [
                 "src/security/*"
+            ],
+            "@sentry/*": [
+                "src/sentry/*"
             ],
             "@server/*": [
                 "src/server/*"

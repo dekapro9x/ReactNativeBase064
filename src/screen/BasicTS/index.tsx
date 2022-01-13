@@ -3,7 +3,7 @@ import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { keyNavigation } from "../../navigation/KeyNavigations";
 import { DebounceButton } from "../../element/DebounceButton";
-import AppImageZoom from "@element/AppImageZoom";
+// import AppImageZoom from "@element/AppImageZoom";
 
 const Login: FunctionComponent = ({navigation, router}) => {
 
@@ -32,7 +32,7 @@ const Login: FunctionComponent = ({navigation, router}) => {
         useDelay={true}
         ></DebounceButton>
       </SafeAreaView>
-      <AppImageZoom></AppImageZoom>
+      {/* <AppImageZoom></AppImageZoom> */}
     </LinearGradient>
   );
 };

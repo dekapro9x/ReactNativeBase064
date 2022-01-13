@@ -11,6 +11,7 @@ module.exports = {
       root: ['.'],
       alias: { 
         '@assets': './assets',
+        '@analytics': './analytics',
         "@api":'./src/api',
         "@const":'./src/const',
         "@context":'./src/context',
@@ -24,6 +25,7 @@ module.exports = {
         "@resources":'./src/resources',
         "@screen":'./src/screen',
         "@security":'./src/security',
+        "@sentry":'./src/sentry',
         "@server":'./src/server',
         "@services":'./src/services',
         "@sql":'./src/sql',
