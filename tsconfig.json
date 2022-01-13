@@ -67,8 +67,14 @@
             "@images/*": [
                 "src/images/*"
             ],
+            "@language/*": [
+                "src/language/*"
+            ],
             "@libJS/*": [
                 "src/libJS/*"
+            ],
+            "@nativeModule/*": [
+                "src/nativeModule/*"
             ],
             "@navigation/*": [
                 "src/navigation/*"
