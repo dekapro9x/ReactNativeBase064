@@ -1,5 +1,4 @@
 // import AppImageZoom from "@element/AppImageZoom";
-import { useForceUpdate } from "@hooks/forceUpdate";
 import React, { useContext } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
@@ -9,12 +8,9 @@ import { keyNavigation } from "../../navigation/KeyNavigations";
 
 export default function Login({ navigation, router }) {
   const { colorApp } = useContext(ContextContainer);
-  const forceUpdate = useForceUpdate();
 
-  console.log("????")
   const navigateHome = () => {
-    forceUpdate();
-    // navigation.navigate(keyNavigation.HOME);
+    navigation.navigate(keyNavigation.HOME);
   };
 
   const renderContent = () => {
