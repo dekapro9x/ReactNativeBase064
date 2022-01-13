@@ -1,9 +1,15 @@
 import React, { FunctionComponent } from "react";
 import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
+import { keyNavigation } from "../../navigation/KeyNavigations";
+import { DebounceButton } from "../../element/DebounceButton";
 
 
-const Login: FunctionComponent = () => {
+const Login: FunctionComponent = ({navigation, router}) => {
+
+ const navigateBasicJS = ()=>{
+  navigation.navigate(keyNavigation.BASIC_JS);
+ }
   return (
     <LinearGradient
       colors={["#481E34", "#16192B"]}
@@ -14,14 +20,17 @@ const Login: FunctionComponent = () => {
       <SafeAreaView style={styles.content}>
         <View style={styles.viewLogo}>
           <View style={styles.viewAppName}>
-            <Text style={styles.textAppName}>GATEPLAY</Text>
-            <Text style={styles.textPlatForm}>P L A T F O R M</Text>
+            <Text style={styles.textAppName}>BASIC TS SCREEN</Text>
           </View>
         </View>
         <Text style={styles.textSub}>
           Don't have an account?{" "}
           <Text style={styles.textSignUp}>Sign up now!</Text>
         </Text>
+        <DebounceButton 
+        onPress={navigateBasicJS}
+        useDelay={true}
+        ></DebounceButton>
       </SafeAreaView>
     </LinearGradient>
   );

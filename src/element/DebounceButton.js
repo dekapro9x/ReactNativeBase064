@@ -1,13 +1,16 @@
+import { FontAppType } from "../const/TypeFontFamily";
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
-import { blue900 } from "../const/Color";
+import { blue900, white } from "../const/Color";
 import { SizeRpScreen } from "../resources/ResponsiveScreen";
 import { Loading } from "./Loading";
 export class DebounceButton extends Component {
   static propTypes = {
-    useDelay: PropTypes.bool.isRequired
+    useDelay: PropTypes.bool.isRequired,
+    onPress: PropTypes.func.isRequired,
   };
+
   constructor(props) {
     super(props);
     this.timeCountDelay = 0;
@@ -37,19 +40,24 @@ export class DebounceButton extends Component {
         this.setState({ loading: true });
         this.timeCountDelay = setTimeout(() => {
           this.setState({ loading: false });
-        }, 1000);
+        }, 800);
       }
     }
   };
 
   renderTitle = () => {
     const { loading } = this.state;
-    const { title, textStyle, children, loadingColor } = this.props;
+    const {
+      title = "Debonce Button",
+      textStyle,
+      children,
+      loadingColor
+    } = this.props;
     if (loading) {
       return <Loading color={loadingColor} />;
     } else if (title) {
       return (
-        <Text style={textStyle}>
+        <Text style={[styles.titleDefault, textStyle]}>
           {title}
         </Text>
       );
@@ -79,5 +87,13 @@ const styles = StyleSheet.create({
     height: 45,
     width: SizeRpScreen.width(96),
     backgroundColor: blue900,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  titleDefault: {
+    fontSize: 25,
+    fontWeight: "bold",
+    fontFamily: FontAppType.Happy,
+    color: white
   }
 });

@@ -1,7 +1,9 @@
 import React, { useEffect, useLayoutEffect, useContext } from "react";
 import { View, StyleSheet, Text } from "react-native";
+import { DebounceButton } from "../../element/DebounceButton";
 import { ContextContainer } from "../../context/AppContext";
 import { AppContainer } from "../../element/AppContainer";
+import { keyNavigation } from "../../navigation/KeyNavigations";
 
 function AppIntro({ navigation, router }) {
   const { colorApp } = useContext(ContextContainer);
@@ -11,10 +13,22 @@ function AppIntro({ navigation, router }) {
 
   useEffect(() => {}, []);
 
+  const navigateAppIntro = () => {
+    navigation.navigate(keyNavigation.APP_INTRO);
+  };
+
   const renderContent = () => {
     return (
-      <View style={styles.containerContent}>
+      <View
+        style={
+          (
+           [ styles.containerContent,
+            { backgroundColor: colorApp.backgroundColor }]
+          )
+        }
+      >
         <Text>Basic JS Screen</Text>
+        <DebounceButton useDelay={false} onPress={navigateAppIntro} />
       </View>
     );
   };
@@ -24,7 +38,6 @@ function AppIntro({ navigation, router }) {
       nameScreen={""}
       goBackScreen={false}
       flexWrapHeader
-      style={[styles.container, { backgroundColor: colorApp.backgroundColor }]}
     >
       {renderContent()}
     </AppContainer>
@@ -33,11 +46,8 @@ function AppIntro({ navigation, router }) {
 export default React.memo(AppIntro);
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
   containerContent: {
     flex: 1,
-    alignSelf: "center"
+    alignItems: "center"
   }
 });
