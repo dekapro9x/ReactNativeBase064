@@ -4,10 +4,10 @@ import { SizeRpScreen } from "../resources/ResponsiveScreen";
 import { ColorPicker } from "react-native-color-picker";
 import { ContextContainer } from "../context/AppContext";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-LogBox.ignoreLogs(["Warning: ..."]);
-LogBox.ignoreAllLogs();
 import { DebounceButton } from "./DebounceButton";
 import ServiceAppAlertModal from "../services/ServiceAppModalContent";
+LogBox.ignoreLogs(["Warning: ..."]);
+LogBox.ignoreAllLogs();
 
 export default function SetingApp() {
   const { appData, setAppData } = useContext(ContextContainer);
@@ -29,19 +29,19 @@ export default function SetingApp() {
     );
   };
 
-  const pressRemoveDataLocal =  () => {
+  const pressRemoveDataLocal = () => {
     Alert.alert(
       `Xóa toàn bộ dữ liệu ứng dụng`,
-      'Bạn có đồng ý?',
+      "Bạn có đồng ý?",
       [
         {
-          text: 'Quay lại',
-          style: 'cancel',
+          text: "Quay lại",
+          style: "cancel"
         },
         {
-          text: 'Đồng ý',
-          style: 'cancel',
-          onPress: async() => {
+          text: "Đồng ý",
+          style: "cancel",
+          onPress: async () => {
             try {
               await AsyncStorage.clear();
             } catch (error) {
@@ -49,12 +49,11 @@ export default function SetingApp() {
             }
             ServiceAppAlertModal.hideModal();
             Alert.alert("Đã xóa dữ liệu", "Xóa dữ liệu ứng dụng thành công!");
-          },
-        },
+          }
+        }
       ],
-      {cancelable: false},
+      { cancelable: false }
     );
-  
   };
 
   return (
