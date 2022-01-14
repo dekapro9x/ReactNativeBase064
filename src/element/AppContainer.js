@@ -22,8 +22,9 @@ const AppContainer = props => {
     inputRange: [0, 1],
     outputRange: ['0deg', '360deg'],
   });
- 
+
   const {
+    useHeader = true,
     children,
     style,
     goBackScreen,
@@ -94,18 +95,18 @@ const AppContainer = props => {
               flex: 1,
               flexDirection: 'row',
               alignItems: 'center',
-              marginLeft:SizeRpScreen.width(2)
+              marginLeft: SizeRpScreen.width(2)
             }}>
             <AntDesign
-              style={{marginLeft: SizeRpScreen.width(2)}}
+              style={{ marginLeft: SizeRpScreen.width(2) }}
               name="left"
               size={18}
               color={black}
             />
-            <AppText style={{fontSize: SizeRpScreen.H5 * 1.2}}>Back</AppText>
+            <AppText style={{ fontSize: SizeRpScreen.H5 * 1.2 }}>Back</AppText>
           </TouchableOpacity>
         ) : (
-          <View style={{flex: 1}} />
+          <View style={{ flex: 1 }} />
         )}
       </>
     );
@@ -122,25 +123,25 @@ const AppContainer = props => {
         }}
       >
         {nameScreen
-          ? 
+          ?
           <AppText
-          style={{
-            fontSize:
-              nameScreen && nameScreen.length > 7
-                ? SizeRpScreen.H5 * 1.2
-                : SizeRpScreen.H4,
-            fontWeight: "bold"
-          }}
-        >
-          {nameScreen}
-        </AppText>
+            style={{
+              fontSize:
+                nameScreen && nameScreen.length > 7
+                  ? SizeRpScreen.H5 * 1.2
+                  : SizeRpScreen.H4,
+              fontWeight: "bold"
+            }}
+          >
+            {nameScreen}
+          </AppText>
           :
           <Animated.Image
-          style={{width:  SizeRpScreen.height(5), height: SizeRpScreen.width(18), transform: [{rotate: spin}]}}
-          source={{
-            uri: logoApp
-          }}
-          resizeMode ="contain">
+            style={{ width: SizeRpScreen.height(5), height: SizeRpScreen.width(18), transform: [{ rotate: spin }] }}
+            source={{
+              uri: logoApp
+            }}
+            resizeMode="contain">
           </Animated.Image>
         }
       </View>
@@ -154,7 +155,7 @@ const AppContainer = props => {
         style={{
           flex: 1,
           marginRight: SizeRpScreen.width(2),
-         alignItems:"flex-end"
+          alignItems: "flex-end"
         }}
       >
         {rightHeaderComponent}
@@ -185,7 +186,7 @@ const AppContainer = props => {
   return (
     <SafeAreaView style={[styles.container, style]}>
       <StatusBar barStyle={"dark-content"} />
-      {renderHeader()}
+      {useHeader && renderHeader()}
       {children}
     </SafeAreaView>
   );

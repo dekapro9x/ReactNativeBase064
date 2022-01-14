@@ -6,7 +6,7 @@ import { blue900, white } from "../const/Color";
 import { SizeRpScreen } from "../resources/ResponsiveScreen";
 import { Loading } from "./Loading";
 export class DebounceButton extends Component {
-  
+
   static propTypes = {
     useDelay: PropTypes.bool.isRequired,
     onPress: PropTypes.func.isRequired,
@@ -17,7 +17,7 @@ export class DebounceButton extends Component {
     this.timeCountDelay = 0;
     this.state = { disabled: false, loading: false };
   }
-  
+
   componentWillUnmount() {
     clearTimeout(this.timeCountDelay);
   }
@@ -53,21 +53,30 @@ export class DebounceButton extends Component {
   renderTitle = () => {
     const { loading } = this.state;
     const {
-      title = "Debonce Button",
+      title = "DebonceButton",
       textStyle,
       children,
       loadingColor
     } = this.props;
     if (loading) {
       return <Loading color={loadingColor} />;
-    } else if (title) {
+    } else
+      console.log("C", children);
+    if (children) {
+      return children
+    }
+    if (title == "DebonceButton") {
       return (
         <Text style={[styles.titleDefault, textStyle]}>
           {title}
         </Text>
-      );
+      )
     } else {
-      return children;
+      return (
+        <Text style={[styles.titleDefault, textStyle]}>
+          {title}
+        </Text>
+      )
     }
   };
 
@@ -94,8 +103,9 @@ const styles = StyleSheet.create({
     backgroundColor: blue900,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius:12,
-    marginBottom:12
+    borderRadius: 12,
+    marginBottom: 12,
+    marginTop: 12
   },
   titleDefault: {
     fontSize: 25,

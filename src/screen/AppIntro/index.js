@@ -7,7 +7,7 @@ import SliderSwiper from "./component/SliderSwiper";
 function AppIntro({ navigation, router }) {
   const [loading, setStateLoading] = useState(true);
   useLayoutEffect(() => {
-    return () => {};
+    return () => { };
   }, []);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ function AppIntro({ navigation, router }) {
   };
 
   const hideSplahScreen = async () => {
-    const init = async () => {};
+    const init = async () => { };
     init().finally(async () => {
       await RNBootSplash.hide({ fade: true });
     });
@@ -46,6 +46,7 @@ function AppIntro({ navigation, router }) {
 
   return (
     <AppContainer
+      useHeader={false}
       nameScreen={""}
       goBackScreen={false}
       flexWrapHeader

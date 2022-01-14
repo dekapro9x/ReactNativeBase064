@@ -25,8 +25,8 @@ const LoadingProcess = props => {
       indexProcess <= processLoading.length - 1;
       indexProcess++
     ) {
-      (function(index) {
-        timeLoading = setTimeout(function() {
+      (function (index) {
+        timeLoading = setTimeout(function () {
           setStateProcess(processLoading[index] / 100);
           if (
             index == processLoading.length - 1 &&
@@ -58,7 +58,7 @@ const LoadingProcess = props => {
           />
         );
       case "Pie":
-        return <Progress.Pie progress={process} size={250} />;
+        return <Progress.Pie progress={process} size={150} />;
       case "Circle":
         return <Progress.Circle size={50} indeterminate={true} />;
       case "CircleSnail":
@@ -78,28 +78,28 @@ const LoadingProcess = props => {
   const renderTextTitle = () => {
     return (
       <>
-      <AppText fontFamily={FontAppType.Happy} style={{ fontSize: 45 }}>
-        React Native
-      </AppText>
-      <AppText fontFamily={FontAppType.LetterMagic} style={{ fontSize: 45 }}>
-        App Base
-      </AppText>
+        <AppText fontFamily={FontAppType.Happy} style={{ fontSize: 45 }}>
+          React Native
+        </AppText>
+        <AppText fontFamily={FontAppType.LetterMagic} style={{ fontSize: 45 }}>
+          App Base
+        </AppText>
       </>
     );
   };
 
-  const renderTextTicker = ()=>{
+  const renderTextTicker = () => {
     return (
       <AppTextTicker
-      style={{ fontSize: 14, color: black , fontFamily:FontAppType.LetterMagic}}
-      duration={2000}
-      loop
-      bounce
-      repeatSpacer={100}
-      marqueeDelay={0}
-    >
- Made by BeoTran. Contact dekapro9x@gmail.com 
-    </AppTextTicker>
+        style={{ fontSize: 14, color: black, fontFamily: FontAppType.LetterMagic }}
+        duration={2000}
+        loop
+        bounce
+        repeatSpacer={100}
+        marqueeDelay={0}
+      >
+        Made by BeoTran. Contact dekapro9x@gmail.com
+      </AppTextTicker>
     )
   }
 

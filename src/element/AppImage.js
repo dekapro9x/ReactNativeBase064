@@ -3,14 +3,14 @@ import React, { PureComponent } from "react";
 import { View } from "react-native";
 import FastImage from "react-native-fast-image";
 import { grey300 } from "../const/Color";
-import { Loading } from "./Loading";
+// import { Loading } from "./Loading";
 
 class AppImage extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
       loading: true,
-      height: this.props.style.height
+      height: this.props.style.height 
     };
   }
 
@@ -67,10 +67,10 @@ class AppImage extends PureComponent {
               this.setState({ loading: false });
             }}
           />
-          <Loading
+          {/* <Loading
             typeLoading={LoadingAppType.Default}
             sizeSpinner={sizeSpinner}
-          />
+          /> */}
         </View>
       );
     }
