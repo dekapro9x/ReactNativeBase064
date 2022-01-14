@@ -1,8 +1,9 @@
+import { lightBlue800, lightBlueA700 } from "../../const/Color";
+import { AppContainerScroll } from "@element/AppContainerScroll";
 import React, { useContext } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { FontAppType } from "../../const/TypeFontFamily";
 import { ContextContainer } from "../../context/AppContext";
-import { AppContainer } from "../../element/AppContainer";
 import { AppIcon } from "../../element/AppIcon";
 import AppSettingScreen from "../../element/AppSetting";
 import { AppText } from "../../element/AppText";
@@ -12,29 +13,78 @@ import ServiceAppModalContent from "../../services/ServiceAppModalContent";
 
 export default function Home({ navigation, router }) {
   const { colorApp } = useContext(ContextContainer);
+
   const navigateToScreen = () => {
-    // navigation.navigate(keyNavigation.BASIC_JS);
     navigation.navigate(keyNavigation.BASIC_TS);
   };
-  const btnSetting = () => {
+
+  const rightHeaderComponent = () => {
     return (
-      <TouchableOpacity
-        onPress={pressSeting}
-        style={styles.touchConfigColorApp}
+      <View
+        style={{
+          flex: 1,
+          flexDirection: "row",
+          justifyContent: "space-between"
+        }}
       >
-        <AppIcon type="Ionicons" name="settings" iconSize={25} color="black" />
-      </TouchableOpacity>
+        <TouchableOpacity
+          onPress={pressSeting("JS_DefaultScreen")}
+          style={styles.touchConfigColorApp}
+        >
+          <AppIcon
+            type="AntDesign"
+            name="twitter"
+            iconSize={25}
+            color={lightBlue800}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={pressSeting("TS_DefaultScreen")}
+          style={styles.touchConfigColorApp}
+        >
+          <AppIcon
+            type="AntDesign"
+            name="facebook-square"
+            iconSize={25}
+            color={lightBlueA700}
+          />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={pressSeting("Setting")}
+          style={styles.touchConfigColorApp}
+        >
+          <AppIcon
+            type="Ionicons"
+            name="settings"
+            iconSize={25}
+            color="black"
+          />
+        </TouchableOpacity>
+      </View>
     );
   };
-  const pressSeting = () => {
-    ServiceAppModalContent.showModal(<AppSettingScreen />);
+
+  const pressSeting = keyActions => () => {
+    switch (keyActions) {
+      case "JS_DefaultScreen":
+        navigation.navigate(keyNavigation.BASIC_JS);
+        break;
+      case "TS_DefaultScreen":
+        navigation.navigate(keyNavigation.BASIC_TS);
+        break;
+      case "Setting":
+        ServiceAppModalContent.showModal(<AppSettingScreen />);
+        break;
+    }
   };
+
   return (
-    <AppContainer
+    <AppContainerScroll
       nameScreen={""}
       goBackScreen={false}
       flexWrapHeader
-      rightHeaderComponent={btnSetting()}
+      rightHeaderComponent={rightHeaderComponent()}
     >
       <View
         style={[
@@ -73,14 +123,15 @@ export default function Home({ navigation, router }) {
           </AppText>
         </TouchableOpacity>
       </View>
-    </AppContainer>
+    </AppContainerScroll>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center"
+    alignItems: "center",
+    height: SizeRpScreen.height(100) * 2
   },
   bnt_mid: {
     height: 45,

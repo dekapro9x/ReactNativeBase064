@@ -1,14 +1,19 @@
-
+import { AppTextInput } from "@element/AppTextInput";
+import { SizeRpScreen } from "@resources/ResponsiveScreen";
+import { BEOTRAN_LOGGER } from "@util/Loger";
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { AppContainer } from "../../element/AppContainer";
 import { keyNavigation } from "../../navigation/KeyNavigations";
 
 export default function Login({ navigation, router }) {
-
   const navigateHome = () => {
     navigation.navigate(keyNavigation.HOME);
+  };
+
+  const onChangeText = (keyState, value) => {
+    BEOTRAN_LOGGER(keyState, value);
   };
 
   const renderContent = () => {
@@ -19,19 +24,23 @@ export default function Login({ navigation, router }) {
         start={{ x: 0, y: 0 }}
         style={[styles.linearGradientContainer]}
       >
-     
         <View style={[styles.containerContent]}>
-          <TouchableOpacity
-            styles={{
-              height: 45,
-              width: 250,
-              boderWidth: 1,
-              boderRadius: 10
-            }}
-            onPress={navigateHome}
-          >
-            <Text>LOGIN SCREEN</Text>
-          </TouchableOpacity>
+          <AppTextInput
+            useClean={true}
+            keyState={"UserName"}
+            titleTextInput={"UserName"}
+            placeholder={"UserName"}
+            styleContainer={{ width: SizeRpScreen.width(96) }}
+            onChangeText={onChangeText}
+          />
+          <AppTextInput
+            useClean={true}
+            keyState={"Password"}
+            titleTextInput={"Password"}
+            placeholder={"Password"}
+            styleContainer={{ width: SizeRpScreen.width(96) }}
+            onChangeText={onChangeText}
+          />
         </View>
       </LinearGradient>
     );

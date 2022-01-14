@@ -54,6 +54,7 @@ const Icon = props => {
           color={color || green400}
         />
       );
+
     case "Entypo":
       return (
         <Entypo
