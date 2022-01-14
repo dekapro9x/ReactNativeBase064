@@ -45,7 +45,7 @@ export class DebounceButton extends Component {
         this.setState({ loading: true });
         this.timeCountDelay = setTimeout(() => {
           this.setState({ loading: false });
-        }, 800);
+        }, 1000);
       }
     }
   };
@@ -93,7 +93,8 @@ const styles = StyleSheet.create({
     width: SizeRpScreen.width(96),
     backgroundColor: blue900,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    borderRadius:12
   },
   titleDefault: {
     fontSize: 25,

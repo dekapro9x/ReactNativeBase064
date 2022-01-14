@@ -1,6 +1,6 @@
 import { lightBlue800, lightBlueA700 } from "../../const/Color";
 import { AppContainerScroll } from "@element/AppContainerScroll";
-import React, { useContext } from "react";
+import React, { useContext, useRef, useState, useEffect } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { FontAppType } from "../../const/TypeFontFamily";
 import { ContextContainer } from "../../context/AppContext";
@@ -11,8 +11,13 @@ import { keyNavigation } from "../../navigation/KeyNavigations";
 import { SizeRpScreen } from "../../resources/ResponsiveScreen";
 import ServiceAppModalContent from "../../services/ServiceAppModalContent";
 
+
 export default function Home({ navigation, router }) {
   const { colorApp } = useContext(ContextContainer);
+
+  useEffect(() => {
+    return () => {};
+  }, []);
 
   const navigateToScreen = () => {
     navigation.navigate(keyNavigation.BASIC_TS);
@@ -28,7 +33,7 @@ export default function Home({ navigation, router }) {
         }}
       >
         <TouchableOpacity
-          onPress={pressSeting("JS_DefaultScreen")}
+          onPress={pressElementRightHeader("JS_DefaultScreen")}
           style={styles.touchConfigColorApp}
         >
           <AppIcon
@@ -39,7 +44,7 @@ export default function Home({ navigation, router }) {
           />
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={pressSeting("TS_DefaultScreen")}
+          onPress={pressElementRightHeader("TS_DefaultScreen")}
           style={styles.touchConfigColorApp}
         >
           <AppIcon
@@ -51,7 +56,7 @@ export default function Home({ navigation, router }) {
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={pressSeting("Setting")}
+          onPress={pressElementRightHeader("Setting")}
           style={styles.touchConfigColorApp}
         >
           <AppIcon
@@ -65,7 +70,7 @@ export default function Home({ navigation, router }) {
     );
   };
 
-  const pressSeting = keyActions => () => {
+  const pressElementRightHeader = keyActions => () => {
     switch (keyActions) {
       case "JS_DefaultScreen":
         navigation.navigate(keyNavigation.BASIC_JS);
