@@ -70,7 +70,7 @@ export default function Login({ navigation, router }) {
             keyState={"Password"}
             titleTextInput={"Password"}
             placeholder={"Password"}
-            styleContainer={{ width: SizeRpScreen.width(96) }}
+            styleContainer={{ width: SizeRpScreen.width(96) , marginTop:12}}
             onChangeText={onChangeText}
           />
         </View>
