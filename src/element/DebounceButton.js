@@ -94,7 +94,8 @@ const styles = StyleSheet.create({
     backgroundColor: blue900,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius:12
+    borderRadius:12,
+    marginBottom:12
   },
   titleDefault: {
     fontSize: 25,
