@@ -1,3 +1,4 @@
+import { LoadingAppType } from "../const/TypeLoading";
 import React, { PureComponent } from "react";
 import { View } from "react-native";
 import FastImage from "react-native-fast-image";
@@ -67,17 +68,8 @@ class AppImage extends PureComponent {
             }}
           />
           <Loading
+            typeLoading={LoadingAppType.Default}
             sizeSpinner={sizeSpinner}
-            style={[
-              {
-                width: 86,
-                height: 86,
-                position: "absolute",
-                top: 0,
-                left: 0
-              },
-              style
-            ]}
           />
         </View>
       );
@@ -101,4 +93,3 @@ class AppImage extends PureComponent {
   }
 }
 export { AppImage };
-

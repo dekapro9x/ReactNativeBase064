@@ -1,14 +1,14 @@
 //Library:
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/core";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { blue300, green300, white } from "../../../const/Color";
 import { keyAsyncStorage } from "../../../const/KeySyncStorage";
-import AppBanner from "../../../libJS/react-native-swiper/AppBanner";
 import { AppImage } from "../../../element/AppImage";
 import { AppText } from "../../../element/AppText";
 import { Loading } from "../../../element/Loading";
+import AppBanner from "../../../libJS/react-native-swiper/AppBanner";
 import { keyNavigation } from "../../../navigation/KeyNavigations";
 import { SizeRpScreen } from "../../../resources/ResponsiveScreen";
 import DataSlider from "./Data";
@@ -133,7 +133,7 @@ export default function SliderSwiper(props) {
   };
 
   if (loading) {
-    return <Loading />;
+    return <Loading  />;
   }
 
   if (alwayShowSlider && !startApp.current) {

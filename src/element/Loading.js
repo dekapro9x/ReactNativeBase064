@@ -1,6 +1,6 @@
 import { LoadingAppType } from "../const/TypeLoading";
 import { SizeRpScreen } from "@resources/ResponsiveScreen";
-import React from "react";
+import React, { useState } from "react";
 import { ActivityIndicator, View, StyleSheet } from "react-native";
 import AnimatedLoader from "@libJS/react-native-animated-loader";
 import { AppLoadingType } from "../const/Setting";
@@ -10,6 +10,10 @@ const Loading = props => {
   const { style } = props;
   const loadingComponent = () => {
     const { typeLoading = AppLoadingType } = props;
+    const [visibleLoading, setStateVisibleLoading] = useState(true);
+    const hideLoading = () => {
+      setStateVisibleLoading(false);
+    };
     switch (typeLoading) {
       case LoadingAppType.Default:
         return <ActivityIndicator size="large" color="#00ff00" />;
@@ -17,7 +21,7 @@ const Loading = props => {
         return (
           <AnimatedLoader
             style={[styles.animatedLoaderDefault]}
-            visible={true}
+            visible={visibleLoading}
             overlayColor="rgba(255,255,255,0.75)"
             source={require("../libJS/react-native-animated-loader/loader.json")}
             animationStyle={styles.animatedLoader}
@@ -28,7 +32,7 @@ const Loading = props => {
         return (
           <AnimatedLoader
             style={[styles.animatedLoader]}
-            visible={true}
+            visible={visibleLoading}
             overlayColor="rgba(255,255,255,0.75)"
             source={require("../libJS/react-native-animated-loader/9squares-AlBoardman.json")}
             animationStyle={styles.animatedLoader}
@@ -39,7 +43,7 @@ const Loading = props => {
         return (
           <AnimatedLoader
             style={[styles.animatedLoaderDefault]}
-            visible={true}
+            visible={visibleLoading}
             overlayColor="rgba(255,255,255,0.75)"
             source={require("../libJS/react-native-animated-loader/HamburgerArrow.json")}
             animationStyle={styles.animatedLoader}
@@ -50,7 +54,7 @@ const Loading = props => {
         return (
           <AnimatedLoader
             style={[styles.animatedLoaderDefault]}
-            visible={true}
+            visible={visibleLoading}
             overlayColor="rgba(255,255,255,0.75)"
             source={require("../libJS/react-native-animated-loader/LineAnimation.json")}
             animationStyle={styles.animatedLoader}
@@ -61,7 +65,7 @@ const Loading = props => {
         return (
           <AnimatedLoader
             style={[styles.animatedLoaderDefault]}
-            visible={true}
+            visible={visibleLoading}
             overlayColor="rgba(255,255,255,0.75)"
             source={require("../libJS/react-native-animated-loader/LottieLogo1.json")}
             animationStyle={styles.animatedLoader}
@@ -72,7 +76,7 @@ const Loading = props => {
         return (
           <AnimatedLoader
             style={[styles.animatedLoaderDefault]}
-            visible={true}
+            visible={visibleLoading}
             overlayColor="rgba(255,255,255,0.75)"
             source={require("../libJS/react-native-animated-loader/LottieLogo2.json")}
             animationStyle={styles.animatedLoader}
@@ -83,7 +87,7 @@ const Loading = props => {
         return (
           <AnimatedLoader
             style={[styles.animatedLoaderDefault]}
-            visible={true}
+            visible={visibleLoading}
             overlayColor="rgba(255,255,255,0.75)"
             source={require("../libJS/react-native-animated-loader/LottieWalkthrough.json")}
             animationStyle={styles.animatedLoader}
@@ -94,7 +98,7 @@ const Loading = props => {
         return (
           <AnimatedLoader
             style={[styles.animatedLoaderDefault]}
-            visible={true}
+            visible={visibleLoading}
             overlayColor="rgba(255,255,255,0.75)"
             source={require("../libJS/react-native-animated-loader/MotionCorpse-Jrcanest.json")}
             animationStyle={styles.animatedLoader}
@@ -105,7 +109,7 @@ const Loading = props => {
         return (
           <AnimatedLoader
             style={[styles.animatedLoaderDefault]}
-            visible={true}
+            visible={visibleLoading}
             overlayColor="rgba(255,255,255,0.75)"
             source={require("../libJS/react-native-animated-loader/PinJump.json")}
             animationStyle={styles.animatedLoader}
@@ -116,7 +120,7 @@ const Loading = props => {
         return (
           <AnimatedLoader
             style={[styles.animatedLoaderDefault]}
-            visible={true}
+            visible={visibleLoading}
             overlayColor="rgba(255,255,255,0.75)"
             source={require("../libJS/react-native-animated-loader/TwitterHeart.json")}
             animationStyle={styles.animatedLoader}
@@ -127,7 +131,7 @@ const Loading = props => {
         return (
           <AnimatedLoader
             style={[styles.animatedLoaderDefault]}
-            visible={true}
+            visible={visibleLoading}
             overlayColor="rgba(255,255,255,0.75)"
             source={require("../libJS/react-native-animated-loader/Watermelon.json")}
             animationStyle={styles.animatedLoader}

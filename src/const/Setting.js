@@ -2,7 +2,7 @@ import { LoadingAppType } from "./TypeLoading";
 
 const AppLogo =
   "https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png";
-const AppLoadingType = LoadingAppType.Watermelon;
+const AppLoadingType = LoadingAppType.PinJump;
 
 const API_BASE = "";
 const END_POINT = "DEV";
