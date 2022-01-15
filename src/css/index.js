@@ -4,6 +4,8 @@ const { SizeRpScreen } = require("../resources/ResponsiveScreen");
 
 const heightInputOrTouchDefault = 50;
 
+const AppLinearGradient = ["#481E34", "#16192B"]
+
 const textAppDefault = SizeRpScreen.H5;
 
 const titleAppTextInput = {
@@ -11,11 +13,10 @@ const titleAppTextInput = {
     color: white,
     marginLeft: 12
 }
-const appTextInputDefault = { 
+const appTextInputDefault = {
     flex: 1,
     height: heightInputOrTouchDefault,
     marginLeft: 16,
-    borderColor: "rgba(112,112,112,0.5)",
     fontWeight: "bold",
     fontSize: SizeRpScreen.H5,
 }
@@ -34,7 +35,7 @@ const debounceButtonDefault = {
     alignItems: 'center',
     borderRadius: 12,
     marginBottom: 12,
-    marginTop: 12
+    marginTop: 12,
 }
 
 export {
@@ -43,5 +44,6 @@ export {
     appTextInputDefault,
     titleAppTextInput,
     titleDebounceButtonDefault,
-    debounceButtonDefault
+    debounceButtonDefault,
+    AppLinearGradient
 };

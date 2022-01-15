@@ -4,21 +4,23 @@ import { AppText } from "@element/AppText";
 import { AppTextInput } from "@element/AppTextInput";
 import { DebounceButton } from "@element/DebounceButton";
 import { BEOTRAN_LOGGER } from "@util/Loger";
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { Alert, StyleSheet, View, ScrollView } from "react-native";
-import { white } from "../../const/Color";
+import { black, white } from "../../const/Color";
 import { FontAppType } from "../../const/TypeFontFamily";
 import { AppContainer } from "../../element/AppContainer";
 import { keyNavigation } from "../../navigation/KeyNavigations";
 import { SizeRpScreen } from "../../resources/ResponsiveScreen";
+
 export default function Register({ navigation, router }) {
     const { logoApp } = useContext(ContextContainer);
-    
+
     const useName = useRef("");
     const passWord = useRef("");
     const email = useRef("");
     const address = useRef("");
     const phoneNumber = useRef("");
+    const [dateBirth, setStateDateBirth] = useState("12/12/1996")
 
     const keyStateInput = {
         useName: "UserName",
@@ -72,6 +74,10 @@ export default function Register({ navigation, router }) {
             return true;
         }
     };
+
+    const pressCalendar = () => {
+        setStateDateBirth("12/12/1990");
+    }
 
     const renderContent = () => {
         return (
@@ -128,6 +134,17 @@ export default function Register({ navigation, router }) {
                             styleTitle={styles.textTitleInput}
                             onChangeText={onChangeText}
                         />
+                        {/* Ngày tháng năm sinh */}
+                        <AppText style={[styles.textTitleInput, { marginTop: 12, marginLeft: 18 }]}>
+                            Date/Birth
+                        </AppText>
+                        <DebounceButton
+                            title={dateBirth}
+                            textTitleStyle={[styles.textTitleInput, { marginLeft: 12, color: black }]}
+                            style={[styles.textInput, { marginBottom: 0, marginTop: 0, alignItems: null, backgroundColor: white }]}
+                            onPress={pressCalendar}
+                            useDelay={false}
+                        ></DebounceButton>
                         <AppTextInput
                             useClean={true}
                             keyState={keyStateInput.address}
@@ -215,7 +232,8 @@ const styles = StyleSheet.create({
     },
     textTitleInput: {
         fontFamily: FontAppType.LetterMagic,
-        fontSize: 12
+        fontSize: 12,
+        color: white
     },
     containerOsConnectUsing: {
         height: 60,
@@ -236,6 +254,6 @@ const styles = StyleSheet.create({
         width: SizeRpScreen.width(90),
         marginTop: 12,
         alignSelf: "center",
-        marginHorizontal: 8
+        marginHorizontal: 8,
     }
 });
