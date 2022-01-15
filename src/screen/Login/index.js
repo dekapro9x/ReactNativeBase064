@@ -23,6 +23,10 @@ export default function Login({ navigation, router }) {
     navigation.replace(keyNavigation.HOME);
   };
 
+  const navigateRegister= ()=>{
+    navigation.navigate(keyNavigation.REGISTER);
+  }
+
   const onChangeText = (keyState, value) => {
     switch (keyState) {
       case "UserName":
@@ -124,9 +128,7 @@ export default function Login({ navigation, router }) {
               onChangeText={onChangeText}
             />
             <AppText
-              onPress={() => {
-                console.log("Đăng kí")
-              }}
+              onPress={navigateRegister}
               style={[styles.textTitle, { fontSize: 14, marginTop: 12, color: red400 }]}>
               _______________Register_______________
             </AppText>

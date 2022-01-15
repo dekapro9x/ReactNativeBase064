@@ -1,5 +1,6 @@
 const keyNavigation = {
   APP_INTRO: "APP_INTRO",
+  REGISTER:"REGISTER",
   HOME: "HOME",
   LOGIN: "LOGIN",
   POLICY: "POLICY",

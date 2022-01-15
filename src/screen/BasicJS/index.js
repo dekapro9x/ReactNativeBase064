@@ -5,7 +5,7 @@ import { ContextContainer } from "../../context/AppContext";
 import { AppContainer } from "../../element/AppContainer";
 import { keyNavigation } from "../../navigation/KeyNavigations";
 
-function AppIntro({ navigation, router }) {
+function BasicJS({ navigation, router }) {
   const { colorApp } = useContext(ContextContainer);
   useLayoutEffect(() => {
     return () => {};
@@ -43,7 +43,7 @@ function AppIntro({ navigation, router }) {
     </AppContainer>
   );
 }
-export default React.memo(AppIntro);
+export default React.memo(BasicJS);
 
 const styles = StyleSheet.create({
   containerContent: {
