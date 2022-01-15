@@ -49,7 +49,7 @@
             "@api/*": [
                 "src/api/*"
             ],
-            "@constants/*": [
+            "@const/*": [
                 "src/const/*"
             ],
             "@css/*": [

@@ -1,5 +1,5 @@
 import { FontAppType } from "../const/TypeFontFamily";
-const { blue900, white } = require("@css/Color");
+const { white } = require("@css/Color");
 const { SizeRpScreen } = require("../resources/ResponsiveScreen");
 
 const heightInputOrTouchDefault = 50;
@@ -22,7 +22,7 @@ const appTextInputDefault = {
 }
 
 const titleDebounceButtonDefault = {
-    fontSize: 25,
+    fontSize: textAppDefault * 1.2,
     fontFamily: FontAppType.Happy,
     color: white
 }
@@ -30,7 +30,7 @@ const titleDebounceButtonDefault = {
 const debounceButtonDefault = {
     height: heightInputOrTouchDefault,
     width: SizeRpScreen.width(96),
-    backgroundColor: blue900,
+    backgroundColor: "#481E34",
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 12,
@@ -47,3 +47,4 @@ export {
     debounceButtonDefault,
     AppLinearGradient
 };
+

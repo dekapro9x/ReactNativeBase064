@@ -1,9 +1,12 @@
 import { LoadingAppType } from "./TypeLoading";
+import { Platform } from 'react-native';
 
+const isIOS = Platform.OS === 'ios';
+const isAndroid = Platform.OS === "android";
 const AppLogo =
   "https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png";
 
-const AppLoadingType = LoadingAppType.PinJump;
+const AppLoadingType = LoadingAppType.MeoMeo;
 
 const PlatFormUsingConnect = [
   {
@@ -36,4 +39,4 @@ const PlatFormUsingConnect = [
   }
 ]
 
-export { AppLogo, AppLoadingType, PlatFormUsingConnect };
+export { AppLogo, AppLoadingType, PlatFormUsingConnect, isIOS, isAndroid };

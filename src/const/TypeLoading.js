@@ -10,6 +10,7 @@ const LoadingAppType = {
     MotionCorpse_Jrcanest: "MotionCorpse-Jrcanest.json",
     PinJump:"PinJump.json",
     TwitterHeart:"TwitterHeart.json",
-    Watermelon:"Watermelon.json"
+    Watermelon:"Watermelon.json",
+    MeoMeo: "MeoMeo.json"
 };
 export { LoadingAppType };
