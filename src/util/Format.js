@@ -1,6 +1,7 @@
 const dayString = ["CN", "T2", "T3", "T4", "T5", "T6", "T7"];
 
-function timeFormatYYMMDD(timeStamp) {
+//Định dạng thời gian dạng (Năm-Tháng-Ngày):
+function formatTimeYYMMDD(timeStamp) {
   if (!timeStamp) {
     return "";
   }
@@ -8,8 +9,9 @@ function timeFormatYYMMDD(timeStamp) {
   return `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`;
 }
 
+//Lấy thứ hiện tại:
 const getCurrentDay = timeStamp => {
-  let timeCurrent = timeFormatYYMMDD(timeStamp);
+  let timeCurrent = formatTimeYYMMDD(timeStamp);
   let num = new Date(timeCurrent);
   let sum = num.getDay();
   let yead = num.getFullYear();
@@ -22,4 +24,19 @@ const getCurrentDay = timeStamp => {
   return null;
 };
 
-export { timeFormatYYMMDD, getCurrentDay };
+//Hiển thị zipCode dạng ***-****:
+const formatNumberZipCode = (number) => {
+  if (number) {
+    return number
+      .replace(/\D+/g, '')
+      .replace(/([0-9]{1,3})([0-9]{4}$)/gi, '$1$2');
+  } else {
+    return '';
+  }
+};
+
+export {
+  formatTimeYYMMDD,
+  getCurrentDay,
+  formatNumberZipCode
+};

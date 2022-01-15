@@ -5,7 +5,7 @@ Drawer menu
 Làm nút clean data gồm: 
 1. Xóa toàn bộ dữ liệu local, xóa toàn bộ dữ liệu cookie (Đã xong).
 2. Làm phần element AppZoomImg, App ZoomImgAnimations, AnimationsRunDapXe, AppTextInput, Calender, CalenderCustom.
-3. Làm màn hình login (Đã xong)
+3. Làm màn hình login, home, đăng kí.
 4. Xóa cookie.
 5. Làm phần đọc ghi file.
 6. Quét mã QR.
@@ -15,4 +15,6 @@ Làm nút clean data gồm:
 10. Home Bottom Menu Stack.
 11. API
 12. FireBase
+13. Xử lý lỗi mạng và loading ảo khi component chưa được render ở Home.
+
 
