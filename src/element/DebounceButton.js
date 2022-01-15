@@ -1,9 +1,7 @@
-import { FontAppType } from "../const/TypeFontFamily";
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
-import { blue900, white } from "../const/Color";
-import { SizeRpScreen } from "../resources/ResponsiveScreen";
+import { debounceButtonDefault, titleDebounceButtonDefault } from "src/css";
 import { Loading } from "./Loading";
 export class DebounceButton extends Component {
 
@@ -54,25 +52,25 @@ export class DebounceButton extends Component {
     const { loading } = this.state;
     const {
       title = "DebonceButton",
-      textStyle,
+      textTitleStyle,
       children,
       loadingColor
     } = this.props;
     if (loading) {
       return <Loading color={loadingColor} />;
     } else
-    if (children) {
-      return children
-    }
+      if (children) {
+        return children
+      }
     if (title == "DebonceButton") {
       return (
-        <Text style={[styles.titleDefault, textStyle]}>
+        <Text style={[styles.titleDefault, textTitleStyle]}>
           {title}
         </Text>
       )
     } else {
       return (
-        <Text style={[styles.titleDefault, textStyle]}>
+        <Text style={[styles.titleDefault, textTitleStyle]}>
           {title}
         </Text>
       )
@@ -96,20 +94,6 @@ export class DebounceButton extends Component {
 }
 
 const styles = StyleSheet.create({
-  touchDefault: {
-    height: 45,
-    width: SizeRpScreen.width(96),
-    backgroundColor: blue900,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 12,
-    marginBottom: 12,
-    marginTop: 12
-  },
-  titleDefault: {
-    fontSize: 25,
-    fontWeight: "bold",
-    fontFamily: FontAppType.Happy,
-    color: white
-  }
+  touchDefault: debounceButtonDefault,
+  titleDefault: titleDebounceButtonDefault
 });

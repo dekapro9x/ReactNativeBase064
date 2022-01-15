@@ -2,6 +2,7 @@ import { SizeRpScreen } from "@resources/ResponsiveScreen";
 import { BEOTRAN_LOGGER } from "@util/Loger";
 import React, { useState } from "react";
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { appTextInputDefault, titleAppTextInput } from "src/css";
 import { green400, grey900, red, white } from "../const/Color";
 import { AppIcon } from "./AppIcon";
 
@@ -115,19 +116,8 @@ const styles = StyleSheet.create({
   container: {
     width: SizeRpScreen.width(100),
   },
-  title: {
-    fontSize: SizeRpScreen.H5,
-    color: white,
-    marginLeft: 12
-  },
-  inputDefault: {
-    flex: 1,
-    marginLeft: 16,
-    borderColor: "rgba(112,112,112,0.5)",
-    fontWeight: "bold",
-    height: 48,
-    fontSize: SizeRpScreen.H5,
-  }
+  title: titleAppTextInput,
+  inputDefault: appTextInputDefault
 
 });
 export { AppTextInput };
