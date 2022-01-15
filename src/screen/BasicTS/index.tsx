@@ -1,23 +1,19 @@
-import React, { FunctionComponent } from "react";
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
-import LinearGradient from "react-native-linear-gradient";
-import { keyNavigation } from "../../navigation/KeyNavigations";
-import { DebounceButton } from "../../element/DebounceButton";
+import { AppContainer } from "@element/AppContainer";
 import { AppImageScaleZoom } from "@element/AppImageScaleZoom";
 import { SizeRpScreen } from "@resources/ResponsiveScreen";
+import React, { FunctionComponent } from "react";
+import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { DebounceButton } from "../../element/DebounceButton";
+import { keyNavigation } from "../../navigation/KeyNavigations";
 
 const Login: FunctionComponent = ({ navigation, router }) => {
 
   const navigateBasicJS = () => {
     navigation.navigate(keyNavigation.BASIC_JS);
   }
-  return (
-    <LinearGradient
-      colors={["#481E34", "#16192B"]}
-      end={{ x: 1, y: 1 }}
-      start={{ x: 0, y: 0 }}
-      style={styles.container}
-    >
+
+  const renderContent = () => {
+    return (
       <SafeAreaView style={styles.content}>
         <View style={styles.viewLogo}>
           <View style={styles.viewAppName}>
@@ -33,7 +29,7 @@ const Login: FunctionComponent = ({ navigation, router }) => {
           url={"https://media.istockphoto.com/vectors/abstract-blurred-colorful-background-vector-id1248542684?k=20&m=1248542684&s=612x612&w=0&h=1yKiRrtPhiqUJXS_yJDwMGVHVkYRk2pJX4PG3TT4ZYM="}
           style={{
             width: SizeRpScreen.device_width - 32,
-            height:0,
+            height: 0,
           }}
           resizeMode={'cover'}
           useZoom={false}
@@ -43,9 +39,19 @@ const Login: FunctionComponent = ({ navigation, router }) => {
           useDelay={true}
         ></DebounceButton>
       </SafeAreaView>
-      {/* <AppImageZoom></AppImageZoom> */}
-    </LinearGradient>
-  );
+    );
+  }
+  return (
+    <AppContainer
+      useLinearGradient={false}
+      nameScreen={""}
+      goBackScreen={false}
+      flexWrapHeader
+    >
+      {renderContent()}
+    </AppContainer>
+  )
+
 };
 
 const styles = StyleSheet.create({

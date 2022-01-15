@@ -2,8 +2,10 @@
 import { useNavigation } from "@react-navigation/core";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import {
-  Alert, Animated,
-  Easing, SafeAreaView,
+  Alert,
+  Animated,
+  Easing,
+  SafeAreaView,
   StatusBar,
   StyleSheet,
   TouchableOpacity,
@@ -18,7 +20,7 @@ import { AppText } from "./AppText";
 
 
 const AppContainer = props => {
-  const { logoApp } = useContext(ContextContainer);
+  const { logoApp, colorApp, linearGradientApp } = useContext(ContextContainer);
   const animation = useRef(new Animated.Value(0));
   const spin = animation.current.interpolate({
     inputRange: [0, 1],
@@ -190,14 +192,20 @@ const AppContainer = props => {
     <SafeAreaView style={[styles.container, style]}>
       <StatusBar barStyle={"dark-content"} />
       {useHeader && renderHeader()}
-      {useLinearGradient ? <LinearGradient
-        colors={["#481E34", "#16192B"]}
-        end={{ x: 1, y: 1 }}
-        start={{ x: 0, y: 0 }}
-        style={[styles.linearGradientContainer]}
-      >
-        {children}
-      </LinearGradient> : { children }}
+      {useLinearGradient ?
+        <LinearGradient
+          colors={linearGradientApp}
+          end={{ x: 1, y: 1 }}
+          start={{ x: 0, y: 0 }}
+          style={[styles.containerContent]}
+        >
+          {children}
+        </LinearGradient> :
+        <View
+          style={[styles.containerContent, { backgroundColor: colorApp.backgroundColor }]}>
+          {children}
+        </View>
+      }
     </SafeAreaView>
   );
 };
@@ -208,7 +216,7 @@ const styles = StyleSheet.create({
     backgroundColor: white,
     justifyContent: "flex-start"
   },
-  linearGradientContainer: {
+  containerContent: {
     flex: 1
   },
 });

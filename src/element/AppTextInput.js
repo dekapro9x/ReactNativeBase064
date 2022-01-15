@@ -1,5 +1,5 @@
 import { SizeRpScreen } from "@resources/ResponsiveScreen";
-import { BEOTRAN_LOGGER } from "@util/Loger";
+// import { BEOTRAN_LOGGER } from "@util/Loger";
 import React, { useState } from "react";
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { green400, grey900, white } from "../const/Color";
@@ -34,7 +34,7 @@ const AppTextInput = ({
   const onChangeData = value => {
     setStateValueInput(value);
     onChangeText(keyState, value);
-    BEOTRAN_LOGGER(keyState, value);
+    // BEOTRAN_LOGGER(keyState, value);
   };
 
   const cleanInput = () => {

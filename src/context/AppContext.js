@@ -1,12 +1,13 @@
-import { AppLogo } from "../const/Setting";
 import React, { useState } from "react";
 import { Alert } from "react-native";
-import { white, blue900 } from "../const/Color";
+import { blue900, white } from "../const/Color";
+import { AppLogo, AppLinearGradient } from "../const/Setting";
 const ContextContainer = React.createContext();
 
 const AppContext = props => {
   const [appData, setStateAppData] = useState({
     logoApp: AppLogo,
+    linearGradientApp: AppLinearGradient,
     colorApp: {
       backgroundColor: white,
       backgroundColorButton: blue900
@@ -31,3 +32,4 @@ const AppContext = props => {
   );
 };
 export { AppContext, ContextContainer };
+

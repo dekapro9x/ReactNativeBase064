@@ -5,7 +5,9 @@ import {
   Alert,
   Animated,
   Easing,
-  SafeAreaView, ScrollView, StatusBar,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
   StyleSheet,
   TouchableOpacity,
   View
@@ -18,7 +20,7 @@ import { SizeRpScreen } from "../resources/ResponsiveScreen";
 import { AppText } from "./AppText";
 
 const AppContainerScroll = props => {
-  const { logoApp } = useContext(ContextContainer);
+  const { logoApp, colorApp, linearGradientApp } = useContext(ContextContainer);
   const animation = useRef(new Animated.Value(0));
   const spin = animation.current.interpolate({
     inputRange: [0, 1],
@@ -191,18 +193,21 @@ const AppContainerScroll = props => {
       <StatusBar barStyle={"dark-content"} />
       {useHeader && renderHeader()}
       {useLinearGradient ? <LinearGradient
-        colors={["#481E34", "#16192B"]}
+        colors={linearGradientApp}
         end={{ x: 1, y: 1 }}
         start={{ x: 0, y: 0 }}
-        style={[styles.linearGradientContainer]}
+        style={[styles.containerContent]}
       >
         <ScrollView>
           {children}
         </ScrollView>
       </LinearGradient> :
-        <ScrollView>
-          {children}
-        </ScrollView>}
+        <View style={[styles.containerContent, { backgroundColor: colorApp.backgroundColor }]}>
+          <ScrollView>
+            {children}
+          </ScrollView>
+        </View>
+      }
     </SafeAreaView>
   );
 };
@@ -213,7 +218,7 @@ const styles = StyleSheet.create({
     backgroundColor: white,
     justifyContent: "flex-start"
   },
-  linearGradientContainer: {
+  containerContent: {
     flex: 1
   }
 });

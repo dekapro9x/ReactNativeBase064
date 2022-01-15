@@ -1,19 +1,18 @@
-import { blue500, green400, grey900, red400, white } from "../../const/Color";
+import { ContextContainer } from "@context/AppContext";
+import { AppIcon } from "@element/AppIcon";
 import { AppImage } from "@element/AppImage";
+import { AppText } from "@element/AppText";
 import { AppTextInput } from "@element/AppTextInput";
 import { DebounceButton } from "@element/DebounceButton";
-import { SizeRpScreen } from "../../resources/ResponsiveScreen";
 import { BEOTRAN_LOGGER } from "@util/Loger";
-import React, { useRef, useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { Alert, StyleSheet, View } from "react-native";
-import LinearGradient from "react-native-linear-gradient";
+import { red400, white } from "../../const/Color";
+import { PlatFormUsingConnect } from "../../const/Setting";
+import { FontAppType } from "../../const/TypeFontFamily";
 import { AppContainer } from "../../element/AppContainer";
 import { keyNavigation } from "../../navigation/KeyNavigations";
-import { ContextContainer } from "@context/AppContext";
-import { AppText } from "@element/AppText";
-import { FontAppType } from "../../const/TypeFontFamily";
-import { PlatFormUsingConnect } from "../../const/Setting";
-import { AppIcon } from "@element/AppIcon";
+import { SizeRpScreen } from "../../resources/ResponsiveScreen";
 export default function Login({ navigation, router }) {
   const { logoApp } = useContext(ContextContainer);
   const useName = useRef("");
@@ -83,12 +82,6 @@ export default function Login({ navigation, router }) {
 
   const renderContent = () => {
     return (
-      <LinearGradient
-        colors={["#481E34", "#16192B"]}
-        end={{ x: 1, y: 1 }}
-        start={{ x: 0, y: 0 }}
-        style={[styles.linearGradientContainer]}
-      >
         <View style={[styles.containerContent]}>
           {/* IconApp */}
           <View style={styles.appIcon}>
@@ -157,7 +150,6 @@ export default function Login({ navigation, router }) {
             }}
           />
         </View>
-      </LinearGradient>
     );
   };
 

@@ -61,7 +61,6 @@ export class DebounceButton extends Component {
     if (loading) {
       return <Loading color={loadingColor} />;
     } else
-      console.log("C", children);
     if (children) {
       return children
     }

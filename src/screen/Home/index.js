@@ -16,7 +16,7 @@ export default function Home({ navigation, router }) {
   const { colorApp } = useContext(ContextContainer);
 
   useEffect(() => {
-    return () => {};
+    return () => { };
   }, []);
 
   const navigateToScreen = () => {
@@ -86,6 +86,7 @@ export default function Home({ navigation, router }) {
 
   return (
     <AppContainerScroll
+      useLinearGradient={false}
       nameScreen={""}
       goBackScreen={false}
       flexWrapHeader
@@ -94,7 +95,6 @@ export default function Home({ navigation, router }) {
       <View
         style={[
           styles.container,
-          { backgroundColor: colorApp.backgroundColor }
         ]}
       >
         <TouchableOpacity

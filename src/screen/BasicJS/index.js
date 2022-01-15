@@ -1,17 +1,15 @@
-import React, { useEffect, useLayoutEffect, useContext } from "react";
-import { View, StyleSheet, Text } from "react-native";
-import { DebounceButton } from "../../element/DebounceButton";
-import { ContextContainer } from "../../context/AppContext";
+import React, { useEffect, useLayoutEffect } from "react";
+import { StyleSheet, Text, View } from "react-native";
 import { AppContainer } from "../../element/AppContainer";
+import { DebounceButton } from "../../element/DebounceButton";
 import { keyNavigation } from "../../navigation/KeyNavigations";
 
 function BasicJS({ navigation, router }) {
-  const { colorApp } = useContext(ContextContainer);
   useLayoutEffect(() => {
-    return () => {};
+    return () => { };
   }, []);
 
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
 
   const navigateAppIntro = () => {
     navigation.navigate(keyNavigation.APP_INTRO);
@@ -19,14 +17,7 @@ function BasicJS({ navigation, router }) {
 
   const renderContent = () => {
     return (
-      <View
-        style={
-          (
-           [ styles.containerContent,
-            { backgroundColor: colorApp.backgroundColor }]
-          )
-        }
-      >
+      <View style={([styles.containerContent])}>
         <Text>Basic JS Screen</Text>
         <DebounceButton useDelay={false} onPress={navigateAppIntro} />
       </View>
@@ -35,6 +26,7 @@ function BasicJS({ navigation, router }) {
 
   return (
     <AppContainer
+      useLinearGradient={false}
       nameScreen={""}
       goBackScreen={false}
       flexWrapHeader
