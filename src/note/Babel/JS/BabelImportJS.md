@@ -46,9 +46,8 @@ module.exports = {
   exclude: ['**/*.png', '**/*.jpg', '**/*.gif'],
 };
 
-# Bước 3: Kiểm thử import babelJS và TSconfig.
+# Bước 3: Kiểm thử import babelJS 
 + Vào file.js import qua babel js.
-+ Vào file.ts import qua tsconfig.
 
 + Kiểm tra kết quả:
 success Saved 8 new dependencies.
