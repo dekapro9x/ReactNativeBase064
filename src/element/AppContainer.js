@@ -9,11 +9,13 @@ import {
   TouchableOpacity,
   View
 } from "react-native";
+import LinearGradient from "react-native-linear-gradient";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import { black, grey800, white } from "../const/Color";
 import { ContextContainer } from "../context/AppContext";
 import { SizeRpScreen } from "../resources/ResponsiveScreen";
 import { AppText } from "./AppText";
+
 
 const AppContainer = props => {
   const { logoApp } = useContext(ContextContainer);
@@ -25,6 +27,7 @@ const AppContainer = props => {
 
   const {
     useHeader = true,
+    useLinearGradient = true,
     children,
     style,
     goBackScreen,
@@ -187,7 +190,14 @@ const AppContainer = props => {
     <SafeAreaView style={[styles.container, style]}>
       <StatusBar barStyle={"dark-content"} />
       {useHeader && renderHeader()}
-      {children}
+      {useLinearGradient ? <LinearGradient
+        colors={["#481E34", "#16192B"]}
+        end={{ x: 1, y: 1 }}
+        start={{ x: 0, y: 0 }}
+        style={[styles.linearGradientContainer]}
+      >
+        {children}
+      </LinearGradient> : { children }}
     </SafeAreaView>
   );
 };
@@ -197,7 +207,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: white,
     justifyContent: "flex-start"
-  }
+  },
+  linearGradientContainer: {
+    flex: 1
+  },
 });
 export { AppContainer };
 

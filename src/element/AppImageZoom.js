@@ -1,9 +1,9 @@
-import { blue800, white } from "../const/Color";
+import ImageViewer from "@libJS/image-zoom-viewer";
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 import { Modal, Platform, Text, TouchableOpacity } from "react-native";
-import ImageViewer from "@libJS/image-zoom-viewer";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import { blue800, white } from "../const/Color";
 
 export class AppImageZoom extends Component {
 

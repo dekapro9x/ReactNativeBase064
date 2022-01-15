@@ -1,6 +1,6 @@
-import React, {useImperativeHandle, useState} from 'react';
+import React, { useImperativeHandle, useState } from 'react';
+import { SafeAreaView, TouchableOpacity } from 'react-native';
 import Modal from 'react-native-modal';
-import {SafeAreaView, TouchableOpacity} from 'react-native';
 import { SizeRpScreen } from "../resources/ResponsiveScreen";
 
 const AppModalContent = (props, ref) => {

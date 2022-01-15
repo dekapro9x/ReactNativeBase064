@@ -1,15 +1,15 @@
 import React from "react";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
 import AntDesign from "react-native-vector-icons/AntDesign";
-import Ionicons from "react-native-vector-icons/Ionicons";
-import Feather from "react-native-vector-icons/Feather";
 import Entypo from "react-native-vector-icons/Entypo";
-import Octicons from "react-native-vector-icons/Octicons";
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import Feather from "react-native-vector-icons/Feather";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Fontisto from "react-native-vector-icons/Fontisto";
-import { SizeRpScreen } from "../resources/ResponsiveScreen";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import Octicons from "react-native-vector-icons/Octicons";
 import { green400 } from "../const/Color";
+import { SizeRpScreen } from "../resources/ResponsiveScreen";
 
 const getSize = (type, iconSize) => {
   if (iconSize) {
@@ -119,3 +119,4 @@ const Icon = props => {
 const AppIcon = props => Icon(props);
 
 export { AppIcon };
+

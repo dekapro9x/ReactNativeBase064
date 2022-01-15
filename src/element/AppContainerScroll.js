@@ -2,17 +2,16 @@
 import { useNavigation } from "@react-navigation/core";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import {
-  Alert, 
+  Alert,
   Animated,
   Easing,
-   SafeAreaView,
-  StatusBar,
+  SafeAreaView, ScrollView, StatusBar,
   StyleSheet,
   TouchableOpacity,
-  View,
-  ScrollView
+  View
 } from "react-native";
 import AntDesign from "react-native-vector-icons/AntDesign";
+import LinearGradient from "react-native-linear-gradient";
 import { black, grey800, white } from "../const/Color";
 import { ContextContainer } from "../context/AppContext";
 import { SizeRpScreen } from "../resources/ResponsiveScreen";
@@ -25,8 +24,10 @@ const AppContainerScroll = props => {
     inputRange: [0, 1],
     outputRange: ['0deg', '360deg'],
   });
- 
+
   const {
+    useHeader = true,
+    useLinearGradient = true,
     children,
     style,
     goBackScreen,
@@ -97,18 +98,18 @@ const AppContainerScroll = props => {
               flex: 1,
               flexDirection: 'row',
               alignItems: 'center',
-              marginLeft:SizeRpScreen.width(2)
+              marginLeft: SizeRpScreen.width(2)
             }}>
             <AntDesign
-              style={{marginLeft: SizeRpScreen.width(2)}}
+              style={{ marginLeft: SizeRpScreen.width(2) }}
               name="left"
               size={18}
               color={black}
             />
-            <AppText style={{fontSize: SizeRpScreen.H5 * 1.2}}>Back</AppText>
+            <AppText style={{ fontSize: SizeRpScreen.H5 * 1.2 }}>Back</AppText>
           </TouchableOpacity>
         ) : (
-          <View style={{flex: 1}} />
+          <View style={{ flex: 1 }} />
         )}
       </>
     );
@@ -125,25 +126,25 @@ const AppContainerScroll = props => {
         }}
       >
         {nameScreen
-          ? 
+          ?
           <AppText
-          style={{
-            fontSize:
-              nameScreen && nameScreen.length > 7
-                ? SizeRpScreen.H5 * 1.2
-                : SizeRpScreen.H4,
-            fontWeight: "bold"
-          }}
-        >
-          {nameScreen}
-        </AppText>
+            style={{
+              fontSize:
+                nameScreen && nameScreen.length > 7
+                  ? SizeRpScreen.H5 * 1.2
+                  : SizeRpScreen.H4,
+              fontWeight: "bold"
+            }}
+          >
+            {nameScreen}
+          </AppText>
           :
           <Animated.Image
-          style={{width:  SizeRpScreen.height(5), height: SizeRpScreen.width(18), transform: [{rotate: spin}]}}
-          source={{
-            uri: logoApp
-          }}
-          resizeMode ="contain">
+            style={{ width: SizeRpScreen.height(5), height: SizeRpScreen.width(18), transform: [{ rotate: spin }] }}
+            source={{
+              uri: logoApp
+            }}
+            resizeMode="contain">
           </Animated.Image>
         }
       </View>
@@ -157,7 +158,7 @@ const AppContainerScroll = props => {
         style={{
           flex: 1,
           marginRight: SizeRpScreen.width(2),
-         alignItems:"flex-end"
+          alignItems: "flex-end"
         }}
       >
         {rightHeaderComponent}
@@ -187,11 +188,21 @@ const AppContainerScroll = props => {
 
   return (
     <SafeAreaView style={[styles.container, style]}>
-    <StatusBar barStyle={"dark-content"} />
-    {renderHeader()}
-    <ScrollView>
-      {children}
-    </ScrollView>
+      <StatusBar barStyle={"dark-content"} />
+      {useHeader && renderHeader()}
+      {useLinearGradient ? <LinearGradient
+        colors={["#481E34", "#16192B"]}
+        end={{ x: 1, y: 1 }}
+        start={{ x: 0, y: 0 }}
+        style={[styles.linearGradientContainer]}
+      >
+        <ScrollView>
+          {children}
+        </ScrollView>
+      </LinearGradient> :
+        <ScrollView>
+          {children}
+        </ScrollView>}
     </SafeAreaView>
   );
 };
@@ -201,6 +212,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: white,
     justifyContent: "flex-start"
+  },
+  linearGradientContainer: {
+    flex: 1
   }
 });
 export { AppContainerScroll };

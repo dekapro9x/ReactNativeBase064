@@ -1,11 +1,11 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { useContext } from "react";
-import { View, LogBox, Alert } from "react-native";
-import { SizeRpScreen } from "../resources/ResponsiveScreen";
+import { Alert, LogBox, View } from "react-native";
 import { ColorPicker } from "react-native-color-picker";
 import { ContextContainer } from "../context/AppContext";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { DebounceButton } from "./DebounceButton";
+import { SizeRpScreen } from "../resources/ResponsiveScreen";
 import ServiceAppAlertModal from "../services/ServiceAppModalContent";
+import { DebounceButton } from "./DebounceButton";
 LogBox.ignoreLogs(["Warning: ..."]);
 LogBox.ignoreAllLogs();
 

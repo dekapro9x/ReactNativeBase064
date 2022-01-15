@@ -17,21 +17,21 @@ function Register({ navigation, router }) {
         navigation.navigate(keyNavigation.APP_INTRO);
     };
 
-    const renderContent = () => {
-        return (
-            <View
-                style={
-                    (
-                        [styles.containerContent,
-                        { backgroundColor: colorApp.backgroundColor }]
-                    )
-                }
-            >
-                <Text>Basic JS Screen</Text>
-                <DebounceButton useDelay={false} onPress={navigateAppIntro} />
-            </View>
-        );
-    };
+    // const renderContent = () => {
+    //     return (
+    //         <View
+    //             style={
+    //                 (
+    //                     [styles.containerContent,
+    //                     { backgroundColor: colorApp.backgroundColor }]
+    //                 )
+    //             }
+    //         >
+    //             <Text>Basic JS Screen</Text>
+    //             <DebounceButton useDelay={false} onPress={navigateAppIntro} />
+    //         </View>
+    //     );
+    // };
 
     return (
         <AppContainer
@@ -39,7 +39,7 @@ function Register({ navigation, router }) {
             goBackScreen={false}
             flexWrapHeader
         >
-            {renderContent()}
+            {/* {renderContent()} */}
         </AppContainer>
     );
 }

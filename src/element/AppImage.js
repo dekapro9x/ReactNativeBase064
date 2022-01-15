@@ -1,10 +1,7 @@
-import { LoadingAppType } from "../const/TypeLoading";
 import React, { PureComponent } from "react";
 import { View } from "react-native";
 import FastImage from "react-native-fast-image";
 import { grey300 } from "../const/Color";
-// import { Loading } from "./Loading";
-
 class AppImage extends PureComponent {
   constructor(props) {
     super(props);
@@ -67,10 +64,6 @@ class AppImage extends PureComponent {
               this.setState({ loading: false });
             }}
           />
-          {/* <Loading
-            typeLoading={LoadingAppType.Default}
-            sizeSpinner={sizeSpinner}
-          /> */}
         </View>
       );
     }
@@ -93,3 +86,4 @@ class AppImage extends PureComponent {
   }
 }
 export { AppImage };
+

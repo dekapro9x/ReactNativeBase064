@@ -1,9 +1,9 @@
-import { LoadingAppType } from "../const/TypeLoading";
+import AnimatedLoader from "@libJS/react-native-animated-loader";
 import { SizeRpScreen } from "@resources/ResponsiveScreen";
 import React, { useState } from "react";
-import { ActivityIndicator, View, StyleSheet } from "react-native";
-import AnimatedLoader from "@libJS/react-native-animated-loader";
+import { ActivityIndicator, StyleSheet, View } from "react-native";
 import { AppLoadingType } from "../const/Setting";
+import { LoadingAppType } from "../const/TypeLoading";
 // Link AnimatedLoader mẫu: https://github.com/lottie-react-native/lottie-react-native/tree/master/example/js/animations
 //Cài đặt Loading mặc định trong Setting.js
 const Loading = props => {
@@ -162,3 +162,4 @@ const styles = StyleSheet.create({
   }
 });
 export { Loading };
+
