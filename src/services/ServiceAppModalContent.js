@@ -9,5 +9,5 @@ function hideModal() {
   modalRef.current.closeModalContent();
 }
 
-const ServiceAppAlertModal = { modalRef, showModal, hideModal };
-export default ServiceAppAlertModal;
+const ServiceAppModalContent = { modalRef, showModal, hideModal };
+export default ServiceAppModalContent;

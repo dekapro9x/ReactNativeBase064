@@ -9,7 +9,7 @@ import { DebounceButton } from "./DebounceButton";
 LogBox.ignoreLogs(["Warning: ..."]);
 LogBox.ignoreAllLogs();
 
-export default function SetingApp() {
+export function AppSetting() {
   const { appData, setAppData } = useContext(ContextContainer);
   const settingBackGround = () => {
     return (
@@ -70,7 +70,7 @@ export default function SetingApp() {
           useDelay={true}
           onPress={pressRemoveDataLocal}
           loadingColor="#FFFFFF"
-          title={"Xóa dữ liệu App khôi phục cài đặt gốc!"}
+          title={"Khôi phục cài đặt gốc!"}
           textStyle={{
             color: "#FFFFFF",
             fontSize: SizeRpScreen.H5 * 1.2,
