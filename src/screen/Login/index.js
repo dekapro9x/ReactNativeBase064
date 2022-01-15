@@ -84,13 +84,13 @@ export default function Login({ navigation, router }) {
     return (
         <View style={[styles.containerContent]}>
           {/* IconApp */}
-          <View style={styles.appIcon}>
+          <View style={styles.appIconContainer}>
             <AppImage
               source={{
                 uri: logoApp
               }}
               resizeMode="stretch"
-              style={{ height: SizeRpScreen.width(25), width: SizeRpScreen.width(25) }}>
+              style={{ height: SizeRpScreen.width(20), width: SizeRpScreen.width(20) }}>
             </AppImage>
           </View>
           {/* Form nhập tài khoản */}
@@ -179,9 +179,9 @@ const styles = StyleSheet.create({
     marginTop: 12,
     borderRadius: 12
   },
-  appIcon: {
-    height: SizeRpScreen.width(25),
-    width: SizeRpScreen.width(25),
+  appIconContainer: {
+    height: SizeRpScreen.width(20),
+    width: SizeRpScreen.width(20),
     borderRadius: 12,
     alignItems: "center",
     justifyContent: "center",
