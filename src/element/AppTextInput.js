@@ -1,16 +1,18 @@
 import { SizeRpScreen } from "@resources/ResponsiveScreen";
-// import { BEOTRAN_LOGGER } from "@util/Loger";
+import { BEOTRAN_LOGGER } from "@util/Loger";
 import React, { useState } from "react";
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
-import { green400, grey900, white } from "../const/Color";
+import { green400, grey900, red, white } from "../const/Color";
 import { AppIcon } from "./AppIcon";
 
 const AppTextInput = ({
+  isCompulsory = false,
+  secureTextEntry = false,
+  titleTextInput = "Tiêu đề",
   useClean,
   styleContainer,
   styleInput,
   styleTitle,
-  titleTextInput = "Tiêu đề",
   placeholder,
   onChangeText,
   defaultValue,
@@ -19,7 +21,6 @@ const AppTextInput = ({
   maxLength,
   keyboardType,
   onFocus,
-  secureTextEntry = false,
   placeholderTextColor,
   keyState
 }) => {
@@ -34,7 +35,7 @@ const AppTextInput = ({
   const onChangeData = value => {
     setStateValueInput(value);
     onChangeText(keyState, value);
-    // BEOTRAN_LOGGER(keyState, value);
+    BEOTRAN_LOGGER(keyState, value);
   };
 
   const cleanInput = () => {
@@ -44,7 +45,10 @@ const AppTextInput = ({
 
   return (
     <View style={[styles.container, styleContainer]}>
-      {titleTextInput ? <Text style={[styles.title, styleTitle]}>{titleTextInput}</Text> : null}
+      {titleTextInput ?
+        <Text style={[styles.title, styleTitle]}>
+          {titleTextInput} {isCompulsory && <Text style={[styles.title, styleTitle, { color: red, fontSize: SizeRpScreen.H5 * 1.2 }]}>*</Text>}
+        </Text> : null}
       <View style={{ flexDirection: "row", alignItems: "center", backgroundColor: white, borderRadius: 12 }}>
         <TextInput
           textContentType={"none"}

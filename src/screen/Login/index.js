@@ -22,8 +22,12 @@ export default function Login({ navigation, router }) {
     navigation.replace(keyNavigation.HOME);
   };
 
-  const navigateRegister= ()=>{
+  const navigateRegister = () => {
     navigation.navigate(keyNavigation.REGISTER);
+  }
+
+  const pressConnectUsing = (keyConnect) => () => {
+    console.log("keyConnect", keyConnect);
   }
 
   const onChangeText = (keyState, value) => {
@@ -61,9 +65,12 @@ export default function Login({ navigation, router }) {
   const renderListPlatformConnectUsing = () => {
     return (
       <View style={styles.containerOsConnectUsing}>
-        {PlatFormUsingConnect.map((oSConnect => {
+        {PlatFormUsingConnect.map((oSConnect, index) => {
           return (
             <DebounceButton
+              useDelay
+              onPress={pressConnectUsing(oSConnect.name)}
+              key={`${index}`}
               style={[
                 styles.oSConnectItem,
                 { backgroundColor: oSConnect.backgroundColor }]}>
@@ -75,81 +82,81 @@ export default function Login({ navigation, router }) {
               ></AppIcon>
             </DebounceButton>
           )
-        }))}
+        })}
       </View>
     )
   }
 
   const renderContent = () => {
     return (
-        <View style={[styles.containerContent]}>
-          {/* IconApp */}
-          <View style={styles.appIconContainer}>
-            <AppImage
-              source={{
-                uri: logoApp
-              }}
-              resizeMode="stretch"
-              style={{ height: SizeRpScreen.width(20), width: SizeRpScreen.width(20) }}>
-            </AppImage>
-          </View>
-          {/* Form nhập tài khoản */}
-          <View style={styles.containerFormInput}>
-            <AppText style={styles.textTitle}>
-              Well come to React Native Base
-            </AppText>
-            <AppText style={[styles.textTitle, { fontSize: 14 }]}>
-              Discovery Every Thing Around You!
-            </AppText>
-            <AppTextInput
-              useClean={true}
-              keyState={"UserName"}
-              titleTextInput={"UserName"}
-              placeholder={"UserName"}
-              styleContainer={styles.textInput}
-              styleTitle={styles.textTitleInput}
-              onChangeText={onChangeText}
-            />
-            <AppTextInput
-              secureTextEntry={true}
-              useClean={true}
-              keyState={"Password"}
-              titleTextInput={"Password"}
-              placeholder={"Password"}
-              styleContainer={styles.textInput}
-              styleTitle={styles.textTitleInput}
-              onChangeText={onChangeText}
-            />
-            <AppText
-              onPress={navigateRegister}
-              style={[styles.textTitle, { fontSize: 14, marginTop: 12, color: red400 }]}>
-              _______________Register_______________
-            </AppText>
-            <AppText style={[styles.textTitle, { fontSize: 14, marginTop: 12, color: red400, fontFamily: FontAppType.MotoyaLMaru, fontWeight: "bold" }]}>
-              __________________Or Connect Using__________________
-            </AppText>
-            {/* Danh sách các nền tảng có thể kết nối ứng dụng */}
-            {renderListPlatformConnectUsing()}
-          </View>
-          <DebounceButton
-            useDelay={true}
-            onPress={pressLogin}
-            loadingColor="#FFFFFF"
-            title={"Login"}
-            textStyle={{
-              color: "#FFFFFF",
-              fontSize: SizeRpScreen.H5 * 1.2,
-              fontWeight: "bold",
-              textAlign: "center"
+      <View style={[styles.containerContent]}>
+        {/* IconApp */}
+        <View style={styles.appIconContainer}>
+          <AppImage
+            source={{
+              uri: logoApp
             }}
-            style={{
-              backgroundColor: "#06B050",
-              justifyContent: "center",
-              alignItems: "center",
-              alignSelf: "center"
-            }}
-          />
+            resizeMode="stretch"
+            style={{ height: SizeRpScreen.width(20), width: SizeRpScreen.width(20) }}>
+          </AppImage>
         </View>
+        {/* Form nhập tài khoản */}
+        <View style={styles.containerFormInput}>
+          <AppText style={styles.textTitle}>
+            Well come to React Native Base
+          </AppText>
+          <AppText style={[styles.textTitle, { fontSize: 14 }]}>
+            Discovery Every Thing Around You!
+          </AppText>
+          <AppTextInput
+            useClean={true}
+            keyState={"UserName"}
+            titleTextInput={"UserName"}
+            placeholder={"UserName"}
+            styleContainer={styles.textInput}
+            styleTitle={styles.textTitleInput}
+            onChangeText={onChangeText}
+          />
+          <AppTextInput
+            secureTextEntry={true}
+            useClean={true}
+            keyState={"Password"}
+            titleTextInput={"Password"}
+            placeholder={"Password"}
+            styleContainer={styles.textInput}
+            styleTitle={styles.textTitleInput}
+            onChangeText={onChangeText}
+          />
+          <AppText
+            onPress={navigateRegister}
+            style={[styles.textTitle, { fontSize: 14, marginTop: 12, color: red400 }]}>
+            _______________Register_______________
+          </AppText>
+          <AppText style={[styles.textTitle, { fontSize: 14, marginTop: 12, color: red400, fontFamily: FontAppType.MotoyaLMaru, fontWeight: "bold" }]}>
+            __________________Or Connect Using__________________
+          </AppText>
+          {/* Danh sách các nền tảng có thể kết nối ứng dụng */}
+          {renderListPlatformConnectUsing()}
+        </View>
+        <DebounceButton
+          useDelay={true}
+          onPress={pressLogin}
+          loadingColor="#FFFFFF"
+          title={"Login"}
+          textStyle={{
+            color: "#FFFFFF",
+            fontSize: SizeRpScreen.H5 * 1.2,
+            fontWeight: "bold",
+            textAlign: "center"
+          }}
+          style={{
+            backgroundColor: "#06B050",
+            justifyContent: "center",
+            alignItems: "center",
+            alignSelf: "center"
+          }}
+        />
+      </View>
     );
   };
 
