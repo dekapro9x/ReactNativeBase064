@@ -6,7 +6,7 @@ import { DebounceButton } from "@element/DebounceButton";
 import { BEOTRAN_LOGGER } from "@util/Loger";
 import React, { useContext, useRef, useState } from "react";
 import { Alert, StyleSheet, View, ScrollView } from "react-native";
-import { black, white } from "../../const/Color";
+import { black, white } from "@css/Color";
 import { FontAppType } from "../../const/TypeFontFamily";
 import { AppContainer } from "../../element/AppContainer";
 import { keyNavigation } from "../../navigation/KeyNavigations";

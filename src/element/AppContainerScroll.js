@@ -14,7 +14,7 @@ import {
 } from "react-native";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import LinearGradient from "react-native-linear-gradient";
-import { black, grey800, white } from "../const/Color";
+import { black, grey800, white } from "@css/Color";
 import { ContextContainer } from "../context/AppContext";
 import { SizeRpScreen } from "../resources/ResponsiveScreen";
 import { AppText } from "./AppText";

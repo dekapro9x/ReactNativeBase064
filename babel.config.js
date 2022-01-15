@@ -14,6 +14,7 @@ module.exports = {
         '@analytics': './analytics',
         "@api":'./src/api',
         "@const":'./src/const',
+        "@css":'./src/css',
         "@context":'./src/context',
         "@element":'./src/element',
         "@fireBase":'./src/fireBase',

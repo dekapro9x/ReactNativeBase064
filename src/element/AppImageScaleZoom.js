@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import React, { PureComponent } from 'react';
 import { Animated, Image, Modal, TouchableOpacity, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import { white } from '../const/Color';
+import { white } from '@css/Color';
 import { AppLogo } from '../const/Setting';
 import { SizeRpScreen } from "../resources/ResponsiveScreen";
 import { Loading } from './Loading';

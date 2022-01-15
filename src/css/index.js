@@ -1,5 +1,5 @@
 import { FontAppType } from "../const/TypeFontFamily";
-const { blue900, white } = require("../const/Color");
+const { blue900, white } = require("@css/Color");
 const { SizeRpScreen } = require("../resources/ResponsiveScreen");
 
 const heightInputOrTouchDefault = 50;

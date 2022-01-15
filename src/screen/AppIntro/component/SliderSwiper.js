@@ -3,7 +3,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/core";
 import React, { useEffect, useRef, useState } from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
-import { blue300, green300, white } from "../../../const/Color";
+import { blue300, green300, white } from "@css/Color";
 import { keyAsyncStorage } from "../../../const/KeySyncStorage";
 import { AppImage } from "../../../element/AppImage";
 import { AppText } from "../../../element/AppText";

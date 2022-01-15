@@ -2,7 +2,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { useContext, useEffect, useLayoutEffect } from "react";
 import { Linking, ScrollView, StyleSheet, View } from "react-native";
 import RenderHtml from "react-native-render-html";
-import { black, deepPurpleA400 } from "../../const/Color";
+import { black, deepPurpleA400 } from "@css/Color";
 import { keyAsyncStorage } from "../../const/KeySyncStorage";
 import { FontAppType } from "../../const/TypeFontFamily";
 import { ContextContainer } from "../../context/AppContext";

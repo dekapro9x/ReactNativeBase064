@@ -52,6 +52,9 @@
             "@constants/*": [
                 "src/const/*"
             ],
+            "@css/*": [
+                "src/css/*"
+            ],
             "@context/*": [
                 "src/context/*"
             ],

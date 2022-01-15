@@ -3,7 +3,7 @@ import { BEOTRAN_LOGGER } from "@util/Loger";
 import React, { useState } from "react";
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { appTextInputDefault, titleAppTextInput } from "src/css";
-import { green400, grey900, red, white } from "../const/Color";
+import { green400, grey900, red, white } from "@css/Color";
 import { AppIcon } from "./AppIcon";
 
 const AppTextInput = ({

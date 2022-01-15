@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import React, { Component } from "react";
 import { Modal, Platform, Text, TouchableOpacity } from "react-native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import { blue800, white } from "../const/Color";
+import { blue800, white } from "@css/Color";
 
 export class AppImageZoom extends Component {
 

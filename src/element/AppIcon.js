@@ -8,7 +8,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Octicons from "react-native-vector-icons/Octicons";
-import { green400 } from "../const/Color";
+import { green400 } from "@css/Color";
 import { SizeRpScreen } from "../resources/ResponsiveScreen";
 
 const getSize = (type, iconSize) => {

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Alert } from "react-native";
-import { blue900, white } from "../const/Color";
-import { AppLogo, AppLinearGradient } from "../const/Setting";
+import { blue900, white } from "@css/Color";
+import { AppLogo,  } from "../const/Setting";
+import { AppLinearGradient } from "@css/";
 const ContextContainer = React.createContext();
 
 const AppContext = props => {

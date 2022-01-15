@@ -1,4 +1,4 @@
-import { lightBlue800, lightBlueA700 } from "../../const/Color";
+import { lightBlue800, lightBlueA700 } from "@css/Color";
 import { AppContainerScroll } from "@element/AppContainerScroll";
 import React, { useContext, useRef, useState, useEffect } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";

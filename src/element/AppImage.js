@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { View } from "react-native";
 import FastImage from "react-native-fast-image";
-import { grey300 } from "../const/Color";
+import { grey300 } from "@css/Color";
 class AppImage extends PureComponent {
   constructor(props) {
     super(props);

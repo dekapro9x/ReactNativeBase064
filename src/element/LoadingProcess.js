@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Image, StyleSheet, View } from "react-native";
 import * as Progress from "react-native-progress";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { black, pink50 } from "../const/Color";
+import { black, pink50 } from "@css/Color";
 import { FontAppType } from "../const/TypeFontFamily";
 import AppTextTicker from "../libJS/react-native-text-ticker/AppTextTicker";
 import { SizeRpScreen } from "../resources/ResponsiveScreen";
