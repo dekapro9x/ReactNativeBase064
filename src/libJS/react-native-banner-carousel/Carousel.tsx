@@ -49,7 +49,7 @@ export default class Carousel extends React.Component<CarouselProps, CarouselSta
                 toValue: toValue,
                 friction: 10,
                 tension: 50,
-                useNativeDriver: false 
+                useNativeDriver: false
             });
         }
     };
@@ -70,7 +70,7 @@ export default class Carousel extends React.Component<CarouselProps, CarouselSta
         };
     }
 
-    public componentWillMount() {
+    public UNSAFE_componentWillMount() {
         this.panResponder = PanResponder.create({
             onStartShouldSetPanResponder: () => {
                 this.startPanResponder();
@@ -104,6 +104,11 @@ export default class Carousel extends React.Component<CarouselProps, CarouselSta
         });
     }
 
+    //Xóa componentWillMount => Đổi sang UNSAFE_componentWillMount.
+    // public componentWillMount() {
+
+    // }
+
     public componentDidMount() {
         if (this.props.autoplay) {
             this.startAutoPlay();
@@ -111,13 +116,27 @@ export default class Carousel extends React.Component<CarouselProps, CarouselSta
         this.gotoPage(this.props.index + (this.props.loop ? 1 : 0), false);
     }
 
-    public componentWillReceiveProps(nextProps: CarouselProps) {
+    //Đã đổi tên và fix lỗi lifeCycle: 
+    // public componentWillReceiveProps(nextProps: CarouselProps) {
+    //     if (nextProps.autoplay) {
+    //         this.startAutoPlay();
+    //     } else {
+    //         this.stopAutoPlay();
+    //     }
+    // }
+
+    public componentDidUpdate(prevProps, prevState) {
+
+    }
+
+    public shouldComponentUpdate(nextProps: CarouselProps) {
         if (nextProps.autoplay) {
             this.startAutoPlay();
         } else {
             this.stopAutoPlay();
         }
     }
+
 
     private startAutoPlay() {
         this.stopAutoPlay();

@@ -1,4 +1,7 @@
 Đổi tên các thành phần trong App khi lifecycles được đổi tên khỏi dự án.
++ Tìm hiểu lifeCicle:
+# https://reactjs.org/docs/react-component.html#componentdidupdate
+
 + Fix các cảnh báo khi vòng đời bị đổi.
 # Bước 1: Cài đặt:
 + npx react-codemod rename-unsafe-lifecycles
