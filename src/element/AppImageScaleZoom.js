@@ -37,9 +37,11 @@ export class AppImageScaleZoom extends PureComponent {
                 if (this.props.useAutoScale && this.props.style && this.props.style.width) {
                     const heightImage = (height / width) * this.props.style.width;
                     onLoadEnd && onLoadEnd();
-                    Animated.timing(this.state.height, {
+                    Animated.timing(
+                        this.state.height, {
                         toValue: heightImage,
                         duration: 300,
+                        useNativeDriver: false
                     }).start();
                 }
             });
