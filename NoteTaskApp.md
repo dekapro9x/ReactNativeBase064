@@ -16,5 +16,6 @@ Làm nút clean data gồm:
 11. API
 12. FireBase
 13. Xử lý lỗi mạng và loading ảo khi component chưa được render ở Home.
+14. Check lại HOC
 
 
