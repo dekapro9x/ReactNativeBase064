@@ -2,6 +2,12 @@
 + Tìm hiểu lifeCicle:
 # https://reactjs.org/docs/react-component.html#componentdidupdate
 
+Đọc VD : 
+Tại react-native-banner-carousel/Carousel.tsx 
+=> Đã thay đổi các lifeCicle thư viện cảnh báo bao gồm:
++ componentDidMount => UNSAFE_componentWillMount
++ componentWillReceiveProps => shouldComponentUpdate
+
 + Fix các cảnh báo khi vòng đời bị đổi.
 # Bước 1: Cài đặt:
 + npx react-codemod rename-unsafe-lifecycles
