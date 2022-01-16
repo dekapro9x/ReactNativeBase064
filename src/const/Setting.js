@@ -39,4 +39,22 @@ const PlatFormUsingConnect = [
   }
 ]
 
-export { AppLogo, AppLoadingType, PlatFormUsingConnect, isIOS, isAndroid };
+const DataSliderHome = [
+  {
+    id: 1,
+    uri: 'https://www.filepicker.io/api/file/4C6yPDywSUeWYLyg1h9G',
+  },
+  {
+    id: 2,
+    uri:
+      'https://photos5.appleinsider.com/gallery/36356-67551-34A9F521-4345-4AE1-8C31-B6109A94CF7B-xl.jpg',
+  },
+  {
+    id: 3,
+    uri: 'https://i.ytimg.com/vi/gvF6sFIPfsQ/maxresdefault.jpg',
+  },
+];
+
+
+
+export { AppLogo, AppLoadingType, PlatFormUsingConnect, isIOS, isAndroid, DataSliderHome };
