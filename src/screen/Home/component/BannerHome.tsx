@@ -6,7 +6,6 @@ import Carousel from '@libJS/react-native-banner-carousel';
 import { SizeRpScreen } from '@resources/ResponsiveScreen';
 import React, { useContext } from 'react';
 import { StyleSheet, View } from 'react-native';
-// import BannerDot from './BannerDot';
 const BannerWidth = SizeRpScreen.device_width;
 const BannerHeight = SizeRpScreen.device_width * 9 / 16;
 const listImagesBanner = DataSliderHome;
@@ -21,10 +20,9 @@ export default function BannerHome() {
         );
     }
     return (
-        <View style={[styles.container, { backgroundColor: colorApp.backgroundColor }]}>
+        <View style={[styles.container, { backgroundColor: colorApp.backgroundColor , position:"relative"}]}>
             <Carousel
                 showsPageIndicator
-                // renderPageIndicator={<BannerDot></BannerDot>}
                 useNativeDriver={true}
                 autoplay
                 autoplayTimeout={2000}

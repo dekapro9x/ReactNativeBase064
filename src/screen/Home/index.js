@@ -1,4 +1,5 @@
 import { AppContainerScroll } from "@element/AppContainerScroll";
+import { ViewLoadingContainerHOC } from "@HOC/ViewLoadingContainerHOC";
 import React, { useEffect } from "react";
 import { StyleSheet, View } from "react-native";
 import { SizeRpScreen } from "../../resources/ResponsiveScreen";
@@ -18,11 +19,15 @@ export default function Home({ navigation, router }) {
       nameScreen={""}
       goBackScreen={false}
       flexWrapHeader
-      rightHeaderComponent={<RightHeaderComponent navigation={navigation}/>}>
+      rightHeaderComponent={<RightHeaderComponent navigation={navigation} />}>
       <View style={[styles.container]}>
         <DateAndWeather />
-        <BannerHome />
-        <HomeMenu navigation={navigation} />
+        <View style={styles.containerBanner}>
+          <BannerHome></BannerHome>
+        </View>
+        <ViewLoadingContainerHOC isLoading={false}>
+          <HomeMenu navigation={navigation} />
+        </ViewLoadingContainerHOC>
       </View>
     </AppContainerScroll>
   );
@@ -33,6 +38,10 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     height: SizeRpScreen.height(100) * 2
+  },
+  containerBanner: {
+    height: SizeRpScreen.width(100) * 9 / 16,
+    width: SizeRpScreen.width(100),
   },
   bnt_mid: {
     height: 45,

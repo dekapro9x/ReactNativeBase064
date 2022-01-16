@@ -16,7 +16,7 @@ const Loading = props => {
     };
     switch (typeLoading) {
       case LoadingAppType.Default:
-        return <ActivityIndicator size="large" color="#00ff00" />;
+        return <ActivityIndicator size="large" color="#00ff00" />
       case LoadingAppType.AnimatedLoader:
         return (
           <AnimatedLoader
@@ -138,17 +138,17 @@ const Loading = props => {
             speed={1}
           />
         );
-        case LoadingAppType.MeoMeo:
-          return (
-            <AnimatedLoader
-              style={[styles.animatedLoaderDefault]}
-              visible={visibleLoading}
-              overlayColor="rgba(255,255,255,0.75)"
-              source={require("../libJS/react-native-animated-loader/MeoMeo.json")}
-              animationStyle={styles.animatedLoader}
-              speed={1}
-            />
-          );
+      case LoadingAppType.MeoMeo:
+        return (
+          <AnimatedLoader
+            style={[styles.animatedLoaderDefault]}
+            visible={visibleLoading}
+            overlayColor="rgba(255,255,255,0.75)"
+            source={require("../libJS/react-native-animated-loader/MeoMeo.json")}
+            animationStyle={styles.animatedLoader}
+            speed={1}
+          />
+        );
     }
   };
 
