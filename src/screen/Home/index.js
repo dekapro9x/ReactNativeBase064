@@ -18,8 +18,7 @@ export default function Home({ navigation, router }) {
       nameScreen={""}
       goBackScreen={false}
       flexWrapHeader
-      rightHeaderComponent={<RightHeaderComponent></RightHeaderComponent>}
-    >
+      rightHeaderComponent={<RightHeaderComponent navigation={navigation}/>}>
       <View style={[styles.container]}>
         <DateAndWeather />
         <BannerHome />

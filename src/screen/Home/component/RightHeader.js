@@ -3,13 +3,12 @@ import { lightBlue800, lightBlueA700 } from '@css/Color';
 import { AppIcon } from '@element/AppIcon';
 import { AppSetting } from '@element/AppSetting';
 import { keyNavigation } from '@navigation/KeyNavigations';
-import { SizeRpScreen } from '@resources/ResponsiveScreen';
 import ServiceAppModalContent from '@services/ServiceAppModalContent';
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 
 
-export const RightHeaderComponent = () => {
+export const RightHeaderComponent = ({ navigation }) => {
 
     const pressElementRightHeader = keyActions => () => {
         switch (keyActions) {
