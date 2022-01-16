@@ -3,6 +3,9 @@ import * as React from "react";
 import { AppContext } from "./context/AppContext";
 import RootNavigations from "./navigation/RootNavigations";
 import { NavigationService } from "@services/NavigationService";
+import { enableScreens } from 'react-native-screens';
+import 'react-native-gesture-handler';
+enableScreens();
 
 function App() {
   return (
