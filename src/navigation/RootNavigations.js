@@ -1,7 +1,7 @@
 import React from "react";
 import { keyNavigation } from "./KeyNavigations";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-const RootStack = createNativeStackNavigator();
+import { randomAnimationsScreen } from "@util/RandomValueHandleActions";
 
 //Danh sách element ref:
 import AppModalContent from "../element/AppModalContent";
@@ -14,19 +14,24 @@ import HomeScreen from "../screen/Home";
 import LoginScreen from "../screen/Login";
 import PolicyScreen from "../screen/Policy";
 
-//Menu Home:
-import TabsMenuBottomHome from "./RootStackBottomMenuHome";
-
 //Màn Basic:
 import BasicJsScreen from "../screen/BasicJS";
 import BasicTsScreen from "../screen/BasicTS";
 
-export default (RootNavigations = () => {
+const RootStack = createNativeStackNavigator();
+export default RootNavigations = () => {
+
   return (
     <>
       <RootStack.Navigator
+        orientation={"portrait"}
+        animation={randomAnimationsScreen()}
         initialRouteName={keyNavigation.APP_INTRO}
         screenOptions={{ headerShown: false }}
+        screenOptions={({ route, navigation }) => ({
+          headerShown: false,
+          gestureEnabled: true,
+        })}
       >
         <RootStack.Screen
           name={keyNavigation.APP_INTRO}
@@ -36,11 +41,10 @@ export default (RootNavigations = () => {
         <RootStack.Screen name={keyNavigation.LOGIN} component={LoginScreen} />
         <RootStack.Screen name={keyNavigation.HOME} component={HomeScreen} />
         <RootStack.Screen name={keyNavigation.POLICY} component={PolicyScreen} />
-        <RootStack.Screen name={keyNavigation.BOTTOM_TAB} component={TabsMenuBottomHome} />
         <RootStack.Screen name={keyNavigation.BASIC_JS} component={BasicJsScreen} />
         <RootStack.Screen name={keyNavigation.BASIC_TS} component={BasicTsScreen} />
       </RootStack.Navigator>
       <AppModalContent ref={ServiceAppAlertModal.modalRef} />
     </>
   );
-});
+};

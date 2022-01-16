@@ -10,8 +10,11 @@ import { RightHeaderComponent } from "./component/RightHeader";
 
 export default function Home({ navigation, router }) {
   useEffect(() => {
-    return () => { };
-  }, []);
+    const unsubscribe = navigation.addListener('focus', () => {
+      console.log("Home Screen")
+    });
+    return unsubscribe;
+  }, [navigation]);
 
   return (
     <AppContainerScroll
