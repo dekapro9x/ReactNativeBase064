@@ -7,7 +7,7 @@ import { AppText } from "@element/AppText";
 import { AppTextInput } from "@element/AppTextInput";
 import { DebounceButton } from "@element/DebounceButton";
 import { BEOTRAN_LOGGER } from "@util/Loger";
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useState, useEffect } from "react";
 import { Alert, StyleSheet, View } from "react-native";
 import { PlatFormUsingConnect } from "../../const/Setting";
 import { FontAppType } from "../../const/TypeFontFamily";
@@ -18,13 +18,23 @@ export default function Login({ navigation, router }) {
   const { logoApp } = useContext(ContextContainer);
   const useName = useRef("");
   const passWord = useRef("");
-
+  const [rememberAccount, setStateRememberAccount] = useState(false);
+  useEffect(() => {
+    checkRememberAccount();
+  });
+  const checkRememberAccount = () => {
+    setStateRememberAccount(true);
+  };
   const navigateHome = () => {
     navigation.replace(keyNavigation.HOME);
   };
 
   const navigateRegister = () => {
     navigation.navigate(keyNavigation.REGISTER);
+  };
+
+  const onpressCheckBox = (idElementCheckbox, data, isChecked) => {
+    BEOTRAN_LOGGER(idElementCheckbox, data, isChecked);
   };
 
   const pressConnectUsing = keyConnect => () => {
@@ -137,6 +147,10 @@ export default function Login({ navigation, router }) {
           {/* Ghi nhớ đăng nhập */}
           <View style={[styles.rememberLoginContainer]}>
             <AppCheckbox
+              sizeIcon={26}
+              onpressCheckBox={onpressCheckBox}
+              isCheckbox={rememberAccount}
+              idElementCheckbox={"RememberAccount"}
               containerStyle={{
                 backgroundColor: "#781E3A",
                 marginRight: SizeRpScreen.width(12)
@@ -200,7 +214,9 @@ export default function Login({ navigation, router }) {
             backgroundColor: "#06B050",
             justifyContent: "center",
             alignItems: "center",
-            alignSelf: "center"
+            alignSelf: "center",
+            marginTop: 12,
+            marginBottom: 12
           }}
         />
       </View>

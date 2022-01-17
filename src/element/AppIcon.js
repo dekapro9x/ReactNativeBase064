@@ -22,10 +22,11 @@ const getSize = (type, iconSize) => {
       return SizeRpScreen.icon_size;
   }
 };
-const Icon = props => {
-  const { type, name, color } = props;
 
-  const iconSize = getSize(type, props.iconSize);
+const Icon = props => {
+  const { type, name, color, sizeIcon } = props;
+
+  const iconSize = getSize(type, sizeIcon);
 
   switch (type) {
     case "AntDesign":
@@ -119,4 +120,3 @@ const Icon = props => {
 const AppIcon = props => Icon(props);
 
 export { AppIcon };
-
