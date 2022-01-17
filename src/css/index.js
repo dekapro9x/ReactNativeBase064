@@ -2,7 +2,7 @@ import { FontAppType } from "../const/TypeFontFamily";
 const { white } = require("@css/Color");
 const { SizeRpScreen } = require("../resources/ResponsiveScreen");
 
-const heightInputOrTouchDefault = 50;
+const heightElementDefault = 50;
 
 const AppLinearGradient = ["#481E34", "#16192B"]
 
@@ -15,7 +15,7 @@ const titleAppTextInput = {
 }
 const appTextInputDefault = {
     flex: 1,
-    height: heightInputOrTouchDefault,
+    height: heightElementDefault,
     marginLeft: 16,
     fontWeight: "bold",
     fontSize: SizeRpScreen.H5,
@@ -28,7 +28,7 @@ const titleDebounceButtonDefault = {
 }
 
 const debounceButtonDefault = {
-    height: heightInputOrTouchDefault,
+    height: heightElementDefault,
     width: SizeRpScreen.width(96),
     backgroundColor: "#481E34",
     justifyContent: 'center',
@@ -39,7 +39,7 @@ const debounceButtonDefault = {
 }
 
 export {
-    heightInputOrTouchDefault,
+    heightElementDefault,
     textAppDefault,
     appTextInputDefault,
     titleAppTextInput,

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Alert } from "react-native";
-import { blue900, white } from "@css/Color";
+import { black, blue900, white } from "@css/Color";
 import { AppLogo,  } from "../const/Setting";
 import { AppLinearGradient } from "@css/";
 const ContextContainer = React.createContext();
@@ -11,7 +11,8 @@ const AppContext = props => {
     linearGradientApp: AppLinearGradient,
     colorApp: {
       backgroundColor: white,
-      backgroundColorButton: blue900
+      backgroundColorButton: blue900,
+      colorText:black
     }
   });
   //Set cấu hình App:
