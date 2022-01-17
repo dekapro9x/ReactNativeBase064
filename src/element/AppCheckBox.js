@@ -28,7 +28,6 @@ export function AppCheckbox(props) {
     onpressCheckBox,
     isCheckbox,
     labelComponent,
-    dataReturn,
     styleIconCheck,
     sizeIcon = SizeRpScreen.icon_size
   } = props;
@@ -46,7 +45,7 @@ export function AppCheckbox(props) {
   const handleOnPress = () => {
     setStateIsCheck(!isChecked);
     onpressCheckBox &&
-      onpressCheckBox({ idElementCheckbox, dataReturn, isChecked: !isChecked });
+      onpressCheckBox({ idElementCheckbox, isChecked: !isChecked });
   };
 
   return (

@@ -1,6 +1,6 @@
 import { SizeRpScreen } from "@resources/ResponsiveScreen";
 // import { BEOTRAN_LOGGER } from "@util/Loger";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { appTextInputDefault, titleAppTextInput } from "src/css";
 import { green400, grey900, red, white } from "@css/Color";
@@ -23,11 +23,18 @@ const AppTextInput = ({
   keyboardType,
   onFocus,
   placeholderTextColor,
-  keyState
+  keyState,
+  value
 }) => {
 
   const [isVisible, setIsVisible] = useState(secureTextEntry);
-  const [valueInput, setStateValueInput] = useState("");
+  const [valueInput, setStateValueInput] = useState(value);
+
+  useEffect(() => {
+    setStateValueInput(value);
+    return () => {
+    }
+  }, [value])
 
   const onPressEye = () => {
     setIsVisible(!isVisible);

@@ -6,6 +6,7 @@ import { AppImage } from "@element/AppImage";
 import { AppText } from "@element/AppText";
 import { AppTextInput } from "@element/AppTextInput";
 import { DebounceButton } from "@element/DebounceButton";
+import { useForceUpdate } from "@hooks/forceUpdate";
 import { BEOTRAN_LOGGER } from "@util/Loger";
 import React, { useContext, useRef, useState, useEffect } from "react";
 import { Alert, StyleSheet, View } from "react-native";
@@ -14,17 +15,24 @@ import { FontAppType } from "../../const/TypeFontFamily";
 import { AppContainer } from "../../element/AppContainer";
 import { keyNavigation } from "../../navigation/KeyNavigations";
 import { SizeRpScreen } from "../../resources/ResponsiveScreen";
+
 export default function Login({ navigation, router }) {
   const { logoApp } = useContext(ContextContainer);
   const useName = useRef("");
   const passWord = useRef("");
+  console.log("useName", useName);
+  console.log("passWord", passWord);
   const [rememberAccount, setStateRememberAccount] = useState(false);
+  const renderNow = useForceUpdate();
+
   useEffect(() => {
     checkRememberAccount();
-  });
+  }, []);
+
   const checkRememberAccount = () => {
-    setStateRememberAccount(true);
+    setStateRememberAccount(false);
   };
+
   const navigateHome = () => {
     navigation.replace(keyNavigation.HOME);
   };
@@ -33,8 +41,29 @@ export default function Login({ navigation, router }) {
     navigation.navigate(keyNavigation.REGISTER);
   };
 
-  const onpressCheckBox = (idElementCheckbox, data, isChecked) => {
-    BEOTRAN_LOGGER(idElementCheckbox, data, isChecked);
+  const autoFillAccont = () => {
+    useName.current = "dekapro9x";
+    passWord.current = "123456";
+    renderNow();
+  };
+
+  const autoCleanAccont = () => {
+    useName.current = "";
+    passWord.current = "";
+    renderNow();
+  };
+
+
+  const onpressCheckBox = (idElementCheckbox, isChecked) => {
+    console.log("sdhajsdjashdj")
+    BEOTRAN_LOGGER(idElementCheckbox, isChecked);
+    if (isChecked) {
+      autoFillAccont();
+      console.log("asdasd")
+    } else {
+      autoCleanAccont();
+    }
+    setStateRememberAccount(isChecked);
   };
 
   const pressConnectUsing = keyConnect => () => {
@@ -126,6 +155,7 @@ export default function Login({ navigation, router }) {
             Discovery Every Thing Around You!
           </AppText>
           <AppTextInput
+            value={useName.current}
             useClean={true}
             keyState={"UserName"}
             titleTextInput={"UserName"}
@@ -135,6 +165,7 @@ export default function Login({ navigation, router }) {
             onChangeText={onChangeText}
           />
           <AppTextInput
+            value={passWord.current}
             secureTextEntry={true}
             useClean={true}
             keyState={"Password"}
