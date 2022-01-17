@@ -6,10 +6,10 @@ import { keyNavigation } from "../../navigation/KeyNavigations";
 
 function BasicJS({ navigation, router }) {
   useLayoutEffect(() => {
-    return () => { };
+    return () => {};
   }, []);
 
-  useEffect(() => { }, []);
+  useEffect(() => {}, []);
 
   const navigateAppIntro = () => {
     navigation.navigate(keyNavigation.APP_INTRO);
@@ -17,9 +17,13 @@ function BasicJS({ navigation, router }) {
 
   const renderContent = () => {
     return (
-      <View style={([styles.containerContent])}>
+      <View style={[styles.containerContent]}>
         <Text>Basic JS Screen</Text>
-        <DebounceButton useDelay={false} onPress={navigateAppIntro} />
+        <DebounceButton
+          useLoading={false}
+          useDelay={false}
+          onPress={navigateAppIntro}
+        />
       </View>
     );
   };

@@ -35,6 +35,7 @@ const Login: FunctionComponent = ({ navigation, router }) => {
           useZoom={false}
         ></AppImageScaleZoom>
         <DebounceButton
+          useLoading={false}
           onPress={navigateBasicJS}
           useDelay={true}
         ></DebounceButton>

@@ -1,83 +1,71 @@
-import PropTypes from 'prop-types';
-import React, { useState } from 'react';
-import { StyleSheet, Text } from 'react-native';
-import { Color, Dimension } from '../commons/constants';
-import IconView, { IconViewType } from './IconView';
-import TouchableOpacityEx from './TouchableOpacityEx';
+import { ContextContainer } from "@context/AppContext";
+import { blueGrey900, white } from "@css/Color";
+import { SizeRpScreen } from "@resources/ResponsiveScreen";
+import PropTypes from "prop-types";
+import React, { useContext, useState } from "react";
+import { StyleSheet } from "react-native";
+import { AppIcon } from "./AppIcon";
+import { DebounceButton } from "./DebounceButton";
 
-export default function Checkbox(props) {
+export function AppCheckbox(props) {
+  const { colorApp } = useContext(ContextContainer);
   const {
-    id,
-    isCheck,
-    label,
+    containerStyle,
+    idElementCheckbox,
+    isCheckbox,
+    labelComponent,
     data,
-    style,
     styleIconCheck,
     sizeIcon,
-    styleLabel,
-    onToggle,
-    onPressLabel,
+    onCheckBox
   } = props;
-  const [isChecked, setIsCheck] = useState(isCheck);
+  const [isChecked, setStateIsCheck] = useState(isCheckbox);
+
   const handleOnPress = () => {
-    onToggle && onToggle({id, data, isChecked: !isChecked});
-    setIsCheck(!isChecked);
-  };
-  const handleOnPressLabel = () => {
-    onPressLabel ? onPressLabel({id, data, isChecked}) : handleOnPress();
+    setStateIsCheck(!isChecked);
+    onCheckBox &&
+      onCheckBox({ idElementCheckbox, data, isChecked: !isChecked });
   };
 
   return (
-    <TouchableOpacityEx
+    <DebounceButton
+      timeDelay={200}
+      useDelay={true}
+      useLoading={false}
       onPress={handleOnPress}
-      style={{...styles.styleContains, ...style}}>
-      <IconView
-        onPress={handleOnPress}
-        style={{...styles.stIconCheck, ...styleIconCheck}}
-        name={isChecked ? 'checkbox-marked' : 'checkbox-blank-outline'}
-        type={IconViewType.MaterialCommunityIcons}
-        size={sizeIcon || Dimension.sizeIconMenu}
-        color={isChecked ? Color.MayaBlue : Color.colorText}
+      style={{ ...styles.styleContainsDefault, ...containerStyle }}
+    >
+      <AppIcon
+        style={[styleIconCheck]}
+        name={isChecked ? "checkbox-marked" : "checkbox-blank-outline"}
+        type={"MaterialCommunityIcons"}
+        size={sizeIcon || SizeRpScreen.icon_size}
+        color={isChecked ? blueGrey900 : colorApp.colorText}
       />
-      <Text
-        onPress={handleOnPressLabel}
-        style={{...styles.stLabel, ...styleLabel}}>
-        {label}
-      </Text>
-    </TouchableOpacityEx>
+      {!!labelComponent && labelComponent}
+    </DebounceButton>
   );
 }
 
 const styles = StyleSheet.create({
-  styleContains: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  stIconCheck: {
-    height: 35,
-    width: 35,
-    alignItems: 'center',
-    alignSelf: 'center',
-    justifyContent: 'center',
-  },
-  stLabel: {
-    marginLeft: Dimension.margin5,
-    fontSize: Dimension.fontSize14,
-    color: Color.colorText,
-    justifyContent: 'center',
-    textAlign: 'center',
-  },
+  styleContainsDefault: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    width: SizeRpScreen.width(50),
+    backgroundColor: white
+  }
 });
 
-Checkbox.propTypes = {
+AppCheckbox.propTypes = {
   style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   styleIconCheck: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   styleLabel: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   backgroundColor: PropTypes.string,
-  isCheck: PropTypes.bool,
+  isCheckbox: PropTypes.bool,
   onToggle: PropTypes.func,
   onPressLabel: PropTypes.func,
   id: PropTypes.any,
   data: PropTypes.any,
-  label: PropTypes.any,
+  labelComponent: PropTypes.any
 };

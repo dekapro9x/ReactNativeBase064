@@ -102,6 +102,7 @@ function Policy({ navigation, router }) {
         </View>
         {/* Nút đồng ý điều khoản sử dụng */}
         <DebounceButton
+          useLoading={false}
           useDelay={true}
           onPress={pressAgreePolicy}
           loadingColor="#FFFFFF"

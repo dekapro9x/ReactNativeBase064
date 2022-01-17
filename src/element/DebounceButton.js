@@ -4,8 +4,8 @@ import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import { debounceButtonDefault, titleDebounceButtonDefault } from "src/css";
 import { Loading } from "./Loading";
 export class DebounceButton extends Component {
-
   static propTypes = {
+    useLoading: PropTypes.bool.isRequired,
     useDelay: PropTypes.bool.isRequired,
     onPress: PropTypes.func.isRequired,
   };
@@ -36,14 +36,14 @@ export class DebounceButton extends Component {
   };
 
   onPress = () => {
-    const { useDelay = false } = this.props;
+    const { useDelay = false, timeDelay = 1000 } = this.props;
     if (this.props.onPress) {
       this.props.onPress();
       if (useDelay) {
         this.setState({ loading: true });
         this.timeCountDelay = setTimeout(() => {
           this.setState({ loading: false });
-        }, 1000);
+        }, timeDelay);
       }
     }
   };
@@ -54,26 +54,30 @@ export class DebounceButton extends Component {
       title = "DebonceButton",
       textTitleStyle,
       children,
-      loadingColor
+      loadingColor,
+      useLoading
     } = this.props;
     if (loading) {
-      return <Loading color={loadingColor} />;
-    } else
-      if (children) {
-        return children
+      if (useLoading) {
+        return <Loading color={loadingColor} />;
+      } else {
+        return null;
       }
+    } else if (children) {
+      return children;
+    }
     if (title == "DebonceButton") {
       return (
         <Text style={[styles.titleDefault, textTitleStyle]}>
           {title}
         </Text>
-      )
+      );
     } else {
       return (
         <Text style={[styles.titleDefault, textTitleStyle]}>
           {title}
         </Text>
-      )
+      );
     }
   };
 

@@ -34,8 +34,6 @@ const debounceButtonDefault = {
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 12,
-    marginBottom: 12,
-    marginTop: 12,
 }
 
 export {
