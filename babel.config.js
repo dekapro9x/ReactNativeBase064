@@ -17,16 +17,15 @@ module.exports = api => {
             blacklist: null,
             whitelist: null,
             safe: true,
-            allowUndefined: true,
-          },
+            allowUndefined: true
+          }
         ],
-      ],
+      "react-native-reanimated/plugin" //Thêm cuối cùng ra khỏi plugins vì nó là 1 giải pháp tăng hiệu năng App.
+      ]
     };
   }
   return {
-    presets: [
-      "module:metro-react-native-babel-preset",
-    ],
+    presets: ["module:metro-react-native-babel-preset"],
     exclude: ["**/*.png", "**/*.jpg", "**/*.gif"],
     plugins: [
       [
@@ -37,9 +36,10 @@ module.exports = api => {
           blacklist: null,
           whitelist: null,
           safe: true,
-          allowUndefined: true,
-        },
+          allowUndefined: true
+        }
       ],
-    ],
+      "react-native-reanimated/plugin" //Thêm cuối cùng ra khỏi plugins vì nó là 1 giải pháp tăng hiệu năng App.
+    ]
   };
 };

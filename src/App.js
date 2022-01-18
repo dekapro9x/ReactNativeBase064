@@ -1,16 +1,21 @@
 import { NavigationContainer } from "@react-navigation/native";
+import { NavigationService } from "@services/NavigationService";
 import * as React from "react";
+import "react-native-gesture-handler";
+import "react-native-reanimated";
+import { enableScreens } from "react-native-screens";
 import { AppContext } from "./context/AppContext";
 import RootStackNavigations from "./navigation/RootStackNavigations";
-import { NavigationService } from "@services/NavigationService";
-import { enableScreens } from 'react-native-screens';
-import 'react-native-gesture-handler';
 enableScreens();
 
 function App() {
   return (
     <AppContext>
-      <NavigationContainer ref={(ref) => { NavigationService.current = ref }}>
+      <NavigationContainer
+        ref={ref => {
+          NavigationService.current = ref;
+        }}
+      >
         <RootStackNavigations />
       </NavigationContainer>
     </AppContext>
