@@ -34,7 +34,7 @@ export default function Login({ navigation, router }) {
   };
 
   const navigateHome = () => {
-    navigation.replace(keyNavigation.HOME);
+    navigation.replace(keyNavigation.ROOT_STACK_BOTTOM);
   };
 
   const navigateRegister = () => {
@@ -53,13 +53,12 @@ export default function Login({ navigation, router }) {
     renderNow();
   };
 
-
   const onpressCheckBox = (idElementCheckbox, isChecked) => {
-    console.log("sdhajsdjashdj")
+    console.log("sdhajsdjashdj");
     BEOTRAN_LOGGER(idElementCheckbox, isChecked);
     if (isChecked) {
       autoFillAccont();
-      console.log("asdasd")
+      console.log("asdasd");
     } else {
       autoCleanAccont();
     }

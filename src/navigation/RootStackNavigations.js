@@ -10,9 +10,10 @@ import ServiceAppAlertModal from "../services/ServiceAppModalContent";
 //Danh sách các màn hình:
 import RegisterScreen from "../screen/Register";
 import AppIntroScreen from "../screen/AppIntro";
-import HomeScreen from "../screen/Home";
 import LoginScreen from "../screen/Login";
 import PolicyScreen from "../screen/Policy";
+//Stack Bottom Tab Menu Home:
+import {RootStackBottomTab} from "./RootStackBottomTab";
 
 //Màn Basic:
 import BasicJsScreen from "../screen/BasicJS";
@@ -39,7 +40,7 @@ export default RootNavigations = () => {
         />
         <RootStack.Screen name={keyNavigation.REGISTER} component={RegisterScreen} />
         <RootStack.Screen name={keyNavigation.LOGIN} component={LoginScreen} />
-        <RootStack.Screen name={keyNavigation.HOME} component={HomeScreen} />
+        <RootStack.Screen name={keyNavigation.ROOT_STACK_BOTTOM} component={RootStackBottomTab} />
         <RootStack.Screen name={keyNavigation.POLICY} component={PolicyScreen} />
         <RootStack.Screen name={keyNavigation.BASIC_JS} component={BasicJsScreen} />
         <RootStack.Screen name={keyNavigation.BASIC_TS} component={BasicTsScreen} />
