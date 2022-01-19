@@ -19,5 +19,9 @@
 4. Git
 # (Git History) https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory
 # (	GitLens — Git supercharged) https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens
+
 5. Extend sync: 
 # (Settings Sync) https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync
+
+6. SQL: 
+# (SQL Server) https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql
