@@ -85,6 +85,15 @@
             "@navigation/*": [
                 "src/navigation/*"
             ],
+            "@permissions/*": [
+                "src/permissions/*"
+            ],
+            "@pushNotifications/*": [
+                "src/pushNotifications/*"
+            ],
+            "@pushNotificationsLocal/*": [
+                "src/pushNotificationsLocal/*"
+            ],
             "@redux/*": [
                 "src/redux/*"
             ],
