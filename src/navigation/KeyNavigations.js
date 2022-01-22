@@ -9,7 +9,8 @@ const keyNavigation = {
   BASIC_TS: "BASIC_TS",
   
   //Root stack:
-  ROOT_STACK_BOTTOM: "ROOT_STACK_BOTTOM"
+  ROOT_STACK_BOTTOM: "ROOT_STACK_BOTTOM",
+  ROOT_STACK_DRAWER:"ROOT_STACK_DRAWER"
 };
 
 export { keyNavigation };

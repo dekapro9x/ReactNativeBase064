@@ -24,7 +24,7 @@ export default function Home({ navigation, router }) {
       flexWrapHeader
       rightHeaderComponent={<RightHeaderComponent navigation={navigation} />}>
       <View style={[styles.container]}>
-        <DateAndWeather />
+        <DateAndWeather navigation ={navigation}/>
         <View style={styles.containerBanner}>
           <BannerHome></BannerHome>
         </View>
