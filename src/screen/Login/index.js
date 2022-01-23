@@ -8,9 +8,9 @@ import { AppTextInput } from "@element/AppTextInput";
 import { DebounceButton } from "@element/DebounceButton";
 import { useForceUpdate } from "@hooks/forceUpdate";
 import { BEOTRAN_LOGGER } from "@util/Loger";
-import React, { useContext, useRef, useState, useEffect } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Alert, StyleSheet, View } from "react-native";
-import { GetDevicesIP, PlatFormUsingConnect } from "../../const/Setting";
+import { PlatFormUsingConnect } from "../../const/Setting";
 import { FontAppType } from "../../const/TypeFontFamily";
 import { AppContainer } from "../../element/AppContainer";
 import { keyNavigation } from "../../navigation/KeyNavigations";
@@ -18,22 +18,19 @@ import { SizeRpScreen } from "../../resources/ResponsiveScreen";
 
 export default function Login({ navigation, router }) {
   const { logoApp } = useContext(ContextContainer);
-  const useName = useRef("");
-  const passWord = useRef("");
+  const useName = useRef("1");
+  const passWord = useRef("1");
   console.log("useName", useName);
   console.log("passWord", passWord);
   const [rememberAccount, setStateRememberAccount] = useState(false);
   const renderNow = useForceUpdate();
 
   useEffect(() => {
-    getdeivicesID();
     checkRememberAccount();
+    if (useName.current && passWord.current) {
+      navigateHome();
+    }
   }, []);
-
-  const getdeivicesID = async () => {
-    const hehe = await GetDevicesIP();
-    console.log("heehhee", hehe);
-  }
 
   const checkRememberAccount = () => {
     setStateRememberAccount(false);

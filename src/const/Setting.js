@@ -68,13 +68,9 @@ const GetDevicesInfo = {
   getVersion: DeviceInfo.getVersion(),
 };
 
-const GetDevicesIP =  () => {
-  let ipDevices = "";
- return DeviceInfo.getIpAddress().then((ip) => {
-    console.log("ippp", ip)
-    ipDevices = ip;
-  })
-  return ipDevices
+const GetDevicesIP =  async() => {
+  const iP = await DeviceInfo.getIpAddress();
+  return iP
 }
 
 export { AppLogo, AppLoadingType, PlatFormUsingConnect, isIOS, isAndroid, DataSliderHome, VersionApp, GetDevicesInfo, GetDevicesIP };

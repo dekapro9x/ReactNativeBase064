@@ -1,16 +1,18 @@
-import { GetDevicesInfo, VersionApp } from "@const/Setting";
+import { GetDevicesInfo, GetDevicesIP, VersionApp } from "@const/Setting";
 import { FontAppType } from "@const/TypeFontFamily";
 import { AppIcon } from "@element/AppIcon";
 import { AppText } from "@element/AppText";
 import Wave from "@libJS/react-native-waveview";
 import { SizeRpScreen } from "@resources/ResponsiveScreen";
-import React, { useEffect, useLayoutEffect } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { AppContainer } from "../../element/AppContainer";
 
 
 function InfoDevicesApp({ navigation, router }) {
+    const [IP, setStateIP] = useState("");
     useLayoutEffect(() => {
+        getdeivicesID();
         return () => { };
     }, []);
 
@@ -19,6 +21,12 @@ function InfoDevicesApp({ navigation, router }) {
     const navigateAppIntro = () => {
         // navigation.navigate(keyNavigation.APP_INTRO);
     };
+
+    const getdeivicesID = async () => {
+        const ip = await GetDevicesIP();
+        setStateIP(ip);
+    }
+
 
     const renderContent = () => {
         return (
@@ -42,9 +50,7 @@ function InfoDevicesApp({ navigation, router }) {
                     <AppText style={{ marginTop: 12 }} fontFamily={FontAppType.Happy}>DeviceType:   {GetDevicesInfo.getDeviceType}</AppText>
                     <AppText style={{ marginTop: 12 }} fontFamily={FontAppType.Happy}>SystemName:   {GetDevicesInfo.getSystemName}</AppText>
                     <AppText style={{ marginTop: 12 }} fontFamily={FontAppType.Happy}>Version:   {GetDevicesInfo.getVersion}</AppText>
-                    <AppText style={{ marginTop: 12 }} fontFamily={FontAppType.Happy}>Ip:   {GetDevicesInfo.getIpDevices}</AppText>
-                    <AppText style={{ marginTop: 12 }} fontFamily={FontAppType.Happy}>SystemName:   {GetDevicesInfo.getSystemName}</AppText>
-                    <AppText style={{ marginTop: 12 }} fontFamily={FontAppType.Happy}>SystemName:   {GetDevicesInfo.getSystemName}</AppText>
+                    <AppText style={{ marginTop: 12 }} fontFamily={FontAppType.Happy}>Ip:   {IP}</AppText>
                 </View>
             </View>
         );
