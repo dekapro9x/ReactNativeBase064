@@ -6,10 +6,10 @@ import { keyNavigation } from "../../navigation/KeyNavigations";
 
 function BasicJS({ navigation, router }) {
   useLayoutEffect(() => {
-    return () => {};
+    return () => { };
   }, []);
 
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
 
   const navigateAppIntro = () => {
     navigation.navigate(keyNavigation.APP_INTRO);

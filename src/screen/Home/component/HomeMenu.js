@@ -27,25 +27,7 @@ export default function HomeMenu({ navigation }) {
         }}
         onPress={navigateToScreen}
       >
-        <Text>HOME SCREEN</Text>
-        <AppIcon type="Entypo" name="500px" iconSize={22} color="red" />
-        <AppText fontFamily={FontAppType.MotoyaLMaru}>
-          Test App Text Font
-        </AppText>
-        <AppText fontFamily={FontAppType.Champagne}>
-          Test App Text Font
-        </AppText>
-        <AppText fontFamily={FontAppType.Happy}>Test App Text Font</AppText>
-        <AppText fontFamily={FontAppType.HappyShadows}>
-          Test App Text Font
-        </AppText>
-        <AppText fontFamily={FontAppType.LetterMagic}>
-          Test App Text Font
-        </AppText>
-        <AppText fontFamily={FontAppType.Sun}>Test App Text Font</AppText>
-        <AppText fontFamily={FontAppType.Blacklight}>
-          Test App Text Font
-        </AppText>
+     
       </TouchableOpacity>
     </View>
   );

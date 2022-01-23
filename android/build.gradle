@@ -7,6 +7,12 @@ buildscript {
         compileSdkVersion = 31
         targetSdkVersion = 31
         ndkVersion = "21.4.7075529"
+        //Permissions: 
+        firebaseIidVersion = "19.0.1"
+        googlePlayServicesIidVersion = "17.0.0"
+        supportLibVersion = '1.0.2'
+        mediaCompatVersion = '1.0.1' 
+        supportV4Version = '1.0.0'
     }
     repositories {
         google()

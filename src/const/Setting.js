@@ -1,10 +1,14 @@
 import { LoadingAppType } from "./TypeLoading";
 import { Platform } from 'react-native';
-
+import DeviceInfo from 'react-native-device-info';
 const isIOS = Platform.OS === 'ios';
+
 const isAndroid = Platform.OS === "android";
+
 const AppLogo =
   "https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png";
+
+const VersionApp = "1.0.0";
 
 const AppLoadingType = LoadingAppType.MeoMeo;
 
@@ -56,5 +60,21 @@ const DataSliderHome = [
 ];
 
 
+const GetDevicesInfo = {
+  getAppName: DeviceInfo.getApplicationName(),
+  getDeviceId: DeviceInfo.getDeviceId(),
+  getDeviceType: DeviceInfo.getDeviceType(),
+  getSystemName: DeviceInfo.getSystemName(),
+  getVersion: DeviceInfo.getVersion(),
+};
 
-export { AppLogo, AppLoadingType, PlatFormUsingConnect, isIOS, isAndroid, DataSliderHome };
+const GetDevicesIP =  () => {
+  let ipDevices = "";
+ return DeviceInfo.getIpAddress().then((ip) => {
+    console.log("ippp", ip)
+    ipDevices = ip;
+  })
+  return ipDevices
+}
+
+export { AppLogo, AppLoadingType, PlatFormUsingConnect, isIOS, isAndroid, DataSliderHome, VersionApp, GetDevicesInfo, GetDevicesIP };

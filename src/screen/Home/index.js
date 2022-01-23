@@ -7,6 +7,7 @@ import BannerHome from "./component/BannerHome";
 import DateAndWeather from "./component/DateAndWeather";
 import HomeMenu from "./component/HomeMenu";
 import { RightHeaderComponent } from "./component/RightHeader";
+import Testview from "./component/TestView";
 
 export default function Home({ navigation, router }) {
   useEffect(() => {
@@ -24,13 +25,14 @@ export default function Home({ navigation, router }) {
       flexWrapHeader
       rightHeaderComponent={<RightHeaderComponent navigation={navigation} />}>
       <View style={[styles.container]}>
-        <DateAndWeather navigation ={navigation}/>
+        <DateAndWeather navigation={navigation} />
         <View style={styles.containerBanner}>
           <BannerHome></BannerHome>
         </View>
         <ViewLoadingContainerHOC isLoading={false}>
           <HomeMenu navigation={navigation} />
         </ViewLoadingContainerHOC>
+        <Testview></Testview>
       </View>
     </AppContainerScroll>
   );

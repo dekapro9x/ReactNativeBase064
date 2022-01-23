@@ -10,7 +10,7 @@ import { useForceUpdate } from "@hooks/forceUpdate";
 import { BEOTRAN_LOGGER } from "@util/Loger";
 import React, { useContext, useRef, useState, useEffect } from "react";
 import { Alert, StyleSheet, View } from "react-native";
-import { PlatFormUsingConnect } from "../../const/Setting";
+import { GetDevicesIP, PlatFormUsingConnect } from "../../const/Setting";
 import { FontAppType } from "../../const/TypeFontFamily";
 import { AppContainer } from "../../element/AppContainer";
 import { keyNavigation } from "../../navigation/KeyNavigations";
@@ -26,8 +26,14 @@ export default function Login({ navigation, router }) {
   const renderNow = useForceUpdate();
 
   useEffect(() => {
+    getdeivicesID();
     checkRememberAccount();
   }, []);
+
+  const getdeivicesID = async () => {
+    const hehe = await GetDevicesIP();
+    console.log("heehhee", hehe);
+  }
 
   const checkRememberAccount = () => {
     setStateRememberAccount(false);
