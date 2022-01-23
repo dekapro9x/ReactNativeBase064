@@ -5,6 +5,8 @@ const isIOS = Platform.OS === 'ios';
 
 const isAndroid = Platform.OS === "android";
 
+const isOSAndroid = Platform.OS === "android" ? true : false;
+
 const AppLogo =
   "https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png";
 
@@ -68,9 +70,9 @@ const GetDevicesInfo = {
   getVersion: DeviceInfo.getVersion(),
 };
 
-const GetDevicesIP =  async() => {
+const GetDevicesIP = async () => {
   const iP = await DeviceInfo.getIpAddress();
   return iP
 }
 
-export { AppLogo, AppLoadingType, PlatFormUsingConnect, isIOS, isAndroid, DataSliderHome, VersionApp, GetDevicesInfo, GetDevicesIP };
+export { AppLogo, AppLoadingType, PlatFormUsingConnect, isIOS, isAndroid, DataSliderHome, VersionApp, isOSAndroid, GetDevicesInfo, GetDevicesIP };

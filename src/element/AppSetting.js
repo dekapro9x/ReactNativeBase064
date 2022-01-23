@@ -68,7 +68,7 @@ export function AppSetting() {
       <View style={{ with: SizeRpScreen.width(100), alignItems: "center" }}>
         <DebounceButton
           useDelay={true}
-          useLoading={true}
+          useLoading={false}
           onPress={pressRemoveDataLocal}
           loadingColor="#FFFFFF"
           title={"Khôi phục cài đặt gốc!"}

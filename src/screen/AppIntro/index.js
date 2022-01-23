@@ -1,3 +1,4 @@
+import { multipleCheckPermissionInit } from "@permissions/";
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import RNBootSplash from "react-native-bootsplash";
 import { AppContainer } from "../../element/AppContainer";
@@ -7,6 +8,7 @@ import SliderSwiper from "./component/SliderSwiper";
 function AppIntro({ navigation, router }) {
   const [loading, setStateLoading] = useState(true);
   useLayoutEffect(() => {
+    multipleCheckPermissionInit();
     return () => { };
   }, []);
 

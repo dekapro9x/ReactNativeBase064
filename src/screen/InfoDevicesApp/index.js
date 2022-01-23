@@ -1,6 +1,5 @@
 import { GetDevicesInfo, GetDevicesIP, VersionApp } from "@const/Setting";
 import { FontAppType } from "@const/TypeFontFamily";
-import { AppIcon } from "@element/AppIcon";
 import { AppText } from "@element/AppText";
 import Wave from "@libJS/react-native-waveview";
 import { SizeRpScreen } from "@resources/ResponsiveScreen";
@@ -17,10 +16,6 @@ function InfoDevicesApp({ navigation, router }) {
     }, []);
 
     useEffect(() => { }, []);
-
-    const navigateAppIntro = () => {
-        // navigation.navigate(keyNavigation.APP_INTRO);
-    };
 
     const getdeivicesID = async () => {
         const ip = await GetDevicesIP();
