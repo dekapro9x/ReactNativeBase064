@@ -2,3 +2,4 @@
 1. react-native-vector-icons
 2. react-native-smart-barcode
 3. react-native-reanimated
+4. react-native-permission
