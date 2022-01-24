@@ -132,8 +132,10 @@ export default class Carousel extends React.Component<CarouselProps, CarouselSta
     public shouldComponentUpdate(nextProps: CarouselProps) {
         if (nextProps.autoplay) {
             this.startAutoPlay();
+            return true
         } else {
             this.stopAutoPlay();
+            return true
         }
     }
 

@@ -1,7 +1,9 @@
+import { black, white } from '@css/Color';
 import React, { useImperativeHandle, useState } from 'react';
-import { SafeAreaView, TouchableOpacity } from 'react-native';
+import { SafeAreaView, TouchableOpacity,View } from 'react-native';
 import Modal from 'react-native-modal';
 import { SizeRpScreen } from "../resources/ResponsiveScreen";
+import { AppIcon } from './AppIcon';
 
 const AppModalContent = (props, ref) => {
   const [show, setShow] = useState(false);
@@ -40,7 +42,23 @@ const AppModalContent = (props, ref) => {
         margin: 0,
       }}>
       <SafeAreaView >
-        <TouchableOpacity onPress={closeModalContent}>
+        <View style={{height:50, width:SizeRpScreen.device_width, backgroundColor:white}}>
+       {!!show && <TouchableOpacity 
+          onPress = {closeModalContent}
+          style ={{height:50, width:50, 
+          backgroundColor:white,
+          alignItems: "center", 
+          justifyContent: "center"}}> 
+            <AppIcon 
+            type ={"AntDesign"}
+            name = {"closesquare"}
+            size ={25}
+            color ={black}
+            ></AppIcon>
+          </TouchableOpacity>}
+        </View>
+        <TouchableOpacity 
+        onPress={closeModalContent}>
         <>{content}</>
         </TouchableOpacity>
       </SafeAreaView>

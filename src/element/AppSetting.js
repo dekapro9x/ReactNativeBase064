@@ -24,7 +24,7 @@ export function AppSetting() {
           ServiceAppAlertModal.hideModal();
           setAppData(defineDataConfigNew);
         }}
-        style={{ flex: 1 }}
+        style={{ flex: 1 , backgroundColor:"white"}}
       />
     );
   };

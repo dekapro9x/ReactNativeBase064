@@ -33,7 +33,7 @@ export default function Home({ navigation, router }) {
         <ViewLoadingContainerHOC isLoading={false}>
           <HomeMenu navigation={navigation} />
         </ViewLoadingContainerHOC>
-        <Testview></Testview>
+        {/* <Testview></Testview> */}
       </View>
     </AppContainerScroll>
   );
