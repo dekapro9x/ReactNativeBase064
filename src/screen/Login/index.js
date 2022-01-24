@@ -1,3 +1,4 @@
+import { keyAsyncStorage } from "@const/KeySyncStorage";
 import { ContextContainer } from "@context/AppContext";
 import { red400, white } from "@css/Color";
 import { AppCheckbox } from "@element/AppCheckBox";
@@ -7,8 +8,8 @@ import { AppText } from "@element/AppText";
 import { AppTextInput } from "@element/AppTextInput";
 import { DebounceButton } from "@element/DebounceButton";
 import { useForceUpdate } from "@hooks/forceUpdate";
-import { BEOTRAN_LOGGER } from "@util/Loger";
-import React, { useContext, useEffect, useRef, useState } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import React, { useContext, useEffect, useState } from "react";
 import { Alert, StyleSheet, View } from "react-native";
 import { PlatFormUsingConnect } from "../../const/Setting";
 import { FontAppType } from "../../const/TypeFontFamily";
@@ -18,22 +19,31 @@ import { SizeRpScreen } from "../../resources/ResponsiveScreen";
 
 export default function Login({ navigation, router }) {
   const { logoApp } = useContext(ContextContainer);
-  const useName = useRef("1");
-  const passWord = useRef("1");
-  console.log("useName", useName);
-  console.log("passWord", passWord);
+  const [userName, setStateUserName] = useState("");
+  const [passWord, setStatePassWord] = useState("");
   const [rememberAccount, setStateRememberAccount] = useState(false);
   const renderNow = useForceUpdate();
 
   useEffect(() => {
-    checkRememberAccount();
-    if (useName.current && passWord.current) {
-      navigateHome();
-    }
+    getAccountRemember();
   }, []);
 
-  const checkRememberAccount = () => {
-    setStateRememberAccount(false);
+  const getAccountRemember = async () => {
+    const accountRemember = JSON.parse(
+      await AsyncStorage.getItem(keyAsyncStorage.accountLogin)
+    );
+    console.log("accountRemember", accountRemember);
+    if (
+      accountRemember &&
+      accountRemember.userName &&
+      accountRemember.passWord &&
+      accountRemember.rememberStatus
+    ) {
+      const { userName, passWord, rememberStatus } = accountRemember;
+      setStateUserName(userName);
+      setStatePassWord(passWord);
+      setStateRememberAccount(rememberStatus);
+    }
   };
 
   const navigateHome = () => {
@@ -44,30 +54,11 @@ export default function Login({ navigation, router }) {
     navigation.navigate(keyNavigation.REGISTER);
   };
 
-  const autoFillAccont = () => {
-    useName.current = "dekapro9x";
-    passWord.current = "123456";
-    renderNow();
-  };
-
-  const autoCleanAccont = () => {
-    useName.current = "";
-    passWord.current = "";
-    renderNow();
-  };
-
-  const onpressCheckBox = (idElementCheckbox, isChecked) => {
-    console.log("sdhajsdjashdj");
-    BEOTRAN_LOGGER(idElementCheckbox, isChecked);
-    if (isChecked) {
-      autoFillAccont();
-      console.log("asdasd");
-    } else {
-      autoCleanAccont();
-    }
+  const onpressCheckBox = ({ idElementCheckbox, isChecked }) => {
     setStateRememberAccount(isChecked);
   };
 
+  //Liên kết bằng tài khoản mạng xã hội:
   const pressConnectUsing = keyConnect => () => {
     console.log("keyConnect", keyConnect);
   };
@@ -75,31 +66,51 @@ export default function Login({ navigation, router }) {
   const onChangeText = (keyState, value) => {
     switch (keyState) {
       case "UserName":
-        useName.current = value;
+        setStateUserName(value);
         break;
       case "Password":
-        passWord.current = value;
+        setStatePassWord(value);
         break;
+    }
+  };
+
+  const checkRememberAccount = async () => {
+    const account = {
+      userName: userName,
+      passWord: passWord,
+      rememberStatus: rememberAccount
+    };
+    if (rememberAccount) {
+      await AsyncStorage.setItem(
+        keyAsyncStorage.accountLogin,
+        JSON.stringify(account),
+        () => {
+          navigateHome();
+        }
+      );
+    } else {
+      await AsyncStorage.removeItem(keyAsyncStorage.accountLogin, () => {
+        navigateHome();
+      });
     }
   };
 
   const pressLogin = () => {
     if (validateAccount()) {
-      navigateHome();
+      checkRememberAccount();
     }
   };
 
   const validateAccount = () => {
-    BEOTRAN_LOGGER(useName.current, passWord.current);
-    if (!useName.current) {
+    if (!userName) {
       Alert.alert("Đăng nhập không chính xác", "Tài khoản là bắt buộc");
       return false;
     }
-    if (!passWord.current) {
+    if (!passWord) {
       Alert.alert("Đăng nhập không chính xác", "Mật khẩu là bắt buộc");
       return false;
     }
-    if (useName.current && passWord.current) {
+    if (userName && passWord) {
       return true;
     }
   };
@@ -157,7 +168,7 @@ export default function Login({ navigation, router }) {
             Discovery Every Thing Around You!
           </AppText>
           <AppTextInput
-            value={useName.current}
+            value={userName}
             useClean={true}
             keyState={"UserName"}
             titleTextInput={"UserName"}
@@ -167,7 +178,7 @@ export default function Login({ navigation, router }) {
             onChangeText={onChangeText}
           />
           <AppTextInput
-            value={passWord.current}
+            value={passWord}
             secureTextEntry={true}
             useClean={true}
             keyState={"Password"}
@@ -185,7 +196,7 @@ export default function Login({ navigation, router }) {
               isCheckbox={rememberAccount}
               idElementCheckbox={"RememberAccount"}
               containerStyle={{
-                backgroundColor: "#781E3A",
+                backgroundColor: white,
                 marginRight: SizeRpScreen.width(12)
               }}
               labelComponent={
@@ -233,7 +244,7 @@ export default function Login({ navigation, router }) {
         </View>
         <DebounceButton
           useLoading={true}
-          useDelay={true}
+          useDelay={false}
           onPress={pressLogin}
           loadingColor="#FFFFFF"
           title={"Login"}

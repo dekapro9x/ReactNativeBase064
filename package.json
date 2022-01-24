@@ -7,7 +7,7 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint .",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "postinstall": "patch-package",
     "resetcache": "yarn start --reset-cache",
     "removeBuildAPK": "./gradlew clean"

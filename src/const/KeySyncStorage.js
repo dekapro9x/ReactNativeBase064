@@ -1,5 +1,6 @@
 const keyAsyncStorage = {
   startAppClick: "startAppClick",
-  agreePolicyClick : "agreePolicyClick"
+  agreePolicyClick : "agreePolicyClick",
+  accountLogin:"accountLogin"
 };
 export { keyAsyncStorage };
