@@ -78,7 +78,7 @@ import com.android.build.OutputFile
  */
 
 project.ext.react = [
-    enableHermes: true,  // react-native-reanimated/plugin
+    enableHermes: false,  // react-native-reanimated/plugin (false=>true)
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"

@@ -11,6 +11,7 @@ import Testview from "./component/TestView";
 
 export default function Home({ navigation, router }) {
   useEffect(() => {
+    console.log("HOMEEEE")
     const unsubscribe = navigation.addListener('focus', () => {
       console.log("Home Screen")
     });
