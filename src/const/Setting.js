@@ -12,7 +12,7 @@ const AppLogo =
 
 const VersionApp = "1.0.0";
 
-const AppLoadingType = LoadingAppType.MeoMeo;
+const AppLoadingType = LoadingAppType.LoadingAnimated;
 
 const PlatFormUsingConnect = [
   {

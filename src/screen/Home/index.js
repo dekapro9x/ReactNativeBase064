@@ -20,6 +20,7 @@ export default function Home({ navigation, router }) {
 
   return (
     <AppContainerScroll
+      haveDrawer
       useLinearGradient={false}
       nameScreen={""}
       goBackScreen={false}

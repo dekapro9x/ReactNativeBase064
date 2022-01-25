@@ -17,6 +17,8 @@ import { black, grey800, white } from "@css/Color";
 import { ContextContainer } from "../context/AppContext";
 import { SizeRpScreen } from "../resources/ResponsiveScreen";
 import { AppText } from "./AppText";
+import { DebounceButton } from "./DebounceButton";
+import { AppIcon } from "./AppIcon";
 
 
 const AppContainer = props => {
@@ -36,7 +38,8 @@ const AppContainer = props => {
     rightHeaderComponent,
     nameScreen,
     warningGoback,
-    textWairning
+    textWairning,
+    haveDrawer = false
   } = props;
   const navigation = useNavigation();
   const { goBack } = navigation;
@@ -88,11 +91,39 @@ const AppContainer = props => {
     }
   };
 
+  const showDrawer = () => {
+    navigation.openDrawer();
+  };
+
+  //Nút mở drawer:
+  const renderTouchShowDrawer = () => {
+    return (
+      <DebounceButton
+        title=""
+        useLoading={false}
+        useDelay={false}
+        onPress={showDrawer}
+        style={{
+          flex:1,
+          width: 65,
+          borderRadius: 0,
+          marginLeft: 6,
+          backgroundColor: colorApp.backgroundColor
+        }}
+      >
+        <AppIcon type={"Ionicons"} name={"menu"} iconSize={26} color={black} />
+      </DebounceButton>
+    );
+  };
+
   //Nút quay lại
   const leftHeader = () => {
     return (
-      <>
-        {goBackScreen ? (
+      <View style={{ flex: 1 }}>
+        {haveDrawer && <View style={{ flex: 1 }}>
+          {renderTouchShowDrawer()}
+        </View>}
+        {goBackScreen &&
           <TouchableOpacity
             disabled={active}
             onPress={onPressGoBack}
@@ -110,10 +141,8 @@ const AppContainer = props => {
             />
             <AppText style={{ fontSize: SizeRpScreen.H5 * 1.2 }}>Back</AppText>
           </TouchableOpacity>
-        ) : (
-          <View style={{ flex: 1 }} />
-        )}
-      </>
+        }
+      </View>
     );
   };
 
