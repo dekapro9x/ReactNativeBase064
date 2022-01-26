@@ -6,7 +6,6 @@ import React, { useCallback, useRef, useState } from "react";
 import { View } from "react-native";
 import HomeScreen from "../screen/Home";
 import { keyNavigation } from "./KeyNavigations";
-
 const DrawerStack = createDrawerNavigator();
 
 function RootStackDrawer({ navigation, router }) {
@@ -16,21 +15,21 @@ function RootStackDrawer({ navigation, router }) {
     useCallback(() => {
       countTimeOut.current = setTimeout(() => {
         setStateIsCanRenderDrawer(true)
-      }, 3000)
+      }, 200)
       return () => {
         setStateIsCanRenderDrawer(false);
+        clearTimeout(countTimeOut.current);
       };
     }, [])
   );
   const drawerContent = () => {
-    console.log("canRenderDrawer>>", canRenderDrawer);
     if (canRenderDrawer) {
       return (
-        <Appdrawer />
+        <Appdrawer canRenderDrawer={canRenderDrawer} />
       )
     }
     return (
-      <View style={{ width: 0, height: 0, backgroundColor: "transparent" }}>
+      <View style={{ backgroundColor: "transparent", flex: 1 }}>
 
       </View>
     )
@@ -45,15 +44,15 @@ function RootStackDrawer({ navigation, router }) {
       lazy={false}
       initialRouteName={keyNavigation.HOME}
       screenOptions={{
-        drawerStyle: {
-          backgroundColor: 'transparent',
-        },
+        drawerStatusBarAnimation: "slide",
         headerShown: false,
         gestureEnabled: false,
         disableSwiping: true
       }}>
-      <DrawerStack.Screen name={keyNavigation.HOME} component={HomeScreen} />
-      <DrawerStack.Screen name={keyNavigation.INFO_DEVICES_AND_APP} component={InfoDevicesApp} />
+      <DrawerStack.Screen
+        name={keyNavigation.HOME} component={HomeScreen} />
+      <DrawerStack.Screen
+        name={keyNavigation.INFO_DEVICES_AND_APP} component={InfoDevicesApp} />
     </DrawerStack.Navigator>
   );
 }

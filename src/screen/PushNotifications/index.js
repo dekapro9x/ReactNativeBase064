@@ -31,7 +31,7 @@ function PushNotifications({ navigation, router }) {
 
     return (
         <AppContainerScrollHeaderAnimated
-            useLinearGradient={true}
+            useLinearGradient={false}
             nameScreen={"Thông báo"}
             goBackScreen={false}
             flexWrapHeader

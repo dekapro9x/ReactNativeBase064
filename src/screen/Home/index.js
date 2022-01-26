@@ -14,6 +14,7 @@ export default function Home({ navigation, router }) {
     console.log("HOMEEEE")
     const unsubscribe = navigation.addListener('focus', () => {
       console.log("Home Screen")
+      navigation.closeDrawer();
     });
     return unsubscribe;
   }, [navigation]);
