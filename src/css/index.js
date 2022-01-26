@@ -6,6 +6,8 @@ const heightElementDefault = 50;
 
 const AppLinearGradient = ["#481E34", "#16192B"]
 
+const iconMenuSize = 32;
+
 const textAppDefault = SizeRpScreen.H5;
 
 const titleAppTextInput = {
@@ -37,6 +39,7 @@ const debounceButtonDefault = {
 }
 
 export {
+    iconMenuSize,
     heightElementDefault,
     textAppDefault,
     appTextInputDefault,

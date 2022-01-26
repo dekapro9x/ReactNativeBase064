@@ -107,7 +107,7 @@ const AppContainerScroll = props => {
           width: 65,
           borderRadius: 0,
           marginLeft: 6,
-          backgroundColor: colorApp.backgroundColor
+          backgroundColor: white
         }}
       >
         <AppIcon type={"Ionicons"} name={"menu"} iconSize={26} color={black} />

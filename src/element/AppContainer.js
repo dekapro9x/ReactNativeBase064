@@ -1,4 +1,5 @@
 //Library:
+import { black, grey800, white } from "@css/Color";
 import { useNavigation } from "@react-navigation/core";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import {
@@ -13,12 +14,11 @@ import {
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import AntDesign from "react-native-vector-icons/AntDesign";
-import { black, grey800, white } from "@css/Color";
 import { ContextContainer } from "../context/AppContext";
 import { SizeRpScreen } from "../resources/ResponsiveScreen";
+import { AppIcon } from "./AppIcon";
 import { AppText } from "./AppText";
 import { DebounceButton } from "./DebounceButton";
-import { AppIcon } from "./AppIcon";
 
 
 const AppContainer = props => {
@@ -104,11 +104,11 @@ const AppContainer = props => {
         useDelay={false}
         onPress={showDrawer}
         style={{
-          flex:1,
+          flex: 1,
           width: 65,
           borderRadius: 0,
           marginLeft: 6,
-          backgroundColor: colorApp.backgroundColor
+          backgroundColor: white
         }}
       >
         <AppIcon type={"Ionicons"} name={"menu"} iconSize={26} color={black} />

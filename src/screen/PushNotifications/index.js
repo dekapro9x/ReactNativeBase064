@@ -1,6 +1,7 @@
+import { AppContainerScrollHeaderAnimated } from "@element/AppContainerScrollHeaderAnimated";
+import { SizeRpScreen } from "@resources/ResponsiveScreen";
 import React, { useEffect, useLayoutEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { AppContainer } from "../../element/AppContainer";
 import { DebounceButton } from "../../element/DebounceButton";
 // import { keyNavigation } from "../../navigation/KeyNavigations";
 
@@ -29,21 +30,22 @@ function PushNotifications({ navigation, router }) {
     };
 
     return (
-        <AppContainer
+        <AppContainerScrollHeaderAnimated
             useLinearGradient={false}
             nameScreen={"Thông báo"}
             goBackScreen={false}
             flexWrapHeader
         >
             {renderContent()}
-        </AppContainer>
+        </AppContainerScrollHeaderAnimated>
     );
 }
 export default React.memo(PushNotifications);
 
 const styles = StyleSheet.create({
     containerContent: {
-        flex: 1,
+        minHeight: SizeRpScreen.device_height * 2,
+        minWidth: SizeRpScreen.device_width,
         alignItems: "center"
     }
 });
