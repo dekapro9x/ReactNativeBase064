@@ -1,15 +1,38 @@
 import MaterialRipple from "@libJS/material-ripple";
+import actions from "@redux/actions";
 import { SizeRpScreen } from '@resources/ResponsiveScreen';
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
-
-const Testview = () => {
+import React, { useEffect } from 'react';
+import { StyleSheet, View, Text } from 'react-native';
+import I18n, { getLanguages } from 'react-native-i18n';
+import { useDispatch } from "react-redux";
+const Testview = ({ languageCurrent }) => {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        getLanguages().then(languages => {
+            console.log(languages); // ['en-US', 'en']
+        });
+    }, [])
+    I18n.fallbacks = true;
+    I18n.translations = {
+        en: {
+            greeting: 'Hi!',
+        },
+        fr: {
+            greeting: 'Bonjour!',
+        },
+    };
+    const dispatchActionsChangeLanguage = async () => {
+        let typeLanguageOnChange = "Eng";
+        console.log("dispatchActionsChangeLanguage");
+        await dispatch(actions.changeLanguages(typeLanguageOnChange));
+    }
     return (
         <View style={{ height: 500, width: SizeRpScreen.device_width, backgroundColor: "red" }}>
             <MaterialRipple
+                onPress={dispatchActionsChangeLanguage}
                 rippleDuration={2400}
                 style={{ flex: 1, width: SizeRpScreen.device_width, alignItems: 'center', justifyContent: 'center' }}>
- 
+                <Text>{I18n.t('greeting')}--- {languageCurrent}</Text>
             </MaterialRipple>
         </View>
     );

@@ -6,19 +6,26 @@ import "react-native-reanimated";
 import { enableScreens } from "react-native-screens";
 import { AppContext } from "./context/AppContext";
 import RootStackNavigations from "./navigation/RootStackNavigations";
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import appReducers from '@redux/reducers';
 enableScreens();
-
+export const store = createStore(
+  appReducers
+)
 function App() {
   return (
-    <AppContext>
-      <NavigationContainer
-        ref={ref => {
-          NavigationService.current = ref;
-        }}
-      >
-        <RootStackNavigations />
-      </NavigationContainer>
-    </AppContext>
+    <Provider store={store}>
+      <AppContext>
+        <NavigationContainer
+          ref={ref => {
+            NavigationService.current = ref;
+          }}
+        >
+          <RootStackNavigations />
+        </NavigationContainer>
+      </AppContext>
+    </Provider>
   );
 }
 
