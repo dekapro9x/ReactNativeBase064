@@ -1,4 +1,3 @@
-import { VersionApp } from "@const/Setting";
 
 const keyNavigation = {
   APP_INTRO: "APP_INTRO",
@@ -10,9 +9,16 @@ const keyNavigation = {
   BASIC_JS: "BASIC_JS",
   BASIC_TS: "BASIC_TS",
   PUSH_NOTIFICATIONS: "PUSH_NOTIFICATIONS",
-  ACCOUNT:"ACCOUNT",
+  ACCOUNT: "ACCOUNT",
+  DISCOVERY: "DISCOVERY",
   INFO_DEVICES_AND_APP: `Thông tin ứng dụng`,
 
+  //Menu khám phá:
+  DISCOVERY_FIREBASE_AUTHEN: "DISCOVERY_FIREBASE_AUTHEN",
+  DISCOVERY_MAP: "DISCOVERY_MAP",
+  DISCOVERY_CALENDAR: "DISCOVERY_CALENDAR",
+  DISCOVERY_CAMERA: "DISCOVERY_CAMERA",
+  DISCOVERY_CHAT: "DISCOVERY_CHAT",
 
   //Root stack:
   ROOT_STACK_BOTTOM: "ROOT_STACK_BOTTOM",
@@ -20,3 +26,4 @@ const keyNavigation = {
 };
 
 export { keyNavigation };
+

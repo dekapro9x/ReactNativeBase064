@@ -1,11 +1,11 @@
-import React from "react";
+import { AppIcon } from "@element/AppIcon";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import Account from "@screen/Account";
+import Discovery from "@screen/Discovery";
+import Pushnotification from "@screen/PushNotifications";
+import React from "react";
 import { keyNavigation } from "./KeyNavigations";
 import { RootStackDrawer } from "./RootStackDrawer";
-import Pushnotification from "@screen/PushNotifications";
-import { white } from "@css/Color";
-import Account from "@screen/Account";
 
 const BottomStack = createMaterialBottomTabNavigator();
 function RootStackBottomTab() {
@@ -23,7 +23,7 @@ function RootStackBottomTab() {
         options={{
           tabBarLabel: "Thông báo",
           tabBarIcon: ({ color }) =>
-            <MaterialCommunityIcons name="bell" color={color} size={26} />
+            <AppIcon type={"MaterialCommunityIcons"} name="bell" color={color} size={26}></AppIcon>
         }}
       />
       <BottomStack.Screen
@@ -32,7 +32,16 @@ function RootStackBottomTab() {
         options={{
           tabBarLabel: "Trang chủ",
           tabBarIcon: ({ color }) =>
-            <MaterialCommunityIcons name="home" color={color} size={26} />
+          <AppIcon type={"MaterialCommunityIcons"} name="home" color={color} size={26}></AppIcon>
+        }}
+      />
+      <BottomStack.Screen
+        name={keyNavigation.DISCOVERY}
+        component={Discovery}
+        options={{
+          tabBarLabel: "Khám phá",
+          tabBarIcon: ({ color }) =>
+          <AppIcon type={"FontAwesome"} name="cc-discover" color={color} size={26}></AppIcon>
         }}
       />
       <BottomStack.Screen
@@ -41,7 +50,7 @@ function RootStackBottomTab() {
         options={{
           tabBarLabel: "Cá nhân",
           tabBarIcon: ({ color }) =>
-            <MaterialCommunityIcons name="account" color={color} size={26} />
+          <AppIcon type={"MaterialCommunityIcons"} name="account" color={color} size={26}></AppIcon>
         }}
       />
 
@@ -50,3 +59,4 @@ function RootStackBottomTab() {
 }
 
 export { RootStackBottomTab };
+
