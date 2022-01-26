@@ -6,7 +6,8 @@ Tạo keystore : https://reactnative.dev/docs/signed-apk-android cd android/app.
 
 2. Bước 2: 
 #  (Chạy quyền ADMIN)
-# keytool -genkey -v -keystore keyStoreRnBase.keystore -alias ReactNativeBase -keyalg RSA -keysize 2048 -validity 10000.
++ cmd Admin =>  cd C:\Program Files\Java\jdk1.8.0_301\bin 
+# keytool -genkey -v -keystore keyStoreRnBase.keystore -alias ReactNativeBase -keyalg RSA -keysize 2048 -validity 10000
 # Lưu ý : Tạo keyStore tại C:\Program Files\Java\jdk1.8.0_301\bin
   Enter keystore password: xuannam12 
   Re-enter new password : xuannam12 
