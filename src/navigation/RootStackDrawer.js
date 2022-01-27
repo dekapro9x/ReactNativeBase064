@@ -41,7 +41,6 @@ function RootStackDrawer({ navigation, router }) {
       swipeEnabled={false}
       gestureEnabled={false}
       drawerContent={drawerContent}
-      lazy={false}
       initialRouteName={keyNavigation.HOME}
       screenOptions={{
         drawerStatusBarAnimation: "slide",

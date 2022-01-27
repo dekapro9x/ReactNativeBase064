@@ -28,7 +28,7 @@ import { DebounceButton } from "./DebounceButton";
 const mapStateToProps = (GlobalState) => {
   const { LanguageReducer } = GlobalState;
   return {
-    languageCurrent: LanguageReducer.language
+    languageCurrent: LanguageReducer.language 
   };
 };
 
