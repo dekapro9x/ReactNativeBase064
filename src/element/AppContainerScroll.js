@@ -110,10 +110,8 @@ const AppContainerScrollView = props => {
   };
 
   const getDataSelect = async (dataSelect) => {
-    console.log("dataSelect", dataSelect);
     const { id, name } = dataSelect[0];
     await dispatch(actions.changeLanguages(name));
-    // dispatchActionsChangeLanguage(name);
   }
 
   //Nút mở drawer:

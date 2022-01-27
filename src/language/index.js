@@ -2,10 +2,12 @@ import I18n from 'react-native-i18n';
 
 import Eng from './i18n/en';
 import Vi from './i18n/vi';
+import China from "./i18n/china";
 
 I18n.translations = {
     Eng,
-    Vi
+    Vi,
+    China
 };
 export const listLanguageSelect = [
     {
@@ -19,6 +21,10 @@ export const listLanguageSelect = [
             {
                 name: 'Eng',
                 id: 2,
+            },
+            {
+                name: 'China',
+                id: 3,
             },
         ],
     },

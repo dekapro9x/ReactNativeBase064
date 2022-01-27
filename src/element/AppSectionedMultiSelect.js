@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import SectionedMultiSelect from 'react-native-sectioned-multi-select';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -9,6 +9,13 @@ const AppSectionedMultiSelect = (props) => {
     const { dataSelect, idSelectedDefault, single, nameDefault, getDataSelect } = props;
     const [selectedItems, setStateSelectedItems] = useState([idSelectedDefault ? idSelectedDefault : 1]);
     const [name, setStateName] = useState(nameDefault);
+    
+    useEffect(() => {
+        setStateName(nameDefault);
+        return () => {
+        };
+    }, [nameDefault]);
+
     const onSelectedItemsChange = (selectedItemsID) => {
         setStateSelectedItems(selectedItemsID);
     };

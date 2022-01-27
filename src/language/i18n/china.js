@@ -1,0 +1,10 @@
+export default {
+    'greeting': '嗨!',
+    'home': '家',
+    'contact': '接觸',
+    'setting': '設置',
+    'this-is-home-page': '這是主頁',
+    'this-is-contact-page': '這是聯繫頁面',
+    'this-is-setting-page': '這是設置頁面',
+    'set-language': '切換語言'
+};
