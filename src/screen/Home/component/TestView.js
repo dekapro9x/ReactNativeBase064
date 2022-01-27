@@ -5,6 +5,7 @@ import React, { useEffect } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import I18n, { getLanguages } from 'react-native-i18n';
 import { useDispatch } from "react-redux";
+import {AppTextLanguageI18n} from "@element/AppTextLanguageI18n";
 const Testview = ({ languageCurrent }) => {
     const dispatch = useDispatch();
     useEffect(() => {

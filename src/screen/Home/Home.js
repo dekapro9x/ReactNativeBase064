@@ -22,6 +22,7 @@ export default function Home(props) {
 
   return (
     <AppContainerScroll
+      opitonsLanguage={true}
       haveDrawer
       useLinearGradient={false}
       nameScreen={""}

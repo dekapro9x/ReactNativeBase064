@@ -10,7 +10,8 @@ import {
   StatusBar,
   StyleSheet,
   TouchableOpacity,
-  View
+  View,
+  Picker
 } from "react-native";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import LinearGradient from "react-native-linear-gradient";
@@ -20,9 +21,25 @@ import { SizeRpScreen } from "../resources/ResponsiveScreen";
 import { AppText } from "./AppText";
 import { DebounceButton } from "./DebounceButton";
 import { AppIcon } from "./AppIcon";
+import { connect } from "react-redux";
 
-const AppContainerScroll = props => {
+const mapStateToProps = (state) => {
+  console.log("State App AppContainerScrollView", state);
+  const { LanguageReducer } = state;
+  return {
+    languageCurrent: LanguageReducer.language
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+
+  };
+};
+
+const AppContainerScrollView = props => {
   const { logoApp, colorApp, linearGradientApp } = useContext(ContextContainer);
+  const [selectedValue, setSelectedValue] = useState("java");
   const animation = useRef(new Animated.Value(0));
   const spin = animation.current.interpolate({
     inputRange: [0, 1],
@@ -39,7 +56,8 @@ const AppContainerScroll = props => {
     nameScreen,
     warningGoback,
     textWairning,
-    haveDrawer = false
+    haveDrawer = false,
+    opitonsLanguage = false
   } = props;
   const navigation = useNavigation();
   const { goBack } = navigation;
@@ -103,7 +121,7 @@ const AppContainerScroll = props => {
         useDelay={false}
         onPress={showDrawer}
         style={{
-          flex:1,
+          flex: 1,
           width: 65,
           borderRadius: 0,
           marginLeft: 6,
@@ -120,7 +138,19 @@ const AppContainerScroll = props => {
     return (
       <View style={{ flex: 1 }}>
         {haveDrawer && <View style={{ flex: 1 }}>
-          {renderTouchShowDrawer()}
+          <View style={{ flexDirection: "row" }}>
+            {renderTouchShowDrawer()}
+            {opitonsLanguage && <View style={{ flex: 1, backgroundColor: "green" }}>
+              <Picker
+                selectedValue={selectedValue}
+                style={{ height: 50, width: 150 }}
+                onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+              >
+                <Picker.Item label="Java" value="java" />
+                <Picker.Item label="JavaScript" value="js" />
+              </Picker>
+            </View>}
+          </View>
         </View>}
         {goBackScreen &&
           <TouchableOpacity
@@ -250,5 +280,6 @@ const styles = StyleSheet.create({
     flex: 1
   }
 });
+const AppContainerScroll = connect(mapStateToProps, mapDispatchToProps)(AppContainerScrollView);
 export { AppContainerScroll };
 
