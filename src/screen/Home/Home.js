@@ -12,7 +12,6 @@ import Testview from "./component/TestView";
 export default function Home(props) {
   const { navigation, router } = props;
   const { languageCurrent } = props;
-  console.log("languageCurrent", languageCurrent);
   useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
       navigation.closeDrawer();

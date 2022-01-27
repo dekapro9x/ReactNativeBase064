@@ -2,12 +2,12 @@ import MaterialRipple from "@libJS/material-ripple";
 import actions from "@redux/actions";
 import { SizeRpScreen } from '@resources/ResponsiveScreen';
 import React, { useEffect } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import I18n, { getLanguages } from 'react-native-i18n';
 import { useDispatch } from "react-redux";
-import {AppTextLanguageI18n} from "@element/AppTextLanguageI18n";
 const Testview = ({ languageCurrent }) => {
     const dispatch = useDispatch();
+    console.log("languageCurrent", languageCurrent);
     useEffect(() => {
         getLanguages().then(languages => {
             console.log(languages); // ['en-US', 'en']

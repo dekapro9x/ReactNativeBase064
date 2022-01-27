@@ -1,5 +1,8 @@
 //Library:
+import { black, grey800, white } from "@css/Color";
+import { listLanguageSelect } from "@language/";
 import { useNavigation } from "@react-navigation/core";
+import actions from "@redux/actions";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import {
   Alert,
@@ -10,36 +13,28 @@ import {
   StatusBar,
   StyleSheet,
   TouchableOpacity,
-  View,
-  Picker
+  View
 } from "react-native";
-import AntDesign from "react-native-vector-icons/AntDesign";
 import LinearGradient from "react-native-linear-gradient";
-import { black, grey800, white } from "@css/Color";
+import AntDesign from "react-native-vector-icons/AntDesign";
+import { connect, useDispatch } from "react-redux";
 import { ContextContainer } from "../context/AppContext";
 import { SizeRpScreen } from "../resources/ResponsiveScreen";
+import { AppIcon } from "./AppIcon";
+import AppSectionedMultiSelect from "./AppSectionedMultiSelect";
 import { AppText } from "./AppText";
 import { DebounceButton } from "./DebounceButton";
-import { AppIcon } from "./AppIcon";
-import { connect } from "react-redux";
 
-const mapStateToProps = (state) => {
-  console.log("State App AppContainerScrollView", state);
-  const { LanguageReducer } = state;
+const mapStateToProps = (GlobalState) => {
+  const { LanguageReducer } = GlobalState;
   return {
     languageCurrent: LanguageReducer.language
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-
-  };
-};
-
 const AppContainerScrollView = props => {
-  const { logoApp, colorApp, linearGradientApp } = useContext(ContextContainer);
-  const [selectedValue, setSelectedValue] = useState("java");
+  const { logoApp, colorApp, linearGradientApp, } = useContext(ContextContainer);
+  const { languageCurrent } = props;
   const animation = useRef(new Animated.Value(0));
   const spin = animation.current.interpolate({
     inputRange: [0, 1],
@@ -63,6 +58,8 @@ const AppContainerScrollView = props => {
   const { goBack } = navigation;
   const timeCountActive = useRef(0);
   const [active, setActive] = useState(false);
+  const dispatch = useDispatch();
+
   useEffect(() => {
     startAnimation();
     return () => {
@@ -74,7 +71,7 @@ const AppContainerScrollView = props => {
     animation.current.setValue(0);
     Animated.timing(animation.current, {
       toValue: 1,
-      duration: 5000,
+      duration: 2000,
       useNativeDriver: true,
       easing: Easing.linear,
     }).start(startAnimation);
@@ -112,6 +109,13 @@ const AppContainerScrollView = props => {
     navigation.openDrawer();
   };
 
+  const getDataSelect = async (dataSelect) => {
+    console.log("dataSelect", dataSelect);
+    const { id, name } = dataSelect[0];
+    await dispatch(actions.changeLanguages(name));
+    // dispatchActionsChangeLanguage(name);
+  }
+
   //Nút mở drawer:
   const renderTouchShowDrawer = () => {
     return (
@@ -140,16 +144,15 @@ const AppContainerScrollView = props => {
         {haveDrawer && <View style={{ flex: 1 }}>
           <View style={{ flexDirection: "row" }}>
             {renderTouchShowDrawer()}
-            {opitonsLanguage && <View style={{ flex: 1, backgroundColor: "green" }}>
-              <Picker
-                selectedValue={selectedValue}
-                style={{ height: 50, width: 150 }}
-                onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-              >
-                <Picker.Item label="Java" value="java" />
-                <Picker.Item label="JavaScript" value="js" />
-              </Picker>
-            </View>}
+            {opitonsLanguage &&
+              <AppSectionedMultiSelect
+                getDataSelect={getDataSelect}
+                nameDefault={languageCurrent ? `${languageCurrent}` : ""}
+                single={true}
+                idSelectedDefault={1}
+                dataSelect={listLanguageSelect}>
+              </AppSectionedMultiSelect>
+            }
           </View>
         </View>}
         {goBackScreen &&
@@ -280,6 +283,6 @@ const styles = StyleSheet.create({
     flex: 1
   }
 });
-const AppContainerScroll = connect(mapStateToProps, mapDispatchToProps)(AppContainerScrollView);
+const AppContainerScroll = connect(mapStateToProps)(AppContainerScrollView);
 export { AppContainerScroll };
 

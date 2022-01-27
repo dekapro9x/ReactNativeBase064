@@ -1,9 +1,8 @@
 import { connect } from "react-redux";
 import Home from "./Home";
 
-const mapStateToProps = (state) => {
-  console.log("State App", state);
-  const { LanguageReducer } = state;
+const mapStateToProps = (GlobalState) => {
+  const { LanguageReducer } = GlobalState;
   return {
     languageCurrent: LanguageReducer.language
   };

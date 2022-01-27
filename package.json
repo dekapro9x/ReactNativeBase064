@@ -10,6 +10,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.JSON",
     "postinstall": "patch-package",
     "runclean": "yarn start --reset-cache",
+    "r":"yarn start --reset-cache",
     "removeBuildAPK": "./gradlew clean"
   },
   "dependencies": {
@@ -46,6 +47,7 @@
     "react-native-localize": "^2.1.7",
     "react-native-modal": "^13.0.0",
     "react-native-modal-datetime-picker": "^13.0.1",
+    "react-native-modal-selector": "^2.1.0",
     "react-native-paper": "^4.11.1",
     "react-native-permissions": "^3.2.0",
     "react-native-progress": "^5.0.0",
@@ -54,6 +56,7 @@
     "react-native-responsive-screen": "^1.4.2",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.10.1",
+    "react-native-sectioned-multi-select": "^0.9.1",
     "react-native-svg": "^12.1.1",
     "react-native-vector-icons": "^9.0.0",
     "react-redux": "^7.2.6",
