@@ -1,18 +1,14 @@
-import { FontAppType } from '@const/TypeFontFamily';
 import { ContextContainer } from '@context/AppContext';
 import { white } from '@css/Color';
-import { AppIcon } from '@element/AppIcon';
-import { AppText } from '@element/AppText';
 import { keyNavigation } from '@navigation/KeyNavigations';
 import { SizeRpScreen } from '@resources/ResponsiveScreen';
-import { navigate, push } from '@services/NavigationService';
+import { push } from '@services/NavigationService';
 import React, { useContext } from 'react';
-import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 
 export default function HomeMenu({ navigation }) {
   const { colorApp } = useContext(ContextContainer);
   const navigateToScreen = () => {
-    // navigation.navigate(keyNavigation.BASIC_TS);
     push(keyNavigation.BASIC_TS);
   };
   return (

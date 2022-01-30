@@ -24,11 +24,12 @@ import { AppIcon } from "./AppIcon";
 import AppSectionedMultiSelect from "./AppSectionedMultiSelect";
 import { AppText } from "./AppText";
 import { DebounceButton } from "./DebounceButton";
-
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { keyAsyncStorage } from "@const/KeySyncStorage";
 const mapStateToProps = (GlobalState) => {
   const { LanguageReducer } = GlobalState;
   return {
-    languageCurrent: LanguageReducer.language 
+    languageCurrent: LanguageReducer.language
   };
 };
 
@@ -109,9 +110,11 @@ const AppContainerScrollView = props => {
     navigation.openDrawer();
   };
 
-  const getDataSelect = async (dataSelect) => {
+  const onChangeLanguage = async (dataSelect) => {
     const { id, name } = dataSelect[0];
     await dispatch(actions.changeLanguages(name));
+    await AsyncStorage.setItem(keyAsyncStorage.language, name);
+
   }
 
   //Nút mở drawer:
@@ -144,7 +147,7 @@ const AppContainerScrollView = props => {
             {renderTouchShowDrawer()}
             {opitonsLanguage &&
               <AppSectionedMultiSelect
-                getDataSelect={getDataSelect}
+                getDataSelect={onChangeLanguage}
                 nameDefault={languageCurrent ? `${languageCurrent}` : ""}
                 single={true}
                 idSelectedDefault={1}

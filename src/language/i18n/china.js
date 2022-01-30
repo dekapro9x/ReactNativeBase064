@@ -1,6 +1,9 @@
 export default {
     'greeting': '嗨!',
     'home': '家',
+    "notifications": "通知",
+    "discovery": '發現',
+    "account": "我的帳戶",
     'contact': '接觸',
     'setting': '設置',
     'this-is-home-page': '這是主頁',

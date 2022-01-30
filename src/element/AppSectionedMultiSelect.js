@@ -7,11 +7,12 @@ import { AppText } from "./AppText";
 
 const AppSectionedMultiSelect = (props) => {
     const { dataSelect, idSelectedDefault, single, nameDefault, getDataSelect } = props;
-    const [selectedItems, setStateSelectedItems] = useState([idSelectedDefault ? idSelectedDefault : 1]);
+    const [selectedItems, setStateSelectedItems] = useState([idSelectedDefault ? idSelectedDefault : 1]); //default type: [1,2,3]
     const [name, setStateName] = useState(nameDefault);
-    
     useEffect(() => {
+        const indexSelect = dataSelect[0].children.findIndex(item => item.name == nameDefault);
         setStateName(nameDefault);
+        setStateSelectedItems([indexSelect + 1])
         return () => {
         };
     }, [nameDefault]);

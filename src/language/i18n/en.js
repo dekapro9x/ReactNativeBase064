@@ -1,6 +1,9 @@
 export default {
     'greeting': 'Hi!',
     'home': 'Home',
+    "notifications": "Notifications",
+    "discovery": 'Discovery',
+    "account": "Account",
     'contact': 'Contact',
     'setting': 'Setting',
     'this-is-home-page': 'This is home page',

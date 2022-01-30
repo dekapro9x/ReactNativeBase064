@@ -4,11 +4,23 @@ import Account from "@screen/Account";
 import Discovery from "@screen/Discovery";
 import Pushnotification from "@screen/PushNotifications";
 import React from "react";
+import I18n from 'react-native-i18n';
+import { connect } from "react-redux";
 import { keyNavigation } from "./KeyNavigations";
 import { RootStackDrawer } from "./RootStackDrawer";
-
 const BottomStack = createMaterialBottomTabNavigator();
-function RootStackBottomTab() {
+const mapStateToProps = (GlobalState) => {
+  const { LanguageReducer } = GlobalState;
+  return {
+    languageCurrent: LanguageReducer.language
+  };
+};
+
+function RootStackBottomTabBase(props) {
+  const { languageCurrent } = props;
+  console.log("languageCurrent", languageCurrent);
+  const { translations } = I18n;
+  console.log("translations", translations);
   return (
     <BottomStack.Navigator
       lazy={true}
@@ -21,7 +33,7 @@ function RootStackBottomTab() {
         name={keyNavigation.PUSH_NOTIFICATIONS}
         component={Pushnotification}
         options={{
-          tabBarLabel: "Thông báo",
+          tabBarLabel: translations[languageCurrent]?.notifications,
           tabBarIcon: ({ color }) =>
             <AppIcon type={"MaterialCommunityIcons"} name="bell" color={color} size={26}></AppIcon>
         }}
@@ -30,33 +42,33 @@ function RootStackBottomTab() {
         name={keyNavigation.ROOT_STACK_DRAWER}
         component={RootStackDrawer}
         options={{
-          tabBarLabel: "Trang chủ",
+          tabBarLabel: translations[languageCurrent]?.home,
           tabBarIcon: ({ color }) =>
-          <AppIcon type={"MaterialCommunityIcons"} name="home" color={color} size={26}></AppIcon>
+            <AppIcon type={"MaterialCommunityIcons"} name="home" color={color} size={26}></AppIcon>
         }}
       />
       <BottomStack.Screen
         name={keyNavigation.DISCOVERY}
         component={Discovery}
         options={{
-          tabBarLabel: "Khám phá",
+          tabBarLabel: translations[languageCurrent]?.discovery,
           tabBarIcon: ({ color }) =>
-          <AppIcon type={"FontAwesome"} name="cc-discover" color={color} size={26}></AppIcon>
+            <AppIcon type={"FontAwesome"} name="cc-discover" color={color} size={26}></AppIcon>
         }}
       />
       <BottomStack.Screen
         name={keyNavigation.ACCOUNT}
         component={Account}
         options={{
-          tabBarLabel: "Cá nhân",
+          tabBarLabel: translations[languageCurrent]?.account,
           tabBarIcon: ({ color }) =>
-          <AppIcon type={"MaterialCommunityIcons"} name="account" color={color} size={26}></AppIcon>
+            <AppIcon type={"MaterialCommunityIcons"} name="account" color={color} size={26}></AppIcon>
         }}
       />
-
     </BottomStack.Navigator>
   );
 }
+const RootStackBottomTab = connect(mapStateToProps, null)(RootStackBottomTabBase);
 
 export { RootStackBottomTab };
 

@@ -9,6 +9,7 @@ import RootStackNavigations from "./navigation/RootStackNavigations";
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import appReducers from '@redux/reducers';
+
 enableScreens();
 export const store = createStore(
   appReducers

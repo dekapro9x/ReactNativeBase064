@@ -4,19 +4,19 @@ import actions from "@redux/actions";
 import { SizeRpScreen } from '@resources/ResponsiveScreen';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { connect, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 const Testview = ({ languageCurrent }) => {
     const dispatch = useDispatch();
     const test = async () => {
-        await dispatch(actions.changeLanguages("Eng"))
+        await dispatch(actions.changeLanguages("Vi"))
     }
     return (
-        <View style={{ height: 500, width: SizeRpScreen.device_width, backgroundColor: "red" }}>
+        <View style={{ height: 50, width: SizeRpScreen.device_width, backgroundColor: "red" }}>
             <MaterialRipple
                 onPress={test}
                 rippleDuration={2400}
                 style={{ flex: 1, width: SizeRpScreen.device_width, alignItems: 'center', justifyContent: 'center' }}>
-                <AppTextLanguageI18n i18nKey={"greeting"} />
+                <AppTextLanguageI18n style={{fontSize:25}} i18nKey={"greeting"} />
             </MaterialRipple>
         </View>
     );

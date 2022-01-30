@@ -1,6 +1,9 @@
 export default {
     'greeting': 'Xin chào!',
     'home': 'Trang chủ',
+    "notifications": "Thông báo",
+    "discovery": 'Khám phá',
+    "account": "Cá nhân",
     'contact': 'Liên hệ',
     'setting': 'Cài đặt',
     'this-is-home-page': 'Đây là trang chủ',
