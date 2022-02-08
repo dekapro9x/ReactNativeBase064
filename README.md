@@ -57,3 +57,9 @@ src
 ├───services
 ├───sql
 └───util
+
++ Tính năng code trên mỗi nhánh future => merge vào Dev
++ Dev run không lỗi merge vào Root + version build lên 1 + note.
+=> Build APK.
+
+Bản 1.0.1: Cấu hình đa ngôn ngữ.
