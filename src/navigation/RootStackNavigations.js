@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { keyNavigation } from "./KeyNavigations";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { randomAnimationsScreen } from "@util/RandomValueHandleActions";
 
 //Danh sách element ref:
@@ -13,15 +14,26 @@ import AppIntroScreen from "../screen/AppIntro";
 import LoginScreen from "../screen/Login";
 import PolicyScreen from "../screen/Policy";
 //Stack Bottom Tab Menu Home:
-import {RootStackBottomTab} from "./RootStackBottomTab";
+import { RootStackBottomTab } from "./RootStackBottomTab";
 
 //Màn Basic:
 import BasicJsScreen from "../screen/BasicJS";
 import BasicTsScreen from "../screen/BasicTS";
-
+import { useDispatch } from 'react-redux';
+import actions from "@redux/actions";
+import { keyAsyncStorage } from "@const/KeySyncStorage";
 const RootStack = createNativeStackNavigator();
 export default RootNavigations = () => {
-
+  const dispatch = useDispatch();
+  useEffect(() => {
+    languageSetup();
+    return () => {
+    };
+  }, []);
+  const languageSetup = async () => {
+    const languageCurrent = await AsyncStorage.getItem(keyAsyncStorage.language);
+    await dispatch(actions.changeLanguages(languageCurrent));
+  }
   return (
     <>
       <RootStack.Navigator
