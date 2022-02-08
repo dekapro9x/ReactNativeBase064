@@ -1,3 +1,4 @@
+import { LanguageAppType } from "@const/TypeLanguage";
 import { AppIcon } from "@element/AppIcon";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import Account from "@screen/Account";
@@ -6,6 +7,9 @@ import Pushnotification from "@screen/PushNotifications";
 import React from "react";
 import I18n from 'react-native-i18n';
 import { connect } from "react-redux";
+import China from "../language/i18n/china";
+import Eng from "../language/i18n/en";
+import Vi from "../language/i18n/vi";
 import { keyNavigation } from "./KeyNavigations";
 import { RootStackDrawer } from "./RootStackDrawer";
 const BottomStack = createMaterialBottomTabNavigator();
@@ -17,10 +21,20 @@ const mapStateToProps = (GlobalState) => {
 };
 
 function RootStackBottomTabBase(props) {
-  const { languageCurrent } = props;
-  console.log("languageCurrent", languageCurrent);
   const { translations } = I18n;
-  console.log("translations", translations);
+  const { languageCurrent } = props;
+
+  const setTextInit = () => {
+    switch (languageCurrent) {
+      case LanguageAppType.vi:
+        return Vi.home
+      case LanguageAppType.en:
+        return Eng.home
+      case LanguageAppType.chi:
+        return China.home
+    }
+  }
+
   return (
     <BottomStack.Navigator
       lazy={true}
@@ -28,7 +42,6 @@ function RootStackBottomTabBase(props) {
       activeColor="#D53546"
       barStyle={{ backgroundColor: "#E5E5E5" }}
     >
-
       <BottomStack.Screen
         name={keyNavigation.PUSH_NOTIFICATIONS}
         component={Pushnotification}
@@ -42,7 +55,7 @@ function RootStackBottomTabBase(props) {
         name={keyNavigation.ROOT_STACK_DRAWER}
         component={RootStackDrawer}
         options={{
-          tabBarLabel: translations[languageCurrent]?.home,
+          tabBarLabel: translations[languageCurrent]?.home || setTextInit(),
           tabBarIcon: ({ color }) =>
             <AppIcon type={"MaterialCommunityIcons"} name="home" color={color} size={26}></AppIcon>
         }}

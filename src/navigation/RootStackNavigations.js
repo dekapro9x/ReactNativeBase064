@@ -22,6 +22,7 @@ import BasicTsScreen from "../screen/BasicTS";
 import { useDispatch } from 'react-redux';
 import actions from "@redux/actions";
 import { keyAsyncStorage } from "@const/KeySyncStorage";
+import { LanguageAppType } from "@const/TypeLanguage";
 const RootStack = createNativeStackNavigator();
 export default RootNavigations = () => {
   const dispatch = useDispatch();
@@ -32,6 +33,10 @@ export default RootNavigations = () => {
   }, []);
   const languageSetup = async () => {
     const languageCurrent = await AsyncStorage.getItem(keyAsyncStorage.language);
+    if (!languageCurrent) {
+      languageCurrent = LanguageAppType.en
+      await AsyncStorage.setItem(keyAsyncStorage.language, LanguageAppType.en);
+    }
     await dispatch(actions.changeLanguages(languageCurrent));
   }
   return (

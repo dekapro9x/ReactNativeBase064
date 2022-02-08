@@ -3,6 +3,7 @@ import I18n from 'react-native-i18n';
 import Eng from './i18n/en';
 import Vi from './i18n/vi';
 import China from "./i18n/china";
+import { LanguageAppType } from '@const/TypeLanguage';
 
 I18n.translations = {
     Eng,
@@ -15,15 +16,15 @@ export const listLanguageSelect = [
         id: 0,
         children: [
             {
-                name: 'Vi',
+                name: LanguageAppType.vi,
                 id: 1,
             },
             {
-                name: 'Eng',
+                name: LanguageAppType.en,
                 id: 2,
             },
             {
-                name: 'China',
+                name: LanguageAppType.chi,
                 id: 3,
             },
         ],
