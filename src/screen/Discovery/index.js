@@ -1,7 +1,6 @@
 import React, { useEffect, useLayoutEffect } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { AppContainer } from "../../element/AppContainer";
-import { DebounceButton } from "../../element/DebounceButton";
 import Menudiscovery from "./component/MenuDiscovery";
 // import { keyNavigation } from "../../navigation/KeyNavigations";
 
@@ -20,12 +19,6 @@ function Discovery({ navigation, router }) {
         return (
             <View style={[styles.containerContent]}>
                 <Menudiscovery></Menudiscovery>
-                {/* <Text>Basic JS Screen</Text>
-                <DebounceButton
-                    useLoading={false}
-                    useDelay={false}
-                    onPress={navigateAppIntro}
-                /> */}
             </View>
         );
     };

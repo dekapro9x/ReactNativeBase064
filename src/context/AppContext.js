@@ -16,7 +16,7 @@ const AppContext = props => {
     }
   });
   //Set cấu hình App:
-  const setAppData = dataConfigNew => {
+  const setAppData = (dataConfigNew) => {
     if (validateStructDataConfig(dataConfigNew)) {
       setStateAppData(dataConfigNew);
     } else {

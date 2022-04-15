@@ -239,6 +239,11 @@ task copyDownloadableDepsToLibs(type: Copy) {
     into 'libs'
 }
 
+//Fix bug Task 'wrapper' not found in project ':app'.
+task wrapper(type: Wrapper){
+   gradleVersion = '7.2'
+}
+
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
 project.ext.vectoricons = [
     iconFontNames: [ 'MaterialIcons.ttf', 'EvilIcons.ttf' ] // Name of the font files you want to copy

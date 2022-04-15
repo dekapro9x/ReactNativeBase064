@@ -3,7 +3,6 @@ import { SizeRpScreen } from "@resources/ResponsiveScreen";
 import React, { useEffect, useLayoutEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { DebounceButton } from "../../element/DebounceButton";
-// import { keyNavigation } from "../../navigation/KeyNavigations";
 
 function PushNotifications({ navigation, router }) {
     useLayoutEffect(() => {
@@ -13,18 +12,12 @@ function PushNotifications({ navigation, router }) {
     useEffect(() => { }, []);
 
     const navigateAppIntro = () => {
-        // navigation.navigate(keyNavigation.APP_INTRO);
     };
 
     const renderContent = () => {
         return (
             <View style={[styles.containerContent]}>
-                <Text>Basic JS Screen</Text>
-                <DebounceButton
-                    useLoading={false}
-                    useDelay={false}
-                    onPress={navigateAppIntro}
-                />
+               
             </View>
         );
     };
@@ -32,7 +25,7 @@ function PushNotifications({ navigation, router }) {
     return (
         <AppContainerScrollHeaderAnimated
             useLinearGradient={false}
-            nameScreen={"Thông báo"}
+            nameScreen={"THÔNG BÁO"}
             goBackScreen={false}
             flexWrapHeader
         >

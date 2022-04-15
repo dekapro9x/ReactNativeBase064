@@ -13,12 +13,17 @@ const Menudiscovery = () => {
     const renderHeaderFlatList = () => {
 
     }
-    const renderItemMenu = ({ item, index }) => {
-        console.log("DAnh sách menu:", item, index);
-        return (
-            <TouchableOpacity style={{ height: SizeRpScreen.device_height * 0.12, width: SizeRpScreen.device_width / 2 - 10, backgroundColor: white, margin: 5, borderWidth: SizeRpScreen.device_width * 0.01, borderColor: green400, borderRadius: 12, alignItems: "center", justifyContent: "center" }}>
-                <AppIcon type = {item.iconType} name ={item.iconName} color ={item.iconColor} iconSize ={item.iconSizeMenu}>
 
+    const navigateToScreen = (item) => () => {
+        console.log("item Click", item);
+    }
+
+    const renderItemMenu = ({ item, index }) => {
+        return (
+            <TouchableOpacity
+                onPress={navigateToScreen(item)}
+                style={{ height: SizeRpScreen.device_height * 0.12, width: SizeRpScreen.device_width / 2 - 10, backgroundColor: white, margin: 5, borderWidth: SizeRpScreen.device_width * 0.01, borderColor: green400, borderRadius: 12, alignItems: "center", justifyContent: "center" }}>
+                <AppIcon type={item.iconType} name={item.iconName} color={item.iconColor} iconSize={item.iconSizeMenu}>
                 </AppIcon>
                 <AppText style={{ fontSize: 16 }}>{item.title}</AppText>
             </TouchableOpacity>

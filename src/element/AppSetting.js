@@ -6,6 +6,7 @@ import { ContextContainer } from "../context/AppContext";
 import { SizeRpScreen } from "../resources/ResponsiveScreen";
 import ServiceAppAlertModal from "../services/ServiceAppModalContent";
 import { DebounceButton } from "./DebounceButton";
+import { keyAsyncStorage } from "@const/KeySyncStorage";
 LogBox.ignoreLogs(["Warning: ..."]);
 LogBox.ignoreAllLogs();
 
@@ -14,20 +15,24 @@ export function AppSetting() {
   const settingBackGround = () => {
     return (
       <ColorPicker
-        onColorSelected={colorSelect => {
-          const defineDataConfigNew = {
-            ...appData,
-            colorApp: {
-              backgroundColor: colorSelect
-            }
-          };
-          ServiceAppAlertModal.hideModal();
-          setAppData(defineDataConfigNew);
-        }}
-        style={{ flex: 1 , backgroundColor:"white"}}
+        onColorSelected={colorSelect => { setDataNewConfigApp(colorSelect) }}
+        style={{ flex: 1, backgroundColor: "white" }}
       />
     );
   };
+
+  const setDataNewConfigApp = async (colorSelect) => {
+    const defineDataConfigNew = {
+      ...appData,
+      colorApp: {
+        backgroundColor: colorSelect
+      }
+    };
+    ServiceAppAlertModal.hideModal();
+    const dataConfigNewSave = JSON.stringify(defineDataConfigNew);
+    await AsyncStorage.setItem(keyAsyncStorage.applicationConfiguration, dataConfigNewSave);
+    setAppData(defineDataConfigNew);
+  }
 
   const pressRemoveDataLocal = () => {
     Alert.alert(
