@@ -256,7 +256,6 @@ const AppContainerScrollHeaderAnimated = props => {
                                 setHeaderShown(false);
                             }
                         }}
-                        // onScroll will be fired every 16ms
                         scrollEventThrottle={16}
                     >
                         {children}
@@ -273,7 +272,6 @@ const AppContainerScrollHeaderAnimated = props => {
                                 setHeaderShown(false);
                             }
                         }}
-                        // onScroll will be fired every 16ms
                         scrollEventThrottle={16}
                     >
                         {children}

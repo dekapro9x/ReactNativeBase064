@@ -29,14 +29,15 @@ export default function Home(props) {
       flexWrapHeader
       rightHeaderComponent={<RightHeaderComponent navigation={navigation} />}>
       <View style={[styles.container]}>
-        <DateAndWeather navigation={navigation} />
         <View style={styles.containerBanner}>
-          <BannerHome></BannerHome>
+          <BannerHome />
         </View>
-        <ViewLoadingContainerHOC isLoading={false}>
+        <ViewLoadingContainerHOC
+          style={{ alignItems: 'center' }}
+          isLoading={false}>
+          <DateAndWeather navigation={navigation} />
           <HomeMenu navigation={navigation} />
         </ViewLoadingContainerHOC>
-        <Testview languageCurrent={languageCurrent}></Testview>
       </View>
     </AppContainerScroll>
   );
@@ -45,7 +46,6 @@ export default function Home(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
     height: SizeRpScreen.height(100) * 2
   },
   containerBanner: {

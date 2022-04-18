@@ -1,56 +1,44 @@
-import { AppContainer } from "@element/AppContainer";
-import React, { FunctionComponent } from "react";
-import { StyleSheet, View } from "react-native";
+import { AppContainerScrollHeaderAnimated } from "@element/AppContainerScrollHeaderAnimated";
+import { SizeRpScreen } from "@resources/ResponsiveScreen";
+import React, { useEffect, useLayoutEffect } from "react";
+import { StyleSheet, Text, View } from "react-native";
+import { DebounceButton } from "../../element/DebounceButton";
 
-const News: FunctionComponent = (props: any) => {
-  const renderContent = () => {
+function News({ navigation, router }) {
+    useLayoutEffect(() => {
+        return () => { };
+    }, []);
+
+    useEffect(() => { }, []);
+
+    const navigateAppIntro = () => {
+    };
+
+    const renderContent = () => {
+        return (
+            <View style={[styles.containerContent]}>
+               
+            </View>
+        );
+    };
+
     return (
-      <View style={{ flex: 1 }}></View>
-    )
-  }
-
-  return (
-    <AppContainer
-      useLinearGradient={false}
-      nameScreen={"BẢNG TIN"}
-      goBackScreen={false}
-      flexWrapHeader = {true}
-    >
-      {renderContent()}
-    </AppContainer>
-  )
-};
+        <AppContainerScrollHeaderAnimated
+            useLinearGradient={false}
+            nameScreen={"BẢNG TIN"}
+            goBackScreen={false}
+            flexWrapHeader
+        >
+            {renderContent()}
+        </AppContainerScrollHeaderAnimated>
+    );
+}
+export default React.memo(News);
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  content: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginHorizontal: 64,
-  },
-  textPlatForm: {
-    color: "white",
-    fontSize: 20,
-    fontWeight: "bold",
-    backgroundColor: "#433A45",
-    paddingLeft: 6,
-  },
-  viewLogo: {
-    flexDirection: "row",
-    justifyContent: "center",
-    width: "100%",
-  },
-  viewAppName: {
-    justifyContent: "center",
-  },
-  textAppName: {
-    color: "white",
-    fontSize: 30,
-    fontWeight: "bold",
-  },
+    containerContent: {
+        minHeight: SizeRpScreen.device_height * 2,
+        minWidth: SizeRpScreen.device_width,
+        alignItems: "center"
+    }
 });
-
-export default News;

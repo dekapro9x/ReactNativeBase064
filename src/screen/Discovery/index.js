@@ -1,7 +1,7 @@
 import React, { useEffect, useLayoutEffect } from "react";
 import { StyleSheet, View } from "react-native";
 import { AppContainer } from "../../element/AppContainer";
-import Menudiscovery from "./component/MenuDiscovery";
+import MenuDiscovery from "./component/MenuDiscovery";
 // import { keyNavigation } from "../../navigation/KeyNavigations";
 
 function Discovery({ navigation, router }) {
@@ -18,7 +18,7 @@ function Discovery({ navigation, router }) {
     const renderContent = () => {
         return (
             <View style={[styles.containerContent]}>
-                <Menudiscovery></Menudiscovery>
+                <MenuDiscovery/>
             </View>
         );
     };

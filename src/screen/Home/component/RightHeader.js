@@ -54,7 +54,6 @@ export const RightHeaderComponent = ({ navigation }) => {
                     color={lightBlueA700}
                 />
             </TouchableOpacity>
-
             <TouchableOpacity
                 onPress={pressElementRightHeader("Setting")}
                 style={styles.touchConfigColorApp}
