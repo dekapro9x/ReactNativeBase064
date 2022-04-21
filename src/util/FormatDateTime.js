@@ -78,8 +78,6 @@ export function convertToDay(date) {
   return weekday[indexDay];
 }
 
-const registrationDateCalendar = ColorConvert.registrationDateCalendar;
-const todayColorCalendar = ColorConvert.todayColorCalendar;
 const dayOffCalendarColor = ColorConvert.dayOffCalendar;
 const disabledDateCalendar = ColorConvert.disabledDateCalendar;
 
@@ -88,25 +86,11 @@ export const formatCurrency = (number) =>
     .format("0,0")
     .replace(/,/g, ",")} ₫`;
 
-export const formatCopyInUnitK = (number) =>
-  `${numeral(number / 1000)
-    .format("0,0")
-    .replace(/,/g, ",")}k`;
-
-export const formatCurrencyWithoutUnit = (number) =>
-  `${numeral(number || 0)
-    .format("0,0")
-    .replace(/,/g, ",")}`;
-
-export const formatMoney = (money) => `${money / 1000}K`;
-
 export const fromDateFormat = (date1, date2 = moment()) => {
   moment.locale(deviceLanguage.substring(0, 2));
   date1 = moment(new Date(date1));
   let diffDays = getDiffDays(date1);
-
   let dateFormat = date1.subtract(diffDays, "days").calendar();
-
   return dateFormat;
 };
 
@@ -165,12 +149,14 @@ export const convertTimeServerToDateVN = (valueDate, format) => {
       .format(format)
   );
 };
+
 export const convertTimeServerTimeZoneToDateVN = (valueDate, format) => {
   if (!valueDate) return "";
   return moment(valueDate, FORMAT_SERVER)
     .utcOffset(zone * 2)
     .format(format);
 };
+
 export const convertNewDateToServer = (valueDate, format) => {
   if (!valueDate) return "";
   return moment(valueDate, FORMAT_SERVER)
@@ -221,6 +207,7 @@ export const getHolidaysDatesOfMonth = (
   }
   return disabledDates;
 };
+
 //Lấy ngày nghỉ của tháng tiếp theo:
 export const getHolidaysDatesOfMonthNow = (month) => {
   let monthConv = month;
@@ -231,7 +218,6 @@ export const getHolidaysDatesOfMonthNow = (month) => {
   const endDate = moment(monthConv).endOf("month").format("YYYY-MM-DD");
   return getHolidaysDatesOfMonth(startDate, endDate, [0, 7]);
 };
-
 
 export const isPastWithCurrentDate = (date, fomartDate = FORMAT_YYYY_MM_DD) => {
   var isPast = moment(
@@ -255,18 +241,22 @@ export const isCompareTime1 = (time1, time2, fomart = FORMAT_TO_SERVER) => {
   );
   return isPast;
 };
+
 export const isYesterday = (momentDate, momentDate1) => {
   let YESTERDAY = moment(momentDate1).subtract(1, 'days').startOf('day');
   return moment(momentDate).isSame(YESTERDAY, 'd');
 };
+
 export const getAddDay = (momentDate1, day) => {
   let YESTERDAY = moment(momentDate1).add(day, 'days')
   return YESTERDAY
 };
+
 export const getAdd30Days = (momentDate1, day) => {
   let data = moment(momentDate1).add(day, 'd')
   return convertDateFormatVN(data)
 };
+
 export const getAddMonth = (momentDate1, month) => {
   let data = moment(momentDate1).add(month, 'M')
   return convertDateFormatVN(data)
@@ -313,7 +303,6 @@ export const hmsToSecondsOnly = (str) => {
   var p = str.split(":"),
     s = 0,
     m = 1;
-
   while (p.length > 0) {
     s += m * parseInt(p.pop(), 10);
     m *= 60;

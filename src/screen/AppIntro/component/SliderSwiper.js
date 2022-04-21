@@ -1,7 +1,7 @@
 //Library:
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/core";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { blue300, green300, white } from "@css/Color";
 import { keyAsyncStorage } from "../../../const/KeySyncStorage";
@@ -11,6 +11,7 @@ import { Loading } from "../../../element/Loading";
 import AppBanner from "../../../libJS/react-native-swiper/AppBanner";
 import { keyNavigation } from "../../../navigation/KeyNavigations";
 import { SizeRpScreen } from "../../../resources/ResponsiveScreen";
+import { ContextContainer } from "@context/AppContext";
 import DataSlider from "./Data";
 
 export default function SliderSwiper(props) {
@@ -18,8 +19,10 @@ export default function SliderSwiper(props) {
   const navigation = useNavigation();
   const [loading, setStateLoading] = useState(true);
   const startApp = useRef(null);
+  const { setAppData } = useContext(ContextContainer);
   useEffect(() => {
     checkStartApp();
+    checkConfigurationApplications();
     let timeCount = setTimeout(() => {
       setStateLoading(false);
     }, 2000);
@@ -64,10 +67,22 @@ export default function SliderSwiper(props) {
     }
     if (startAppClick && checkPolicy) {
       startApp.current = startAppClick;
-      // navigateScreen(keyNavigation.HOME);
       navigateScreen(keyNavigation.LOGIN);
     }
   };
+
+  //Kiểm tra cấu hình App.
+  const checkConfigurationApplications = async () => {
+    console.log("Kiểm tra cấu hình App")
+    const startAppClick = await AsyncStorage.getItem(
+      keyAsyncStorage.applicationConfiguration
+    );
+    if (startAppClick) {
+      const configAppState = JSON.parse(startAppClick)
+      console.log("configAppState", configAppState);
+      setAppData(configAppState);
+    }
+  }
 
   //Nút ấn lùi lại slider trước.
   const renderPrevButton = () => {
@@ -75,7 +90,7 @@ export default function SliderSwiper(props) {
   };
 
   //Chuyển slider.
-  const onIndexChangeSlider = index => {};
+  const onIndexChangeSlider = index => { };
 
   //Danh sách slider.
   const listSlider = () => {
@@ -133,7 +148,7 @@ export default function SliderSwiper(props) {
   };
 
   if (loading) {
-    return <Loading  />;
+    return <Loading />;
   }
 
   if (alwayShowSlider && !startApp.current) {
@@ -154,10 +169,10 @@ export default function SliderSwiper(props) {
         onIndexChanged={index => onIndexChangeSlider(index)}
         nextButton={rederNextButton()}
         prevButton={renderPrevButton()}
-        onTouchStartCapture={() => {}}
-        onTouchStart={() => {}}
-        onTouchEnd={() => {}}
-        onMomentumScrollEnd={() => {}}
+        onTouchStartCapture={() => { }}
+        onTouchStart={() => { }}
+        onTouchEnd={() => { }}
+        onMomentumScrollEnd={() => { }}
       >
         {listSlider()}
       </AppBanner>

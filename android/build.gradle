@@ -10,6 +10,8 @@ buildscript {
         //Permissions: 
         firebaseIidVersion = "19.0.1"
         googlePlayServicesIidVersion = "17.0.0"
+        //Get locations current:
+        googlePlayServicesVersion = "+"
         // supportLibVersion = '1.0.2'
         // mediaCompatVersion = '1.0.1' 
         // supportV4Version = '1.0.0'

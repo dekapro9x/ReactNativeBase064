@@ -4,7 +4,7 @@ import React, { useEffect, useLayoutEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { DebounceButton } from "../../element/DebounceButton";
 
-function PushNotifications({ navigation, router }) {
+function News({ navigation, router }) {
     useLayoutEffect(() => {
         return () => { };
     }, []);
@@ -25,7 +25,7 @@ function PushNotifications({ navigation, router }) {
     return (
         <AppContainerScrollHeaderAnimated
             useLinearGradient={false}
-            nameScreen={"THÔNG BÁO"}
+            nameScreen={"BẢNG TIN"}
             goBackScreen={false}
             flexWrapHeader
         >
@@ -33,7 +33,7 @@ function PushNotifications({ navigation, router }) {
         </AppContainerScrollHeaderAnimated>
     );
 }
-export default React.memo(PushNotifications);
+export default React.memo(News);
 
 const styles = StyleSheet.create({
     containerContent: {

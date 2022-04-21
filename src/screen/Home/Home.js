@@ -7,7 +7,6 @@ import BannerHome from "./component/BannerHome";
 import DateAndWeather from "./component/DateAndWeather";
 import HomeMenu from "./component/HomeMenu";
 import { RightHeaderComponent } from "./component/RightHeader";
-import Testview from "./component/TestView";
 
 export default function Home(props) {
   const { navigation, router } = props;
@@ -29,14 +28,13 @@ export default function Home(props) {
       flexWrapHeader
       rightHeaderComponent={<RightHeaderComponent navigation={navigation} />}>
       <View style={[styles.container]}>
-        <DateAndWeather navigation={navigation} />
         <View style={styles.containerBanner}>
-          <BannerHome></BannerHome>
+          <BannerHome />
         </View>
         <ViewLoadingContainerHOC isLoading={false}>
+          <DateAndWeather navigation={navigation} />
           <HomeMenu navigation={navigation} />
         </ViewLoadingContainerHOC>
-        <Testview languageCurrent={languageCurrent}></Testview>
       </View>
     </AppContainerScroll>
   );
@@ -45,7 +43,6 @@ export default function Home(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
     height: SizeRpScreen.height(100) * 2
   },
   containerBanner: {

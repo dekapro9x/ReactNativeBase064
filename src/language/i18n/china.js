@@ -1,5 +1,6 @@
 export default {
     'greeting': '嗨!',
+    'news':"消息",
     'home': '家',
     "notifications": "通知",
     "discovery": '發現',

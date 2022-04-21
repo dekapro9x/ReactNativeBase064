@@ -32,7 +32,6 @@ export default function Login({ navigation, router }) {
     const accountRemember = JSON.parse(
       await AsyncStorage.getItem(keyAsyncStorage.accountLogin)
     );
-    console.log("accountRemember", accountRemember);
     if (
       accountRemember &&
       accountRemember.userName &&

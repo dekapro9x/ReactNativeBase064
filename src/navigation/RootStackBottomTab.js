@@ -12,6 +12,7 @@ import Eng from "../language/i18n/en";
 import Vi from "../language/i18n/vi";
 import { keyNavigation } from "./KeyNavigations";
 import { RootStackDrawer } from "./RootStackDrawer";
+import News from "@screen/News";
 const BottomStack = createMaterialBottomTabNavigator();
 const mapStateToProps = (GlobalState) => {
   const { LanguageReducer } = GlobalState;
@@ -43,6 +44,15 @@ function RootStackBottomTabBase(props) {
       barStyle={{ backgroundColor: "#E5E5E5" }}
     >
       <BottomStack.Screen
+        name={keyNavigation.NEWS}
+        component={News}
+        options={{
+          tabBarLabel: translations[languageCurrent]?.news,
+          tabBarIcon: ({ color }) =>
+            <AppIcon type={"MaterialCommunityIcons"} name="newspaper-variant" color={color} size={26}></AppIcon>
+        }}
+      />
+      <BottomStack.Screen
         name={keyNavigation.PUSH_NOTIFICATIONS}
         component={Pushnotification}
         options={{
@@ -57,7 +67,7 @@ function RootStackBottomTabBase(props) {
         options={{
           tabBarLabel: translations[languageCurrent]?.home || setTextInit(),
           tabBarIcon: ({ color }) =>
-            <AppIcon type={"MaterialCommunityIcons"} name="home" color={color} size={26}></AppIcon>
+            <AppIcon type={"MaterialCommunityIcons"} name="shield-star" color={color} size={26}></AppIcon>
         }}
       />
       <BottomStack.Screen

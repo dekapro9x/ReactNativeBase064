@@ -1,5 +1,6 @@
 export default {
     'greeting': 'Xin chào!',
+    'news':"Bảng tin",
     'home': 'Trang chủ',
     "notifications": "Thông báo",
     "discovery": 'Khám phá',

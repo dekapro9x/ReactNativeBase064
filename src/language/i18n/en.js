@@ -1,5 +1,6 @@
 export default {
     'greeting': 'Hi!',
+    'news':"News",
     'home': 'Home',
     "notifications": "Notifications",
     "discovery": 'Discovery',

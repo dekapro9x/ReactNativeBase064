@@ -1,28 +1,35 @@
-import { ContextContainer } from "@context/AppContext";
-import { black, white } from "@css/Color";
-import { AppIcon } from "@element/AppIcon";
-import { DebounceButton } from "@element/DebounceButton";
+import { white } from "@css/Color";
+import { keyNavigation } from "@navigation/KeyNavigations";
 import { SizeRpScreen } from "@resources/ResponsiveScreen";
-import React, { useContext } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React, { useEffect, useState } from "react";
+import { ImageBackground, StyleSheet, TouchableOpacity } from "react-native";
 
-export default function DateAndWeather({ navigation }) {
-  const { colorApp } = useContext(ContextContainer);
+
+export default function DateAndWeather({ navigation, route }) {
+  const [ indexImgWeather, setStateImgWeather ] = useState(2);
+  const arrImgWeather = [
+    require("../../../images/Weather1.jpg"),
+    require("../../../images/Weather2.jpg"),
+    require("../../../images/Weather3.jpg")]
+
+  useEffect(() => {
+    return () => {
+    };
+  }, []);
+
+  const gotoDetailWeatherScreen = () => {
+    navigation.navigate(keyNavigation.WEATHER)
+  }
 
   return (
-    <View
-      style={[
-        styles.container,
-        {
-          flexDirection: "row",
-          justifyContent: "space-between",
-          backgroundColor: colorApp.backgroundColor
-        }
-      ]}
-    >
-      <Text> DateAndWeather </Text>
-      <Text> DateAndWeather </Text>
-    </View>
+    <TouchableOpacity
+      onPress={gotoDetailWeatherScreen}
+      style={{ height: 80, width: "100%" }}>
+      <ImageBackground
+        source={arrImgWeather[indexImgWeather]}
+        style={{ height: 80, width: "100%" }}></ImageBackground>
+
+    </TouchableOpacity>
   );
 }
 
