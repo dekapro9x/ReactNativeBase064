@@ -24,3 +24,29 @@ module.exports = {
 4. Bước 4: Cấu hình trong AppIcon.js
 # Sử dụng:
 https://oblador.github.io/react-native-vector-icons/
+
+# IOS : Trong info.splist vào dòng 56:
+Thêm :
+<key>UIAppFonts</key>
+<array>
+<string>AntDesign.ttf</string>
+<string>Entypo.ttf</string>
+<string>EvilIcons.ttf</string>
+<string>Feather.ttf</string>
+<string>FontAwesome.ttf</string>
+<string>FontAwesome5_Brands.ttf</string>
+<string>FontAwesome5_Regular.ttf</string>
+<string>FontAwesome5_Solid.ttf</string>
+<string>Foundation.ttf</string>
+<string>Ionicons.ttf</string>
+<string>MaterialIcons.ttf</string>
+<string>MaterialCommunityIcons.ttf</string>
+<string>SimpleLineIcons.ttf</string>
+<string>Octicons.ttf</string>
+<string>Zocial.ttf</string>
+<string>Fontisto.ttf</string>
+</array>
+# B2: cd ios, pod install.
+
+# B3: chạy lệnh yarn react-native link
+# B4: Vào Xcode phần auto link : Build Phases xóa tất cả link tay của pod đi không lỗi duplicate.

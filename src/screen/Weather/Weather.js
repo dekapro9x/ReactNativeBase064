@@ -3,7 +3,7 @@ import { Api } from "@api/ListAPI";
 import { isIOS } from "@const/Setting";
 import { FontAppType } from "@const/TypeFontFamily";
 import { ContextContainer } from "@context/AppContext";
-import { green800, pinkA400 } from "@css/Color";
+import { green800, pinkA400, red, white } from "@css/Color";
 import { AppImage } from "@element/AppImage";
 import { AppText } from "@element/AppText";
 import { Loading } from '@element/Loading';
@@ -13,7 +13,7 @@ import React, { useContext, useEffect, useLayoutEffect, useState } from "react";
 import { ImageBackground, ScrollView, StyleSheet, TouchableOpacity, View } from "react-native";
 import Geolocation from 'react-native-geolocation-service';
 import { AppContainer } from "../../element/AppContainer";
-
+import TimeCurrent from "./TimeCurrent";
 
 function WeatherScreen(props) {
   const imgBackgroundDay = "https://cdn3.f-cdn.com/contestentries/329593/12725464/569a351b6db82_thumb900.jpg";
@@ -24,6 +24,7 @@ function WeatherScreen(props) {
   const [dayOrNight, setStateDayOrNight] = useState("");
   const [unit, setStateUnit] = useState("Kelvin");
   const { colorApp } = useContext(ContextContainer);
+
   useLayoutEffect(() => {
     return () => { };
   }, []);
@@ -67,10 +68,10 @@ function WeatherScreen(props) {
               timestamp: position.timestamp,
               mocked: position.mocked ? position.mocked : false,
             });
-            const fakeLat = 21.0025;
-            const fakeLon = 105.8205;
-            // getWeatherCurrentLocation(lat, long);
-            getWeatherCurrentLocation(fakeLat, fakeLon);
+            // const fakeLat = 21.0025;
+            // const fakeLon = 105.8205;
+            getWeatherCurrentLocation(lat, long);
+            // getWeatherCurrentLocation(fakeLat, fakeLon);
           }
         },
         (error) => {
@@ -111,11 +112,83 @@ function WeatherScreen(props) {
     )
   }
 
+  const getUnitValue = (keyUnit) => {
+    console.log("keyUnit", keyUnit);
+    let stringValue = "";
+    switch (keyUnit) {
+      case "Clouds:":
+        stringValue = "m/s"
+        break;
+      case "Temperature:":
+        stringValue = unit == "Kelvin" ? "°F" : "°C"
+        break;
+      case "Temperature Like:":
+        stringValue = unit == "Kelvin" ? "°F" : "°C"
+        break;
+      case "Temperature Max:":
+        stringValue = unit == "Kelvin" ? "°F" : "°C"
+        break;
+      case "Temperature Min:":
+        stringValue = unit == "Kelvin" ? "°F" : "°C"
+        break;
+        case "Pressure:":
+        stringValue = "hPa"
+        break;
+        case "Humidity:":
+          stringValue = "%"
+          break;
+      default:
+        break;
+    }
+    return stringValue;
+  }
+
+  const convertTemperature = (value) => {
+    if (unit == "Kelvin") {
+      return value
+    } else {
+      return (Number.parseFloat(value) - 273.15).toFixed(2);
+    }
+  }
+
+  const convertValue = (key, value) => {
+    let stringValue = value;
+    console.log("value", value);
+    switch (key) {
+      case "Temperature:":
+        return stringValue = convertTemperature(value);
+      case "Temperature Like:":
+        return stringValue = convertTemperature(value);
+      case "Temperature Max:":
+        return stringValue = convertTemperature(value);
+      case "Temperature Min:":
+        return stringValue = convertTemperature(value);
+      default:
+        return stringValue;
+    }
+  }
+
   const renderInfoWeather = () => {
-    console.log("Current locations", currentLocation);
-    console.log("Data Weather", dataWeatherCurrent);
-    const infoLocationsMap = ["Latitude", "Longitude", "Speed", "Timestamp"];
-    const infoWeatherMap = ["Name:", "CountryName", "Temperature"];
+    let infoLocationsMap = [];
+    let infoWeatherMap = [];
+    if (Object.keys(dataWeatherCurrent).length > 0 && Object.keys(currentLocation).length > 0) {
+      infoLocationsMap = [
+        { key: "Latitude:", value: "latitude" },
+        { key: "Longitude:", value: "longitude" },
+        { key: "Speed:", value: "speed" },
+        { key: "Timestamp:", value: "timestamp" }];
+      infoWeatherMap = [
+        { key: "Name:", value: ["name"] },
+        { key: "CountryName:", value: ["sys", "country"] },
+        { key: "Temperature:", value: ["main", "temp"] },
+        { key: "Temperature Like:", value: ["main", "feels_like"] },
+        { key: "Temperature Max:", value: ["main", "temp_max"] },
+        { key: "Temperature Min:", value: ["main", "temp_min"] },
+        { key: "Pressure:", value: ["main", "pressure"] },
+        { key: "Humidity:", value: ["main", "humidity"] },
+        { key: "Clouds:", value: ["clouds", "all"] },
+      ];
+    }
     if (dataWeatherCurrent && Object.keys(dataWeatherCurrent)) {
       const { mainWeather } = props;
       const { name, sys, weather } = dataWeatherCurrent;
@@ -128,12 +201,13 @@ function WeatherScreen(props) {
       if (indexWeather >= 0) {
         caseWeather = mainWeather[indexWeather];
       }
-      console.log("caseWeather", caseWeather);
       return (
-        <View style={{ flex: 1, alignItems: "center" }}>
+        <View style={{ flex: 1, alignItems: "center", paddingBottom: 20 }}>
           <AppText style={{ fontSize: 40, color: pinkA400 || "white", marginTop: 60, fontFamily: FontAppType.LetterMagic }}>
             {name} - {sys?.country}
           </AppText>
+          {/* Thời gian hiện tại */}
+          <TimeCurrent></TimeCurrent>
           {indexWeather >= 0 && <AppImage
             resizeMode={"stretch"}
             source={{ uri: dayOrNight == "Day" ? caseWeather.iconDay : caseWeather.iconNight }}
@@ -144,9 +218,39 @@ function WeatherScreen(props) {
             {renderListButtonUnit()}
           </View>
           {/* Bảng thông tin vị trí locations: */}
-
+          {infoLocationsMap.map((item, index) => {
+            return (<View
+              key={`${index}`}
+              style={{ flex: 1, height: 40, width: SizeRpScreen.width(98), borderWidth: 1, borderRadius: 12, marginTop: 5, flexDirection: "row", alignItems: "center" }}>
+              {/* Tiêu đề */}
+              <View style={{ flex: 1, height: 30, marginLeft: 5, justifyContent: "center" }}>
+                <AppText style={{ color: white }}>{item.key}</AppText>
+              </View>
+              {/* Giá trị nội dung*/}
+              <View style={{ flex: 1, height: 30, marginRight: 5, justifyContent: "center" }}>
+                <AppText style={{ color: white }}>{currentLocation[`${item.value}`]}</AppText>
+              </View>
+            </View>)
+          })}
           {/* Bảng thông tin nhiệt độ - độ ẩm */}
-
+          {infoWeatherMap.map((item, index) => {
+            const lengthKey = item.value.length;
+            return (<View key={`${index}`}
+              style={{ flex: 1, height: 40, width: SizeRpScreen.width(98), borderWidth: 1, borderRadius: 12, marginTop: 5, flexDirection: "row", alignItems: "center" }}>
+              {/* Tiêu đề */}
+              <View style={{ flex: 1, height: 30, marginLeft: 5, justifyContent: "center" }}>
+                <AppText style={{ color: white }}>{item.key}</AppText>
+              </View>
+              {/* Giá trị nội dung*/}
+              <View style={{ flex: 1, height: 30, marginRight: 5, justifyContent: "center" }}>
+                <AppText style={{ color: white }}>
+                  {lengthKey == 1 ? convertValue(item.key, dataWeatherCurrent[`${item.value[0]}`])
+                    : convertValue(item.key, dataWeatherCurrent[`${item.value[0]}`][`${item.value[1]}`])}
+                  <AppText style={{ color: white }}> {getUnitValue(item.key)}</AppText>
+                </AppText>
+              </View>
+            </View>)
+          })}
         </View>
       )
     }
@@ -161,7 +265,7 @@ function WeatherScreen(props) {
       <ImageBackground
         source={{ uri: dayOrNight == "Day" ? imgBackgroundDay : imgBackgroundNight }}
         style={[styles.containerContent]}>
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           {renderInfoWeather()}
         </ScrollView>
       </ImageBackground>
