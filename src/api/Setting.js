@@ -17,17 +17,23 @@ export const typeRequest = {
     DELETE: "DELETE",
 };
 
+
+//API Success:
 export const ERROR_CODE_REQUEST_SUCCESS = 200;
 export const ERROR_CODE_UPDATE_SUCCESS = 201;
 export const ERROR_CODE_DELETE_SUCCESS = 204;
-
+//API Error:
 export const ERROR_CODE_422 = 422;
 export const ERROR_CODE_400 = 400;
 export const ERROR_CODE_401 = 401;
 export const ERROR_CODE_403 = 403;
 export const ERROR_CODE_404 = 404;
-
+//API Deploy:
 export const ERROR_CODE_500 = 500;
+export const ERROR_CODE_SUCCESS = [
+    ERROR_CODE_REQUEST_SUCCESS,
+    ERROR_CODE_UPDATE_SUCCESS,
+    ERROR_CODE_DELETE_SUCCESS,
+];
 
-
-export { API_BASE, END_POINT, VersionCurrentApp,APIKeyWeather };
+export { API_BASE, END_POINT, VersionCurrentApp, APIKeyWeather };

@@ -7,7 +7,6 @@ import BannerHome from "./component/BannerHome";
 import DateAndWeather from "./component/DateAndWeather";
 import HomeMenu from "./component/HomeMenu";
 import { RightHeaderComponent } from "./component/RightHeader";
-import Testview from "./component/TestView";
 
 export default function Home(props) {
   const { navigation, router } = props;
@@ -32,9 +31,7 @@ export default function Home(props) {
         <View style={styles.containerBanner}>
           <BannerHome />
         </View>
-        <ViewLoadingContainerHOC
-          style={{ alignItems: 'center' }}
-          isLoading={false}>
+        <ViewLoadingContainerHOC isLoading={false}>
           <DateAndWeather navigation={navigation} />
           <HomeMenu navigation={navigation} />
         </ViewLoadingContainerHOC>

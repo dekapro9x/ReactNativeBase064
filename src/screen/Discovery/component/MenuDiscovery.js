@@ -22,7 +22,7 @@ const Menudiscovery = () => {
         return (
             <TouchableOpacity
                 onPress={navigateToScreen(item)}
-                style={{ height: SizeRpScreen.device_width / 3 - 20, width: SizeRpScreen.device_width / 3 - 20, backgroundColor: white, margin: 5, borderWidth: SizeRpScreen.device_width * 0.01, borderColor: green400, borderRadius: 12, alignItems: "center", justifyContent: "center" }}>
+                style={{ height: SizeRpScreen.device_width / 3 - 20, width: SizeRpScreen.device_width / 3 - 20, backgroundColor: white, margin: 5, borderWidth: SizeRpScreen.device_width * 0.005, borderColor: green400, borderRadius: 12, alignItems: "center", justifyContent: "center" }}>
                 <AppIcon type={item.iconType} name={item.iconName} color={item.iconColor} iconSize={item.iconSizeMenu}>
                 </AppIcon>
                 <AppText style={{ fontSize: 16 }}>{item.title}</AppText>

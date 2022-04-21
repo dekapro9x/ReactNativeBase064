@@ -13,6 +13,7 @@ const keyNavigation = {
   DISCOVERY: "DISCOVERY",
   INFO_DEVICES_AND_APP: `Thông tin ứng dụng`,
   NEWS:"NEWS",
+  WEATHER:"WEATHER",
 
   //Menu khám phá:
   DISCOVERY_FIREBASE_AUTHEN: "DISCOVERY_FIREBASE_AUTHEN",

@@ -13,18 +13,12 @@ export default function DateAndWeather({ navigation, route }) {
     require("../../../images/Weather3.jpg")]
 
   useEffect(() => {
-    getCurrentWeatherLocations();
     return () => {
     };
   }, []);
 
-  const getCurrentWeatherLocations = () => {
-
-  }
-
-
   const gotoDetailWeatherScreen = () => {
-    navigation.navigate(keyNavigation.BASIC_JS)
+    navigation.navigate(keyNavigation.WEATHER)
   }
 
   return (

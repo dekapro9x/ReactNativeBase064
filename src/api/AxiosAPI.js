@@ -1,5 +1,6 @@
-import { API_BASE, typeRequest } from "./Setting";
+import { API_BASE, ERROR_CODE_SUCCESS, typeRequest } from "./Setting";
 import axios from "axios";
+import { Alert } from "react-native";
 
 //API config with BackEnd:
 const instanceAPIBase = axios.create({
@@ -9,6 +10,24 @@ const instanceAPIBase = axios.create({
         Accept: "application/json, text/plain",
     },
 });
+
+export async function showAlert(titleAlert, contentAlert) {
+    setTimeout(() => {
+        Alert.alert(titleAlert, contentAlert, [{ text: "Đồng ý" }]);
+    }, 700);
+}
+
+export async function showAlertError(
+    contentAlert,
+    title = "ReactNativeBase" + " - Error API"
+) {
+    showAlert(title, contentAlert);
+}
+
+
+export function isSuccess(statusResponse) {
+    return ERROR_CODE_SUCCESS.indexOf(statusResponse) > -1;
+}
 
 async function request(url, params, type, configs) {
     try {
@@ -35,10 +54,16 @@ async function request(url, params, type, configs) {
             }
         }
         let status = response.status;
-        let responsesData = response;
-        return response;
+        let responsesData = response.data;
+        if (isSuccess(status)) {
+            return responsesData;
+        } else {
+            showAlertError("Server busy...");
+            return response;
+        }
     } catch (error) {
-        console.log("error>>>", error);
+        console.log("error", error);
+        showAlertError("Have Exceptions when call API...");
     }
 }
 
@@ -102,10 +127,10 @@ async function requestAllAPI([...requestAPI]) {
 
 
 //API Party 3:
- const urlParty3 = {
+const urlParty3 = {
     tagGames: "v1/games/tags",
-  };
-  
+};
+
 
 
 export { getAPI, postAPI, putAPI, deleteAPI, requestAllAPI };
