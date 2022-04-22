@@ -10,7 +10,8 @@ export default function HomeMenu(props) {
   const { colorApp } = useContext(ContextContainer);
 
   const navigateToScreen = (item) => () => {
-    console.log("item Click", item);
+    const {navigation} = props;
+    navigation.navigate(item.id);
   }
 
   const renderItemMenu = ({ item, index }) => {

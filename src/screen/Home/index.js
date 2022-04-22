@@ -9,7 +9,7 @@ const mapStateToProps = (GlobalState) => {
   const MenuHome = [
     {
       title: "Animations",
-      id: keyNavigation.DISCOVERY_FIREBASE_AUTHEN,
+      id: keyNavigation.ANIMATIONS,
       sortIndex: 1,
       iconColor: "blue",
       iconName: "logo-firebase",
