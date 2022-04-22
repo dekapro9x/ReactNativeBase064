@@ -1,12 +1,14 @@
 import { AppContainerScroll } from "@element/AppContainerScroll";
 import { ViewLoadingContainerHOC } from "@HOC/ViewLoadingContainerHOC";
 import React, { useEffect } from "react";
-import { StyleSheet, View } from "react-native";
+import { LogBox, StyleSheet, View } from "react-native";
 import { SizeRpScreen } from "../../resources/ResponsiveScreen";
 import BannerHome from "./component/BannerHome";
 import DateAndWeather from "./component/DateAndWeather";
 import HomeMenu from "./component/HomeMenu";
 import { RightHeaderComponent } from "./component/RightHeader";
+LogBox.ignoreLogs(['Warning: ...']); 
+LogBox.ignoreAllLogs();
 
 export default function Home(props) {
   const { navigation, router } = props;
@@ -33,7 +35,7 @@ export default function Home(props) {
         </View>
         <ViewLoadingContainerHOC isLoading={false}>
           <DateAndWeather navigation={navigation} />
-          <HomeMenu navigation={navigation} />
+          <HomeMenu navigation={navigation} dataMenu={props.homeMenu} />
         </ViewLoadingContainerHOC>
       </View>
     </AppContainerScroll>

@@ -131,12 +131,12 @@ function WeatherScreen(props) {
       case "Temperature Min:":
         stringValue = unit == "Kelvin" ? "°F" : "°C"
         break;
-        case "Pressure:":
+      case "Pressure:":
         stringValue = "hPa"
         break;
-        case "Humidity:":
-          stringValue = "%"
-          break;
+      case "Humidity:":
+        stringValue = "%"
+        break;
       default:
         break;
     }
@@ -214,14 +214,24 @@ function WeatherScreen(props) {
             style={{ height: 150, width: 150 }}>
           </AppImage>}
           {/* Chuyển đổi đơn vị đo nhiệt độ */}
-          <View style={{ height: 40, width: SizeRpScreen.width(50), borderRadius: 12, flexDirection: "row", justifyContent: "space-between" }}>
+          <View style={{
+            height: 40, width: SizeRpScreen.width(50),
+            borderRadius: 12, flexDirection: "row", justifyContent: "space-between"
+          }}>
             {renderListButtonUnit()}
           </View>
           {/* Bảng thông tin vị trí locations: */}
           {infoLocationsMap.map((item, index) => {
             return (<View
               key={`${index}`}
-              style={{ flex: 1, height: 40, width: SizeRpScreen.width(98), borderWidth: 1, borderRadius: 12, marginTop: 5, flexDirection: "row", alignItems: "center" }}>
+              style={{
+                flex: 1, height: 40,
+                width: SizeRpScreen.width(98),
+                borderWidth: 1, borderRadius: 12,
+                marginTop: 5, flexDirection: "row",
+                alignItems: "center",
+                backgroundColor:"#222222"
+              }}>
               {/* Tiêu đề */}
               <View style={{ flex: 1, height: 30, marginLeft: 5, justifyContent: "center" }}>
                 <AppText style={{ color: white }}>{item.key}</AppText>
@@ -236,7 +246,14 @@ function WeatherScreen(props) {
           {infoWeatherMap.map((item, index) => {
             const lengthKey = item.value.length;
             return (<View key={`${index}`}
-              style={{ flex: 1, height: 40, width: SizeRpScreen.width(98), borderWidth: 1, borderRadius: 12, marginTop: 5, flexDirection: "row", alignItems: "center" }}>
+              style={{
+                flex: 1, height: 40,
+                width: SizeRpScreen.width(98),
+                borderWidth: 1, borderRadius: 12,
+                marginTop: 5, flexDirection: "row",
+                alignItems: "center",
+                backgroundColor:"#222222"
+              }}>
               {/* Tiêu đề */}
               <View style={{ flex: 1, height: 30, marginLeft: 5, justifyContent: "center" }}>
                 <AppText style={{ color: white }}>{item.key}</AppText>

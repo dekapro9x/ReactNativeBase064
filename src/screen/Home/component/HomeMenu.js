@@ -1,4 +1,3 @@
-import { DiscoveryMenu } from '@const/DiscoveryMenu';
 import { ContextContainer } from '@context/AppContext';
 import { green400, white } from '@css/Color';
 import { AppIcon } from '@element/AppIcon';
@@ -7,7 +6,7 @@ import { SizeRpScreen } from '@resources/ResponsiveScreen';
 import React, { useContext } from 'react';
 import { FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 
-export default function HomeMenu({ navigation, route }) {
+export default function HomeMenu(props) {
   const { colorApp } = useContext(ContextContainer);
 
   const navigateToScreen = (item) => () => {
@@ -30,7 +29,7 @@ export default function HomeMenu({ navigation, route }) {
 
   return (
     <FlatList
-      data={DiscoveryMenu}
+      data={props.dataMenu}
       numColumns={3}
       nestedScrollEnabled={true}
       keyExtractor={(_item, index) => index.toString()}
