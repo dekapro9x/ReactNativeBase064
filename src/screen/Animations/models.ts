@@ -12,4 +12,4 @@ interface itemMenu {
   ];
 }
 
-export const arrMenu = new 0<itemMenu>();
+export const arrMenu = new Array<itemMenu>();

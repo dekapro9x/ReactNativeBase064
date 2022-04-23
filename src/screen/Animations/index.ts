@@ -6,8 +6,28 @@ const mapStateToProps = GlobalState => {
   const DataMenuAnimations = [
     {
       id: 1,
-      name: 'react-native-animated-core',
+      keyName: 'Animated Core',
       data: [
+        {
+          id: 1,
+          name: 'Animated.timing()',
+          component: '',
+        },
+        {
+          id: 2,
+          name: 'Animated.decay()',
+          component: '',
+        },
+        {
+          id: 3,
+          name: 'Animated.spring()',
+          component: '',
+        },
+        {
+          id: 4,
+          name: 'Animated.Value()',
+          component: '',
+        },
         // {
         //   id: 1,
         //   name: 'Animated.timing()',
@@ -37,23 +57,27 @@ const mapStateToProps = GlobalState => {
     },
     {
       id: 2,
-      name: 'react-native-animatable',
+      keyName: 'react-native-animatable',
       data: [
         {
           id: 1,
           name: '',
+          component: '',
         },
         {
           id: 2,
           name: '',
+          component: '',
         },
         {
           id: 3,
           name: '',
+          component: '',
         },
         {
           id: 4,
           name: '',
+          component: '',
         },
       ],
     },
