@@ -1,6 +1,7 @@
 import { ContextContainer } from '@context/AppContext';
 import { green400, white } from '@css/Color';
 import { AppIcon } from '@element/AppIcon';
+import { AppImage } from '@element/AppImage';
 import { AppText } from '@element/AppText';
 import { SizeRpScreen } from '@resources/ResponsiveScreen';
 import React, { useContext } from 'react';
@@ -10,7 +11,7 @@ export default function HomeMenu(props) {
   const { colorApp } = useContext(ContextContainer);
 
   const navigateToScreen = (item) => () => {
-    const {navigation} = props;
+    const { navigation } = props;
     navigation.navigate(item.id);
   }
 
@@ -22,8 +23,13 @@ export default function HomeMenu(props) {
         backgroundColor: white, margin: 5, borderWidth: SizeRpScreen.device_width * 0.005,
         borderColor: green400, borderRadius: 12, alignItems: "center", justifyContent: "center"
       }}>
-      <AppIcon type={item.iconType} name={item.iconName} color={item.iconColor} iconSize={item.iconSizeMenu}>
-      </AppIcon>
+      {item?.iconImg ?
+        <AppImage
+          resizeMode={"cover"}
+          source={{ uri: item.iconImg }}
+          style={{ height: 30, width: 30 }}></AppImage> :
+        <AppIcon type={item.iconType} name={item.iconName} color={item.iconColor} iconSize={item.iconSizeMenu}>
+        </AppIcon>}
       <AppText style={{ fontSize: 16 }}>{item.title}</AppText>
     </TouchableOpacity>
   }

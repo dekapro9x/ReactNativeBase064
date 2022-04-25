@@ -12,8 +12,9 @@ const mapStateToProps = (GlobalState) => {
       id: keyNavigation.ANIMATIONS,
       sortIndex: 1,
       iconColor: "blue",
-      iconName: "logo-firebase",
-      iconType: "Ionicons",
+      iconName: "animation",
+      iconType: "MaterialIcons",
+      iconImg:"https://media4.giphy.com/media/8K5vaT8LvjrLW/giphy.gif?cid=790b7611c7e8f4bfba46b1dc0c2a996894d8f3e4527cc46f&rid=giphy.gif&ct=g",
       iconSizeMenu: iconMenuSize,
       endpointVersion: "DEV"
     },
@@ -24,6 +25,7 @@ const mapStateToProps = (GlobalState) => {
       iconColor: "blue",
       iconName: "logo-firebase",
       iconType: "Ionicons",
+      iconImg:"",
       iconSizeMenu: iconMenuSize,
       endpointVersion: "DEV"
     },
@@ -34,6 +36,7 @@ const mapStateToProps = (GlobalState) => {
       iconColor: "blue",
       iconName: "logo-firebase",
       iconType: "Ionicons",
+      iconImg:"",
       iconSizeMenu: iconMenuSize,
       endpointVersion: "DEV"
     },
@@ -44,6 +47,7 @@ const mapStateToProps = (GlobalState) => {
       iconColor: "blue",
       iconName: "logo-firebase",
       iconType: "Ionicons",
+      iconImg:"",
       iconSizeMenu: iconMenuSize,
       endpointVersion: "DEV"
     },
@@ -54,6 +58,7 @@ const mapStateToProps = (GlobalState) => {
       iconColor: "blue",
       iconName: "logo-firebase",
       iconType: "Ionicons",
+      iconImg:"",
       iconSizeMenu: iconMenuSize,
       endpointVersion: "DEV"
     },

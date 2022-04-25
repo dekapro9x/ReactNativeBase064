@@ -1,15 +1,28 @@
 import { AppContainer } from "@element/AppContainer";
 import { AppText } from "@element/AppText";
 import { SizeRpScreen } from "@resources/ResponsiveScreen";
-import React, { FunctionComponent, useEffect, useState } from "react";
+import React, { FunctionComponent, useEffect, useState, useRef } from "react";
 import { BackHandler, SafeAreaView, StyleSheet, TouchableOpacity, View } from "react-native";
 
 const AnimationsScreen: FunctionComponent = (props: any) => {
   const [showListMenuComponentAnimations, setStateShowListMenuComponent] = useState(false);
+  const [listItemAnimationRender, setStateListItemAnimationRender] = useState([]);
+  const [renderAnimated, setStateRenderAnimated] = useState(false);
+  const [animatedComponent, setStateAnimatedComponent] = useState(null);
+  const listItemAnimationRenderLast = useRef([]);
+
   useEffect(() => {
     const backAction = () => {
+      if (renderAnimated && Array.isArray(listItemAnimationRenderLast.current) && listItemAnimationRenderLast.current.length > 0) {
+        setStateRenderAnimated(false);
+        setStateListItemAnimationRender(listItemAnimationRenderLast.current);
+      }
       if (showListMenuComponentAnimations) {
-        setStateShowListMenuComponent(false);
+        if (renderAnimated) {
+          setStateShowListMenuComponent(true);
+        } else {
+          setStateShowListMenuComponent(false);
+        }
       } else {
         const { navigation } = props;
         navigation.goBack();
@@ -21,29 +34,62 @@ const AnimationsScreen: FunctionComponent = (props: any) => {
       backAction
     );
     return () => backHandler.remove();
-  }, [showListMenuComponentAnimations]);
+  }, [showListMenuComponentAnimations, renderAnimated]);
+
+
+  const renderAnimatedComponent = () => {
+    if (animatedComponent) {
+      return animatedComponent.component;
+    } else {
+      return null
+    }
+  }
+
 
   const renderContent = () => {
     const { MenuAnimations } = props;
+    if (renderAnimated) {
+      return (<SafeAreaView style={styles.content}>
+        <View style={[{ minHeight: SizeRpScreen.height(100), width: SizeRpScreen.width(100), alignItems: 'center', justifyContent: "center" }]}>
+          {renderAnimatedComponent()}
+        </View>
+      </SafeAreaView>)
+    }
     if (showListMenuComponentAnimations) {
       return (
         <SafeAreaView style={styles.content}>
-          <View style={[{ backgroundColor: "red", minHeight: SizeRpScreen.height(100), width: SizeRpScreen.width(100) }]}>
-
+          <View style={[{ minHeight: SizeRpScreen.height(100), width: SizeRpScreen.width(100) }]}>
+            {Array.isArray(listItemAnimationRender) && listItemAnimationRender.map((itemRenderAnimated: any, indexRenderAnimated: number) => {
+              return (
+                <TouchableOpacity
+                  key={`${indexRenderAnimated}`}
+                  onPress={() => {
+                    setStateRenderAnimated(true);
+                    setStateAnimatedComponent(itemRenderAnimated);
+                  }}
+                  style={styles.buttonActionsMenu}>
+                  <AppText style={{}}>
+                    {itemRenderAnimated.name}
+                  </AppText>
+                </TouchableOpacity>
+              )
+            })}
           </View>
         </SafeAreaView>
       )
     }
     return (
       <SafeAreaView style={styles.content}>
-        {MenuAnimations.map((itemMenuAnimated, index) => {
+        {Array.isArray(MenuAnimations) && MenuAnimations.map((itemMenuAnimated: any, index: number) => {
           return (
             <TouchableOpacity
               key={`${index}`}
               onPress={() => {
                 setStateShowListMenuComponent(true);
+                setStateListItemAnimationRender(itemMenuAnimated.data);
+                listItemAnimationRenderLast.current = itemMenuAnimated.data;
               }}
-              style={{ height: 40, width: SizeRpScreen.width(80), backgroundColor: "red", marginTop: 12, justifyContent: "center", alignItems: 'center' }}>
+              style={styles.buttonActionsMenu}>
               <AppText style={{}}>
                 {itemMenuAnimated.keyName}
               </AppText>
@@ -94,6 +140,17 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
   },
+  buttonActionsMenu: {
+    height: 50,
+    width: SizeRpScreen.width(96),
+    backgroundColor: "rgb(231,231,231)",
+    marginTop: 12,
+    justifyContent: "center",
+    alignItems: 'center',
+    borderRadius: 20,
+    alignSelf: 'center',
+  }
+
 });
 
 export default AnimationsScreen;

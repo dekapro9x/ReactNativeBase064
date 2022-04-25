@@ -1,8 +1,8 @@
 import React, {useRef, useEffect} from 'react';
 import {Text, View, Animated, Easing} from 'react-native';
-import {SIZE} from '../../../../utils';
+import { SizeRpScreen } from '@resources/ResponsiveScreen';
 
-export default function SpringQuad() {
+export default function SpringSpin() {
   const animation = useRef(new Animated.Value(0));
   const spin = animation.current.interpolate({
     inputRange: [0, 1],
@@ -14,7 +14,7 @@ export default function SpringQuad() {
       toValue: 1,
       duration: 5000,
       useNativeDriver: true,
-      easing: Easing.quad,
+      easing: Easing.linear,
     }).start(startAnimation);
   };
   useEffect(() => {
@@ -24,8 +24,8 @@ export default function SpringQuad() {
   return (
     <View>
       <Text
-        style={{textAlign: 'center', fontSize: SIZE.H4, fontWeight: 'bold'}}>
-        Spring Quad
+        style={{textAlign: 'center', fontSize: SizeRpScreen.H4, fontWeight: 'bold'}}>
+        Spin Linear
       </Text>
       <Animated.Image
         style={{width: 150, height: 150, transform: [{rotate: spin}]}}
