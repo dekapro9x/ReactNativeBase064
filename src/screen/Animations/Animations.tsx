@@ -143,12 +143,14 @@ const styles = StyleSheet.create({
   buttonActionsMenu: {
     height: 50,
     width: SizeRpScreen.width(96),
-    backgroundColor: "rgb(231,231,231)",
+    backgroundColor: "rgb(248,248,248)",
     marginTop: 12,
     justifyContent: "center",
     alignItems: 'center',
     borderRadius: 20,
     alignSelf: 'center',
+    borderWidth: 1,
+    borderColor: "red",
   }
 
 });
