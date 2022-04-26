@@ -1,6 +1,5 @@
 import React from "react";
-import SpringCubic from "./components/core/timing/SpringCubic";
-import SpringQuad from "./components/core/timing/SpringQuad";
+import { TimingAnimatedComponent } from "./components/core/timing";
 
 export const MenuAnimations = [
     {
@@ -8,13 +7,8 @@ export const MenuAnimations = [
         keyName: 'Animated (core)',
         data: [
             {
-                name: 'Animated.timing() - SpringCubic',
-                component: <SpringCubic />,
-                description: ""
-            },
-            {
-                name: 'Animated.timing() - SpringQuad',
-                component: <SpringQuad />,
+                name: 'Animated.timing()',
+                component: <TimingAnimatedComponent />,
                 description: ""
             },
             {
@@ -24,26 +18,6 @@ export const MenuAnimations = [
             },
             {
                 name: 'Animated.spring()',
-                component: null,
-                description: ""
-            },
-            {
-                name: 'Animated.Value()',
-                component: null,
-                description: ""
-            },
-            {
-                name: 'Animated.Value()',
-                component: null,
-                description: ""
-            },
-            {
-                name: 'Animated.Value()',
-                component: null,
-                description: ""
-            },
-            {
-                name: 'Animated.Value()',
                 component: null,
                 description: ""
             },

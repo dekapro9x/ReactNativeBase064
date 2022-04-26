@@ -88,8 +88,10 @@ function WeatherScreen(props) {
   };
 
   const getWeatherCurrentLocation = async (latitude, longitude) => {
+    setStateLoading(true);
     const response = await getAPI(Api.getCurrentWeatherLocations(latitude, longitude));
     if (response) {
+      setStateLoading(false)
       setStateDataWeatherCurrent(response);
     }
   }
@@ -230,7 +232,7 @@ function WeatherScreen(props) {
                 borderWidth: 1, borderRadius: 12,
                 marginTop: 5, flexDirection: "row",
                 alignItems: "center",
-                backgroundColor:"#222222"
+                backgroundColor: "#222222"
               }}>
               {/* Tiêu đề */}
               <View style={{ flex: 1, height: 30, marginLeft: 5, justifyContent: "center" }}>
@@ -252,7 +254,7 @@ function WeatherScreen(props) {
                 borderWidth: 1, borderRadius: 12,
                 marginTop: 5, flexDirection: "row",
                 alignItems: "center",
-                backgroundColor:"#222222"
+                backgroundColor: "#222222"
               }}>
               {/* Tiêu đề */}
               <View style={{ flex: 1, height: 30, marginLeft: 5, justifyContent: "center" }}>

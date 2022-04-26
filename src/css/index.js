@@ -1,5 +1,5 @@
 import { FontAppType } from "../const/TypeFontFamily";
-const { white } = require("@css/Color");
+const { white, greenA700, yellowA200 } = require("@css/Color");
 const { SizeRpScreen } = require("../resources/ResponsiveScreen");
 
 const heightElementDefault = 50;
@@ -38,6 +38,16 @@ const debounceButtonDefault = {
     borderRadius: 12,
 }
 
+const animatedComponent = {
+    minHeight: SizeRpScreen.height(22),
+    width: SizeRpScreen.width(95),
+    alignSelf: "center",
+    backgroundColor: yellowA200,
+    borderRadius: 12,
+    marginTop: 10,
+    alignItems: "center"
+}
+
 export {
     iconMenuSize,
     heightElementDefault,
@@ -46,6 +56,7 @@ export {
     titleAppTextInput,
     titleDebounceButtonDefault,
     debounceButtonDefault,
-    AppLinearGradient
+    AppLinearGradient,
+    animatedComponent
 };
 
