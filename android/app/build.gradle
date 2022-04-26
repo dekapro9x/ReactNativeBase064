@@ -134,13 +134,10 @@ android {
         applicationId "com.reactnativebase"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-<<<<<<< HEAD
-        versionCode 1
-        versionName "1.0.1" // Đã ngôn ngữ.
-=======
         versionCode 2
         versionName "1.0.12"
->>>>>>> dev
+        //Thêm cấu hình này để cấu hình projects 64k methods: Android Enabling Multidex 64k methods 
+        multiDexEnabled true
     }
     splits {
         abi {
@@ -199,11 +196,6 @@ android {
                         defaultConfig.versionCode * 1000 + versionCodes.get(abi)
             }
         }
-    }
-
-    lintOptions {
-        checkReleaseBuilds false
-        abortOnError false
     }
 }
 
