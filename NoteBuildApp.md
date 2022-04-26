@@ -1,5 +1,7 @@
-https://github.com/flutter/flutter/issues/30598
-lintOptions {
-        disable 'InvalidPackage'
-        checkReleaseBuilds false
-    }
+# 1. Fix bug build:
+   lintOptions {
+   disable 'InvalidPackage'
+   checkReleaseBuilds false
+   }
+# 2.Lệnh code push:
+appcenter codepush release-react -a dekapro9x-gmail.com/ReactNativeBase -d Staging

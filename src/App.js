@@ -9,10 +9,18 @@ import RootStackNavigations from "./navigation/RootStackNavigations";
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import appReducers from '@redux/reducers';
+import codePush from 'react-native-code-push';
+
 enableScreens();
 export const store = createStore(
   appReducers
 )
+
+const codePushOptions = {
+checkFrequency: codePush.CheckFrequency.ON_APP_RESUME,
+installMode: codePush.InstallMode.ON_NEXT_RESUME,
+};
+
 function App() {
   return (
     <Provider store={store}>
@@ -29,4 +37,5 @@ function App() {
   );
 }
 
-export default App;
+export default codePush(codePushOptions)(App);
+
