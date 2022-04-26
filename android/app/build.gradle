@@ -134,8 +134,13 @@ android {
         applicationId "com.reactnativebase"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
+<<<<<<< HEAD
         versionCode 1
         versionName "1.0.1" // Đã ngôn ngữ.
+=======
+        versionCode 2
+        versionName "1.0.12"
+>>>>>>> dev
     }
     splits {
         abi {
@@ -144,6 +149,10 @@ android {
             universalApk false  // If true, also generate a universal APK
             include "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
         }
+    }
+    lintOptions {
+        disable 'InvalidPackage'
+        checkReleaseBuilds false
     }
     signingConfigs {
         debug {

@@ -1,17 +1,18 @@
-import { DiscoveryMenu } from '@const/DiscoveryMenu';
 import { ContextContainer } from '@context/AppContext';
 import { green400, white } from '@css/Color';
 import { AppIcon } from '@element/AppIcon';
+import { AppImage } from '@element/AppImage';
 import { AppText } from '@element/AppText';
 import { SizeRpScreen } from '@resources/ResponsiveScreen';
 import React, { useContext } from 'react';
 import { FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 
-export default function HomeMenu({ navigation, route }) {
+export default function HomeMenu(props) {
   const { colorApp } = useContext(ContextContainer);
 
   const navigateToScreen = (item) => () => {
-    console.log("item Click", item);
+    const { navigation } = props;
+    navigation.navigate(item.id);
   }
 
   const renderItemMenu = ({ item, index }) => {
@@ -22,15 +23,20 @@ export default function HomeMenu({ navigation, route }) {
         backgroundColor: white, margin: 5, borderWidth: SizeRpScreen.device_width * 0.005,
         borderColor: green400, borderRadius: 12, alignItems: "center", justifyContent: "center"
       }}>
-      <AppIcon type={item.iconType} name={item.iconName} color={item.iconColor} iconSize={item.iconSizeMenu}>
-      </AppIcon>
+      {item?.iconImg ?
+        <AppImage
+          resizeMode={"cover"}
+          source={{ uri: item.iconImg }}
+          style={{ height: 30, width: 30 }}></AppImage> :
+        <AppIcon type={item.iconType} name={item.iconName} color={item.iconColor} iconSize={item.iconSizeMenu}>
+        </AppIcon>}
       <AppText style={{ fontSize: 16 }}>{item.title}</AppText>
     </TouchableOpacity>
   }
 
   return (
     <FlatList
-      data={DiscoveryMenu}
+      data={props.dataMenu}
       numColumns={3}
       nestedScrollEnabled={true}
       keyExtractor={(_item, index) => index.toString()}

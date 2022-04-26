@@ -25,9 +25,8 @@ const getSize = (type, iconSize) => {
 
 const Icon = props => {
   const { type, name, color, sizeIcon } = props;
-
   const iconSize = getSize(type, sizeIcon);
-
+  
   switch (type) {
     case "AntDesign":
       return (
