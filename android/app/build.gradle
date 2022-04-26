@@ -136,6 +136,8 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 2
         versionName "1.0.12"
+        //Thêm cấu hình này để cấu hình projects 64k methods: Android Enabling Multidex 64k methods 
+        multiDexEnabled true
     }
     splits {
         abi {
