@@ -22,6 +22,11 @@ export const MenuAnimations = [
                 component: null,
                 description: ""
             },
+            {
+                name: 'Animated Extend',
+                component: null,
+                description: ""
+            },
         ],
     },
     {
