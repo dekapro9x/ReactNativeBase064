@@ -1,5 +1,6 @@
 import React from "react";
 import { TimingAnimatedComponent } from "./components/core/timing";
+import { SpringAnimatedComponent } from "./components/core/spring";
 
 export const MenuAnimations = [
     {
@@ -13,7 +14,7 @@ export const MenuAnimations = [
             },
             {
                 name: 'Animated.decay()',
-                component: null,
+                component: <SpringAnimatedComponent />,
                 description: ""
             },
             {

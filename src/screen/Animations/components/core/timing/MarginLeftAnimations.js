@@ -21,18 +21,18 @@ export function MarginLeftAnimations() {
         }).start(startAnimation);
     };
 
-    const opacity = animation.interpolate({
+    const left = animation.interpolate({
         inputRange: [0, 1],
-        outputRange: [0, 300]
-      })
+        outputRange: [20, 300]
+    })
 
     return (
-        <View style={animatedComponent}>
+        <View style={[animatedComponent, { alignItems: null }]}>
             <Text
-                style={{ fontSize: SizeRpScreen.H4, fontWeight: 'bold', color: "black" }}>
-                Run... 
+                style={{ alignSelf: "center", fontSize: SizeRpScreen.H4, fontWeight: 'bold', color: "black" }}>
+                Margin Left Interpolate
             </Text>
-            <Animated.View style={{ marginLeft: opacity, width: 60, height: 60, marginTop: 10, backgroundColor: "red", transform: [] }}>
+            <Animated.View style={{ marginLeft: left, width: 60, height: 60, marginTop: 10, backgroundColor: "red", transform: [] }}>
             </Animated.View>
         </View>
     );

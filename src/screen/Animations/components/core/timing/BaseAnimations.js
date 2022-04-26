@@ -1,23 +1,3 @@
-// import { animatedComponent } from '@css/';
-// import React, { useEffect } from 'react';
-// import { View } from 'react-native';
-
-// export function BaseAnimations() {
-
-//   useEffect(() => {
-//     return () => { };
-//   }, []);
-
-
-//   return (
-//     <View style={animatedComponent}>
-
-//     </View>
-//   );
-// }
-
-
-
 import { animatedComponent } from '@css/';
 import React, { Component } from 'react';
 import { Animated, Easing, StyleSheet, Text, View } from 'react-native';
