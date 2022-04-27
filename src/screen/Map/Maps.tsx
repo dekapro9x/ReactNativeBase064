@@ -7,18 +7,18 @@ import { BackHandler, SafeAreaView, StyleSheet, TouchableOpacity, View } from "r
 const MapScreen: FunctionComponent = (props: any) => {
   const [showListMenuComponentMaps, setStateShowListMenuComponent] = useState(false);
   const [listItemMapRender, setStateListItemMapRender] = useState([]);
-  const [renderAnimated, setStateRenderAnimated] = useState(false);
-  const [animatedComponent, setStateAnimatedComponent] = useState(null);
+  const [renderMap, setStateRenderMap] = useState(false);
+  const [mapComponent, setStateMapComponent] = useState(null);
   const listItemMapRenderLast = useRef([]);
 
   useEffect(() => {
     const backAction = () => {
-      if (renderAnimated && Array.isArray(listItemMapRenderLast.current) && listItemMapRenderLast.current.length > 0) {
-        setStateRenderAnimated(false);
+      if (renderMap && Array.isArray(listItemMapRenderLast.current) && listItemMapRenderLast.current.length > 0) {
+        setStateRenderMap(false);
         setStateListItemMapRender(listItemMapRenderLast.current);
       }
       if (showListMenuComponentMaps) {
-        if (renderAnimated) {
+        if (renderMap) {
           setStateShowListMenuComponent(true);
         } else {
           setStateShowListMenuComponent(false);
@@ -34,12 +34,12 @@ const MapScreen: FunctionComponent = (props: any) => {
       backAction
     );
     return () => backHandler.remove();
-  }, [showListMenuComponentMaps, renderAnimated]);
+  }, [showListMenuComponentMaps, renderMap]);
 
 
-  const renderAnimatedComponent = () => {
-    if (animatedComponent) {
-      return animatedComponent.component;
+  const renderMapComponent = () => {
+    if (mapComponent) {
+      return mapComponent.component;
     } else {
       return null
     }
@@ -48,10 +48,10 @@ const MapScreen: FunctionComponent = (props: any) => {
 
   const renderContent = () => {
     const { MenuMaps } = props;
-    if (renderAnimated) {
+    if (renderMap) {
       return (<SafeAreaView style={styles.content}>
         <View style={[{ minHeight: SizeRpScreen.height(100), width: SizeRpScreen.width(100), alignItems: 'center', justifyContent: "center" }]}>
-          {renderAnimatedComponent()}
+          {renderMapComponent()}
         </View>
       </SafeAreaView>)
     }
@@ -59,17 +59,17 @@ const MapScreen: FunctionComponent = (props: any) => {
       return (
         <SafeAreaView style={styles.content}>
           <View style={[{ minHeight: SizeRpScreen.height(100), width: SizeRpScreen.width(100) }]}>
-            {Array.isArray(listItemMapRender) && listItemMapRender.map((itemRenderAnimated: any, indexRenderAnimated: number) => {
+            {Array.isArray(listItemMapRender) && listItemMapRender.map((itemRenderMap: any, indexRenderMap: number) => {
               return (
                 <TouchableOpacity
-                  key={`${indexRenderAnimated}`}
+                  key={`${indexRenderMap}`}
                   onPress={() => {
-                    setStateRenderAnimated(true);
-                    setStateAnimatedComponent(itemRenderAnimated);
+                    setStateRenderMap(true);
+                    setStateMapComponent(itemRenderMap);
                   }}
                   style={styles.buttonActionsMenu}>
                   <AppText style={{}}>
-                    {itemRenderAnimated.name}
+                    {itemRenderMap.name}
                   </AppText>
                 </TouchableOpacity>
               )
@@ -80,18 +80,18 @@ const MapScreen: FunctionComponent = (props: any) => {
     }
     return (
       <SafeAreaView style={styles.content}>
-        {Array.isArray(MenuMaps) && MenuMaps.map((itemMenuAnimated: any, index: number) => {
+        {Array.isArray(MenuMaps) && MenuMaps.map((itemMenuMap: any, index: number) => {
           return (
             <TouchableOpacity
               key={`${index}`}
               onPress={() => {
                 setStateShowListMenuComponent(true);
-                setStateListItemMapRender(itemMenuAnimated.data);
-                listItemMapRenderLast.current = itemMenuAnimated.data;
+                setStateListItemMapRender(itemMenuMap.data);
+                listItemMapRenderLast.current = itemMenuMap.data;
               }}
               style={styles.buttonActionsMenu}>
               <AppText style={{}}>
-                {itemMenuAnimated.keyName}
+                {itemMenuMap.keyName}
               </AppText>
             </TouchableOpacity>
           )

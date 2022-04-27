@@ -28,5 +28,9 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
       </activity>
+        <!--Thêm đoạn này để cấu hình Map=> key này lấy từ projects: ReactNativeBase064 => AIzaSyCMoHPy6fRMcYWnTfij2S7qDnToDoYpcSE -->
+        <!-- https://console.cloud.google.com/google/maps-apis/credentials?_ga=2.240730179.194905775.1651028131-1722950009.1651028131&project=reactnativebase-348506 -->
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyCMoHPy6fRMcYWnTfij2S7qDnToDoYpcSE"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
     </application>
 </manifest>

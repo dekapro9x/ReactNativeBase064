@@ -1,20 +1,18 @@
 import React from "react";
-import { TimingAnimatedComponent } from "./components/core/timing";
-import { SpringAnimatedComponent } from "./components/core/spring";
-
+import { MapViewComponent } from "./components/MapView";
 export const MenuMaps = [
     {
         id: 1,
         keyName: 'Googles Map',
         data: [
             {
-                name: 'Map Googles',
-                component: <TimingAnimatedComponent />,
+                name: 'MapView',
+                component: <MapViewComponent/>,
                 description: ""
             },
             {
                 name: 'Map full',
-                component: <SpringAnimatedComponent />,
+                component: null,
                 description: ""
             },
             {

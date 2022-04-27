@@ -19,24 +19,24 @@ const mapStateToProps = (GlobalState) => {
       endpointVersion: "DEV"
     },
     {
-      title: "Camera",
-      id: keyNavigation.CAMERA,
+      title: "Map",
+      id: keyNavigation.MAP,
       sortIndex: 2,
       iconColor: "blue",
       iconName: "logo-firebase",
       iconType: "Ionicons",
-      iconImg:"https://img.pikbest.com/58pic/35/39/28/32k58PIC18yz2R10raZmi_PIC2018.gif!bw700",
+      iconImg:"https://mobilemarketingwatch.com/wp-content/uploads/2016/04/location.gif",
       iconSizeMenu: iconMenuSize,
       endpointVersion: "DEV"
     },
     {
-      title: "Map",
-      id: keyNavigation.MAP,
+      title: "Camera",
+      id: keyNavigation.CAMERA,
       sortIndex: 3,
       iconColor: "blue",
       iconName: "logo-firebase",
       iconType: "Ionicons",
-      iconImg:"https://mobilemarketingwatch.com/wp-content/uploads/2016/04/location.gif",
+      iconImg:"https://img.pikbest.com/58pic/35/39/28/32k58PIC18yz2R10raZmi_PIC2018.gif!bw700",
       iconSizeMenu: iconMenuSize,
       endpointVersion: "DEV"
     },
