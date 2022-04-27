@@ -200,6 +200,16 @@ android {
 }
 
 dependencies {
+    //Add google map:
+    implementation(project(':react-native-maps')){
+    exclude group: 'com.google.android.gms', module: 'play-services-base'
+    exclude group: 'com.google.android.gms', module: 'play-services-maps'
+   }
+    implementation 'com.google.android.gms:play-services-base:17.2.1'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    //Lựa chọn tính tóan khác phiên bản thì add 2 dòng này để sử dụng google map theo file zip cấu hình khác trong:
+    // Android/gradle/wrapper/gradle-wrapper.properties:
+    // distributionUrl=https\://services.gradle.org/distributions/gradle-4.4-all.zip
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
