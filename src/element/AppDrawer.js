@@ -1,4 +1,3 @@
-import { AppLogo } from '@const/Setting';
 import { ContextContainer } from '@context/AppContext';
 import { keyNavigation } from '@navigation/KeyNavigations';
 import { SizeRpScreen } from '@resources/ResponsiveScreen';
@@ -7,8 +6,7 @@ import { navigate } from '@services/NavigationService';
 import React, { useContext } from 'react';
 import { SectionList, StyleSheet } from "react-native";
 import { createAnimatableComponent, View } from 'react-native-animatable';
-import { AppImageScaleZoom } from './AppImageScaleZoom';
-
+import { AppImage } from './AppImage';
 
 const AnimatableSectionList = createAnimatableComponent(SectionList);
 
@@ -57,18 +55,18 @@ const AppDrawer = (props) => {
                     sections={dataMenuDrawer}
                     removeClippedSubviews={false}
                     renderSectionHeader={({ section }) => (
-                        <AppImageScaleZoom
-                            useAutoScale={true}
-                            url={"https://isoftglobe.com/wp-content/uploads/2021/02/react-native.png"}
+                        <AppImage
+                            source={{
+                                uri: "https://isoftglobe.com/wp-content/uploads/2021/02/react-native.png"
+                              }}
                             style={{
                                 width: SizeRpScreen.width(72),
                                 height: SizeRpScreen.height(20),
                                 marginBottom: 5
                             }}
                             resizeMode={'cover'}
-                            useZoom={false}
                         >
-                        </AppImageScaleZoom>
+                        </AppImage>
                     )}
                     renderItem={({ item, index }) => (
                         <AnimationCell
