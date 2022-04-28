@@ -11,6 +11,9 @@ function push(name, params) {
   NavigationService.current?.dispatch(StackActions.push(name, params));
 }
 
+function goBack() {
+  NavigationService.current?.goBack();
+}
 
-export { NavigationService, navigate, push };
+export { NavigationService, navigate, push, goBack };
 
