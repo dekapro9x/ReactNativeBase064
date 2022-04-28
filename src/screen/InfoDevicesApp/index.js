@@ -14,6 +14,7 @@ import { green400 } from "@css/Color";
 function InfoDevicesApp({ navigation, router }) {
     const [IP, setStateIP] = useState("");
     const [msg, setStateMsg] = useState("");
+    const [downloadProgress, setStateDownloadProgress] = useState(null);
     useLayoutEffect(() => {
         getdeivicesID();
         return () => { };
@@ -38,7 +39,7 @@ function InfoDevicesApp({ navigation, router }) {
                 setStateMsg("Installing update");
                 break;
             case codePush.SyncStatus.UP_TO_DATE:
-                setStateMsg("Up-to-date (New Versions)");
+                setStateMsg("Up-to-date (New)");
                 break;
             case codePush.SyncStatus.UPDATE_INSTALLED:
                 setStateMsg("Update installed");
@@ -47,7 +48,8 @@ function InfoDevicesApp({ navigation, router }) {
     }
 
     const codePushDownloadProgress = (progress) => {
-        console.log(progress.receivedBytes + " of " + progress.totalBytes + " received.");
+        const { receivedBytes, totalBytes } = progress;
+        setStateDownloadProgress((receivedBytes / totalBytes) * 100);
     }
 
     const checkVersionCodePush = () => {
@@ -88,12 +90,13 @@ function InfoDevicesApp({ navigation, router }) {
                     <AppText style={{ marginTop: 12 }} fontFamily={FontAppType.Happy}>SystemName:   {GetDevicesInfo.getSystemName}</AppText>
                     <AppText style={{ marginTop: 12 }} fontFamily={FontAppType.Happy}>Version:   {GetDevicesInfo.getVersion}</AppText>
                     <AppText style={{ marginTop: 12 }} fontFamily={FontAppType.Happy}>Ip:   {IP}</AppText>
-                    <AppText style={{ marginTop: 12 }} fontFamily={FontAppType.Happy}>Ip:   {msg}</AppText>
+                    <AppText style={{ marginTop: 12 }} fontFamily={FontAppType.Happy}>VersionsJS:   {msg}</AppText>
+                    {downloadProgress && <AppText style={{ marginTop: 12 }} fontFamily={FontAppType.Happy}>Download Process:   {downloadProgress}</AppText>}
                 </View>
                 <TouchableOpacity
                     onPress={checkVersionCodePush}
                     style={{ height: 50, width: 50, borderRadius: 25, borderWidth: 5, borderColor: green400, backgroundColor: "red", position: "absolute", right: SizeRpScreen.width(4), bottom: SizeRpScreen.height(20), alignItems: "center", justifyContent: "center" }}>
-                    <AppIcon style={{marginLeft:7 }} type={"Entypo"} name={"download"} color={"white"} sizeIcon={25}> </AppIcon>
+                    <AppIcon style={{ marginLeft: 7 }} type={"Entypo"} name={"download"} color={"white"} sizeIcon={25}> </AppIcon>
                 </TouchableOpacity>
             </TouchableOpacity >
         );
