@@ -9,7 +9,6 @@ import { createAnimatableComponent, View, Text } from 'react-native-animatable';
 import Slider from '@react-native-community/slider';
 import AnimationCell from './AnimationCell';
 import GROUPED_ANIMATION_TYPES from './grouped-animation-types.json';
-
 const AnimatableSectionList = createAnimatableComponent(SectionList);
 
 const COLORS = [
@@ -37,6 +36,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F5FCFF',
+    marginBottom:20
   },
   title: {
     fontSize: 28,
@@ -149,7 +149,7 @@ export class ExampleAnimated extends Component {
         <Text animation="zoomInDown" delay={700} style={styles.instructions}>
           Tap one of the following to animate for {duration} ms
         </Text>
-        <AnimatableSectionList
+        {/* <AnimatableSectionList
           animation="bounceInUp"
           contentInsetAdjustmentBehavior="automatic"
           duration={1100}
@@ -172,7 +172,7 @@ export class ExampleAnimated extends Component {
               }
             />
           )}
-        />
+        /> */}
       </View>
     );
   }

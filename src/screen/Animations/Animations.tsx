@@ -3,7 +3,7 @@ import { AppText } from "@element/AppText";
 import { SizeRpScreen } from "@resources/ResponsiveScreen";
 import React, { FunctionComponent, useEffect, useState, useRef } from "react";
 import { BackHandler, SafeAreaView, StyleSheet, TouchableOpacity, View } from "react-native";
-
+import { createAnimatableComponent, View as ViewAnimated, Text as TextAnimated } from 'react-native-animatable';
 const AnimationsScreen: FunctionComponent = (props: any) => {
   const [showListMenuComponentAnimations, setStateShowListMenuComponent] = useState(false);
   const [listItemAnimationRender, setStateListItemAnimationRender] = useState([]);
@@ -55,45 +55,59 @@ const AnimationsScreen: FunctionComponent = (props: any) => {
         </View>
       </SafeAreaView>)
     }
+    //List sub menu:
     if (showListMenuComponentAnimations) {
       return (
         <SafeAreaView style={styles.content}>
           <View style={[{ minHeight: SizeRpScreen.height(100), width: SizeRpScreen.width(100) }]}>
             {Array.isArray(listItemAnimationRender) && listItemAnimationRender.map((itemRenderAnimated: any, indexRenderAnimated: number) => {
               return (
-                <TouchableOpacity
-                  key={`${indexRenderAnimated}`}
-                  onPress={() => {
-                    setStateRenderAnimated(true);
-                    setStateAnimatedComponent(itemRenderAnimated);
-                  }}
-                  style={styles.buttonActionsMenu}>
-                  <AppText style={{}}>
-                    {itemRenderAnimated.name}
-                  </AppText>
-                </TouchableOpacity>
+                <ViewAnimated
+                  animation="slideInLeft"
+                  useNativeDriver
+                  delay={(indexRenderAnimated + 1) * 500}
+                >
+                  <TouchableOpacity
+                    key={`${indexRenderAnimated}`}
+                    onPress={() => {
+                      setStateRenderAnimated(true);
+                      setStateAnimatedComponent(itemRenderAnimated);
+                    }}
+                    style={styles.buttonActionsMenu}>
+                    <AppText style={{}}>
+                      {itemRenderAnimated.name}
+                    </AppText>
+                  </TouchableOpacity>
+                </ViewAnimated>
               )
             })}
           </View>
         </SafeAreaView>
       )
     }
+    //Menu:
     return (
       <SafeAreaView style={styles.content}>
         {Array.isArray(MenuAnimations) && MenuAnimations.map((itemMenuAnimated: any, index: number) => {
           return (
-            <TouchableOpacity
-              key={`${index}`}
-              onPress={() => {
-                setStateShowListMenuComponent(true);
-                setStateListItemAnimationRender(itemMenuAnimated.data);
-                listItemAnimationRenderLast.current = itemMenuAnimated.data;
-              }}
-              style={styles.buttonActionsMenu}>
-              <AppText style={{}}>
-                {itemMenuAnimated.keyName}
-              </AppText>
-            </TouchableOpacity>
+            <ViewAnimated
+              animation="fadeIn"
+              useNativeDriver
+              delay={(index + 1) * 500}
+            >
+              <TouchableOpacity
+                key={`${index}`}
+                onPress={() => {
+                  setStateShowListMenuComponent(true);
+                  setStateListItemAnimationRender(itemMenuAnimated.data);
+                  listItemAnimationRenderLast.current = itemMenuAnimated.data;
+                }}
+                style={styles.buttonActionsMenu}>
+                <AppText style={{}}>
+                  {itemMenuAnimated.keyName}
+                </AppText>
+              </TouchableOpacity>
+            </ViewAnimated>
           )
         })}
       </SafeAreaView>

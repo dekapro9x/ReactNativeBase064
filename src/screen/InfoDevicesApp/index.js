@@ -3,8 +3,9 @@ import { FontAppType } from "@const/TypeFontFamily";
 import { AppText } from "@element/AppText";
 import Wave from "@libJS/react-native-waveview";
 import { SizeRpScreen } from "@resources/ResponsiveScreen";
+import { goBack } from "@services/NavigationService";
 import React, { useEffect, useLayoutEffect, useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, TouchableOpacity } from "react-native";
 import { AppContainer } from "../../element/AppContainer";
 
 
@@ -25,7 +26,10 @@ function InfoDevicesApp({ navigation, router }) {
 
     const renderContent = () => {
         return (
-            <View style={[styles.containerContent]}>
+            <TouchableOpacity
+                onPress={goBack}
+                activeOpacity={0.8}
+                style={[styles.containerContent]}>
                 <View>
                     <Wave
                         style={styles.waveBall}
@@ -47,7 +51,7 @@ function InfoDevicesApp({ navigation, router }) {
                     <AppText style={{ marginTop: 12 }} fontFamily={FontAppType.Happy}>Version:   {GetDevicesInfo.getVersion}</AppText>
                     <AppText style={{ marginTop: 12 }} fontFamily={FontAppType.Happy}>Ip:   {IP}</AppText>
                 </View>
-            </View>
+            </TouchableOpacity>
         );
     };
 
