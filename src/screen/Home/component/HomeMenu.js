@@ -30,7 +30,7 @@ export default function HomeMenu(props) {
           style={{ height: 30, width: 30 }}></AppImage> :
         <AppIcon type={item.iconType} name={item.iconName} color={item.iconColor} iconSize={item.iconSizeMenu}>
         </AppIcon>}
-      <AppText style={{ fontSize: 16 }}>{item.title}</AppText>
+      <AppText style={{ fontSize: 16, textAlign: 'center'}}>{item.title}</AppText>
     </TouchableOpacity>
   }
 

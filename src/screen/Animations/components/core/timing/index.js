@@ -8,8 +8,11 @@ import { LongShortAnimations } from "./LongShortAnimations";
 import { MarginLeftAnimations } from "./MarginLeftAnimations";
 import { OpacityAnimationsInterpolate } from "./OpacityAnimationsInterpolate";
 import { MovingMarginAnimations } from "./MovingMarginAnimations";
+import { RotateOxAnimations } from "./RotateOxAnimations";
+import { RotateOyAnimations } from "./RotateOyAnimations";
+import { SizeTextAnimations } from "./SizeTextAnimations";
 const TimingAnimatedComponent = () => {
-   
+
     const { colorApp } = useContext(ContextContainer);
     return (
         <ScrollView>
@@ -17,9 +20,12 @@ const TimingAnimatedComponent = () => {
                 <SpinAnimations />
                 <OpacityAnimations />
                 <LongShortAnimations />
+                <SizeTextAnimations/>
                 <OpacityAnimationsInterpolate />
                 <MarginLeftAnimations />
                 <MovingMarginAnimations />
+                <RotateOxAnimations />
+                <RotateOyAnimations />
             </View>
         </ScrollView>
     );

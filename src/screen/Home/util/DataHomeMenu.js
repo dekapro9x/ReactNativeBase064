@@ -78,6 +78,28 @@ const MenuHome = [
       iconSizeMenu: iconMenuSize,
       endpointVersion: "DEV"
     },
+    {
+      title: "Native Module Android",
+      id: keyNavigation.DISCOVERY_CHAT,
+      sortIndex: 7,
+      iconColor: "blue",
+      iconName: "logo-firebase",
+      iconType: "Ionicons",
+      iconImg:"https://www.dotplays.com/wp-content/uploads/2019/06/Android-Icon.png",
+      iconSizeMenu: iconMenuSize,
+      endpointVersion: "DEV"
+    },
+    {
+      title: "Native Module IOS",
+      id: keyNavigation.DISCOVERY_CHAT,
+      sortIndex: 7,
+      iconColor: "blue",
+      iconName: "logo-firebase",
+      iconType: "Ionicons",
+      iconImg:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7YBPr9G-g0InpNEgDF_b1z6KPno2aW3W1HwfZjMid2az195I5Y9_5cnXJV3K0h55mNkE&usqp=CAU",
+      iconSizeMenu: iconMenuSize,
+      endpointVersion: "DEV"
+    },
 
   ];
 
