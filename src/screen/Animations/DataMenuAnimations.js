@@ -1,7 +1,9 @@
 import React from "react";
+//Animations Core:
 import { TimingAnimatedComponent } from "./components/core/timing";
 import { SpringAnimatedComponent } from "./components/core/spring";
-
+//Lib:
+import {ExampleAnimated} from "./components/lib/animatable"
 export const MenuAnimations = [
     {
         id: 1,
@@ -34,23 +36,8 @@ export const MenuAnimations = [
         keyName: 'react-native-animatable (lib)',
         data: [
             {
-                name: '',
-                component: '',
-                description: ""
-            },
-            {
-                name: '',
-                component: '',
-                description: ""
-            },
-            {
-                name: '',
-                component: '',
-                description: ""
-            },
-            {
-                name: '',
-                component: '',
+                name: 'Animatable Example',
+                component: <ExampleAnimated/>,
                 description: ""
             },
         ],

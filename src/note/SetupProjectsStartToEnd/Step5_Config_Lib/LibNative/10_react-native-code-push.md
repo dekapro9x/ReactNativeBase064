@@ -65,6 +65,9 @@ return CodePush.getJSBundleFile();
 }
 
 # Bước 2: react-native link react-native-code-push
+android/settings.gradle
+apply from: "../../node_modules/react-native/react.gradle"
+apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
 
 # Bước 3: Trong tring.xml :
     <string moduleConfig="true" name="CodePushDeploymentKey">aOtKAUp3F-0GLZqIVyoLLaqVAfZabbR8ok4lQ</string>
