@@ -13,7 +13,7 @@ export const SizeTextAnimations = () => {
         setStateIsBigText(false);
         Animated.timing(size, {
             toValue: 50,
-            duration: 2000
+            duration: 2000,
         }).start();
     };
 
@@ -21,7 +21,7 @@ export const SizeTextAnimations = () => {
         setStateIsBigText(true);
         Animated.timing(size, {
             toValue: 15,
-            duration: 2000
+            duration: 2000,
         }).start();
     };
 

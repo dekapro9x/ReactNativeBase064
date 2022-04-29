@@ -16,7 +16,7 @@ export function MarginLeftAnimations() {
         Animated.timing(animation, {
             toValue: 1,
             duration: 2000,
-            // useNativeDriver: true,
+            useNativeDriver: false,
             easing: Easing.linear,
         }).start(startAnimation);
     };
@@ -32,8 +32,13 @@ export function MarginLeftAnimations() {
                 style={{ alignSelf: "center", fontSize: SizeRpScreen.H4, fontWeight: 'bold', color: "black" }}>
                 Margin Left Interpolate
             </Text>
-            <Animated.View style={{ marginLeft: left, width: 60, height: 60, marginTop: 10, backgroundColor: "red", transform: [] }}>
-            </Animated.View>
+            <Animated.Image
+                source={{
+                    uri:
+                        'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Soccerball.svg/2048px-Soccerball.svg.png',
+                }}
+                style={{ marginLeft: left, width: 60, height: 60, marginTop: 10, transform: [] }}>
+            </Animated.Image>
         </View>
     );
 }

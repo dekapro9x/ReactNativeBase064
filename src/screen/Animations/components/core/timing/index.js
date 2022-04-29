@@ -37,3 +37,5 @@ const styles = StyleSheet.create({
 
 export { TimingAnimatedComponent };
 
+// Animated.timing() : Ánh xạ với phạm vi thời gian để easing value
+// Easing là module cho phép chúng ta sử dụng các method để easing như linear, ease, quad, cubic, sin, elastic, bounce, back, bezier, in, out, inout...

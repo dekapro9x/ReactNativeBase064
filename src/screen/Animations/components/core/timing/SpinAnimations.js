@@ -35,7 +35,7 @@ export function SpinAnimations() {
         style={{ width: 60, height: 60, marginTop: 25, transform: [{ rotate: spin }] }}
         source={{
           uri:
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQSQWNNMWrkRWdoX0gH36XXMFTFgZfa8DMcA9AnalnL_Q&usqp=CAU&ec=45707743',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Soccerball.svg/2048px-Soccerball.svg.png',
         }}
       />
     </View>
