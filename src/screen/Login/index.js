@@ -28,6 +28,16 @@ export default function Login({ navigation, router }) {
     getAccountRemember();
   }, []);
 
+  useEffect(() => {
+    if (userName && passWord && rememberAccount) {
+      //Auto Login :
+      autoLogin();
+    }
+    return () => {
+
+    }
+  }, [userName, passWord,rememberAccount]);
+
   const getAccountRemember = async () => {
     const accountRemember = JSON.parse(
       await AsyncStorage.getItem(keyAsyncStorage.accountLogin)
@@ -42,6 +52,7 @@ export default function Login({ navigation, router }) {
       setStateUserName(userName);
       setStatePassWord(passWord);
       setStateRememberAccount(rememberStatus);
+
     }
   };
 
@@ -61,6 +72,10 @@ export default function Login({ navigation, router }) {
   const pressConnectUsing = keyConnect => () => {
     console.log("keyConnect", keyConnect);
   };
+
+  const autoLogin = () => {
+    pressLogin();
+  }
 
   const onChangeText = (keyState, value) => {
     switch (keyState) {

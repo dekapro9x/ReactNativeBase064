@@ -1,7 +1,7 @@
 import { ContextContainer } from '@context/AppContext';
 import { keyNavigation } from '@navigation/KeyNavigations';
 import { SizeRpScreen } from '@resources/ResponsiveScreen';
-import AnimationCell from '@screen/Animations/components/lib/animatable/AnimationCell';
+import AnimationCell from './AnimationCell';
 import { navigate } from '@services/NavigationService';
 import React, { useContext } from 'react';
 import { SectionList, StyleSheet } from "react-native";
