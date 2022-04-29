@@ -1,11 +1,12 @@
 import React from "react";
-//Animations Core:
-import { TimingAnimatedComponent } from "./components/core/timing";
+//Core:
 import { DecayAnimatedComponent } from "./components/core/decay";
 import { SpringAnimatedComponent } from "./components/core/spring";
-
-//Lib:
-import { ExampleAnimated } from "./components/lib/animatable"
+import { TimingAnimatedComponent } from "./components/core/timing";
+//Library:
+import { SliderAnimations } from "./components/lib/animatable/SliderAnimations";
+import {ButtonAnimations} from "./components/lib/animatable/ButtonAnimations";
+import {ButtonAnimationsClass} from "./components/lib/animatable/ButtonAnimationsClass";
 export const MenuAnimations = [
     {
         id: 1,
@@ -53,8 +54,13 @@ export const MenuAnimations = [
         keyName: 'react-native-animatable (lib)',
         data: [
             {
-                name: 'Animatable Example',
-                component: <ExampleAnimated />,
+                name: 'Animatable Slider',
+                component: <SliderAnimations />,
+                description: ""
+            },
+            {
+                name: 'Animatable Button',
+                component: <ButtonAnimations /> || <ButtonAnimationsClass/>,
                 description: ""
             },
         ],
