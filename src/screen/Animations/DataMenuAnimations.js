@@ -1,9 +1,11 @@
 import React from "react";
 //Animations Core:
 import { TimingAnimatedComponent } from "./components/core/timing";
+import { DecayAnimatedComponent } from "./components/core/decay";
 import { SpringAnimatedComponent } from "./components/core/spring";
+
 //Lib:
-import {ExampleAnimated} from "./components/lib/animatable"
+import { ExampleAnimated } from "./components/lib/animatable"
 export const MenuAnimations = [
     {
         id: 1,
@@ -16,12 +18,27 @@ export const MenuAnimations = [
             },
             {
                 name: 'Animated.decay()',
-                component: <SpringAnimatedComponent />,
+                component: <DecayAnimatedComponent />,
                 description: ""
             },
             {
                 name: 'Animated.spring()',
-                component: null,
+                component: <SpringAnimatedComponent />,
+                description: ""
+            },
+            {
+                name: 'Animated.parallel()',
+                component: <SpringAnimatedComponent />,
+                description: ""
+            },
+            {
+                name: 'Animated.sequence()',
+                component: <SpringAnimatedComponent />,
+                description: ""
+            },
+            {
+                name: 'Animated.stagger()',
+                component: <SpringAnimatedComponent />,
                 description: ""
             },
             {
@@ -37,7 +54,7 @@ export const MenuAnimations = [
         data: [
             {
                 name: 'Animatable Example',
-                component: <ExampleAnimated/>,
+                component: <ExampleAnimated />,
                 description: ""
             },
         ],

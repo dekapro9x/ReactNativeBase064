@@ -27,13 +27,18 @@ export function OpacityAnimationsInterpolate() {
   })
 
   return (
-    <View style={animatedComponent}>
+    <View style={[animatedComponent]}>
       <Text
         style={{ fontSize: SizeRpScreen.H4, fontWeight: 'bold', color: "black" }}>
         Opacity Interpolate
       </Text>
-      <Animated.View style={{ opacity: opacity, width: 60, height: 60, marginTop: 10, backgroundColor: "red", transform: [] }}>
-      </Animated.View>
+      <Animated.Image
+        source={{
+          uri:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Soccerball.svg/2048px-Soccerball.svg.png',
+        }}
+        style={{ opacity: opacity, width: 60, height: 60, marginTop: 10, transform: [] }}>
+      </Animated.Image>
     </View>
   );
 }

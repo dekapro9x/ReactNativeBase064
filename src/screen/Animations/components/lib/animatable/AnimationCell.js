@@ -1,21 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet, Text, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { View } from 'react-native-animatable';
-
-const styles = StyleSheet.create({
-  cell: {
-    padding: 16,
-    marginBottom: 10,
-    marginHorizontal: 10,
-  },
-  name: {
-    color: 'white',
-    fontSize: 16,
-    textAlign: 'center',
-  },
-});
-
 export default class AnimationCell extends PureComponent {
   static propTypes = {
     animationType: PropTypes.string.isRequired,
@@ -37,14 +23,27 @@ export default class AnimationCell extends PureComponent {
 
   render() {
     return (
-      <TouchableWithoutFeedback onPress={this.handlePress}>
+      <TouchableOpacity onPress={this.handlePress}>
         <View
           ref={this.handleRef}
           style={[{ backgroundColor: this.props.color }, styles.cell]}
           useNativeDriver={this.props.useNativeDriver}>
           <Text style={styles.name}>{this.props.animationType}</Text>
         </View>
-      </TouchableWithoutFeedback>
+      </TouchableOpacity>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  cell: {
+    padding: 16,
+    marginBottom: 10,
+    marginHorizontal: 10,
+  },
+  name: {
+    color: 'white',
+    fontSize: 16,
+    textAlign: 'center',
+  },
+});

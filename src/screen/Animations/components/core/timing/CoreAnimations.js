@@ -1,17 +1,17 @@
-// import { animatedComponent } from '@css/';
-// import React, { useEffect } from 'react';
-// import { View } from 'react-native';
+import { animatedComponent } from '@css/';
+import React, { useEffect } from 'react';
+import { View } from 'react-native';
 
-// export function BaseAnimations() {
+export function BaseAnimations() {
 
-//   useEffect(() => {
-//     return () => { };
-//   }, []);
+  useEffect(() => {
+    return () => { };
+  }, []);
 
 
-//   return (
-//     <View style={animatedComponent}>
+  return (
+    <View style={animatedComponent}>
 
-//     </View>
-//   );
-// }
+    </View>
+  );
+}

@@ -1,4 +1,4 @@
-import Appdrawer from "@element/AppDrawer";
+import AppDrawer from "@element/AppDrawer";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { useFocusEffect } from '@react-navigation/native';
 import InfoDevicesApp from "@screen/InfoDevicesApp";
@@ -11,6 +11,14 @@ const DrawerStack = createDrawerNavigator();
 function RootStackDrawer({ navigation, router }) {
   const [canRenderDrawer, setStateIsCanRenderDrawer] = useState(false);
   const countTimeOut = useRef(0);
+  const menuDrawer = [
+    {
+      "title": "Sub Menu",
+      "data": [
+        "Information App",
+      ]
+    },
+  ]
   useFocusEffect(
     useCallback(() => {
       countTimeOut.current = setTimeout(() => {
@@ -25,7 +33,7 @@ function RootStackDrawer({ navigation, router }) {
   const drawerContent = () => {
     if (canRenderDrawer) {
       return (
-        <Appdrawer canRenderDrawer={canRenderDrawer} />
+        <AppDrawer canRenderDrawer={canRenderDrawer} dataMenuDrawer={menuDrawer} />
       )
     }
     return (

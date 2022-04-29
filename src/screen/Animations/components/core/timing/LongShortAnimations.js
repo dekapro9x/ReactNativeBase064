@@ -11,22 +11,24 @@ export const LongShortAnimations = () => {
     const showView = () => {
         Animated.timing(longWidth, {
             toValue: 250,
-            duration: 2000
+            duration: 2000,
         }).start();
     };
 
     const hideView = () => {
         Animated.timing(longWidth, {
             toValue: 0,
-            duration: 2000
+            duration: 2000,
         }).start();
     };
+
+    console.log("longWidth", longWidth);
 
     return (
         <View style={animatedComponent}>
             <Text
                 style={{ textAlign: 'center', fontSize: SizeRpScreen.H4, fontWeight: 'bold', color: "black" }}>
-                Long - Short 
+                Long - Short
             </Text>
             <Animated.View
                 style={[

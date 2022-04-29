@@ -135,14 +135,16 @@ const OpacityAnimations = () => {
   const showView = () => {
     Animated.timing(fadeAnim, {
       toValue: 1,
-      duration: 1000
+      duration: 1000,
+      useNativeDriver: true
     }).start();
   };
 
   const hideView = () => {
     Animated.timing(fadeAnim, {
       toValue: 0,
-      duration: 1000
+      duration: 1000,
+      useNativeDriver: true
     }).start();
   };
 
@@ -152,7 +154,11 @@ const OpacityAnimations = () => {
         style={{ textAlign: 'center', fontSize: SizeRpScreen.H4, fontWeight: 'bold', color: "black" }}>
         Opacity
       </Text>
-      <Animated.View
+      <Animated.Image
+        source={{
+          uri:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Soccerball.svg/2048px-Soccerball.svg.png',
+        }}
         style={[
           styles.fadingContainer,
           {
@@ -160,17 +166,17 @@ const OpacityAnimations = () => {
           }
         ]}
       >
-      </Animated.View>
+      </Animated.Image>
       <View style={{ width: SizeRpScreen.width(80), height: 40, flexDirection: "row", justifyContent: "space-between" }}>
         <TouchableOpacity
           onPress={showView}
           style={{ height: 40, width: SizeRpScreen.width(30), backgroundColor: blueGrey900, justifyContent: "center", alignItems: "center" }}>
-          <AppText style={{ fontSize: 16, fontWeight: "bold", color: "white" }}>Show View</AppText>
+          <AppText style={{ fontSize: 16, fontWeight: "bold", color: "white" }}>Show</AppText>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={hideView}
           style={{ height: 40, width: SizeRpScreen.width(30), backgroundColor: blueGrey900, justifyContent: "center", alignItems: "center" }}>
-          <AppText style={{ fontSize: 16, fontWeight: "bold", color: "white" }}>Hide View</AppText>
+          <AppText style={{ fontSize: 16, fontWeight: "bold", color: "white" }}>Hide</AppText>
         </TouchableOpacity>
       </View>
     </View>
@@ -184,8 +190,7 @@ const styles = StyleSheet.create({
   },
   fadingContainer: {
     padding: 20,
-    backgroundColor: "red",
-    borderRadius:20
+    borderRadius: 20
   },
   fadingText: {
     fontSize: 28
