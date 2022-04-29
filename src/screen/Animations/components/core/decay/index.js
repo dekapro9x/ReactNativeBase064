@@ -3,6 +3,7 @@ import { SizeRpScreen } from '@resources/ResponsiveScreen';
 import React, { useContext } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { BallClickRun } from "./BallClickRun";
+import { BallClickFly } from "./BallClickFly";
 const DecayAnimatedComponent = () => {
     const { colorApp } = useContext(ContextContainer);
 
@@ -10,6 +11,7 @@ const DecayAnimatedComponent = () => {
         <ScrollView>
             <View style={[styles.container, { backgroundColor: colorApp.backgroundColor, paddingBottom: 120 }]}>
                 <BallClickRun />
+                <BallClickFly />
             </View>
         </ScrollView>
     );

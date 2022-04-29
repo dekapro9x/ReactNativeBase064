@@ -171,12 +171,12 @@ const OpacityAnimations = () => {
         <TouchableOpacity
           onPress={showView}
           style={{ height: 40, width: SizeRpScreen.width(30), backgroundColor: blueGrey900, justifyContent: "center", alignItems: "center" }}>
-          <AppText style={{ fontSize: 16, fontWeight: "bold", color: "white" }}>Show View</AppText>
+          <AppText style={{ fontSize: 16, fontWeight: "bold", color: "white" }}>Show</AppText>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={hideView}
           style={{ height: 40, width: SizeRpScreen.width(30), backgroundColor: blueGrey900, justifyContent: "center", alignItems: "center" }}>
-          <AppText style={{ fontSize: 16, fontWeight: "bold", color: "white" }}>Hide View</AppText>
+          <AppText style={{ fontSize: 16, fontWeight: "bold", color: "white" }}>Hide</AppText>
         </TouchableOpacity>
       </View>
     </View>

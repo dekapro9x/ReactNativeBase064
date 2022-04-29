@@ -6,7 +6,7 @@ import React, { useRef, useState } from "react";
 import { Animated, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export const SizeTextAnimations = () => {
-    const size = useRef(new Animated.Value(0)).current;
+    const size = useRef(new Animated.Value(30)).current;
     const [isBigText, setStateIsBigText] = useState(false);
 
     const bigText = () => {

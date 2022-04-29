@@ -27,7 +27,7 @@ export function OpacityAnimationsInterpolate() {
   })
 
   return (
-    <View style={animatedComponent}>
+    <View style={[animatedComponent]}>
       <Text
         style={{ fontSize: SizeRpScreen.H4, fontWeight: 'bold', color: "black" }}>
         Opacity Interpolate

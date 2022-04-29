@@ -45,7 +45,8 @@ const animatedComponent = {
     backgroundColor: yellowA200,
     borderRadius: 12,
     marginTop: 10,
-    alignItems: "center"
+    alignItems: "center",
+    justifyContent: "center"
 }
 
 export {

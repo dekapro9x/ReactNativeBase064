@@ -27,6 +27,21 @@ export const MenuAnimations = [
                 description: ""
             },
             {
+                name: 'Animated.parallel()',
+                component: <SpringAnimatedComponent />,
+                description: ""
+            },
+            {
+                name: 'Animated.sequence()',
+                component: <SpringAnimatedComponent />,
+                description: ""
+            },
+            {
+                name: 'Animated.stagger()',
+                component: <SpringAnimatedComponent />,
+                description: ""
+            },
+            {
                 name: 'Animated Extend',
                 component: null,
                 description: ""

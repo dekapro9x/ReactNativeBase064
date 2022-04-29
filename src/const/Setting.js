@@ -12,7 +12,7 @@ const AppLogo =
 
 const VersionApp = "1.0.12";
 
-const VersionCodePush = "8";
+const VersionCodePush = "11";
 
 const AppLoadingType = LoadingAppType.LoadingAnimated;
 
