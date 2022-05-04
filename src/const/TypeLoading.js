@@ -12,6 +12,7 @@ const LoadingAppType = {
     TwitterHeart:"TwitterHeart.json",
     Watermelon:"Watermelon.json",
     MeoMeo: "MeoMeo.json",
-    LoadingAnimated:"Loading7969.json"
+    LoadingAnimated:"Loading7969.json",
+    LoadingAnimations:"loading-animation.json"
 };
 export { LoadingAppType };

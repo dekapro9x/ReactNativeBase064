@@ -7,6 +7,7 @@ import { TimingAnimatedComponent } from "./components/core/timing";
 import { SliderAnimations } from "./components/lib/animatable/SliderAnimations";
 import {ButtonAnimations} from "./components/lib/animatable/ButtonAnimations";
 import {ButtonAnimationsClass} from "./components/lib/animatable/ButtonAnimationsClass";
+import {LottieAnimations} from "./components/lib/lottie";
 export const MenuAnimations = [
     {
         id: 1,
@@ -61,6 +62,17 @@ export const MenuAnimations = [
             {
                 name: 'Animatable Button',
                 component: <ButtonAnimations /> || <ButtonAnimationsClass/>,
+                description: ""
+            },
+        ],
+    },
+    {
+        id: 3,
+        keyName: 'react-native-gl-model-view (lib)',
+        data: [
+            {
+                name: '3D models animations',
+                component: <LottieAnimations />,
                 description: ""
             },
         ],

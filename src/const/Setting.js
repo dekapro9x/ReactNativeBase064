@@ -14,7 +14,7 @@ const VersionApp = "1.0.12";
 
 const VersionCodePush = "11";
 
-const AppLoadingType = LoadingAppType.LoadingAnimated;
+const AppLoadingType = LoadingAppType.LoadingAnimations;
 
 const PlatFormUsingConnect = [
   {
