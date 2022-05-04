@@ -60,9 +60,10 @@ const AppDrawer = (props) => {
                                 uri: "https://isoftglobe.com/wp-content/uploads/2021/02/react-native.png"
                               }}
                             style={{
-                                width: SizeRpScreen.width(72),
+                                width: SizeRpScreen.width(65),
                                 height: SizeRpScreen.height(20),
-                                marginBottom: 5
+                                marginBottom: 5,
+                                alignSelf: "center",
                             }}
                             resizeMode={'cover'}
                         >

@@ -6,7 +6,6 @@ import {
 import { View, Text } from 'react-native-animatable';
 export const SliderAnimations = () => {
     const [duration, setStateDuration] = useState(0);
-
     const handleDurationChange = (duration) => {
         setStateDuration(Math.round(duration));
     };
