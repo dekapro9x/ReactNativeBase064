@@ -10,5 +10,13 @@ export default {
     'this-is-home-page': 'Đây là trang chủ',
     'this-is-contact-page': 'Đây là trang liên hệ',
     'this-is-setting-page': 'Đây là trang cài đặt',
-    'set-language': 'Chọn ngôn ngữ'
+    'set-language': 'Chọn ngôn ngữ',
+    //Menu Home:
+    'animations': 'Hiệu ứng',
+    'maps': 'Bản đồ',
+    'camera': 'Máy ảnh',
+    'file': 'Tệp tin',
+    'PDF': 'PDF',
+    'video': 'Video',
+    'chart': 'Biểu đồ',
 };
