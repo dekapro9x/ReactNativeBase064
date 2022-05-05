@@ -5,9 +5,9 @@ import { SpringAnimatedComponent } from "./components/core/spring";
 import { TimingAnimatedComponent } from "./components/core/timing";
 //Library:
 import { SliderAnimations } from "./components/lib/animatable/SliderAnimations";
-import {ButtonAnimations} from "./components/lib/animatable/ButtonAnimations";
-import {ButtonAnimationsClass} from "./components/lib/animatable/ButtonAnimationsClass";
-import {LottieAnimations} from "./components/lib/lottie";
+import { ButtonAnimations } from "./components/lib/animatable/ButtonAnimations";
+import { ButtonAnimationsClass } from "./components/lib/animatable/ButtonAnimationsClass";
+import { MaskedViewAnimations } from "./components/lib/masked_view";
 export const MenuAnimations = [
     {
         id: 1,
@@ -61,18 +61,18 @@ export const MenuAnimations = [
             },
             {
                 name: 'Animatable Button',
-                component: <ButtonAnimations /> || <ButtonAnimationsClass/>,
+                component: <ButtonAnimations /> || <ButtonAnimationsClass />,
                 description: ""
             },
         ],
     },
     {
         id: 3,
-        keyName: 'react-native-gl-model-view (lib)',
+        keyName: 'react-native-masked-view (lib)',
         data: [
             {
-                name: '3D models animations',
-                component: <LottieAnimations />,
+                name: 'Text animations',
+                component: <MaskedViewAnimations />,
                 description: ""
             },
         ],

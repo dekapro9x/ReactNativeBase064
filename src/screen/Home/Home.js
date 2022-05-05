@@ -1,24 +1,79 @@
 import { AppContainerScroll } from "@element/AppContainerScroll";
 import { ViewLoadingContainerHOC } from "@HOC/ViewLoadingContainerHOC";
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import { LogBox, StyleSheet, View } from "react-native";
 import { SizeRpScreen } from "../../resources/ResponsiveScreen";
 import BannerHome from "./component/BannerHome";
 import DateAndWeather from "./component/DateAndWeather";
 import HomeMenu from "./component/HomeMenu";
 import { RightHeaderComponent } from "./component/RightHeader";
-LogBox.ignoreLogs(['Warning: ...']); 
+import SkeletonPlaceholder from "react-native-skeleton-placeholder";
+import { ContextContainer } from "@context/AppContext";
+LogBox.ignoreLogs(['Warning: ...']);
 LogBox.ignoreAllLogs();
 
 export default function Home(props) {
+  const [loadingHome, useStateLoadingHome] = useState(true);
+  const { colorApp } = useContext(ContextContainer);
+  let timeCount = useRef(0).current;
   const { navigation, router } = props;
   const { languageCurrent } = props;
+
   useEffect(() => {
+    delayRenderHome();
     const unsubscribe = navigation.addListener('focus', () => {
       navigation.closeDrawer();
     });
-    return unsubscribe;
+    return () => {
+      clearTimeout(timeCount);
+      unsubscribe;
+    }
   }, [navigation]);
+
+  const delayRenderHome = () => {
+    timeCount = setTimeout(() => {
+      useStateLoadingHome(false);
+    }, 1250);
+  }
+
+  const renderContent = () => {
+    if (loadingHome) {
+      return <View style={[styles.container, { backgroundColor: colorApp.backgroundColor, alignItems: "center" }]}>
+        <SkeletonPlaceholder>
+          <SkeletonPlaceholder.Item flexDirection="row" alignItems="center">
+            <SkeletonPlaceholder.Item width={SizeRpScreen.device_width - SizeRpScreen.width(1)} height={SizeRpScreen.height(35)} borderRadius={5} marginTop={5} />
+          </SkeletonPlaceholder.Item>
+          <SkeletonPlaceholder.Item width={SizeRpScreen.device_width - SizeRpScreen.width(1)} height={SizeRpScreen.height(15)} borderRadius={5} marginTop={2} />
+          <SkeletonPlaceholder.Item flexDirection="row" justifyContent="center" marginTop={5}>
+            <SkeletonPlaceholder.Item width={SizeRpScreen.height(15)} height={SizeRpScreen.height(15)} borderRadius={5} marginTop={2} marginLeft={5} marginRight={5} />
+            <SkeletonPlaceholder.Item width={SizeRpScreen.height(15)} height={SizeRpScreen.height(15)} borderRadius={5} marginTop={2} marginLeft={5} marginRight={5} />
+            <SkeletonPlaceholder.Item width={SizeRpScreen.height(15)} height={SizeRpScreen.height(15)} borderRadius={5} marginTop={2} marginLeft={5} marginRight={5} />
+          </SkeletonPlaceholder.Item>
+          <SkeletonPlaceholder.Item flexDirection="row" justifyContent="center" marginTop={5}>
+            <SkeletonPlaceholder.Item width={SizeRpScreen.height(15)} height={SizeRpScreen.height(15)} borderRadius={5} marginTop={2} marginLeft={5} marginRight={5} />
+            <SkeletonPlaceholder.Item width={SizeRpScreen.height(15)} height={SizeRpScreen.height(15)} borderRadius={5} marginTop={2} marginLeft={5} marginRight={5} />
+            <SkeletonPlaceholder.Item width={SizeRpScreen.height(15)} height={SizeRpScreen.height(15)} borderRadius={5} marginTop={2} marginLeft={5} marginRight={5} />
+          </SkeletonPlaceholder.Item>
+          <SkeletonPlaceholder.Item flexDirection="row" justifyContent="center" marginTop={5}>
+            <SkeletonPlaceholder.Item width={SizeRpScreen.height(15)} height={SizeRpScreen.height(15)} borderRadius={5} marginTop={2} marginLeft={5} marginRight={5} />
+            <SkeletonPlaceholder.Item width={SizeRpScreen.height(15)} height={SizeRpScreen.height(15)} borderRadius={5} marginTop={2} marginLeft={5} marginRight={5} />
+            <SkeletonPlaceholder.Item width={SizeRpScreen.height(15)} height={SizeRpScreen.height(15)} borderRadius={5} marginTop={2} marginLeft={5} marginRight={5} />
+          </SkeletonPlaceholder.Item>
+        </SkeletonPlaceholder>
+      </View>
+    }
+    return (
+      <>
+        <View style={styles.containerBanner}>
+          <BannerHome />
+        </View>
+        <ViewLoadingContainerHOC isLoading={false}>
+          <DateAndWeather navigation={navigation} />
+          <HomeMenu navigation={navigation} dataMenu={props.homeMenu} />
+        </ViewLoadingContainerHOC>
+      </>
+    )
+  }
 
   return (
     <AppContainerScroll
@@ -30,13 +85,7 @@ export default function Home(props) {
       flexWrapHeader
       rightHeaderComponent={<RightHeaderComponent navigation={navigation} />}>
       <View style={[styles.container]}>
-        <View style={styles.containerBanner}>
-          <BannerHome />
-        </View>
-        <ViewLoadingContainerHOC isLoading={false}>
-          <DateAndWeather navigation={navigation} />
-          <HomeMenu navigation={navigation} dataMenu={props.homeMenu} />
-        </ViewLoadingContainerHOC>
+        {renderContent()}
       </View>
     </AppContainerScroll>
   );
