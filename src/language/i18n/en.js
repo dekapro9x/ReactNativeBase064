@@ -10,5 +10,15 @@ export default {
     'this-is-home-page': 'This is home page',
     'this-is-contact-page': 'This is contact page',
     'this-is-setting-page': 'This is setting page',
-    'set-language': 'Switch language'
+    'set-language': 'Switch language',
+    //Menu Home:
+    'animations': 'Animations',
+    'maps': 'Maps',
+    'camera': 'Camera',
+    'file': 'File',
+    'PDF': 'PDF',
+    'video': 'Video',
+    'chart': 'Chart',
+
+
 };
