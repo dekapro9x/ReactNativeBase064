@@ -4,22 +4,24 @@ import { AppIcon } from '@element/AppIcon';
 import { AppImage } from '@element/AppImage';
 import { AppText } from '@element/AppText';
 import { SizeRpScreen } from '@resources/ResponsiveScreen';
-import React, { useContext } from 'react';
-import { FlatList, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useContext, useRef } from 'react';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 
 export default function HomeMenu(props) {
   const { colorApp } = useContext(ContextContainer);
+  const numberColum = useRef(3).current;
 
   const navigateToScreen = (item) => () => {
     const { navigation } = props;
     navigation.navigate(item.id);
   }
 
-  const renderItemMenu = ({ item, index }) => {
+  const renderItemMenu = (item, index) => {
     return <TouchableOpacity
+      key={`${index}`}
       onPress={navigateToScreen(item)}
       style={{
-        height: SizeRpScreen.device_width / 3 - 20, width: SizeRpScreen.device_width / 3 - 20,
+        height: SizeRpScreen.device_width / numberColum - 20, width: SizeRpScreen.device_width / numberColum - 20,
         backgroundColor: white, margin: 5, borderWidth: SizeRpScreen.device_width * 0.005,
         borderColor: green400, borderRadius: 12, alignItems: "center", justifyContent: "center"
       }}>
@@ -30,29 +32,24 @@ export default function HomeMenu(props) {
           style={{ height: 30, width: 30 }}></AppImage> :
         <AppIcon type={item.iconType} name={item.iconName} color={item.iconColor} iconSize={item.iconSizeMenu}>
         </AppIcon>}
-      <AppText style={{ fontSize: 16, textAlign: 'center'}}>{item.title}</AppText>
+      <AppText style={{ fontSize: 16, textAlign: 'center' }}>{item.title}</AppText>
     </TouchableOpacity>
   }
 
   return (
-    <FlatList
-      data={props.dataMenu}
-      numColumns={3}
-      nestedScrollEnabled={true}
-      keyExtractor={(_item, index) => index.toString()}
-      renderItem={renderItemMenu}
-      initialNumToRender={5}
-      maxToRenderPerBatch={10}
-      windowSize={10}
-      style={[styles.container, { backgroundColor: colorApp.backgroundColor }]}>
-    </FlatList>
+    <View style={[styles.container, { backgroundColor: colorApp.backgroundColor , justifyContent: "center"}]}>
+      {props.dataMenu.map((item, index) => {
+        return renderItemMenu(item, index)
+      })}
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: white,
-    alignSelf: "center"
+    flexDirection: "row",
+    flexWrap:"wrap"
   },
   banner: {
     height: SizeRpScreen.width(100) * 9 / 16,
