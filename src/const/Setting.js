@@ -14,6 +14,9 @@ const VersionApp = "1.0.12";
 
 const VersionCodePush = "11";
 
+const versionsBuildsAPK = "DEV";
+// const versionsBuildsAPK = "PRODUCTS";
+
 const AppLoadingType = LoadingAppType.LoadingAnimations;
 
 const PlatFormUsingConnect = [
@@ -76,4 +79,4 @@ const GetDevicesIP = async () => {
   return iP
 }
 
-export { AppLogo, AppLoadingType, PlatFormUsingConnect, isIOS, isAndroid, DataSliderHome, VersionApp, isOSAndroid, GetDevicesInfo, GetDevicesIP, VersionCodePush };
+export { AppLogo, AppLoadingType, PlatFormUsingConnect,versionsBuildsAPK, isIOS, isAndroid, DataSliderHome, VersionApp, isOSAndroid, GetDevicesInfo, GetDevicesIP, VersionCodePush };

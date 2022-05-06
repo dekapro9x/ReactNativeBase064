@@ -16,6 +16,7 @@ import PolicyScreen from "../screen/Policy";
 import WeatherScreen from "../screen/Weather";
 import AnimationsScreen from "@screen/Animations";
 import Map from "@screen/Map";
+import Basic from "@screen/BasicScreen";
 
 //Stack Bottom Tab Menu Home:
 import { RootStackBottomTab } from "./RootStackBottomTab";
@@ -68,6 +69,7 @@ export default RootNavigations = () => {
         <RootStack.Screen name={keyNavigation.WEATHER} component={WeatherScreen} />
         <RootStack.Screen name={keyNavigation.ANIMATIONS} component={AnimationsScreen} />
         <RootStack.Screen name={keyNavigation.MAP} component={Map} />
+        <RootStack.Screen name={keyNavigation.BASIC} component={Basic} />
       </RootStack.Navigator>
       <AppModalContent ref={ServiceAppAlertModal.modalRef} />
     </>
