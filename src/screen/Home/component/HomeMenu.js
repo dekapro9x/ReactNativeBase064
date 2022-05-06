@@ -1,15 +1,24 @@
+import { versionsBuildsAPK } from '@const/Setting';
 import { ContextContainer } from '@context/AppContext';
 import { green400, white } from '@css/Color';
 import { AppIcon } from '@element/AppIcon';
 import { AppImage } from '@element/AppImage';
 import { AppText } from '@element/AppText';
 import { SizeRpScreen } from '@resources/ResponsiveScreen';
-import React, { useContext, useRef } from 'react';
+import React, { useContext, useRef, useState, useEffect } from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
 
 export default function HomeMenu(props) {
   const { colorApp } = useContext(ContextContainer);
+  const [dataMenu, setStateDataMenu] = useState([]);
   const numberColum = useRef(3).current;
+
+  useEffect(() => {
+    const { dataMenu } = props;
+    const listMenu = dataMenu.filter((item)=>item.endpointVersion ==versionsBuildsAPK );
+    console.log("listMenu", listMenu);
+    setStateDataMenu(listMenu);
+  }, [])
 
   const navigateToScreen = (item) => () => {
     const { navigation } = props;
@@ -37,8 +46,8 @@ export default function HomeMenu(props) {
   }
 
   return (
-    <View style={[styles.container, { backgroundColor: colorApp.backgroundColor , justifyContent: "center"}]}>
-      {props.dataMenu.map((item, index) => {
+    <View style={[styles.container, { backgroundColor: colorApp.backgroundColor, justifyContent: "center" }]}>
+      {dataMenu.map((item, index) => {
         return renderItemMenu(item, index)
       })}
     </View>
@@ -49,7 +58,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: white,
     flexDirection: "row",
-    flexWrap:"wrap"
+    flexWrap: "wrap"
   },
   banner: {
     height: SizeRpScreen.width(100) * 9 / 16,
