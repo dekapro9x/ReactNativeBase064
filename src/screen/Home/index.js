@@ -37,6 +37,17 @@ const mapStateToProps = (GlobalState) => {
         endpointVersion: "PRODUCTS"
       },
       {
+        title: "Basic Menu Screen",
+        id: keyNavigation.BASIC_MENU_SCREEN,
+        sortIndex: 1,
+        iconColor: "blue",
+        iconName: "animation",
+        iconType: "MaterialIcons",
+        iconImg: "https://media.gettyimages.com/vectors/scalability-vector-icon-vector-id1264699776",
+        iconSizeMenu: iconMenuSize,
+        endpointVersion: "PRODUCTS"
+      },
+      {
         title: translations[LanguageReducer.language]?.animations || setTextMenuInit("animations"),
         id: keyNavigation.ANIMATIONS,
         sortIndex: 1,
