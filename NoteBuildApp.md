@@ -8,8 +8,8 @@ checkReleaseBuilds false
 # 2.Lệnh code push:
 
 const VersionApp = "1.0.15";
-const VersionCodePush = "3";
-git commit -m"Build bundle JS code push versions 3 for 1.0.15"
+const VersionCodePush = "4";
+git commit -m"Build bundle JS code push versions 4 for 1.0.15"
 appcenter codepush release-react -a dekapro9x-gmail.com/ReactNativeBase -d Staging -m
 
 # Note Versions:
