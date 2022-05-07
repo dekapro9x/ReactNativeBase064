@@ -1,14 +1,14 @@
 import { AppContainer } from "@element/AppContainer";
 import { AppText } from "@element/AppText";
 import { SizeRpScreen } from "@resources/ResponsiveScreen";
-import React, { FunctionComponent, useEffect, useRef, useState } from "react";
+import PropTypes from 'prop-types';
+import React, { useEffect, useRef, useState } from "react";
 import { BackHandler, SafeAreaView, StyleSheet, TouchableOpacity, View } from "react-native";
 import { View as ViewAnimated } from 'react-native-animatable';
-import PropTypes from 'prop-types';
 
 
-const AppListMenuComponent: FunctionComponent = (props: any) => {
-
+const AppListMenuComponent = (props) => {
+    const { nameScreen, MenusAppList, navigation } = props;
     const [showListMenuComponentAppListMenu, setStateShowListMenuComponent] = useState(false);
     const [listItemAppListMenuRender, setStateListItemAppListMenuRender] = useState([]);
     const [renderAnimated, setStateRenderAnimated] = useState(false);
@@ -28,7 +28,6 @@ const AppListMenuComponent: FunctionComponent = (props: any) => {
                     setStateShowListMenuComponent(false);
                 }
             } else {
-                const { navigation } = props;
                 navigation.goBack();
             }
             return true;
@@ -49,7 +48,6 @@ const AppListMenuComponent: FunctionComponent = (props: any) => {
     }
 
     const renderContent = () => {
-        const { MenusAppList } = props;
         if (renderAnimated) {
             return (<SafeAreaView style={styles.content}>
                 <View style={[{ minHeight: SizeRpScreen.height(100), width: SizeRpScreen.width(100), alignItems: 'center', justifyContent: "center" }]}>
@@ -118,7 +116,7 @@ const AppListMenuComponent: FunctionComponent = (props: any) => {
     return (
         <AppContainer
             useLinearGradient={false}
-            nameScreen={"AppListMenu"}
+            nameScreen={nameScreen}
             goBackScreen={false}
             flexWrapHeader
         >
@@ -129,6 +127,8 @@ const AppListMenuComponent: FunctionComponent = (props: any) => {
 
 AppListMenuComponent.propTypes = {
     MenusAppList: PropTypes.array.isRequired,
+    nameScreen: PropTypes.string.isRequired,
+    navigation: PropTypes.object.isRequired
 };
 
 
@@ -177,4 +177,5 @@ const styles = StyleSheet.create({
 });
 
 
-export {AppListMenuComponent};
+export { AppListMenuComponent };
+
