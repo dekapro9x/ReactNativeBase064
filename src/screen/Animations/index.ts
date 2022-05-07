@@ -10,8 +10,4 @@ const mapStateToProps = GlobalState => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {};
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(AnimationsScreen);
+export default connect(mapStateToProps)(AnimationsScreen);
