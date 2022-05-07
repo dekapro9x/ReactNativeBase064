@@ -139,6 +139,8 @@ android {
         versionName "1.0.12"
         //Thêm cấu hình này để cấu hình projects 64k methods: Android Enabling Multidex 64k methods 
         multiDexEnabled true
+        //Thêm cấu hình camera:
+        missingDimensionStrategy 'react-native-camera', 'general'
     }
     splits {
         abi {
@@ -206,11 +208,21 @@ dependencies {
     exclude group: 'com.google.android.gms', module: 'play-services-base'
     exclude group: 'com.google.android.gms', module: 'play-services-maps'
    }
-    implementation 'com.google.android.gms:play-services-base:17.2.1'
-    implementation 'com.google.android.gms:play-services-maps:17.0.0'
     //Lựa chọn tính tóan khác phiên bản thì add 2 dòng này để sử dụng google map theo file zip cấu hình khác trong:
     // Android/gradle/wrapper/gradle-wrapper.properties:
     // distributionUrl=https\://services.gradle.org/distributions/gradle-4.4-all.zip
+    implementation 'com.google.android.gms:play-services-base:17.2.1'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    //Fix camera:
+    implementation 'com.google.android.gms:play-services-vision:20.1.1'
+    implementation 'com.google.android.gms:play-services-vision-common:19.1.1'
+    implementation 'com.google.firebase:firebase-ml-vision-image-label-model:20.0.2'
+    implementation 'com.google.android.gms:play-services-vision-face-contour-internal:16.0.3'
+    implementation 'com.google.android.gms:play-services-vision-image-labeling-internal:16.0.5'
+    implementation 'com.google.android.gms:play-services-vision-image-label:18.0.5'
+    implementation 'com.google.firebase:firebase-ml-vision-face-model:20.0.2'
+    implementation 'com.google.firebase:firebase-ml-model-interpreter:22.0.4'
+    //Default config:
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
