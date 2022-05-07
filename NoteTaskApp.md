@@ -18,5 +18,10 @@ Làm nút clean data gồm:
 12. FireBase
 13. Xử lý lỗi mạng và loading ảo khi component chưa được render ở Home.
 14. Check lại HOC
+07/05/2022:
+-React native bottom sheet
+-React native webview
+-React native fetch blob
+-React native fs đọc ghi file
 
 
