@@ -1,5 +1,5 @@
 import { FontAppType } from "../const/TypeFontFamily";
-const { white, greenA700, yellowA200 } = require("@css/Color");
+const { white, yellowA200 } = require("@css/Color");
 const { SizeRpScreen } = require("../resources/ResponsiveScreen");
 
 const heightElementDefault = 50;
