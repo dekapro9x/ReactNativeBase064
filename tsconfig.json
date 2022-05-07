@@ -79,6 +79,9 @@
             "@libJS/*": [
                 "src/libJS/*"
             ],
+            "@logEventSystem/*": [
+                "src/logEventSystem/*"
+            ],
             "@nativeModule/*": [
                 "src/nativeModule/*"
             ],
