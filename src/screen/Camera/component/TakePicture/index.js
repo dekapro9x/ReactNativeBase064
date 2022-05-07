@@ -26,21 +26,17 @@ const TakePictureCamera = () => {
         .then((result) => {
           switch (result) {
             case RESULTS.UNAVAILABLE:
-              console.log('This feature is not available (on this device / in this context)');
               checkEmulatorRenderCamera();
               break;
             case RESULTS.DENIED:
-              console.log('The permission has not been requested / is denied but requestable');
               break;
             case RESULTS.LIMITED:
-              console.log('The permission is limited: some actions are possible');
+              setStateIsReadyCamera(true);
               break;
             case RESULTS.GRANTED:
-              console.log('The permission is granted');
               setStateIsReadyCamera(true);
               break;
             case RESULTS.BLOCKED:
-              console.log('The permission is denied and not requestable anymore');
               break;
           }
         })
