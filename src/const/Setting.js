@@ -10,9 +10,9 @@ const isOSAndroid = Platform.OS === "android" ? true : false;
 const AppLogo =
   "https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png";
 
-const VersionApp = "1.0.12";
+const VersionApp = "1.0.14";
 
-const VersionCodePush = "15";
+const VersionCodePush = "1";
 
 const versionsBuildsAPK = "DEV";
 // const versionsBuildsAPK = "PRODUCTS";

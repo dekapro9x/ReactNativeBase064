@@ -135,8 +135,8 @@ android {
         applicationId "com.reactnativebase"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 3
-        versionName "1.0.12"
+        versionCode 1
+        versionName "1.0.14"
         //Thêm cấu hình này để cấu hình projects 64k methods: Android Enabling Multidex 64k methods 
         multiDexEnabled true
         //Thêm cấu hình camera:
