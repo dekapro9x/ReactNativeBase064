@@ -2,7 +2,7 @@ import { ContextContainer } from '@context/AppContext';
 import CameraRoll from '@react-native-community/cameraroll';
 import { Loading } from "@element/Loading";
 import React, { useContext, useState, useEffect, useRef } from 'react';
-import { SafeAreaView, StyleSheet, TouchableOpacity } from 'react-native';
+import { SafeAreaView, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 import { check, PERMISSIONS, RESULTS } from 'react-native-permissions';
 import { isAndroid } from '@const/Setting';
@@ -18,7 +18,7 @@ const TakePictureCamera = () => {
     return () => {
       clearTimeout(timeCount);
     }
-  })
+  }, [])
 
   const checkPermissionCamera = () => {
     if (isAndroid) {
@@ -26,17 +26,22 @@ const TakePictureCamera = () => {
         .then((result) => {
           switch (result) {
             case RESULTS.UNAVAILABLE:
+              Alert.alert("", "UNAVAILABLE");
               checkEmulatorRenderCamera();
               break;
             case RESULTS.DENIED:
+              Alert.alert("", "DENIED");
               break;
             case RESULTS.LIMITED:
+              Alert.alert("", "LIMITED");
               setStateIsReadyCamera(true);
               break;
             case RESULTS.GRANTED:
+              Alert.alert("", "GRANTED");
               setStateIsReadyCamera(true);
               break;
             case RESULTS.BLOCKED:
+              Alert.alert("", "BLOCKED");
               break;
           }
         })

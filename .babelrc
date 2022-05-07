@@ -29,6 +29,7 @@
           "@images": "./src/images",
           "@language": "./src/language",
           "@libJS": "./src/libJS",
+          "@logEventSystem":"./src/logEventSystem",
           "@nativeModule": "./src/nativeModule",
           "@navigation": "./src/navigation",
           "@permissions": "./src/permissions",
