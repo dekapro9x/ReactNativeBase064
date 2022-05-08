@@ -22,26 +22,21 @@ const TakePictureCamera = () => {
 
   const checkPermissionCamera = () => {
     if (isAndroid) {
-      check(PERMISSIONS.ANDROID.LOCATION_ALWAYS)
+      check(PERMISSIONS.ANDROID.CAMERA)
         .then((result) => {
           switch (result) {
             case RESULTS.UNAVAILABLE:
-              Alert.alert("", "UNAVAILABLE");
               checkEmulatorRenderCamera();
               break;
             case RESULTS.DENIED:
-              Alert.alert("", "DENIED");
               break;
             case RESULTS.LIMITED:
-              Alert.alert("", "LIMITED");
               setStateIsReadyCamera(true);
               break;
             case RESULTS.GRANTED:
-              Alert.alert("", "GRANTED");
               setStateIsReadyCamera(true);
               break;
             case RESULTS.BLOCKED:
-              Alert.alert("", "BLOCKED");
               break;
           }
         })
