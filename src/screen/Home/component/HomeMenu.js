@@ -10,19 +10,18 @@ import { View, StyleSheet, TouchableOpacity } from 'react-native';
 
 export default function HomeMenu(props) {
   const { colorApp } = useContext(ContextContainer);
-  const [dataMenu, setStateDataMenu] = useState([]);
+  const [menuHome, setStateMenuHome] = useState([]);
   const numberColum = useRef(3).current;
 
   useEffect(() => {
     const { dataMenu } = props;
-    const listMenu = dataMenu.filter((item)=>item.endpointVersion ==versionsBuildsAPK );
-    console.log("listMenu", listMenu);
-    setStateDataMenu(listMenu);
-  }, [])
+    const listMenu = dataMenu.filter((item) => item.endpointVersion == versionsBuildsAPK);
+    setStateMenuHome(listMenu);
+  }, [props.dataMenu]);
 
   const navigateToScreen = (item) => () => {
     const { navigation } = props;
-    navigation.navigate(item.id);
+    navigation.navigate(item.id, { menuClick: item });
   }
 
   const renderItemMenu = (item, index) => {
@@ -47,7 +46,7 @@ export default function HomeMenu(props) {
 
   return (
     <View style={[styles.container, { backgroundColor: colorApp.backgroundColor, justifyContent: "center" }]}>
-      {dataMenu.map((item, index) => {
+      {menuHome.map((item, index) => {
         return renderItemMenu(item, index)
       })}
     </View>

@@ -6,7 +6,8 @@ const mapStateToProps = GlobalState => {
 
   return {
     languageCurrent: LanguageReducer.language,
-    MenuAnimations: MenuAnimations,
+    MenusAppList: MenuAnimations,
+    nameScreen:"Animations"
   };
 };
 

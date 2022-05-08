@@ -35,7 +35,7 @@ const mapStateToProps = (GlobalState) => {
         iconType: "MaterialIcons",
         iconImg: "https://media.gettyimages.com/vectors/scalability-vector-icon-vector-id1264699776",
         iconSizeMenu: iconMenuSize,
-        endpointVersion: "PRODUCTS"
+        endpointVersion: "PRODUCTS",
       },
       {
         title: "Basic Menu Screen",
