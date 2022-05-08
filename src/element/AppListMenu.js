@@ -14,6 +14,7 @@ const AppListMenuComponent = (props) => {
     const [renderAnimated, setStateRenderAnimated] = useState(false);
     const [animatedComponent, setStateAnimatedComponent] = useState(null);
     const listItemAppListMenuRenderLast = useRef([]);
+    const timeOut = 200;
 
     useEffect(() => {
         const backAction = () => {
@@ -66,7 +67,7 @@ const AppListMenuComponent = (props) => {
                                     key={`${indexRenderAnimated}`}
                                     animation="slideInLeft"
                                     useNativeDriver
-                                    delay={(indexRenderAnimated + 1) * 500}
+                                    delay={(indexRenderAnimated + 1) * timeOut}
                                 >
                                     <TouchableOpacity
                                         onPress={() => {
@@ -94,7 +95,7 @@ const AppListMenuComponent = (props) => {
                             key={`${index}`}
                             animation="fadeIn"
                             useNativeDriver
-                            delay={(index + 1) * 500}
+                            delay={(index + 1) * timeOut}
                         >
                             <TouchableOpacity
                                 onPress={() => {

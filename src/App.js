@@ -1,7 +1,8 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { NavigationService } from "@services/NavigationService";
 import * as React from "react";
-import "react-native-gesture-handler";
+// import "react-native-gesture-handler";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import "react-native-reanimated";
 import { enableScreens } from "react-native-screens";
 import { AppContext } from "./context/AppContext";
@@ -23,17 +24,19 @@ const codePushOptions = {
 
 function App() {
   return (
-    <Provider store={store}>
-      <AppContext>
-        <NavigationContainer
-          ref={ref => {
-            NavigationService.current = ref;
-          }}
-        >
-          <RootStackNavigations />
-        </NavigationContainer>
-      </AppContext>
-    </Provider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <Provider store={store}>
+        <AppContext>
+          <NavigationContainer
+            ref={ref => {
+              NavigationService.current = ref;
+            }}
+          >
+            <RootStackNavigations />
+          </NavigationContainer>
+        </AppContext>
+      </Provider>
+    </GestureHandlerRootView>
   );
 }
 
