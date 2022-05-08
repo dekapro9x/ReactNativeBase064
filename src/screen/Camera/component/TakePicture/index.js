@@ -51,7 +51,7 @@ const TakePictureCamera = () => {
     if (isSimulator) {
       timeCount = setTimeout(() => {
         setStateIsReadyCamera(true);
-      }, 100)
+      }, 500)
     }
   }
 
@@ -74,7 +74,7 @@ const TakePictureCamera = () => {
       <ViewAnimated
         animation="fadeIn"
         useNativeDriver
-        delay={50}
+        delay={1000}
       >
         <RNCamera
           style={styles.preview}
