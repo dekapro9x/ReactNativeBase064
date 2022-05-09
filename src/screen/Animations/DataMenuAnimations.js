@@ -8,6 +8,7 @@ import { SliderAnimations } from "./components/lib/animatable/SliderAnimations";
 import { ButtonAnimations } from "./components/lib/animatable/ButtonAnimations";
 import { ButtonAnimationsClass } from "./components/lib/animatable/ButtonAnimationsClass";
 import { MaskedViewAnimations } from "./components/lib/masked_view";
+import { BottomSheetComponent } from "./components/lib/bottom_sheet";
 export const MenuAnimations = [
     {
         id: 1,
@@ -82,8 +83,8 @@ export const MenuAnimations = [
         keyName: 'react-native-bottom-sheet(lib)',
         data: [
             {
-                name: 'Modal bottom animations',
-                component: <MaskedViewAnimations />,
+                name: 'Modal bottom',
+                component: <BottomSheetComponent />,
                 description: ""
             },
         ],

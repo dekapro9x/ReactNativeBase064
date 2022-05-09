@@ -5,7 +5,7 @@ Link: https://github.com/react-native-community/cli
 1. Bước 1:   "resolutions": {
     "@react-native-community/cli-debugger-ui": "5.0.1"
   }
-  Bước 2: yrar
+  Bước 2: yarn
 # Sử dụng:
 
 # Xem danh sách thư viện cắm từ cộng đồng: 
