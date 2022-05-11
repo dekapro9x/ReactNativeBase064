@@ -128,7 +128,6 @@ def nativeArchitectures = project.getProperties().get("reactNativeDebugArchitect
 
 android {
     ndkVersion rootProject.ext.ndkVersion
-
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
@@ -142,6 +141,7 @@ android {
         //Thêm cấu hình camera:
         missingDimensionStrategy 'react-native-camera', 'general'
     }
+
     splits {
         abi {
             reset()
@@ -150,10 +150,12 @@ android {
             include "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
         }
     }
+
     lintOptions {
         disable 'InvalidPackage'
         checkReleaseBuilds false
     }
+
     signingConfigs {
         debug {
             storeFile file('debug.keystore')
@@ -168,6 +170,17 @@ android {
         keyPassword MYAPP_RELEASE_KEY_PASSWORD
         }
     }
+
+    //Thêm dòng này config đọc file PDF:
+    packagingOptions {
+       pickFirst 'lib/x86/libc++_shared.so'
+       pickFirst 'lib/x86_64/libjsc.so'
+       pickFirst 'lib/arm64-v8a/libjsc.so'
+       pickFirst 'lib/arm64-v8a/libc++_shared.so'
+       pickFirst 'lib/x86_64/libc++_shared.so'
+       pickFirst 'lib/armeabi-v7a/libc++_shared.so'
+     }
+
     buildTypes {
         debug {
             signingConfig signingConfigs.debug

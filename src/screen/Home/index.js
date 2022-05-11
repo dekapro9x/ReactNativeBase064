@@ -83,7 +83,7 @@ const mapStateToProps = (GlobalState) => {
       },
       {
         title: translations[LanguageReducer.language]?.file || setTextMenuInit("file"),
-        id: keyNavigation.DISCOVERY_CHAT,
+        id: keyNavigation.FILE,
         sortIndex: 4,
         iconColor: "blue",
         iconName: "logo-firebase",
@@ -93,20 +93,9 @@ const mapStateToProps = (GlobalState) => {
         endpointVersion: versionsBuildsAPK
       },
       {
-        title: translations[LanguageReducer.language]?.PDF || setTextMenuInit("PDF"),
-        id: keyNavigation.DISCOVERY_CHAT,
-        sortIndex: 5,
-        iconColor: "blue",
-        iconName: "logo-firebase",
-        iconType: "Ionicons",
-        iconImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Icon_pdf_file.svg/1200px-Icon_pdf_file.svg.png",
-        iconSizeMenu: iconMenuSize,
-        endpointVersion: versionsBuildsAPK
-      },
-      {
         title: translations[LanguageReducer.language]?.video || setTextMenuInit("video"),
         id: keyNavigation.DISCOVERY_CHAT,
-        sortIndex: 6,
+        sortIndex: 5,
         iconColor: "blue",
         iconName: "logo-firebase",
         iconType: "Ionicons",
@@ -117,7 +106,7 @@ const mapStateToProps = (GlobalState) => {
       {
         title: translations[LanguageReducer.language]?.chart || setTextMenuInit("chart"),
         id: keyNavigation.DISCOVERY_CHAT,
-        sortIndex: 7,
+        sortIndex: 6,
         iconColor: "blue",
         iconName: "logo-firebase",
         iconType: "Ionicons",
@@ -139,7 +128,7 @@ const mapStateToProps = (GlobalState) => {
       {
         title: "Native Module IOS",
         id: keyNavigation.DISCOVERY_CHAT,
-        sortIndex: 7,
+        sortIndex: 8,
         iconColor: "blue",
         iconName: "logo-firebase",
         iconType: "Ionicons",
