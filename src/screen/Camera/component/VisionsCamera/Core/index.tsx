@@ -177,7 +177,7 @@ export function CameraVisionsCore({ navigation }: Props): React.ReactElement {
         </PinchGestureHandler>
       )}
 
-      <CaptureButton
+      {/* <CaptureButton
         style={styles.captureButton}
         camera={camera}
         onMediaCaptured={onMediaCaptured}
@@ -187,7 +187,7 @@ export function CameraVisionsCore({ navigation }: Props): React.ReactElement {
         flash={supportsFlash ? flash : 'off'}
         enabled={isCameraInitialized && isActive}
         setIsPressingButton={setIsPressingButton}
-      />
+      /> */}
 
       <View style={styles.rightButtonRow}>
         {supportsCameraFlipping && (
