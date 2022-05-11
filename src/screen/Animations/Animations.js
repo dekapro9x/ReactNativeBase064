@@ -1,7 +1,7 @@
 import { AppListMenuComponent } from "@element/AppListMenu";
 import React from 'react';
 
-const Animations = (props) => {
+const AnimationsMenusScreen = (props) => {
   const { navigation } = props;
 
   const getNameMenuClick = () => {
@@ -20,4 +20,4 @@ const Animations = (props) => {
   );
 }
 
-export default Animations;
+export default AnimationsMenusScreen;

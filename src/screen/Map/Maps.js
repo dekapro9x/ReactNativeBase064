@@ -1,7 +1,7 @@
 import { AppListMenuComponent } from "@element/AppListMenu";
 import React from 'react';
 
-const CameraMenusScreen = (props) => {
+const Maps = (props) => {
   const { navigation } = props;
 
   const getNameMenuClick = () => {
@@ -20,4 +20,4 @@ const CameraMenusScreen = (props) => {
   );
 }
 
-export default CameraMenusScreen;
+export default Maps;
