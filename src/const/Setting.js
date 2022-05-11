@@ -12,7 +12,7 @@ const AppLogo =
 
 const VersionApp = "1.0.17";
 
-const VersionCodePush = "1";
+const VersionCodePush = "2";
 
 const versionsBuildsAPK = "DEV";
 // const versionsBuildsAPK = "PRODUCTS";
