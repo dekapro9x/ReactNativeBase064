@@ -1,12 +1,13 @@
 import { connect } from 'react-redux';
-import Camera from './Camera';
+import CameraMenusScreen from './Camera';
 import { MenuCameras } from './DataMenuCamera';
 const mapStateToProps = GlobalState => {
     const { LanguageReducer } = GlobalState;
 
     return {
         languageCurrent: LanguageReducer.language,
-        MenuCameras: MenuCameras,
+        MenusAppList: MenuCameras,
+        nameScreen: "Cameras"
     };
 };
 
@@ -14,4 +15,4 @@ const mapDispatchToProps = dispatch => {
     return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Camera);
+export default connect(mapStateToProps, mapDispatchToProps)(CameraMenusScreen);

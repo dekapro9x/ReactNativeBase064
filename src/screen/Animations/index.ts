@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import AnimationsScreen from './Animations';
+import AnimationsMenusScreen from './Animations';
 import {MenuAnimations} from './DataMenuAnimations';
 const mapStateToProps = GlobalState => {
   const {LanguageReducer} = GlobalState;
@@ -11,4 +11,4 @@ const mapStateToProps = GlobalState => {
   };
 };
 
-export default connect(mapStateToProps)(AnimationsScreen);
+export default connect(mapStateToProps)(AnimationsMenusScreen);
