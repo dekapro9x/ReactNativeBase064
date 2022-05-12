@@ -135,7 +135,7 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
-        versionName "1.0.17"
+        versionName "1.0.18"
         //Thêm cấu hình này để cấu hình projects 64k methods: Android Enabling Multidex 64k methods 
         multiDexEnabled true
         //Thêm cấu hình camera:
