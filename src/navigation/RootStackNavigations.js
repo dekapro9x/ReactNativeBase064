@@ -19,6 +19,7 @@ import Map from "@screen/Map";
 import Basic from "@screen/BasicScreen";
 import Camera from "@screen/Camera";
 import BaseMenuScreen from "@screen/BaseScreenMenu";
+import File from "@screen/File";
 
 //Stack Bottom Tab Menu Home:
 import { RootStackBottomTab } from "./RootStackBottomTab";
@@ -74,6 +75,7 @@ export default RootNavigations = () => {
         <RootStack.Screen name={keyNavigation.BASIC} component={Basic} />
         <RootStack.Screen name={keyNavigation.CAMERA} component={Camera} />
         <RootStack.Screen name={keyNavigation.BASIC_MENU_SCREEN} component={BaseMenuScreen} />
+        <RootStack.Screen name={keyNavigation.FILE} component={File} />
       </RootStack.Navigator>
       <AppModalContent ref={ServiceAppAlertModal.modalRef} />
     </>
