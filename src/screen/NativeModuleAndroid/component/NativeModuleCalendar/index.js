@@ -5,6 +5,8 @@ const NativeModuleCalendar = () => {
   const { CalendarModule } = NativeModules;
   const onPress = () => {
     CalendarModule.createCalendarEvent('testName', 'testLocation');
+    const getValueNative = CalendarModule.getString();
+    console.log("getValueNative", getValueNative);
   };
   return (
     <View>
