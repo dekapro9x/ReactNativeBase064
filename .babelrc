@@ -17,6 +17,7 @@
         "alias": {
           "src": "./src",
           "@assets": "./assets",
+          "@ads": "./ads",
           "@analytics": "./analytics",
           "@api": "./src/api",
           "@const": "./src/const",

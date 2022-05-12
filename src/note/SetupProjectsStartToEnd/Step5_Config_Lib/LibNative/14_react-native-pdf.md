@@ -2,12 +2,19 @@
 
 Chức năng: Đọc file PDF.
 Link: https://github.com/wonday/react-native-pdf
+https://www.npmjs.com/package/react-native-blob-util
+
 
 # Cài đặt:
 
-Bước 1: yarn add react-native-pdf rn-fetch-blob @react-native-community/progress-bar-android @react-native-community/progress-view
+Bước 1: yarn add 
++ react-native-pdf 
++ rn-fetch-blob
++ @react-native-community/progress-bar-android 
++ @react-native-community/progress-view
++ react-native-blob-util
 
-Bước 2: Trong android/app/build.gradle:
+Bước 3: Trong android/app/build.gradle:
 
 android {
 +    packagingOptions {
@@ -20,3 +27,6 @@ android {
 +     }
    }
 
+# Chú ý:
+https://bytemeta.vip/repo/wonday/react-native-pdf/issues/649
+issue fixed by downgrading react-native-blob-util version from 0.16.0 to 0.13.14 (the version used in the example project) adding trustAllCerts={false} prop to the PDF component fixes the issue without downgrading blob-util version

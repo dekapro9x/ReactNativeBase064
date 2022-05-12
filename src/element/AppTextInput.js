@@ -24,7 +24,8 @@ const AppTextInput = ({
   onFocus,
   placeholderTextColor,
   keyState,
-  value
+  value,
+  onEndEditing
 }) => {
 
   const [isVisible, setIsVisible] = useState(secureTextEntry);
@@ -72,6 +73,7 @@ const AppTextInput = ({
           style={[styles.inputDefault, styleInput]}
           value={valueInput}
           placeholderTextColor={placeholderTextColor || green400}
+          onEndEditing={onEndEditing}
         >
         </TextInput>
         {useClean && !!valueInput &&

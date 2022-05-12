@@ -43,6 +43,9 @@
             "@assets/*": [
                 "assets/*"
             ],
+            "@ads/*": [
+                "ads/*"
+            ],
             "@analytics/*": [
                 "analytics/*"
             ],
