@@ -25,4 +25,8 @@ public class CalendarModule extends ReactContextBaseJavaModule {
     public void createCalendarEvent(String name, String location) {
      Log.d("CalendarModule", "Create event called with name: " + name + " and location: " + location);
     }
-}
+    @ReactMethod(isBlockingSynchronousMethod = true)
+    public String getString(){
+    return "awesome string";
+    }
+}   
