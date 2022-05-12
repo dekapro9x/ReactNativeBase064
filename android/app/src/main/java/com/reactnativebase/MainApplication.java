@@ -12,10 +12,12 @@ import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
-import com.facebook.react.bridge.JSIModulePackage; // <- add
-// import com.swmansion.reanimated.ReanimatedJSIModulePackage; // <- add
+import com.facebook.react.bridge.JSIModulePackage; 
+
 //Thêm cấu hình code push:
 import com.microsoft.codepush.react.CodePush;
+
+//Native Module:
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -30,8 +32,8 @@ public class MainApplication extends Application implements ReactApplication {
         protected List<ReactPackage> getPackages() {
           @SuppressWarnings("UnnecessaryLocalVariable")
           List<ReactPackage> packages = new PackageList(this).getPackages();
-          // Packages that cannot be autolinked yet can be added manually here, for example:
-          // packages.add(new MyReactNativePackage());
+          //Thêm danh sách Native Module:
+          packages.add(new CalendarPackage());
           return packages;
         }
 
@@ -39,12 +41,7 @@ public class MainApplication extends Application implements ReactApplication {
         protected String getJSMainModuleName() {
           return "index";
         }
-
-      //   @Override
-      //   protected JSIModulePackage getJSIModulePackage() {
-      //   return new ReanimatedJSIModulePackage();
-      // }
-      // 2. Override the getJSBundleFile method in order to let
+        // 2. Override the getJSBundleFile method in order to let
         // the CodePush runtime determine where to get the JS
         // bundle location from on each app start
         @Override

@@ -164,7 +164,8 @@ const AppContainer = props => {
                 nameScreen && nameScreen.length > 7
                   ? SizeRpScreen.H5 * 1.2
                   : SizeRpScreen.H4,
-              fontWeight: "bold"
+              fontWeight: "bold",
+              textAlign: "center"
             }}
           >
             {nameScreen}

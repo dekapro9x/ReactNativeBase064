@@ -116,7 +116,7 @@ const mapStateToProps = (GlobalState) => {
       },
       {
         title: "Native Module Android",
-        id: keyNavigation.DISCOVERY_CHAT,
+        id: keyNavigation.NATIVE_MODULE_ANDROID,
         sortIndex: 7,
         iconColor: "blue",
         iconName: "logo-firebase",
