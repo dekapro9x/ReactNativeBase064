@@ -1,5 +1,7 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.reactnativebase">
+<manifest 
+android:exported="true"
+xmlns:android="http://schemas.android.com/apk/res/android"
+package="com.reactnativebase">
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
@@ -9,11 +11,16 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <!-- Xin quyền camera ghi âm-->
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-   <!-- Xin quyền đọc ghi file -->
+    <!-- Xin quyền đọc ghi file -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+     <!-- Xin quyền đọc SMS -->
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <!-- Xin quyền push noti -->
     <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
-    
+
     <application
       android:name=".MainApplication"
       android:label="@string/app_name"
@@ -21,6 +28,8 @@
       android:roundIcon="@mipmap/ic_launcher"
       android:allowBackup="false"
       android:usesCleartextTraffic="true"
+      android:requestLegacyExternalStorage="true"
+      android:grantUriPermissions="true"
       android:theme="@style/BootTheme"> <!-- Replace @style/AppTheme with @style/BootTheme -->
       <activity
         android:name=".MainActivity"
