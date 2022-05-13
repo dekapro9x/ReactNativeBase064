@@ -7,10 +7,10 @@ checkReleaseBuilds false
 
 # 2.Lệnh code push:
 
-const VersionApp = "1.0.18";
+const VersionApp = "1.0.19";
 const VersionCodePush = 1";
-git commit -m"Build bundle JS code push versions 1 for 1.0.18"
-git commit -m"Build APK 1.0.18"
+git commit -m"Build bundle JS code push versions 1 for 1.0.19"
+git commit -m"Build APK 1.0.19"
 appcenter codepush release-react -a dekapro9x-gmail.com/ReactNativeBase -d Staging -m
 
 # Note Versions:
@@ -24,3 +24,5 @@ appcenter codepush release-react -a dekapro9x-gmail.com/ReactNativeBase -d Stagi
 # 1.0.17 Setup react-native-visons-camera , blur 
 
 # 1.0.18 Setup react-native-pdf 
+
+# 1.0.19 Native Module Android (SMS) 
