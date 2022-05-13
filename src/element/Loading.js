@@ -171,6 +171,17 @@ const Loading = props => {
                 speed={1}
               />
             );
+            case LoadingAppType.ReactNativeFireBase:
+              return (
+                <AnimatedLoader
+                  style={[styles.animatedLoaderDefault]}
+                  visible={visibleLoading}
+                  overlayColor="rgba(255,255,255,0.75)"
+                  source={require("../libJS/react-native-animated-loader/react-native.json")}
+                  animationStyle={styles.animatedLoader}
+                  speed={1}
+                />
+              );
     }
   };
 

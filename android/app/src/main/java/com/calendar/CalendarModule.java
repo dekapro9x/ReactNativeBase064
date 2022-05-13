@@ -16,17 +16,20 @@ public class CalendarModule extends ReactContextBaseJavaModule {
        super(context);
     }
     //Gán tên để truy cập từ JS:
+
     @Override
         public String getName() {
     return "CalendarModule";
     }
+
     //Lấy tên của Class đem đi public để bên JS có thể truy cập đến:
     @ReactMethod
     public void createCalendarEvent(String name, String location) {
      Log.d("CalendarModule", "Create event called with name: " + name + " and location: " + location);
     }
+    
     @ReactMethod(isBlockingSynchronousMethod = true)
     public String getString(){
-    return "awesome string";
+    return "Call Native Module Success";
     }
 }   

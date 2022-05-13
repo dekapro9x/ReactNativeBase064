@@ -18,6 +18,8 @@ import com.facebook.react.bridge.JSIModulePackage;
 import com.microsoft.codepush.react.CodePush;
 
 //Native Module:
+//com.calendar
+//com.calculator
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -34,6 +36,7 @@ public class MainApplication extends Application implements ReactApplication {
           List<ReactPackage> packages = new PackageList(this).getPackages();
           //Thêm danh sách Native Module:
           packages.add(new CalendarPackage());
+          packages.add(new CalculatorPackages());
           return packages;
         }
 
