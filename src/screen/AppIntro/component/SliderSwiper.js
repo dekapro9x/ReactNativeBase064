@@ -9,10 +9,11 @@ import { AppImage } from "../../../element/AppImage";
 import { AppText } from "../../../element/AppText";
 import { Loading } from "../../../element/Loading";
 import AppBanner from "../../../libJS/react-native-swiper/AppBanner";
-import { keyNavigation } from "../../../navigation/KeyNavigations";
-import { SizeRpScreen } from "../../../resources/ResponsiveScreen";
+import { keyNavigation } from "@navigation/KeyNavigations";
+import { SizeRpScreen } from "@resources/ResponsiveScreen";
 import { ContextContainer } from "@context/AppContext";
 import DataSlider from "./Data";
+import { LoadingAppType } from "@const/TypeLoading";
 
 export default function SliderSwiper(props) {
   const { alwayShowSlider } = props;
@@ -148,7 +149,7 @@ export default function SliderSwiper(props) {
   };
 
   if (loading) {
-    return <Loading />;
+    return <Loading typeLoading={LoadingAppType.ReactNativeFireBase} />;
   }
 
   if (alwayShowSlider && !startApp.current) {

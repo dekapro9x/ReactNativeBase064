@@ -13,6 +13,7 @@ const LoadingAppType = {
     Watermelon:"Watermelon.json",
     MeoMeo: "MeoMeo.json",
     LoadingAnimated:"Loading7969.json",
-    LoadingAnimations:"loading-animation.json"
+    LoadingAnimations:"loading-animation.json",
+    ReactNativeFireBase:"react-native-firebase.json"
 };
 export { LoadingAppType };
