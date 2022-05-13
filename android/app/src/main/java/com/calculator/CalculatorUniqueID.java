@@ -9,18 +9,18 @@ import java.util.Map;
 import java.util.HashMap;
 import android.util.Log;
 
-public class CalculatorModule extends ReactContextBaseJavaModule {
-    CalculatorModule(ReactApplicationContext context) {
+public class CalculatorUniqueID extends ReactContextBaseJavaModule {
+    CalculatorUniqueID(ReactApplicationContext context) {
        super(context);
     }
 
     @ReactMethod(isBlockingSynchronousMethod = true)
     public String getString(){
-    return "Calculator Module Native";
+    return "Calculator Unique ID";
     }
 
     @Override
-    public String getName() {
-    return "CalculatorModule";
+        public String getName() {
+    return "CalculatorUniqueID";
     }
 }   

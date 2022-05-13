@@ -19,6 +19,7 @@ public class CalculatorPackages implements ReactPackage {
            ReactApplicationContext reactContext) {
        List<NativeModule> modules = new ArrayList<>();
        modules.add(new CalculatorModule(reactContext));
+       modules.add(new CalculatorUniqueID(reactContext));
        return modules;
    }
 

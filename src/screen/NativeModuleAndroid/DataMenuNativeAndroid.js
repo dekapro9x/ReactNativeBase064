@@ -1,5 +1,6 @@
 import React from "react"
-import NativeModuleCalendar from "./component/NativeModuleCalendar";
+import CalculatorNative from "./component/NativeModule/CalculatorNative";
+import CPU from "./component/NativeModule/CPU";
 import ReadSMS from "./component/ReadSMS";
 export const MenuNativeModuleAndroids = [
     {
@@ -7,8 +8,13 @@ export const MenuNativeModuleAndroids = [
         keyName: 'Native Module Test',
         data: [
             {
-                name: 'Native Android',
-                component: <NativeModuleCalendar />,
+                name: 'Calculator',
+                component: <CalculatorNative />,
+                description: ""
+            },
+            {
+                name: 'CPU',
+                component: <CPU />,
                 description: ""
             },
         ],
