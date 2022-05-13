@@ -20,6 +20,7 @@ import com.microsoft.codepush.react.CodePush;
 //Native Module:
 //com.calendar
 //com.calculator
+//com.sms
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -37,6 +38,7 @@ public class MainApplication extends Application implements ReactApplication {
           //Thêm danh sách Native Module:
           packages.add(new CalendarPackage());
           packages.add(new CalculatorPackages());
+          packages.add(new ReadSmsPackage());
           return packages;
         }
 
