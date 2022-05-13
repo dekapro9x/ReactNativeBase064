@@ -1,0 +1,1 @@
+Cài đặt tổ hợp phím tắt Visual Studio Code : CTR + K  + S 

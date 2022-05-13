@@ -4,10 +4,10 @@ import ReadSMS from "./component/ReadSMS";
 export const MenuNativeModuleAndroids = [
     {
         id: 1,
-        keyName: 'Calendar Native Module',
+        keyName: 'Native Module Test',
         data: [
             {
-                name: 'Calendar Native Android',
+                name: 'Native Android',
                 component: <NativeModuleCalendar />,
                 description: ""
             },

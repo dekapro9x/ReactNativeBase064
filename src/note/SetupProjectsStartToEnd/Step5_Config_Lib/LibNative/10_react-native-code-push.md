@@ -9,7 +9,7 @@ Link: https://github.com/microsoft/react-native-code-push#how-does-it-work
 2. Bước 2: npm install -g appcenter-cli
 3. Bước 3: appcenter codepush release-react -a dekapro9x-gmail.com/ReactNativeBase -d Staging
 
-# Chạy tiếp lệnh : appcenter login
+# Chạy tiếp lệnh : appcenter login (Đăng nhập hoặc đổi tài khoản bằng hard code token code push)
 
 # IOS:
 

@@ -20,11 +20,11 @@ const NativeModuleCalendar = () => {
   return (
     <View>
       <View style={{ height: 100, width: SizeRpScreen.device_width, alignItems: "center", justifyContent: "center" }}>
-        <Text>Value return Native Module 1:{valueCalendarModule}</Text>
-        <Text>Value return Native Module 2:{valueCalculatorModule}</Text>
+        <Text style={{ fontWeight: "bold" }}>Native Module 1:{valueCalendarModule}</Text>
+        <Text style={{ fontWeight: "bold" }}>Module 2:{valueCalculatorModule}</Text>
         <Text></Text>
       </View>
-      <Text>Kiểm tra gọi đến Native Module</Text>
+      <Text>Native Module Test Devices</Text>
       <Button
         title="Click call Native Module"
         color="#841584"
