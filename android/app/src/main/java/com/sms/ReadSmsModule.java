@@ -29,6 +29,11 @@ public class ReadSmsModule extends ReactContextBaseJavaModule {
         return "ReadSms";
     }
 
+    @ReactMethod(isBlockingSynchronousMethod = true)
+    public String pingSmsModule(){
+    return "Ping sms success!";
+    }
+
     @ReactMethod
     public void stopReadSMS() {
         try {
