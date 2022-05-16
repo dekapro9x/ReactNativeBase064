@@ -21,6 +21,7 @@ import com.microsoft.codepush.react.CodePush;
 //com.calendar
 //com.calculator
 //com.sms
+//com.lifecycel
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -39,6 +40,7 @@ public class MainApplication extends Application implements ReactApplication {
           packages.add(new CalendarPackage());
           packages.add(new CalculatorPackages());
           packages.add(new ReadSmsPackage());
+          packages.add(new LifeCyclePackages());
           return packages;
         }
 

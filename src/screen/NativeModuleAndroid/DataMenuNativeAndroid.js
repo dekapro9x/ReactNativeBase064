@@ -1,12 +1,18 @@
 import React from "react"
+import LifeCycle from "./component/NativeModule/LifeCycleAndroid";
 import CalculatorNative from "./component/NativeModule/CalculatorNative";
 import CPU from "./component/NativeModule/CPU";
 import ReadSMS from "./component/ReadSMS";
 export const MenuNativeModuleAndroids = [
     {
         id: 1,
-        keyName: 'Native Module Test',
+        keyName: 'Native Module Android Core',
         data: [
+            {
+                name: 'LifeCycle',
+                component: <LifeCycle />,
+                description: ""
+            },
             {
                 name: 'Calculator',
                 component: <CalculatorNative />,

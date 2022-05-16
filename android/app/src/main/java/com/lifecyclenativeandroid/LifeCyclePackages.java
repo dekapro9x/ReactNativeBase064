@@ -7,19 +7,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class ReadSmsPackage implements ReactPackage {
+public class LifeCyclePackages implements ReactPackage {
 
-    @Override
-    public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
+   @Override
+   public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
        return Collections.emptyList();
-    }
+   }
 
-    @Override
-    public List<NativeModule> createNativeModules(
+   @Override
+   public List<NativeModule> createNativeModules(
            ReactApplicationContext reactContext) {
        List<NativeModule> modules = new ArrayList<>();
-       modules.add(new ReadSmsModule(reactContext));
-       modules.add(new SentSmsModule(reactContext));
+       modules.add(new LifeCycleModule(reactContext));
        return modules;
    }
 
