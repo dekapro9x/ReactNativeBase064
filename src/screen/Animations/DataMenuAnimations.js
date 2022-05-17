@@ -83,7 +83,7 @@ export const MenuAnimations = [
         keyName: 'react-native-bottom-sheet(lib)',
         data: [
             {
-                name: 'Modal bottom',
+                name: 'Modal Bottom Sheet',
                 component: <BottomSheetComponent />,
                 description: ""
             },
