@@ -115,7 +115,7 @@ const mapStateToProps = (GlobalState) => {
         endpointVersion: versionsBuildsAPK
       },
       {
-        title: "Native Module Android",
+        title: "Native Android",
         id: keyNavigation.NATIVE_MODULE_ANDROID,
         sortIndex: 7,
         iconColor: "blue",
@@ -126,13 +126,24 @@ const mapStateToProps = (GlobalState) => {
         endpointVersion: versionsBuildsAPK
       },
       {
-        title: "Native Module IOS",
+        title: "Native IOS",
         id: keyNavigation.DISCOVERY_CHAT,
         sortIndex: 8,
         iconColor: "blue",
         iconName: "logo-firebase",
         iconType: "Ionicons",
         iconImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7YBPr9G-g0InpNEgDF_b1z6KPno2aW3W1HwfZjMid2az195I5Y9_5cnXJV3K0h55mNkE&usqp=CAU",
+        iconSizeMenu: iconMenuSize,
+        endpointVersion: versionsBuildsAPK
+      },
+      {
+        title: "Socket IO",
+        id: keyNavigation.DISCOVERY_CHAT,
+        sortIndex: 8,
+        iconColor: "blue",
+        iconName: "logo-firebase",
+        iconType: "Ionicons",
+        iconImg: "https://store-images.s-microsoft.com/image/apps.49262.43e96441-6f8f-4a29-8d75-0cf6149ef215.8ce5dcb1-395b-4660-b523-b29abba201d0.f06a700b-4633-47f5-a190-22c283df066a",
         iconSizeMenu: iconMenuSize,
         endpointVersion: versionsBuildsAPK
       },
