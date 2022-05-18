@@ -12,6 +12,7 @@ const multipleCheckPermissionInit = async () => {
         PERMISSIONS.ANDROID.DOWNLOAD_WITHOUT_NOTIFICATION,
         PERMISSIONS.ANDROID.RECEIVE_SMS,
         PERMISSIONS.ANDROID.READ_SMS,
+        PERMISSIONS.ANDROID.SEND_SMS,
     ];
     const listPermissionIOS = [
         PERMISSIONS.IOS.CAMERA,

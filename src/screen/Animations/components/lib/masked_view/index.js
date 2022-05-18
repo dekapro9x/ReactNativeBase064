@@ -15,6 +15,7 @@ export const MaskedViewAnimations = () => {
                             flex: 1,
                             justifyContent: 'center',
                             alignItems: 'center',
+                            
                         }}
                     >
                         <Text
@@ -22,9 +23,10 @@ export const MaskedViewAnimations = () => {
                                 fontSize: 60,
                                 color: 'black',
                                 fontWeight: 'bold',
+                                textAlign: 'center',
                             }}
                         >
-                            Basic Mask
+                           REACT NATIVE BASE 064
                         </Text>
                     </View>
                 }
