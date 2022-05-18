@@ -25,4 +25,4 @@ appcenter codepush release-react -a dekapro9x-gmail.com/ReactNativeBase -d Stagi
 
 # 1.0.18 Setup react-native-pdf 
 
-# 1.0.19 Native Module Android (SMS) 
+# 1.0.19 Native Module Android (SMS) + Permission sent SMS.
