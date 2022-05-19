@@ -1,20 +1,25 @@
 import { isAndroid } from '@const/Setting';
-import { green400 } from '@css/Color';
+import { FontAppType } from '@const/TypeFontFamily';
+import { green400, greenA400 } from '@css/Color';
 import { AppText } from '@element/AppText';
+import { AppTextInput } from '@element/AppTextInput';
+import { SizeRpScreen } from '@resources/ResponsiveScreen';
 import React, { useEffect, useState } from 'react';
 import { Alert, Linking, NativeEventEmitter, NativeModules, PermissionsAndroid, Platform, StyleSheet, TouchableOpacity, View } from 'react-native';
 
 const ReadSMS = () => {
   const [pingSms, setStatePingSms] = useState("Ping Listen SMS:...Click here...");
-
+  const [numberPhoneCurrent, setStateNumberPhoneCurrent] = useState("191");
   useEffect(() => {
-    checkPermissionSMSPermissionAndroid();
+    checkPermissionSMSAndroid();
+    checkPermissionReadPhoneAndroid();
     return () => {
       stopReadSmsAndroid();
     }
   }, []);
 
-  const checkPermissionSMSPermissionAndroid = async () => {
+  //Kiểm tra quyền đọc tin nhắn Android:
+  const checkPermissionSMSAndroid = async () => {
     if (isAndroid) {
       const checkPerSms = await SMSPermissionAndroid();
       if (checkPerSms) {
@@ -23,6 +28,7 @@ const ReadSMS = () => {
     }
   }
 
+  //Quyền tin nhắn Android:
   const SMSPermissionAndroid = async () => {
     if (Platform.Version < 23) {
       return true;
@@ -38,6 +44,32 @@ const ReadSMS = () => {
     }
     return false;
   }
+
+  //Quyền đọc số sim:
+  const checkPermissionReadPhoneAndroid = async () => {
+    if (isAndroid) {
+      const checkPerPhoneCurrent = await phoneCurrentPermissionAndroid();
+      if (checkPerPhoneCurrent) {
+        const phoneSim = NativeModules.SentSmsModule.getCurrentNumberPhone();
+        console.log("Phone sim", phoneSim);
+      }
+    }
+  }
+
+  const phoneCurrentPermissionAndroid = async () => {
+    if (Platform.Version < 23) {
+      return true;
+    }
+    const hasReceiveSmsPermission = await PermissionsAndroid.check(
+      PermissionsAndroid.PERMISSIONS.READ_PHONE_STATE
+    );
+    if (hasReceiveSmsPermission) {
+      return true;
+    }
+    return false;
+  }
+
+
 
   const startReadSmsAndroid = (isReadSms) => {
     if (isReadSms) {
@@ -68,7 +100,7 @@ const ReadSMS = () => {
     }
   }
 
-  const checkPermissionSentSms = async() => {
+  const checkPermissionSentSms = async () => {
     if (Platform.Version < 23) {
       return true;
     }
@@ -82,10 +114,9 @@ const ReadSMS = () => {
   }
 
   const sentSms = () => {
-    console.log("Sent SMS");
     const checkSentSms = checkPermissionSentSms();
     if (checkSentSms) {
-      NativeModules.SentSmsModule.sentSms("0962294434", "Xin chào!");
+      NativeModules.SentSmsModule.sentSms(`${numberPhoneCurrent}`, "KTTK");
     } else {
       Alert.alert("Yêu cầu cấp quyền", "Vui lòng vào cài đặt cấp quyền gửi SMS!", [{
         text: "Hủy bỏ", onPress: () => { },
@@ -96,9 +127,30 @@ const ReadSMS = () => {
     }
   }
 
+  const onChangeText = (keyState, value) => {
+    switch (keyState) {
+      case "numberPhoneCurrent":
+        setStateNumberPhoneCurrent(value);
+        break;
+    }
+  };
+
   return (
-    <View>
-      <AppText style={{ fontSize: 16, textAlign: 'center' }}>{pingSms}</AppText>
+    <View style={{ flex: 1, alignItems: "center" }}>
+      {/* Nhập số điện thoại cần nt */}
+      <AppTextInput
+        keyboardType={"numeric"}
+        value={numberPhoneCurrent}
+        useClean={true}
+        keyState={"numberPhoneCurrent"}
+        titleTextInput={"Gửi đến:"}
+        placeholder={"phone"}
+        styleContainer={styles.textInput}
+        styleTitle={styles.textTitleInput}
+        styleInput={{ backgroundColor: greenA400, borderRadius: 10 }}
+        onChangeText={onChangeText} />
+      {/* Ping Native */}
+      <AppText style={{ fontSize: 16, textAlign: 'center', marginTop: 20 }}>{pingSms}</AppText>
       {/* Ping... */}
       <TouchableOpacity
         onPress={pingSmsNativeModule}
@@ -115,6 +167,18 @@ const ReadSMS = () => {
   );
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  textInput: {
+    width: SizeRpScreen.width(90),
+    marginTop: 12,
+    alignSelf: "center",
+    marginHorizontal: 8,
+  },
+  textTitleInput: {
+    fontFamily: FontAppType.LetterMagic,
+    fontSize: 12,
+    color: "black"
+  },
+})
 
 export default ReadSMS;
