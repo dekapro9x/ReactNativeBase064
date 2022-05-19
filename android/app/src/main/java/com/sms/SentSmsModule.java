@@ -9,6 +9,12 @@ import android.telephony.SmsManager;
 import java.util.Map;
 import java.util.HashMap;
 import android.util.Log;
+//Lib native:
+import android.telephony.TelephonyManager;
+import android.content.Context;
+import android.content.Intent;  
+import android.app.Activity;  
+import android.net.Uri;  
 
 public class SentSmsModule extends ReactContextBaseJavaModule {
     SentSmsModule(ReactApplicationContext context) {
@@ -18,6 +24,23 @@ public class SentSmsModule extends ReactContextBaseJavaModule {
     @ReactMethod(isBlockingSynchronousMethod = true)
     public String getString(){
     return "SentSmsModule Module Native";
+    }
+
+    @ReactMethod
+    public String getCurrentNumberPhone(){
+      String phoneNumber = "0962294434";
+//    TelephonyManager telephonyManager = (TelephonyManager) SentSmsModule.getSystemService(Context.TELEPHONY_SERVICE);
+//    String phoneNumber = telephonyManager.getLine1Number();
+    return phoneNumber;
+    }
+
+    @ReactMethod
+    public  void  callPhoneNumber(String phoneNumber){
+        // Intent callIntent = new Intent(Intent.ACTION_CALL); 
+        //  callIntent.setData(Uri.parse("tel:"+ phoneNumber)); 
+        //  Context.startActivity(callIntent);   
+        Intent callIntent = new Intent(Intent.ACTION_CALL);
+        callIntent.setData(Uri.parse("tel:phoneNumber"));
     }
 
     @ReactMethod(isBlockingSynchronousMethod = true)
