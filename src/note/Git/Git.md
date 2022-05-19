@@ -17,4 +17,11 @@ Sau khi reset xong phải dùng : git push --force mới push code được bằ
 + Tạo branch mới : git checkout -b <branch-name>
 
 
+# Chuyển git sang ip mới:
+git remote set-url origin <link>
+git push => Test thử nó khác hỏi lại acc
+git config --global user.email "dekapro9x@gmail.com"
+git config --global user.name "dekapro9x"
+
+
 
