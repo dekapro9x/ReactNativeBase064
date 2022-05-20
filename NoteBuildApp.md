@@ -29,4 +29,8 @@ appcenter codepush release-react -a dekapro9x-gmail.com/ReactNativeBase -d Stagi
 
 # 1.0.20 React-native-fs , write file log system, reduce size APK.
 https://stackoverflow.com/questions/60630065/how-to-reduce-android-apk-size-in-react-native
+def enableProguardInReleaseBuilds = true
+def enableSeparateBuildPerCPUArchitecture = true
+Build file APK bằng Android Studio => 4 file/tách biệt. Nếu muốn giảm size hơn nữa thì build file .abb
+OppoF9 phù hợp với file : armeabi-v7a APK
 
