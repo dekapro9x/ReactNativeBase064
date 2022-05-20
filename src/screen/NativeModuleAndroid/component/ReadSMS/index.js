@@ -78,7 +78,7 @@ const ReadSMS = () => {
         new NativeEventEmitter(NativeModules.ReadSms)
           .addListener('received_sms', (sms) => {
             console.log("SMS", sms);
-            Alert.alert("SMS", `${sms}`)
+            Alert.alert("Read SMS to Devices:", `${sms}`)
           })
       },
         (error) => { console.log("Lỗi đọc SMS", error) });
