@@ -158,6 +158,17 @@ const mapStateToProps = (GlobalState) => {
         iconSizeMenu: iconMenuSize,
         endpointVersion: versionsBuildsAPK
       },
+      {
+        title: "WebView",
+        id: keyNavigation.DISCOVERY_CHAT,
+        sortIndex: 8,
+        iconColor: "blue",
+        iconName: "logo-firebase",
+        iconType: "Ionicons",
+        iconImg: "https://play-lh.googleusercontent.com/zjBnMbzqmjER8zKDpv9ysHZfOwjsxG_o4AETsM2qYtxtyk2EL8DeRY-2h-mTThqBDqZK",
+        iconSizeMenu: iconMenuSize,
+        endpointVersion: versionsBuildsAPK
+      },
     ]
   };
 };
