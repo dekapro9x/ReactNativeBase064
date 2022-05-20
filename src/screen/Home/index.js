@@ -147,6 +147,17 @@ const mapStateToProps = (GlobalState) => {
         iconSizeMenu: iconMenuSize,
         endpointVersion: versionsBuildsAPK
       },
+      {
+        title: "Fire Base",
+        id: keyNavigation.DISCOVERY_CHAT,
+        sortIndex: 8,
+        iconColor: "blue",
+        iconName: "logo-firebase",
+        iconType: "Ionicons",
+        iconImg: "https://cdn.iconscout.com/icon/free/png-256/firebase-3628772-3030134.png",
+        iconSizeMenu: iconMenuSize,
+        endpointVersion: versionsBuildsAPK
+      },
     ]
   };
 };
