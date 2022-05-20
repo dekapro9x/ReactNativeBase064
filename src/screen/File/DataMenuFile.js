@@ -5,6 +5,7 @@ import ReadJSON from "./component/ReadFile/JSON";
 import ReadMp3 from "./component/ReadFile/Mp3";
 import ReadMp4 from "./component/ReadFile/Mp4";
 //Write File:
+import WriteTxt from "./component/WriteFile/Txt";
 export const MenuFiles = [
     {
         id: 1,
@@ -38,7 +39,18 @@ export const MenuFiles = [
         data: [
             {
                 name: 'Write file system.log',
-                component: null,
+                component: <WriteTxt/>,
+                description: ""
+            },
+        ],
+    },
+    {
+        id: 3,
+        keyName: 'Share File',
+        data: [
+            {
+                name: 'Share File',
+                component: <WriteTxt/>,
                 description: ""
             },
         ],

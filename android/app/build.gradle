@@ -235,6 +235,8 @@ dependencies {
     implementation 'com.google.android.gms:play-services-vision-image-label:18.0.5'
     implementation 'com.google.firebase:firebase-ml-vision-face-model:20.0.2'
     implementation 'com.google.firebase:firebase-ml-model-interpreter:22.0.4'
+    //react-native-fs:
+    implementation project(':react-native-fs')
     //Default config:
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //noinspection GradleDynamicVersion
