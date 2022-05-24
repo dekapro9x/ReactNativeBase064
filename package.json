@@ -76,6 +76,7 @@
     "react-native-svg": "^12.1.1",
     "react-native-vector-icons": "^9.0.0",
     "react-native-vision-camera": "^2.13.3",
+    "react-native-webview": "^11.18.2",
     "react-redux": "^7.2.6",
     "redux": "^4.1.2",
     "redux-thunk": "^2.4.1",

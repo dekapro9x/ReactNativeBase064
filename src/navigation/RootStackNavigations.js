@@ -21,6 +21,8 @@ import Camera from "@screen/Camera";
 import BaseMenuScreen from "@screen/BaseScreenMenu";
 import File from "@screen/File";
 import NativeModuleAndroid from "@screen/NativeModuleAndroid";
+import Sound from "@screen/Sound";
+import Webview from "@screen/WebView";
 
 //Stack Bottom Tab Menu Home:
 import { RootStackBottomTab } from "./RootStackBottomTab";
@@ -78,7 +80,8 @@ export default RootNavigations = () => {
         <RootStack.Screen name={keyNavigation.BASIC_MENU_SCREEN} component={BaseMenuScreen} />
         <RootStack.Screen name={keyNavigation.FILE} component={File} />
         <RootStack.Screen name={keyNavigation.NATIVE_MODULE_ANDROID} component={NativeModuleAndroid} />
-
+        <RootStack.Screen name={keyNavigation.SOUND} component={Sound} />
+        <RootStack.Screen name={keyNavigation.WEBVIEW} component={Webview} />
       </RootStack.Navigator>
       <AppModalContent ref={ServiceAppAlertModal.modalRef} />
     </>
