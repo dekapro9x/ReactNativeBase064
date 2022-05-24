@@ -139,11 +139,55 @@ const mapStateToProps = (GlobalState) => {
       {
         title: "Socket IO",
         id: keyNavigation.DISCOVERY_CHAT,
-        sortIndex: 8,
+        sortIndex: 9,
         iconColor: "blue",
         iconName: "logo-firebase",
         iconType: "Ionicons",
         iconImg: "https://store-images.s-microsoft.com/image/apps.49262.43e96441-6f8f-4a29-8d75-0cf6149ef215.8ce5dcb1-395b-4660-b523-b29abba201d0.f06a700b-4633-47f5-a190-22c283df066a",
+        iconSizeMenu: iconMenuSize,
+        endpointVersion: versionsBuildsAPK
+      },
+      {
+        title: "Fire Base",
+        id: keyNavigation.DISCOVERY_CHAT,
+        sortIndex: 10,
+        iconColor: "blue",
+        iconName: "logo-firebase",
+        iconType: "Ionicons",
+        iconImg: "https://cdn.iconscout.com/icon/free/png-256/firebase-3628772-3030134.png",
+        iconSizeMenu: iconMenuSize,
+        endpointVersion: versionsBuildsAPK
+      },
+      {
+        title: "WebView",
+        id: keyNavigation.WEBVIEW,
+        sortIndex: 11,
+        iconColor: "blue",
+        iconName: "logo-firebase",
+        iconType: "Ionicons",
+        iconImg: "https://play-lh.googleusercontent.com/zjBnMbzqmjER8zKDpv9ysHZfOwjsxG_o4AETsM2qYtxtyk2EL8DeRY-2h-mTThqBDqZK",
+        iconSizeMenu: iconMenuSize,
+        endpointVersion: versionsBuildsAPK
+      },
+      {
+        title: "Sound",
+        id: keyNavigation.SOUND,
+        sortIndex: 12,
+        iconColor: "blue",
+        iconName: "logo-firebase",
+        iconType: "Ionicons",
+        iconImg: "https://icons8.com/vue-static/landings/animated-icons/icons/sound/sound_200.gif",
+        iconSizeMenu: iconMenuSize,
+        endpointVersion: versionsBuildsAPK
+      },
+      {
+        title: "Push Notifications",
+        id: keyNavigation.DISCOVERY_CHAT,
+        sortIndex: 13,
+        iconColor: "blue",
+        iconName: "logo-firebase",
+        iconType: "Ionicons",
+        iconImg: "https://www.nicepng.com/png/detail/38-385668_push-notifications-push-notification-icon-png.png",
         iconSizeMenu: iconMenuSize,
         endpointVersion: versionsBuildsAPK
       },

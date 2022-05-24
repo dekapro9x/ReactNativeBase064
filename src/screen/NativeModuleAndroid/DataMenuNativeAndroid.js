@@ -6,7 +6,7 @@ import ReadSMS from "./component/ReadSMS";
 export const MenuNativeModuleAndroids = [
     {
         id: 1,
-        keyName: 'Native Module Android Core',
+        keyName: 'Native Android',
         data: [
             {
                 name: 'LifeCycle',
@@ -27,10 +27,10 @@ export const MenuNativeModuleAndroids = [
     },
     {
         id: 2,
-        keyName: 'Read SMS',
+        keyName: 'Sent/Read SMS',
         data: [
             {
-                name: 'Read SMS Native Module',
+                name: 'Sent/Read SMS Native',
                 component: <ReadSMS />,
                 description: ""
             },
