@@ -79,6 +79,10 @@ import com.android.build.OutputFile
 
 project.ext.react = [
     enableHermes: false,  // react-native-reanimated/plugin (false=>true)
+    entryFile: "index.js",
+    bundleAssetName: "index.android.bundle",
+    bundleInDebug: true,
+    bundleInRelease: true
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
@@ -216,6 +220,12 @@ android {
 }
 
 dependencies {
+    //Fix bug Android 11 not working:
+    implementation("com.squareup.okhttp3:okhttp:4.9.1")
+    implementation("com.squareup.okhttp3:okhttp-urlconnection:4.9.1")
+    compile "com.google.android.gms:play-services-base:+"
+    compile 'com.google.android.gms:play-services-location:+'
+    compile 'com.google.android.gms:play-services-maps:+'
     //Add google map:
     implementation(project(':react-native-maps')){
     exclude group: 'com.google.android.gms', module: 'play-services-base'
