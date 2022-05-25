@@ -29,7 +29,7 @@
     "@react-navigation/drawer": "^6.1.8",
     "@react-navigation/material-bottom-tabs": "^6.0.9",
     "@react-navigation/native": "^6.0.6",
-    "@react-navigation/native-stack": "^6.2.5",
+    "@react-navigation/native-stack": "^6.6.1",
     "add": "^2.0.6",
     "axios": "^0.25.0",
     "hex-to-rgba": "^2.0.1",
