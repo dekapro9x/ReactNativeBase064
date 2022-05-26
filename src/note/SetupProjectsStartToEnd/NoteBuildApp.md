@@ -49,3 +49,10 @@ dependencies {
 
 # Trong AndroidManifest.xml :
 Sửa tools:targetApi="31"
+
+# Cài đặt build APK tự động set tên file: 
+//Set tên file build APK:
+setProperty("archivesBaseName", "RN_Base(Ver.$versionName)" + ".$versionCode")
+
+# Build versions vs packages mới chạy trên 1 devices mà không lẫn nhau:
+applicationIdSuffix ".dev"
