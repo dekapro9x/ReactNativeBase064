@@ -7,10 +7,10 @@ checkReleaseBuilds false
 
 # 2.Lệnh code push:
 
-const VersionApp = "1.0.20";
+const VersionApp = "1.0.21";
 const VersionCodePush = 1";
-git commit -m"Build bundle JS code push versions 1 for 1.0.20"
-git commit -m"Build APK 1.0.20"
+git commit -m"Build bundle JS code push versions 1 for 1.0.21"
+git commit -m"Build APK 1.0.21"
 appcenter codepush release-react -a dekapro9x-gmail.com/ReactNativeBase -d Staging -m
 
 # Note Versions:
@@ -34,3 +34,4 @@ def enableSeparateBuildPerCPUArchitecture = true
 Build file APK bằng Android Studio => 4 file/tách biệt. Nếu muốn giảm size hơn nữa thì build file .abb
 OppoF9 phù hợp với file : armeabi-v7a APK
 
+# 1.0.21 react-native-voice : Speed sound to text 
