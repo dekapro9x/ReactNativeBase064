@@ -27,3 +27,25 @@ You might want to consider changing your minSDK to 19 and use getExternalFilesDi
 => Cách sửa:
 https://trendoceans.com/how-to-fix-exception-open-failed-eacces-permission-denied-on-android/
 
+# 5: Lỗi Android APK có thể cài được trên máy ảo nhưng không thể cài đặt được lên máy thật với Android:
+https://github.com/lottie-react-native/lottie-react-native/issues/269
+# Trong build.gradle
+project.ext.react = [
+    enableHermes: false,  // react-native-reanimated/plugin (false=>true)
+    entryFile: "index.js",
+    bundleAssetName: "index.android.bundle",
+    bundleInDebug: true,
+    bundleInRelease: true
+]
+
+dependencies {
+    //Fix bug Android 11 not working:
+    implementation("com.squareup.okhttp3:okhttp:4.9.1")
+    implementation("com.squareup.okhttp3:okhttp-urlconnection:4.9.1")
+    compile "com.google.android.gms:play-services-base:+"
+    compile 'com.google.android.gms:play-services-location:+'
+    compile 'com.google.android.gms:play-services-maps:+'
+    }
+
+# Trong AndroidManifest.xml :
+Sửa tools:targetApi="31"
