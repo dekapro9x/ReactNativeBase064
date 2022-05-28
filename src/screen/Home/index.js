@@ -180,6 +180,17 @@ const mapStateToProps = (GlobalState) => {
         iconSizeMenu: iconMenuSize,
         endpointVersion: versionsBuildsAPK
       },
+       {
+        title: "DeepLink",
+        id: keyNavigation.SOUND,
+        sortIndex: 12,
+        iconColor: "blue",
+        iconName: "logo-firebase",
+        iconType: "Ionicons",
+        iconImg: "https://play-lh.googleusercontent.com/p9OLPc2dSDyxau9vDZB1W_yfr5S0aVM6a0cGgw76wwBnt7GbScPzVZby7g0LQtTS8TI",
+        iconSizeMenu: iconMenuSize,
+        endpointVersion: versionsBuildsAPK
+      },
       {
         title: "Push Notifications",
         id: keyNavigation.DISCOVERY_CHAT,
