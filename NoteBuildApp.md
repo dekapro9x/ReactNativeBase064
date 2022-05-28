@@ -7,10 +7,10 @@ checkReleaseBuilds false
 
 # 2.Lệnh code push:
 
-const VersionApp = "1.0.21";
+const VersionApp = "1.0.22";
 const VersionCodePush = 1";
-git commit -m"Build bundle JS code push versions 1 for 1.0.21"
-git commit -m"Build APK 1.0.21"
+git commit -m"Build bundle JS code push versions 1 for 1.0.22"
+git commit -m"Build APK 1.0.22"
 appcenter codepush release-react -a dekapro9x-gmail.com/ReactNativeBase -d Staging -m
 
 # Note Versions:
@@ -35,3 +35,4 @@ Build file APK bằng Android Studio => 4 file/tách biệt. Nếu muốn giảm
 OppoF9 phù hợp với file : armeabi-v7a APK
 
 # 1.0.21 react-native-voice : Speed sound to text 
+# 1.0.22 react-native-youtube : Play video youtube Android
