@@ -9,10 +9,12 @@ import { ButtonAnimations } from "./components/lib/animatable/ButtonAnimations";
 import { ButtonAnimationsClass } from "./components/lib/animatable/ButtonAnimationsClass";
 import { MaskedViewAnimations } from "./components/lib/masked_view";
 import { BottomSheetComponent } from "./components/lib/bottom_sheet";
+//Extend:
+import { TouchHandleAnimations } from "./components/extend/TouchHandleAnimations";
 export const MenuAnimations = [
     {
         id: 1,
-        keyName: 'Animated (core)',
+        keyName: 'Animated Core',
         data: [
             {
                 name: 'Animated.timing()',
@@ -53,38 +55,37 @@ export const MenuAnimations = [
     },
     {
         id: 2,
-        keyName: 'react-native-animatable (lib)',
+        keyName: 'Library',
         data: [
             {
-                name: 'Animatable Slider',
+                name: 'react-native-animatable (Slider)',
                 component: <SliderAnimations />,
                 description: ""
             },
             {
-                name: 'Animatable Button',
+                name: 'react-native-animatable(Button) ',
                 component: <ButtonAnimations /> || <ButtonAnimationsClass />,
+                description: ""
+            },
+            {
+                name: 'react-native-masked-view',
+                component: <MaskedViewAnimations />,
+                description: ""
+            },
+            {
+                name: 'react-native-bottom-sheet',
+                component: <BottomSheetComponent />,
                 description: ""
             },
         ],
     },
     {
         id: 3,
-        keyName: 'react-native-masked-view (lib)',
+        keyName: 'Animations Extend',
         data: [
             {
-                name: 'Text animations',
-                component: <MaskedViewAnimations />,
-                description: ""
-            },
-        ],
-    },
-    {
-        id: 4,
-        keyName: 'react-native-bottom-sheet(lib)',
-        data: [
-            {
-                name: 'Modal Bottom Sheet',
-                component: <BottomSheetComponent />,
+                name: 'Touchable Handle',
+                component: <TouchHandleAnimations />,
                 description: ""
             },
         ],
