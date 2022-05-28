@@ -94,7 +94,7 @@ const mapStateToProps = (GlobalState) => {
       },
       {
         title: translations[LanguageReducer.language]?.video || setTextMenuInit("video"),
-        id: keyNavigation.DISCOVERY_CHAT,
+        id: keyNavigation.VIDEO,
         sortIndex: 5,
         iconColor: "blue",
         iconName: "logo-firebase",
