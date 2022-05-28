@@ -14,6 +14,8 @@ const VersionApp = "1.0.21";
 
 const VersionCodePush = "1";
 
+const ApiKeyYoutube = "AIzaSyC-cCMHCYxDTSbPETuZwfEO3FLH7xSZRGY";
+
 const versionsBuildsAPK = "DEV";
 // const versionsBuildsAPK = "PRODUCTS";
 
@@ -79,4 +81,4 @@ const GetDevicesIP = async () => {
   return iP
 }
 
-export { AppLogo, AppLoadingType, PlatFormUsingConnect,versionsBuildsAPK, isIOS, isAndroid, DataSliderHome, VersionApp, isOSAndroid, GetDevicesInfo, GetDevicesIP, VersionCodePush };
+export { AppLogo, AppLoadingType, PlatFormUsingConnect, versionsBuildsAPK, isIOS, isAndroid, DataSliderHome, ApiKeyYoutube, VersionApp, isOSAndroid, GetDevicesInfo, GetDevicesIP, VersionCodePush };

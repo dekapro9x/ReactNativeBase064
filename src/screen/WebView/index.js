@@ -7,7 +7,7 @@ const mapStateToProps = GlobalState => {
   return {
     languageCurrent: LanguageReducer.language,
     MenusAppList: MenuWebView,
-    nameScreen: "SOUND"
+    nameScreen: "WEBVIEW"
   };
 };
 
