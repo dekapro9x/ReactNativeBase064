@@ -138,7 +138,7 @@ const mapStateToProps = (GlobalState) => {
       },
       {
         title: "Socket IO",
-        id: keyNavigation.DISCOVERY_CHAT,
+        id: keyNavigation.SOCKET,
         sortIndex: 9,
         iconColor: "blue",
         iconName: "logo-firebase",

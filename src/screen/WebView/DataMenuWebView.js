@@ -3,10 +3,10 @@ import WebViewIE from "./component/WebViewIE";
 export const MenuWebView = [
     {
         id: 1,
-        keyName: 'Webview',
+        keyName: 'WebView',
         data: [
             {
-                name: 'Webview',
+                name: 'WebView IE',
                 component: <WebViewIE/>,
                 description: ""
             },
