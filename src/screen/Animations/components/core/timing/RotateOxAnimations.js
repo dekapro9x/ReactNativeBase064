@@ -1,3 +1,4 @@
+
 import { animatedComponent } from '@css/';
 import { SizeRpScreen } from '@resources/ResponsiveScreen';
 import React, { useEffect, useRef } from 'react';
@@ -21,7 +22,7 @@ export function RotateOxAnimations() {
         }).start(startAnimation);
     };
 
-    const runRotateOx = animation.interpolate({
+    const runRotateOy = animation.interpolate({
         inputRange: [0, 0.5, 1],
         outputRange: ['0deg', '180deg', '0deg']
     })
@@ -41,7 +42,7 @@ export function RotateOxAnimations() {
                 alignSelf:"center",
                 width: 60, height: 60,
                 marginTop: 10, 
-                transform: [{ rotateX: runRotateOx }]
+                transform: [{ rotateY: runRotateOy }]
             }}>
             </Animated.Image>
         </View>

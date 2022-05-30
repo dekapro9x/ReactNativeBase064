@@ -9,6 +9,7 @@ import HomeMenu from "./component/HomeMenu";
 import { RightHeaderComponent } from "./component/RightHeader";
 import SkeletonPlaceholder from "react-native-skeleton-placeholder";
 import { ContextContainer } from "@context/AppContext";
+import { AssistiveTouch } from "./component/AssistiveTouch";
 LogBox.ignoreLogs(['Warning: ...']);
 LogBox.ignoreAllLogs();
 
@@ -70,6 +71,7 @@ export default function Home(props) {
         <ViewLoadingContainerHOC isLoading={false}>
           <DateAndWeather navigation={navigation} />
           <HomeMenu navigation={navigation} dataMenu={props.homeMenu} />
+          {/* <AssistiveTouch /> */}
         </ViewLoadingContainerHOC>
       </>
     )

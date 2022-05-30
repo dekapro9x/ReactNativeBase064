@@ -24,6 +24,7 @@ const keyNavigation = {
   SOUND:"SOUND",
   WEBVIEW:"WEBVIEW",
   VIDEO:"VIDEO",
+  SOCKET:"SOCKET",
 
   //Menu khám phá:
   DISCOVERY_FIREBASE_AUTHEN: "DISCOVERY_FIREBASE_AUTHEN",

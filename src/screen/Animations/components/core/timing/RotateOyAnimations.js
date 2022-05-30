@@ -21,7 +21,7 @@ export function RotateOyAnimations() {
         }).start(startAnimation);
     };
 
-    const runRotateOy = animation.interpolate({
+    const runRotateOx = animation.interpolate({
         inputRange: [0, 0.5, 1],
         outputRange: ['0deg', '180deg', '0deg']
     })
@@ -30,7 +30,7 @@ export function RotateOyAnimations() {
         <View style={[animatedComponent, { alignItems: null }]}>
             <Text
                 style={{ alignSelf: "center", fontSize: SizeRpScreen.H4, fontWeight: 'bold', color: "black" }}>
-                Rotate Ox Interpolate
+                Rotate Oy Interpolate
             </Text>
             <Animated.Image 
              source={{
@@ -41,10 +41,9 @@ export function RotateOyAnimations() {
                 alignSelf:"center",
                 width: 60, height: 60,
                 marginTop: 10, 
-                transform: [{ rotateY: runRotateOy }]
+                transform: [{ rotateX: runRotateOx }]
             }}>
             </Animated.Image>
         </View>
     );
 }
-
