@@ -25,6 +25,7 @@ package="com.reactnativebase">
     <!-- Xin quyền push noti -->
     <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
 
+    <!-- Replace @style/AppTheme with @style/BootTheme -->
     <application
       android:name=".MainApplication"
       android:label="@string/app_name"
@@ -34,7 +35,9 @@ package="com.reactnativebase">
       android:usesCleartextTraffic="true"
       android:requestLegacyExternalStorage="true"
       android:grantUriPermissions="true"
-      android:theme="@style/BootTheme"> <!-- Replace @style/AppTheme with @style/BootTheme -->
+      android:theme="@style/BootTheme"
+      android:windowSoftInputMode="adjustResize"
+      android:configChanges="keyboard|keyboardHidden|orientation|screenSize"> 
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"
