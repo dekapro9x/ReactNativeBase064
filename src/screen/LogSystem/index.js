@@ -11,7 +11,10 @@ function InfoDevicesApp({ navigation, router }) {
     const [log, stateLog] = useState("");
 
     useEffect(() => {
-        readFileLog();
+        const unsubscribe = navigation.addListener('focus', () => {
+            readFileLog();
+        });
+        return unsubscribe
     }, [])
 
     const logFileSystem = async () => {
@@ -39,7 +42,6 @@ function InfoDevicesApp({ navigation, router }) {
     const renderListButton = () => {
         const arrButton = [
             { id: 1, name: "Write", color: "red", onPress: () => { logFileSystem() } },
-            // { id: 2, name: "Read", color: "blue", onPress: () => { readFileLog() } },
             { id: 3, name: "Remove", color: "green", onPress: () => { removeFileLog() } }];
         return arrButton.map((item, index) => {
             return (
@@ -53,10 +55,20 @@ function InfoDevicesApp({ navigation, router }) {
         })
     }
 
+    const pressGoBack = () => {
+        const { goBack } = navigation;
+        goBack();
+    }
+
     const renderContent = () => {
         return (
             <ScrollView >
-                <AppText>{log}</AppText>
+                <TouchableOpacity
+                    onPress={pressGoBack}
+                    activeOpacity={0.8}
+                    style={{ minHeight: SizeRpScreen.device_height, width: SizeRpScreen.device_width - 12, marginLeft:12 }}>
+                    <AppText>{log}</AppText>
+                </TouchableOpacity>
             </ScrollView>
         );
     };

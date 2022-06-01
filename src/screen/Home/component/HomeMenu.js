@@ -21,10 +21,10 @@ export default function HomeMenu(props) {
     setStateMenuHome(listMenu);
   }, [props.dataMenu]);
 
-  const navigateToScreen = (item) => () => {
+  const navigateToScreen = (item) => async () => {
+    await writeLogSystem(keyLogSystem.menuClick, `${item.id}`);
     const { navigation } = props;
     navigation.navigate(item.id, { menuClick: item });
-    writeLogSystem(keyLogSystem.testClick, `${item.id}`);
   }
 
   const renderItemMenu = (item, index) => {

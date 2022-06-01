@@ -1,11 +1,12 @@
 import { AppContainer } from "@element/AppContainer";
 import { AppText } from "@element/AppText";
+import { writeLogSystem } from "@logEventSystem/";
+import { keyLogSystem } from "@logEventSystem/keyLogSystem";
 import { SizeRpScreen } from "@resources/ResponsiveScreen";
 import PropTypes from 'prop-types';
 import React, { useEffect, useRef, useState } from "react";
 import { BackHandler, SafeAreaView, StyleSheet, TouchableOpacity, View } from "react-native";
 import { View as ViewAnimated } from 'react-native-animatable';
-
 
 const AppListMenuComponent = (props) => {
     const { nameScreen, MenusAppList, navigation } = props;
@@ -39,6 +40,18 @@ const AppListMenuComponent = (props) => {
         );
         return () => backHandler.remove();
     }, [showListMenuComponentAppListMenu, renderAnimated]);
+
+    useEffect(() => {
+        whiteLogGoToScreen();
+    }, [])
+
+
+    const whiteLogGoToScreen = async () => {
+        const { nameScreen } = props;
+        if (nameScreen) {
+            await writeLogSystem(keyLogSystem.goToScreen, nameScreen);
+        }
+    }
 
     const renderAnimatedComponent = () => {
         if (animatedComponent) {
