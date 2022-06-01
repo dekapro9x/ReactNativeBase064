@@ -4,9 +4,11 @@ import { green400, white } from '@css/Color';
 import { AppIcon } from '@element/AppIcon';
 import { AppImage } from '@element/AppImage';
 import { AppText } from '@element/AppText';
+import { writeLogSystem } from '@logEventSystem/';
+import { keyLogSystem } from '@logEventSystem/keyLogSystem';
 import { SizeRpScreen } from '@resources/ResponsiveScreen';
-import React, { useContext, useRef, useState, useEffect } from 'react';
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 
 export default function HomeMenu(props) {
   const { colorApp } = useContext(ContextContainer);
@@ -19,7 +21,8 @@ export default function HomeMenu(props) {
     setStateMenuHome(listMenu);
   }, [props.dataMenu]);
 
-  const navigateToScreen = (item) => () => {
+  const navigateToScreen = (item) => async () => {
+    await writeLogSystem(keyLogSystem.menuClick, `${item.id}`);
     const { navigation } = props;
     navigation.navigate(item.id, { menuClick: item });
   }

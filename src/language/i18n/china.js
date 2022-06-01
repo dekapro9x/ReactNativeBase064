@@ -19,5 +19,7 @@ export default {
     'PDF': 'PDF',
     'video': '視頻',
     'chart': '圖表',
-
+    'sound':"聲音",
+    'storage':"貯存",
+    'security':'安全'
 };
