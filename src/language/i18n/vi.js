@@ -12,11 +12,15 @@ export default {
     'this-is-setting-page': 'Đây là trang cài đặt',
     'set-language': 'Chọn ngôn ngữ',
     //Menu Home:
-    'animations': 'Hiệu ứng',
+    'animations': 'Hiệu ứng UI',
     'maps': 'Bản đồ',
     'camera': 'Máy ảnh',
     'file': 'Tệp tin',
     'PDF': 'PDF',
     'video': 'Video',
     'chart': 'Biểu đồ',
+    'storage': 'Dữ liệu',
+    'sound':"Âm thanh",
+    'storage':"Kho dữ liệu",
+    'security':"Bảo mật"
 };

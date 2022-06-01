@@ -1,12 +1,16 @@
 import AppDrawer from "@element/AppDrawer";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { useFocusEffect } from '@react-navigation/native';
-import InfoDevicesApp from "@screen/InfoDevicesApp";
 import React, { useCallback, useRef, useState } from "react";
 import { View } from "react-native";
 import HomeScreen from "../screen/Home";
 import { keyNavigation } from "./KeyNavigations";
 const DrawerStack = createDrawerNavigator();
+
+//Danh sách màn hình Drawer:
+import InfoDevicesApp from "@screen/InfoDevicesApp";
+import SystemLogScreen from "@screen/LogSystem";
+
 
 function RootStackDrawer({ navigation, router }) {
   const [canRenderDrawer, setStateIsCanRenderDrawer] = useState(false);
@@ -15,10 +19,12 @@ function RootStackDrawer({ navigation, router }) {
     {
       "title": "Sub Menu",
       "data": [
-        "Information App",
+        "App versions",
+        "App Log Systems"
       ]
     },
   ]
+
   useFocusEffect(
     useCallback(() => {
       countTimeOut.current = setTimeout(() => {
@@ -30,6 +36,7 @@ function RootStackDrawer({ navigation, router }) {
       };
     }, [])
   );
+
   const drawerContent = () => {
     if (canRenderDrawer) {
       return (
@@ -38,11 +45,10 @@ function RootStackDrawer({ navigation, router }) {
     }
     return (
       <View style={{ backgroundColor: "transparent", flex: 1 }}>
-
       </View>
     )
-
   }
+
   return (
     <DrawerStack.Navigator
       drawerLabel={{ focused: false }}
@@ -60,6 +66,8 @@ function RootStackDrawer({ navigation, router }) {
         name={keyNavigation.HOME} component={HomeScreen} />
       <DrawerStack.Screen
         name={keyNavigation.INFO_DEVICES_AND_APP} component={InfoDevicesApp} />
+      <DrawerStack.Screen
+        name={keyNavigation.SYSTEM_LOG} component={SystemLogScreen} />
     </DrawerStack.Navigator>
   );
 }

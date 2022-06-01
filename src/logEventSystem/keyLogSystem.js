@@ -1,3 +1,4 @@
 export const keyLogSystem = {
-    testClick : "Test Click"
+    testClick : "Test Click",
+    menuClick:"Menu Home Click"
 }

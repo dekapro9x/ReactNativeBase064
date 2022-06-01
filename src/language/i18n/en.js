@@ -19,6 +19,7 @@ export default {
     'PDF': 'PDF',
     'video': 'Video',
     'chart': 'Chart',
-
-
+    'sound':"Sound",
+    'storage':"Storage",
+    'security':"Security",
 };

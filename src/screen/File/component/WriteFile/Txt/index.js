@@ -15,7 +15,7 @@ const WriteTxt = () => {
     }, [])
 
     const logFileSystem = () => {
-        writeLogSystem(keyLogSystem.testClick, "Write file log System!");
+        writeLogSystem(keyLogSystem.testClick, "Test write file log system!");
         readFileLog();
         refScrollView.current.scrollToEnd();
     }

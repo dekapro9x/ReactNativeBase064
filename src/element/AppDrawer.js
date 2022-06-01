@@ -34,12 +34,12 @@ const AppDrawer = (props) => {
     const { colorApp } = useContext(ContextContainer);
 
     const handleRowPressed = (item, index) => () => {
-        console.log("item", item);
-        console.log("index", index);
         switch (index) {
             case 0:
                 navigate(keyNavigation.INFO_DEVICES_AND_APP);
                 break;
+            case 1:
+                navigate(keyNavigation.SYSTEM_LOG);
         }
     };
 
@@ -58,7 +58,7 @@ const AppDrawer = (props) => {
                         <AppImage
                             source={{
                                 uri: "https://isoftglobe.com/wp-content/uploads/2021/02/react-native.png"
-                              }}
+                            }}
                             style={{
                                 width: SizeRpScreen.width(65),
                                 height: SizeRpScreen.height(20),
