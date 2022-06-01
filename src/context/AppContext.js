@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Alert } from "react-native";
-import { black, blue900, white } from "@css/Color";
-import { AppLogo,  } from "../const/Setting";
+import { black, blue900 } from "@css/Color";
+import { AppLogo, } from "../const/Setting";
 import { AppLinearGradient } from "@css/";
 const ContextContainer = React.createContext();
 
@@ -10,9 +10,9 @@ const AppContext = props => {
     logoApp: AppLogo,
     linearGradientApp: AppLinearGradient,
     colorApp: {
-      backgroundColor: white,
+      backgroundColor: black,
       backgroundColorButton: blue900,
-      colorText:black
+      colorText: black
     }
   });
   //Set cấu hình App:

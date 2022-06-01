@@ -1,13 +1,9 @@
-import React from "react"
+import React from "react";
+import QrScannerCamera from "./component/CameraRoot/QR";
 //Camera Root:
 import TakePictureCamera from "./component/CameraRoot/TakePicture";
-import QrScannerCamera from "./component/CameraRoot/QR";
 import VideoRecords from "./component/CameraRoot/VideoRecords";
-//Vision-camera:
-import CameraTakePicture from "./component/VisionsCamera/CameraTakePicture";
-import CameraScanner from "./component/VisionsCamera/CameraScanner";
-import { CameraVisionsCore } from "./component/VisionsCamera/Core"
-import ZoomCamera from "./component/VisionsCamera/ZoomCamera/index";
+import { CameraVisionsCore } from "./component/VisionsCamera/Core";
 export const MenuCameras = [
     {
         id: 1,
@@ -28,34 +24,11 @@ export const MenuCameras = [
                 component: <VideoRecords />,
                 description: ""
             },
-        ],
-    },
-    {
-        id: 2,
-        keyName: 'react-native-vision-camera (lib)',
-        data: [
             {
-                name: "Camera Visions Core",
+                name: "react-native-vision-camera (lib)",
                 component: <CameraVisionsCore />,
                 description: ""
             },
-            ,
-            {
-                name: "Take Picture",
-                component: <CameraTakePicture />,
-                description: ""
-            },
-            {
-                name: "Scanner QR",
-                component: <CameraScanner />,
-                description: ""
-            },
-            {
-                name: "Zoom Camera",
-                component: <ZoomCamera />,
-                description: ""
-            },
         ],
     },
-
 ];
