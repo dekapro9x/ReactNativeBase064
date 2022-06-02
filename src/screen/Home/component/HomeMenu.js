@@ -33,9 +33,14 @@ export default function HomeMenu(props) {
       key={`${index}`}
       onPress={navigateToScreen(item)}
       style={{
-        height: SizeRpScreen.device_width / numberColum - 20 + 12, width: SizeRpScreen.device_width / numberColum - 20,
-        backgroundColor: white, margin: 5, borderWidth: SizeRpScreen.device_width * 0.005,
-        borderColor: green400, borderRadius: 12, alignItems: "center", justifyContent: "center"
+        height: SizeRpScreen.device_width / numberColum - 20 + 12,
+        width: SizeRpScreen.device_width / numberColum - 20,
+        backgroundColor: white, 
+        margin: 5,
+        borderWidth: SizeRpScreen.device_width * 0.005,
+        borderColor: green400,
+        borderRadius: 12,
+        alignItems: "center", justifyContent: "center"
       }}>
       {item?.iconImg ?
         <AppImage
@@ -44,7 +49,7 @@ export default function HomeMenu(props) {
           style={{ height: 30, width: 30 }}></AppImage> :
         <AppIcon type={item.iconType} name={item.iconName} color={item.iconColor} iconSize={item.iconSizeMenu}>
         </AppIcon>}
-      <AppText style={{ fontSize: 16, textAlign: 'center', fontFamily: FontAppType.Champagne, fontWeight: "bold"}}>{item.title}</AppText>
+      <AppText style={{ fontSize: 16, textAlign: 'center', fontFamily: FontAppType.Champagne, fontWeight: "bold" }}>{item.title}</AppText>
     </TouchableOpacity>
   }
 
