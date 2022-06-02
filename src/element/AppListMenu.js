@@ -115,11 +115,11 @@ const AppListMenuComponent = (props) => {
                                                         }}>
                                                     </LinearGradient>
                                                 </View>
-                                                <AppText style={{ marginLeft: 45, fontSize: 20, color: "#39F7E2", fontFamily: FontAppType.LetterMagic }}>
+                                                <AppText style={{ marginLeft: 45, fontSize: 20, color: "#39F7E2", fontFamily: FontAppType.MotoyaLMaru }}>
                                                     {indexRenderAnimated + 1}
                                                 </AppText>
                                             </LinearGradient>
-                                            <AppText style={{ marginLeft: 45, fontSize: 16, fontFamily: FontAppType.LetterMagic }}>
+                                            <AppText style={{ marginLeft: 45, fontSize: 16, fontFamily: FontAppType.MotoyaLMaru }}>
                                                 {itemRenderAnimated.name}
                                             </AppText>
                                             <TouchableOpacity style={styles.subViewIndex}></TouchableOpacity>
@@ -162,7 +162,7 @@ const AppListMenuComponent = (props) => {
                                                 borderTopRightRadius: 10,
                                             }}
                                         >
-                                            <AppText style={{ marginLeft: 45, fontSize: 20, color: "#39F7E2", fontFamily: FontAppType.LetterMagic }}>
+                                            <AppText style={{ marginLeft: 45, fontSize: 20, color: "#39F7E2", fontFamily: FontAppType.MotoyaLMaru }}>
                                                 {index + 1}
                                             </AppText>
                                         </LinearGradient>
@@ -181,7 +181,7 @@ const AppListMenuComponent = (props) => {
                                                 }}>
                                             </LinearGradient>
                                         </View>
-                                        <AppText style={{ marginLeft: 45, fontSize: 16, fontFamily: FontAppType.LetterMagic }}>
+                                        <AppText style={{ marginLeft: 45, fontSize: 16, fontFamily: FontAppType.MotoyaLMaru }}>
                                             {itemMenuAnimated.keyName}
                                         </AppText>
                                     </TouchableOpacity>
