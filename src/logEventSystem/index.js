@@ -6,7 +6,7 @@ const writeLogSystem = async (keyLog, text) => {
     const path = RNFS.DocumentDirectoryPath + 'logSystem.txt';
     RNFS.writeFile(path, `${logFile}\n[${timeCurrent}]\n${keyLog}: ${text}\n`, 'utf8')
         .then(() => {
-            console.log("White File Success:", logFile);
+            // console.log("White File Success:", logFile);
         })
         .catch((err) => {
             console.log(err.message);
@@ -23,7 +23,7 @@ const readLogSystem = async () => {
         .catch((err) => {
             console.log(err.message, err.code);
         });
-    console.log("Log file:", logFile);
+    // console.log("Log file:", logFile);
     return logFile;
 }
 

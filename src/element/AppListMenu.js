@@ -1,3 +1,4 @@
+import { FontAppType } from "@const/TypeFontFamily";
 import { AppContainer } from "@element/AppContainer";
 import { AppText } from "@element/AppText";
 import { writeLogSystem } from "@logEventSystem/";
@@ -5,9 +6,9 @@ import { keyLogSystem } from "@logEventSystem/keyLogSystem";
 import { SizeRpScreen } from "@resources/ResponsiveScreen";
 import PropTypes from 'prop-types';
 import React, { useEffect, useRef, useState } from "react";
-import { BackHandler, SafeAreaView, StyleSheet, TouchableOpacity, View } from "react-native";
+import { BackHandler, SafeAreaView, StyleSheet, TouchableOpacity, View, ScrollView } from "react-native";
 import { View as ViewAnimated } from 'react-native-animatable';
-
+import LinearGradient from "react-native-linear-gradient";
 const AppListMenuComponent = (props) => {
     const { nameScreen, MenusAppList, navigation } = props;
     const [showListMenuComponentAppListMenu, setStateShowListMenuComponent] = useState(false);
@@ -45,7 +46,6 @@ const AppListMenuComponent = (props) => {
         whiteLogGoToScreen();
     }, [])
 
-
     const whiteLogGoToScreen = async () => {
         const { nameScreen } = props;
         if (nameScreen) {
@@ -74,27 +74,59 @@ const AppListMenuComponent = (props) => {
             return (
                 <SafeAreaView style={styles.content}>
                     <View style={[{ minHeight: SizeRpScreen.height(100), width: SizeRpScreen.width(100) }]}>
-                        {Array.isArray(listItemAppListMenuRender) && listItemAppListMenuRender.map((itemRenderAnimated: any, indexRenderAnimated: number) => {
-                            return (
-                                <ViewAnimated
-                                    key={`${indexRenderAnimated}`}
-                                    animation="slideInLeft"
-                                    useNativeDriver
-                                    delay={(indexRenderAnimated + 1) * timeOut}
-                                >
-                                    <TouchableOpacity
-                                        onPress={() => {
-                                            setStateRenderAnimated(true);
-                                            setStateAnimatedComponent(itemRenderAnimated);
-                                        }}
-                                        style={styles.buttonActionsMenu}>
-                                        <AppText style={{}}>
-                                            {itemRenderAnimated.name}
-                                        </AppText>
-                                    </TouchableOpacity>
-                                </ViewAnimated>
-                            )
-                        })}
+                        <ScrollView
+                            style={{ marginBottom: 50 }}
+                            showsVerticalScrollIndicator={false}>
+                            {Array.isArray(listItemAppListMenuRender) && listItemAppListMenuRender.map((itemRenderAnimated, indexRenderAnimated) => {
+                                return (
+                                    <ViewAnimated
+                                        key={`${indexRenderAnimated}`}
+                                        animation="slideInLeft"
+                                        useNativeDriver
+                                        delay={(indexRenderAnimated + 1) * timeOut}
+                                    >
+                                        <TouchableOpacity
+                                            onPress={() => {
+                                                setStateRenderAnimated(true);
+                                                setStateAnimatedComponent(itemRenderAnimated);
+                                            }}
+                                            style={styles.buttonActionsMenu}>
+                                            <LinearGradient
+                                                colors={["#B60F46", '#D592FF']}
+                                                end={{ x: 1, y: 1 }}
+                                                start={{ x: 0, y: 0 }}
+                                                style={{
+                                                    flex: 1, 
+                                                    borderTopLeftRadius: 10,
+                                                    borderTopRightRadius: 10,
+                                                }}
+                                            >
+                                                <View style={styles.subViewIndex} >
+                                                    <LinearGradient
+                                                        colors={["#F6EA41", '#F408C6']}
+                                                        end={{ x: 1, y: 1 }}
+                                                        start={{ x: 0, y: 0 }}
+                                                        style={{
+                                                            flex: 1, borderTopLeftRadius: 12,
+                                                            borderTopRightRadius: 12,
+                                                            borderBottomLeftRadius: 12,
+                                                            alignItems: "center",
+                                                            justifyContent: "center",
+                                                        }}>
+                                                    </LinearGradient>
+                                                </View>
+                                                <AppText style={{ marginLeft: 45, fontSize: 20, color: "#39F7E2", fontFamily: FontAppType.LetterMagic }}>
+                                                    {indexRenderAnimated + 1}
+                                                </AppText>
+                                            </LinearGradient>
+                                            <AppText style={{ marginLeft: 45, fontSize: 16, fontFamily: FontAppType.LetterMagic }}>
+                                                {itemRenderAnimated.name}
+                                            </AppText>
+                                            <TouchableOpacity style={styles.subViewIndex}></TouchableOpacity>
+                                        </TouchableOpacity>
+                                    </ViewAnimated>)
+                            })}
+                        </ScrollView>
                     </View>
                 </SafeAreaView>
             )
@@ -102,28 +134,62 @@ const AppListMenuComponent = (props) => {
         //Menu:
         return (
             <SafeAreaView style={styles.content}>
-                {Array.isArray(MenusAppList) && MenusAppList.map((itemMenuAnimated: any, index: number) => {
-                    return (
-                        <ViewAnimated
-                            key={`${index}`}
-                            animation="fadeIn"
-                            useNativeDriver
-                            delay={(index + 1) * timeOut}
-                        >
-                            <TouchableOpacity
-                                onPress={() => {
-                                    setStateShowListMenuComponent(true);
-                                    setStateListItemAppListMenuRender(itemMenuAnimated.data);
-                                    listItemAppListMenuRenderLast.current = itemMenuAnimated.data;
-                                }}
-                                style={styles.buttonActionsMenu}>
-                                <AppText style={{}}>
-                                    {itemMenuAnimated.keyName}
-                                </AppText>
-                            </TouchableOpacity>
-                        </ViewAnimated>
-                    )
-                })}
+                <View style={{ minHeight: SizeRpScreen.device_height, width: SizeRpScreen.device_width }}>
+                    <ScrollView
+                        style={{ marginBottom: 50 }}
+                        showsVerticalScrollIndicator={false}>
+                        {Array.isArray(MenusAppList) && MenusAppList.map((itemMenuAnimated, index) => {
+                            return (
+                                <ViewAnimated
+                                    key={`${index}`}
+                                    animation="fadeIn"
+                                    useNativeDriver
+                                    delay={(index + 1) * timeOut}>
+                                    <TouchableOpacity
+                                        onPress={() => {
+                                            setStateShowListMenuComponent(true);
+                                            setStateListItemAppListMenuRender(itemMenuAnimated.data);
+                                            listItemAppListMenuRenderLast.current = itemMenuAnimated.data;
+                                        }}
+                                        style={styles.buttonActionsMenu}>
+                                        <LinearGradient
+                                            colors={["#B60F46", '#D592FF']}
+                                            end={{ x: 1, y: 1 }}
+                                            start={{ x: 0, y: 0 }}
+                                            style={{
+                                                flex: 1,
+                                                 borderTopLeftRadius: 10,
+                                                borderTopRightRadius: 10,
+                                            }}
+                                        >
+                                            <AppText style={{ marginLeft: 45, fontSize: 20, color: "#39F7E2", fontFamily: FontAppType.LetterMagic }}>
+                                                {index + 1}
+                                            </AppText>
+                                        </LinearGradient>
+                                        <View style={styles.subViewIndex} >
+                                            <LinearGradient
+                                                colors={["#F6EA41", '#F408C6']}
+                                                end={{ x: 1, y: 1 }}
+                                                start={{ x: 0, y: 0 }}
+                                                style={{
+                                                    flex: 1, 
+                                                    borderTopLeftRadius: 12,
+                                                    borderTopRightRadius: 12,
+                                                    borderBottomLeftRadius: 12,
+                                                    alignItems: "center",
+                                                    justifyContent: "center",
+                                                }}>
+                                            </LinearGradient>
+                                        </View>
+                                        <AppText style={{ marginLeft: 45, fontSize: 16, fontFamily: FontAppType.LetterMagic }}>
+                                            {itemMenuAnimated.keyName}
+                                        </AppText>
+                                    </TouchableOpacity>
+                                </ViewAnimated>
+                            )
+                        })}
+                    </ScrollView>
+                </View>
             </SafeAreaView>
         );
     }
@@ -176,16 +242,32 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
     },
     buttonActionsMenu: {
-        height: 50,
-        width: SizeRpScreen.width(96),
+        height: 60,
+        width: SizeRpScreen.width(90),
         backgroundColor: "rgb(248,248,248)",
-        marginTop: 12,
+        marginTop: 45,
         justifyContent: "center",
-        alignItems: 'center',
-        borderRadius: 20,
         alignSelf: 'center',
-        borderWidth: 1,
-        borderColor: "red",
+        borderWidth: 3,
+        borderRadius: 12,
+        borderColor: "#D3D5DE",
+        shadowColor: '#000000',
+        shadowOffset: {
+            width: 0,
+            height: 5
+        },
+        shadowRadius: 5,
+        shadowOpacity: 1.0
+    },
+    subViewIndex: {
+        height: 45,
+        width: 45,
+        position: 'absolute',
+        left: -12,
+        top: -30,
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 10,
+        borderBottomLeftRadius: 12,
     }
 
 });

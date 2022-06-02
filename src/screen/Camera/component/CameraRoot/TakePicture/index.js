@@ -56,12 +56,14 @@ const TakePictureCamera = () => {
   }
 
   const takePicture = async function (camera) {
+    console.log("TakePicture");
     const options = { quality: 0.5, base64: true };
     const data = await camera.takePictureAsync(options);
     saveFileInLibraryImage(data.uri);
   };
 
   const saveFileInLibraryImage = async (uri) => {
+    console.log("uri", uri);
     await CameraRoll.save(`${uri}`, 'photo');
   }
 
