@@ -7,6 +7,7 @@ import SocketIOClient from 'socket.io-client';
 export default function ChatMess() {
     const [messages, setMessages] = useState([]);
     const socketRef = useRef(null);
+    const ipConfig = "192.168.0.100";
 
     useEffect(() => {
         socketInit();
@@ -38,7 +39,6 @@ export default function ChatMess() {
 
     const socketInit = () => {
         //Khởi tạo kết nối socket tới server:
-        const ipConfig = "192.168.0.101";
         const host = `http://${ipConfig}:3000`;
         socketRef.current = SocketIOClient(host);
         socketListening();
