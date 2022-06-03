@@ -36,11 +36,9 @@ module.exports = (api) => {
               "@resources": "./src/resources",
               "@screen": "./src/screen",
               "@security": "./src/security",
-              "@sentry": "./src/sentry",
+              "@sentry": "./src/servicesApp/sentry",
               "@server": "./src/server",
               "@services": "./src/services",
-              "@sql": "./src/sql",
-              "@socket": "./src/socket",
               "@util": "./src/util"
             }
           }
@@ -75,11 +73,9 @@ module.exports = (api) => {
             "@resources": "./src/resources",
             "@screen": "./src/screen",
             "@security": "./src/security",
-            "@sentry": "./src/sentry",
+            "@sentry": "./src/servicesApp/sentry",
             "@server": "./src/server",
             "@services": "./src/services",
-            "@sql": "./src/sql",
-            "@socket": "./src/socket",
             "@util": "./src/util"
           }
         }
