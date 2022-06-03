@@ -3,17 +3,18 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { View } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat';
 import SocketIOClient from 'socket.io-client';
-
+import { IP_CONFIG } from '@api/Setting';
 export default function ChatMess() {
     const [messages, setMessages] = useState([]);
     const socketRef = useRef(null);
+    const ipConfig = IP_CONFIG;
 
     useEffect(() => {
         socketInit();
         setMessages([
             {
                 _id: 1,
-                text: 'Hi Nam!',
+                text: 'Hi Nam! Vui lòng config lại địa chỉ IP: 192.168.0.100 rồi chạy server để mở socket lên nhé!',
                 createdAt: new Date(),
                 user: {
                     _id: 2,
@@ -38,7 +39,6 @@ export default function ChatMess() {
 
     const socketInit = () => {
         //Khởi tạo kết nối socket tới server:
-        const ipConfig = "192.168.0.101";
         const host = `http://${ipConfig}:3000`;
         socketRef.current = SocketIOClient(host);
         socketListening();
@@ -71,7 +71,7 @@ export default function ChatMess() {
     }, []);
 
     //Đọc tin nhắn từ server phản hồi:
-    const readMessServer =  useCallback((messages = []) => {
+    const readMessServer = useCallback((messages = []) => {
         setMessages((previousMessages) => GiftedChat.append(previousMessages, messages));
     }, []);
 

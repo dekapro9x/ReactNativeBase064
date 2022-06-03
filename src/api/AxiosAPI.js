@@ -1,10 +1,9 @@
-import { API_BASE, ERROR_CODE_SUCCESS, typeRequest } from "./Setting";
+import { ERROR_CODE_SUCCESS, typeRequest } from "./Setting";
 import axios from "axios";
 import { Alert } from "react-native";
 
 //API config with BackEnd:
 const instanceAPIBase = axios.create({
-    baseURL: API_BASE,
     timeout: 60000,
     headers: {
         Accept: "application/json, text/plain",
@@ -23,7 +22,6 @@ export async function showAlertError(
 ) {
     showAlert(title, contentAlert);
 }
-
 
 export function isSuccess(statusResponse) {
     return ERROR_CODE_SUCCESS.indexOf(statusResponse) > -1;
@@ -99,6 +97,7 @@ async function putAPI(url, params, configs) {
     );
     return responseMethodPut;
 }
+
 //DELETE:
 async function deleteAPI(url, params) {
     const responseMethodDelete = await request(
@@ -124,13 +123,5 @@ async function requestAllAPI([...requestAPI]) {
         });
     return responsesRresult;
 }
-
-
-//API Party 3:
-const urlParty3 = {
-    tagGames: "v1/games/tags",
-};
-
-
 
 export { getAPI, postAPI, putAPI, deleteAPI, requestAllAPI };

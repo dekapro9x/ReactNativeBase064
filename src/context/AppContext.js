@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, createContext } from "react";
 import { Alert } from "react-native";
 import { black, blue900 } from "@css/Color";
 import { AppLogo, } from "../const/Setting";
 import { AppLinearGradient } from "@css/";
-const ContextContainer = React.createContext();
+const ContextContainer = createContext();
 
 const AppContext = props => {
   const [appData, setStateAppData] = useState({
@@ -15,6 +15,7 @@ const AppContext = props => {
       colorText: black
     }
   });
+
   //Set cấu hình App:
   const setAppData = (dataConfigNew) => {
     if (validateStructDataConfig(dataConfigNew)) {
@@ -23,10 +24,12 @@ const AppContext = props => {
       Alert.alert("Cấu trúc dữ liệu cấu hình App lỗi! Vui lòng thử lại sau!");
     }
   };
+
   //Định nghĩa cấu trúc mới:
   const validateStructDataConfig = dataConfig => {
     return true;
   };
+  
   return (
     <ContextContainer.Provider value={{ ...appData, setAppData, appData }}>
       {props.children}
