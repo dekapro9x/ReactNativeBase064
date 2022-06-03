@@ -1,15 +1,14 @@
+import { ContextContainer } from "@context/AppContext";
 import { AppContainerScroll } from "@element/AppContainerScroll";
 import { ViewLoadingContainerHOC } from "@HOC/ViewLoadingContainerHOC";
-import React, { useEffect, useState, useRef, useContext } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { LogBox, StyleSheet, View } from "react-native";
+import SkeletonPlaceholder from "react-native-skeleton-placeholder";
 import { SizeRpScreen } from "../../resources/ResponsiveScreen";
 import BannerHome from "./component/BannerHome";
 import DateAndWeather from "./component/DateAndWeather";
 import HomeMenu from "./component/HomeMenu";
 import { RightHeaderComponent } from "./component/RightHeader";
-import SkeletonPlaceholder from "react-native-skeleton-placeholder";
-import { ContextContainer } from "@context/AppContext";
-import { AssistiveTouch } from "./component/AssistiveTouch";
 LogBox.ignoreLogs(['Warning: ...']);
 LogBox.ignoreAllLogs();
 
@@ -71,7 +70,6 @@ export default function Home(props) {
         <ViewLoadingContainerHOC isLoading={false}>
           <DateAndWeather navigation={navigation} />
           <HomeMenu navigation={navigation} dataMenu={props.homeMenu} />
-          {/* <AssistiveTouch /> */}
         </ViewLoadingContainerHOC>
       </>
     )

@@ -21,5 +21,6 @@ export default {
     'chart': '圖表',
     'sound':"聲音",
     'storage':"貯存",
-    'security':'安全'
+    'security':'安全',
+    'server':'服務器 NodeJS'
 };

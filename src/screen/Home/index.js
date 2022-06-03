@@ -205,7 +205,7 @@ const mapStateToProps = (GlobalState) => {
       {
         title: translations[LanguageReducer.language]?.storage || setTextMenuInit("storage"),
         id: keyNavigation.DISCOVERY_CHAT,
-        sortIndex: 13,
+        sortIndex: 14,
         iconColor: "blue",
         iconName: "logo-firebase",
         iconType: "Ionicons",
@@ -216,11 +216,22 @@ const mapStateToProps = (GlobalState) => {
       {
         title: translations[LanguageReducer.language]?.security || setTextMenuInit("security"),
         id: keyNavigation.DISCOVERY_CHAT,
-        sortIndex: 13,
+        sortIndex: 15,
         iconColor: "blue",
         iconName: "logo-firebase",
         iconType: "Ionicons",
         iconImg: "https://www.pngall.com/wp-content/uploads/4/Web-Security-Shield-PNG.png",
+        iconSizeMenu: iconMenuSize,
+        endpointVersion: versionsBuildsAPK
+      },
+      {
+        title: translations[LanguageReducer.language]?.server || setTextMenuInit("server"),
+        id: keyNavigation.SERVER_NODEJS,
+        sortIndex: 16,
+        iconColor: "blue",
+        iconName: "logo-firebase",
+        iconType: "Ionicons",
+        iconImg: "https://www.nicepng.com/png/full/207-2077577_server-png-web-hosting-banner-png.png",
         iconSizeMenu: iconMenuSize,
         endpointVersion: versionsBuildsAPK
       },

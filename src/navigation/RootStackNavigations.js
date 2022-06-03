@@ -25,6 +25,7 @@ import Sound from "@screen/Sound";
 import Webview from "@screen/WebView";
 import Video from "@screen/Video";
 import Socket from "@screen/Socket";
+import ServeNodeJS from "@screen/ServerNodeJS";
 
 //Stack Bottom Tab Menu Home:
 import { RootStackBottomTab } from "./RootStackBottomTab";
@@ -86,6 +87,7 @@ export default RootNavigations = () => {
         <RootStack.Screen name={keyNavigation.WEBVIEW} component={Webview} />
         <RootStack.Screen name={keyNavigation.VIDEO} component={Video} />
         <RootStack.Screen name={keyNavigation.SOCKET} component={Socket} />
+        <RootStack.Screen name={keyNavigation.SERVER_NODEJS} component={ServeNodeJS} />
       </RootStack.Navigator>
       <AppModalContent ref={ServiceAppAlertModal.modalRef} />
     </>

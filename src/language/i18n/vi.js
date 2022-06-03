@@ -22,5 +22,6 @@ export default {
     'storage': 'Dữ liệu',
     'sound':"Âm thanh",
     'storage':"Kho dữ liệu",
-    'security':"Bảo mật"
+    'security':"Bảo mật",
+    'server':'Máy chủ NodeJS'
 };

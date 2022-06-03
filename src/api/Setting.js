@@ -1,6 +1,8 @@
 //Dev:
-const API_BASE = "";
+const IP_CONFIG = "192.168.0.100";
+const API_BASE = "http://222.252.27.138:3000/";
 const END_POINT = "DEV";
+
 //Product:
 // const API_PRODUCES = "";
 // const END_POINT = "PRODUCT";
@@ -36,4 +38,4 @@ export const ERROR_CODE_SUCCESS = [
     ERROR_CODE_DELETE_SUCCESS,
 ];
 
-export { API_BASE, END_POINT, VersionCurrentApp, APIKeyWeather };
+export { API_BASE, END_POINT, VersionCurrentApp, APIKeyWeather ,IP_CONFIG};

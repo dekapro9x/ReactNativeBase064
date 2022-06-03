@@ -22,4 +22,5 @@ export default {
     'sound':"Sound",
     'storage':"Storage",
     'security':"Security",
+    'server':'Server NodeJS'
 };
