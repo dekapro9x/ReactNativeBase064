@@ -11,6 +11,7 @@ import { MaskedViewAnimations } from "./components/lib/masked_view";
 import { BottomSheetComponent } from "./components/lib/bottom_sheet";
 //Extend:
 import { TouchHandleAnimations } from "./components/extend/TouchHandleAnimations";
+import {ZoomImgPanResponder} from "./components/extend/ZoomImgPanResponder";
 export const MenuAnimations = [
     {
         id: 1,
@@ -86,6 +87,11 @@ export const MenuAnimations = [
             {
                 name: 'Touchable Handle',
                 component: <TouchHandleAnimations />,
+                description: ""
+            },
+            {
+                name: 'ZoomImg PanResponder',
+                component: <ZoomImgPanResponder />,
                 description: ""
             },
         ],

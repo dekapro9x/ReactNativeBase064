@@ -13,6 +13,8 @@ function generateToken(params = {}) {
 
 module.exports = {
   async login(req, res) {
+    console.log("Request:",req);
+    console.log("Res:",res)
     try {
       const { mat_khau, ten_dang_nhap } = req.body;
       const user = await User.findOne({ where: { ten_dang_nhap } });
