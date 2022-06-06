@@ -15,13 +15,13 @@ module.exports = {
       console.log("Tài khoản:", ten_dang_nhap);
       console.log("Mật khẩu:", mat_khau);
       if (!ten_dang_nhap) {
-        return response.status(200).send({
+        return response.status(200).json({
           message: "Username invalid!",
           data: {},
           isError: true
         });
       }
-      if(!mat_khau){
+      if (!mat_khau) {
         return response.status(200).send({
           message: "Password invalid!",
           data: {},
@@ -29,7 +29,7 @@ module.exports = {
         });
       }
       const token = generateToken({ id: ten_dang_nhap });
-      return response.status(200).send({
+      return response.status(200).send.json({
         code: 1000,
         message: "Login success!",
         ten_dang_nhap,

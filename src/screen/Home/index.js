@@ -7,6 +7,7 @@ import Eng from '@language/i18n/en';
 import Vi from '@language/i18n/vi';
 import China from "@language/i18n/china";
 import { versionsBuildsAPK } from "@const/Setting";
+import { IP_CONFIG } from "@api/Setting";
 const mapStateToProps = (GlobalState) => {
   const { LanguageReducer } = GlobalState;
   const { translations } = I18n;
@@ -225,7 +226,7 @@ const mapStateToProps = (GlobalState) => {
         endpointVersion: versionsBuildsAPK
       },
       {
-        title: translations[LanguageReducer.language]?.server || setTextMenuInit("server"),
+        title: translations[LanguageReducer.language]?.server || setTextMenuInit("server") + `${IP_CONFIG}`,
         id: keyNavigation.SERVER_NODEJS,
         sortIndex: 16,
         iconColor: "blue",

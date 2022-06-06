@@ -1,16 +1,21 @@
 import { postAPI } from '@api/AxiosAPI';
 import { Api } from '@api/ListAPI';
+import { IP_CONFIG } from '@api/Setting';
 import { FontAppType } from '@const/TypeFontFamily';
 import { blueGrey900 } from '@css/Color';
+import AppLinearGradient from '@element/AppLinearGradient';
+import { AppText } from '@element/AppText';
 import { AppTextInput } from '@element/AppTextInput';
 import { DebounceButton } from '@element/DebounceButton';
 import { SizeRpScreen } from '@resources/ResponsiveScreen';
 import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const FetchAPI = () => {
     const [userName, setStateUserName] = useState("");
     const [passWord, setStatePassWord] = useState("");
+    const [responseAPI, setStateResponseAPI] = useState({});
+    const server = IP_CONFIG;
 
     const onChangeText = (keyState, value) => {
         switch (keyState) {
@@ -28,8 +33,6 @@ const FetchAPI = () => {
     }
 
     const pressLogin = async () => {
-        console.log("useName:", userName);
-        console.log("passWord:", passWord);
         const dataRequest = {
             body: {
                 ten_dang_nhap: userName,
@@ -38,10 +41,15 @@ const FetchAPI = () => {
         }
         const response = await postAPI(Api.login(), dataRequest);
         console.log("response", response);
+        if (response && response.code == 1000 && !response.isError) {
+            setStateResponseAPI(response);
+        } else {
+            setStateResponseAPI(response);
+        }
     }
 
     return (
-        <View style={{ height: SizeRpScreen.device_height, width: SizeRpScreen.device_width, alignItems: "center" }}>
+        <AppLinearGradient>
             {/* Tên tài khoản */}
             <AppTextInput
                 value={userName}
@@ -68,6 +76,10 @@ const FetchAPI = () => {
                 onChangeText={onChangeText}
                 onEndEditing={onEndEditing}
             />
+            <AppText style={{ fontSize: 16, color: 'white', alignSelf: "center", marginTop: 45 }}>{server}</AppText>
+            <AppText style={{ fontSize: 16, color: 'white', alignSelf: "center", marginTop: 15 }}>API:{Api.login()}</AppText>
+            <AppText style={{ fontSize: 16, color: 'white', alignSelf: "center", marginTop: 15 }}>Response API</AppText>
+            <AppText style={{ fontSize: 16, color: 'white', alignSelf: "center", marginTop: 15 }}> {responseAPI?.mess}</AppText>
             {/* Nút login */}
             <DebounceButton
                 title="Login"
@@ -83,7 +95,7 @@ const FetchAPI = () => {
                 }}
             >
             </DebounceButton>
-        </View>
+        </AppLinearGradient>
     );
 }
 
@@ -103,7 +115,6 @@ const styles = StyleSheet.create({
         height: 45, width: 45, backgroundColor: "green"
     },
     styleInput: {
-        borderWidth: 2
     }
 })
 

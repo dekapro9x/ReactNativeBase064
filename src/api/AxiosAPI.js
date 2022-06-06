@@ -1,4 +1,4 @@
-import { ERROR_CODE_SUCCESS, PRIVATE_KEY_SERVER, typeRequest } from "./Setting";
+import { ERROR_CODE_REQUEST_SUCCESS, ERROR_CODE_SUCCESS, PRIVATE_KEY_SERVER, typeRequest } from "./Setting";
 import axios from "axios";
 import { Alert } from "react-native";
 import { isAndroid } from "@const/Setting";
@@ -13,7 +13,7 @@ const instanceAPIBase = axios.create({
         appname: "react-native-base-064",
         typeos: isAndroid ? "Android" : "IOS",
         keyprivate: PRIVATE_KEY_SERVER,
-        Authorization: "Bearer" + "0xb88c676139323B29E13dc9a5679D57b0A8f062B6",
+        Authorization: `Bearer 0xb88c676139323B29E13dc9a5679D57b0A8f062B6`,
         token: "0xb88c676139323B29E13dc9a5679D57b0A8f062B6"
     }
 });
@@ -36,6 +36,8 @@ export function isSuccess(statusResponse) {
 }
 
 async function request(url, params, type, configs) {
+    console.log("Url:", url);
+    console.log("Params:", params);
     try {
         let response = null;
         switch (type) {
@@ -59,18 +61,18 @@ async function request(url, params, type, configs) {
                 return null;
             }
         }
-        console.log("Response API:", response);
         let status = response.status;
         let responsesData = response.data;
+        console.log("Response", response);
+        console.log("Response.data:", JSON.parse(response.data) );
         if (isSuccess(status)) {
             return responsesData;
         } else {
-            showAlertError("Server busy...");
             return response;
         }
     } catch (error) {
         console.log("Có lỗi sảy ra:", error);
-        showAlertError("Have Exceptions when call API...");
+        showAlertError("Error when call API!");
     }
 }
 
