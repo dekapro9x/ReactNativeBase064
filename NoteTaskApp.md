@@ -26,3 +26,5 @@ Làm nút clean data gồm:
 -React native fs đọc ghi file
 
 
+styled-components/native
+

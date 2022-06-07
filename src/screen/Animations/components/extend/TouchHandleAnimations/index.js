@@ -1,3 +1,4 @@
+//AssistiveTouch
 import React, { useRef, useState } from 'react';
 import { Animated, PanResponder, StyleSheet, View } from "react-native";
 const TouchHandleAnimations = () => {

@@ -1,36 +1,29 @@
-const jwt = require("jsonwebtoken");
-const authConfig = require("../config/auth.json");
+// const jwt = require("jsonwebtoken");
+// const authConfig = require("../config/auth.json");
 
 module.exports = (req, res, next) => {
-    const authHeader = req.headers.authorization;
-    const parts = authHeader.split(" ");
-    const [scheme, token] = parts;
+    const { authorization, secret, appname, keyprivate, token } = req.headers;
+    console.log("req.headers", req.headers);
+    console.log("authorization", authorization);
+    console.log("secret", secret);
+    console.log("appName", appname);
+    console.log("keyPrivate", keyprivate);
+    console.log("token", token);
 
-    if (!authHeader) {
+    if (!token) {
         return (
-            res.status(401).send({ error: "No token provider" })
+            res.status(401).send({ error: "Token invalid" })
         )
     }
-
-    if (!parts.length == 2) {
-        return (
-            res.status(401).send({ error: "Token error!" })
-        )
-    }
-
-    if (!/^Bearer$/i.test(scheme)) {
-        return (
-            res.status(401).send({ error: "Token malFormatted" })
-        )
-    }
-
-    jwt.verify(token, authConfig.secret, (err, decoded) => {
-        if (err) {
-            return (
-                res.status(401).send({ error: "Token invalid" })
-            )
-        }
-        req.userId = decoded.id;
+    else {
         return next();
-    });
+    }
+
+    // jwt.verify(authorization, authConfig.authorization, (err, decoded) => {
+    //     if (err) {
+    //         console.log("Lỗi phát sinh:", err);
+    //     } else {
+    //         return next();
+    //     }
+    // });
 };

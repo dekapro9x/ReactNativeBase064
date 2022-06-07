@@ -1,43 +1,18 @@
-//npm run server
+//yarn start
 const express = require('express');
+const cors = require("cors");
+const routes = require("./src/route");
 const app = express();
+//Tạo server http:
 const server = require("http").createServer(app);
 const port = 3000;
-
-const socketIO = require("socket.io")(server, {
-    cors: {
-        origin: "*",
-    }
-});
-
-socketIO.on("connection", (socket) => {
-    console.log("Đã có 1 kết nối:");
-    //Lắng nghe kết nối khởi tạo - báo lại cho client nếu kết nối thành công!
-    socket.on("check-connect-to-server", (event) => {
-        if (event && event == "client-connect-to-server") {
-            console.log("Đã nghe thấy 1 event:", event);
-            socket.emit("connect-to-server", "CONNECT-TO-SERVER-SUCCESS");
-        }
-    })
-
-    //Lắng nghe tin nhắn gửi đi từ client:
-    socket.on("client_sent_mess_to_server", function (mess) {
-        console.log("Đã nghe thấy 1 tin nhắn:", mess);
-        const idMessRandom = `${Math.random()}`;
-        console.log(idMessRandom);
-        socket.emit("server-rep", [
-            {
-                text: 'Hãy nói gì đi!...',
-                user: { _id: 2 },
-                createdAt: '2022-05-31T16:16:57.048Z',
-                _id: idMessRandom
-            }
-        ])
-    })
-
-    //Ngắt kết nối client - server khi 1 bên rời khỏi:
-    socket.on("disconnect", () => { });
-});
+//Tạo server socketIO:
+const SocketIO = require('./src/socket');
+SocketIO.initSocketIO(server);
+//Gắn lib và route:
+app.use(express.json());
+app.use(cors());
+app.use(routes);
 
 server.listen(port, () => {
     console.log('Server đang chạy trên cổng 3000:');

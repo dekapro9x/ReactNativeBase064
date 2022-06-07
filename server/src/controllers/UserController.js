@@ -1,8 +1,4 @@
-const User = require("../model/User");
-const bcrypt = require("bcryptjs");
-
 const jwt = require("jsonwebtoken");
-
 const authConfig = require("../config/auth.json");
 
 function generateToken(params = {}) {
@@ -12,32 +8,37 @@ function generateToken(params = {}) {
 }
 
 module.exports = {
-  async login(req, res) {
+  async login(request, response) {
     try {
-      const { mat_khau, ten_dang_nhap } = req.body;
-      const user = await User.findOne({ where: { ten_dang_nhap } });
-      if (!user) {
-        return res.status(400).send({
-          message: "E-mail invalid!",
-          user: {},
+      const { ten_dang_nhap, mat_khau } = request.body.body;
+      console.log("Kiểm tra validate API login:", request.body.body);
+      console.log("Tài khoản:", ten_dang_nhap);
+      console.log("Mật khẩu:", mat_khau);
+      if (!ten_dang_nhap) {
+        return response.status(200).json({
+          message: "Username invalid!",
+          data: {},
+          isError: true
         });
       }
-      if (!bcrypt.compareSync(mat_khau, user.mat_khau)) {
-        return res.status(400).send({
-          message: "Password invalid",
-          user: {},
+      if (!mat_khau) {
+        return response.status(200).send({
+          message: "Password invalid!",
+          data: {},
+          isError: true
         });
       }
-      user.mat_khau = undefined;
-      const token = generateToken({ id: user.id });
-      return res.status(200).send({
+      const token = generateToken({ id: ten_dang_nhap });
+      return response.status(200).send.json({
         code: 1000,
-        message: "success",
-        user,
+        message: "Login success!",
+        ten_dang_nhap,
         token,
+        isError: false
       });
     } catch (error) {
-      return res.status(400).json({ message: "fail", error });
+      console.log("error", error);
+      return response.status(500).json({ message: "Server Error!", error });
     }
   },
 };
