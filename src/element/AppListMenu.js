@@ -9,6 +9,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { BackHandler, SafeAreaView, StyleSheet, TouchableOpacity, View, ScrollView } from "react-native";
 import { View as ViewAnimated } from 'react-native-animatable';
 import LinearGradient from "react-native-linear-gradient";
+
 const AppListMenuComponent = (props) => {
     const { nameScreen, MenusAppList, navigation } = props;
     const [showListMenuComponentAppListMenu, setStateShowListMenuComponent] = useState(false);

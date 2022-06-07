@@ -12,7 +12,7 @@ export default {
     'this-is-setting-page': 'Đây là trang cài đặt',
     'set-language': 'Chọn ngôn ngữ',
     //Menu Home:
-    'animations': 'Hiệu ứng UI',
+    'animations': 'Hiệu ứng/UI',
     'maps': 'Bản đồ',
     'camera': 'Máy ảnh',
     'file': 'Tệp tin',
