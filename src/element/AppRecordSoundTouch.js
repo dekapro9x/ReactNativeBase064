@@ -11,6 +11,7 @@ export class AppRecordSoundTouch extends Component {
 
     static propTypes = {
         getSoundResource: PropTypes.func.isRequired,
+        heightCss:PropTypes.number.isRequired
     };
 
     constructor(props) {
@@ -143,7 +144,8 @@ export class AppRecordSoundTouch extends Component {
 
     _micButton() {
         const { isPressed } = this.state;
-        const height = 200;
+        const {heightCss} = this.props;
+        const height = heightCss|| 200;
         const width = height;
         const borderRadius = height/2;
         if (isPressed) {

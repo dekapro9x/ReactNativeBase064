@@ -28,7 +28,7 @@ const RecordSoundTouch = () => {
 
     return (
         <AppLinearGradient style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-            <AppRecordSoundTouch getSoundResource={getSoundResource}></AppRecordSoundTouch>
+            <AppRecordSoundTouch getSoundResource={getSoundResource} heightCss={150}></AppRecordSoundTouch>
             <AppText style={{ fontSize: 20, color: "#FFFFFF", marginTop: 10 }}>Kết quả phân tích âm thanh:</AppText>
             <AppText style={{ textAlign: "center", color: greenA700, fontSize: 25, marginTop: 12 }}>{`${resolveSound}`}</AppText>
         </AppLinearGradient>
