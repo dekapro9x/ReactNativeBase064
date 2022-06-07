@@ -1,5 +1,6 @@
 import React from "react";
 import RecordSoundToText from "./component/RecordSoundToText";
+import RecordSoundTouch from "./component/RecordSoundTouch";
 export const MenuSounds = [
     {
         id: 1,
@@ -7,7 +8,12 @@ export const MenuSounds = [
         data: [
             {
                 name: 'Records Sound Speak To Text',
-                component: <RecordSoundToText/>,
+                component: <RecordSoundToText />,
+                description: ""
+            },
+            {
+                name: 'Records Sound Touch',
+                component: <RecordSoundTouch />,
                 description: ""
             },
         ],
@@ -18,7 +24,7 @@ export const MenuSounds = [
         data: [
             {
                 name: 'Text To Speech',
-                component: <RecordSoundToText/>,
+                component: <RecordSoundToText />,
                 description: ""
             },
         ],

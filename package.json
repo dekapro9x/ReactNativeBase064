@@ -114,6 +114,7 @@
     "preset": "react-native"
   },
   "resolutions": {
-    "@react-native-community/cli-debugger-ui": "5.0.1"
+    "@react-native-community/cli-debugger-ui": "5.0.1",
+    "styled-components": "^5"
   }
 }

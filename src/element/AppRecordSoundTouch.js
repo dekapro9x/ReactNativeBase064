@@ -4,7 +4,7 @@ import {
     Animated, StyleSheet, TouchableOpacity, View
 } from 'react-native';
 
-export class TouchRecordAnimations extends Component {
+export class AppRecordSoundTouch extends Component {
     constructor(props) {
         super(props);
         this.animated = new Animated.Value(0);

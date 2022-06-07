@@ -222,7 +222,7 @@ const styles = StyleSheet.create({
   horizontalView: {
     flexDirection: 'row',
     position: 'absolute',
-    bottom: 0,
+    bottom: -60,
   },
   textStyle: {
     textAlign: 'center',
