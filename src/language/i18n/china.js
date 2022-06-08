@@ -31,4 +31,5 @@ export default {
     "webView":"網頁視圖",
     "deepLink":"深度鏈接",
     "pushNotifications":"推送通知",
+    "frequentlyQuestions":"問題 面試"
 };

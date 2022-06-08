@@ -29,6 +29,7 @@ import ServeNodeJS from "@screen/ServerNodeJS";
 import Chart from "@screen/Chart";
 import FireBase from "@screen/FireBase";
 import Security from "@screen/Security";
+import MiniApp from "@screen/MiniApp";
 
 //Stack Bottom Tab Menu Home:
 import { RootStackBottomTab } from "./RootStackBottomTab";
@@ -94,6 +95,7 @@ export default RootNavigations = () => {
         <RootStack.Screen name={keyNavigation.CHART} component={Chart} />
         <RootStack.Screen name={keyNavigation.FIRE_BASE} component={FireBase} />
         <RootStack.Screen name={keyNavigation.SECURITY} component={Security} />
+        <RootStack.Screen name={keyNavigation.MINI_APP} component={MiniApp} />
       </RootStack.Navigator>
       <AppModalContent ref={ServiceAppAlertModal.modalRef} />
     </>

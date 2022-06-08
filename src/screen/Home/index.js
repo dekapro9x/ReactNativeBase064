@@ -226,7 +226,7 @@ const mapStateToProps = (GlobalState) => {
       },
       {
         title: translations[LanguageReducer.language]?.miniApp || setTextMenuInit("miniApp"),
-        id: keyNavigation.SERVER_NODEJS,
+        id: keyNavigation.MINI_APP,
         sortIndex: 16,
         iconColor: "blue",
         iconName: "logo-firebase",
@@ -243,6 +243,17 @@ const mapStateToProps = (GlobalState) => {
         iconName: "logo-firebase",
         iconType: "Ionicons",
         iconImg: "https://www.nicepng.com/png/full/207-2077577_server-png-web-hosting-banner-png.png",
+        iconSizeMenu: iconMenuSize,
+        endpointVersion: versionsBuildsAPK
+      },
+      {
+        title: translations[LanguageReducer.language]?.frequentlyQuestions || setTextMenuInit("frequentlyQuestions"),
+        id: keyNavigation.SERVER_NODEJS,
+        sortIndex: 16,
+        iconColor: "blue",
+        iconName: "logo-firebase",
+        iconType: "Ionicons",
+        iconImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0nOjFkPeK13zP6mq7J-X2jQV6ZY6UFY0VgrwbjvocYarxK0osryTtq5_Gp108Mw6A3i0&usqp=CAU",
         iconSizeMenu: iconMenuSize,
         endpointVersion: versionsBuildsAPK
       },

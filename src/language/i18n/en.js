@@ -33,4 +33,5 @@ export default {
     "webView":"Web View",
     "deepLink": "Deep Link",
     "pushNotifications":"Push Notifications",
+    "frequentlyQuestions":"Questions Interview"
 };

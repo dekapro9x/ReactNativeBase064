@@ -32,4 +32,5 @@ export default {
     "webView":"Trình duyệt WebView",
     "deepLink": "Deep Link",
     "pushNotifications":"Thông báo đẩy",
+    "frequentlyQuestions":"Câu hỏi thường gặp"
 };
