@@ -13,13 +13,8 @@ const instanceAPIBase = axios.create({
 const accessToken = "0xb88c676139323B29E13dc9a5679D57b0A8f062B6";
 instanceAPIBase.defaults.timeout = 5000;
 instanceAPIBase.defaults.mode = "cors";
-instanceAPIBase.defaults.headers.common['token'] = accessToken,
-instanceAPIBase.defaults.headers.common['keyprivate'] = PRIVATE_KEY_SERVER;
 instanceAPIBase.defaults.headers.common['Accept'] = 'application/json';
-instanceAPIBase.defaults.headers.common['secret'] = 'namtran_auth';
-instanceAPIBase.defaults.headers.common['appname'] = 'react-native-base-064';
-instanceAPIBase.defaults.headers.common['typeos'] = isAndroid ? "ANDROID" : "IOS",
-instanceAPIBase.defaults.headers.common['Authorization'] = "Bearer " + accessToken;
+
 
 
 async function requestAPI(url, params, type, axiosRequestConfig) {
@@ -33,10 +28,26 @@ async function requestAPI(url, params, type, axiosRequestConfig) {
                 break;
             }
             case typeRequest.POST: {
+                if (axiosRequestConfig) {
+                    instanceAPIBase.defaults.headers.common['secret'] = 'namtran_auth';
+                    instanceAPIBase.defaults.headers.common['appname'] = 'react-native-base-064';
+                    instanceAPIBase.defaults.headers.common['typeos'] = isAndroid ? "ANDROID" : "IOS",
+                        instanceAPIBase.defaults.headers.common['Authorization'] = "Bearer " + accessToken;
+                    instanceAPIBase.defaults.headers.common['keyprivate'] = PRIVATE_KEY_SERVER;
+                    instanceAPIBase.defaults.headers.common['token'] = accessToken;
+                };
                 response = await instanceAPIBase.post(url, params, axiosRequestConfig);
                 break;
             }
             case typeRequest.PUT: {
+                if (axiosRequestConfig) {
+                    instanceAPIBase.defaults.headers.common['secret'] = 'namtran_auth';
+                    instanceAPIBase.defaults.headers.common['appname'] = 'react-native-base-064';
+                    instanceAPIBase.defaults.headers.common['typeos'] = isAndroid ? "ANDROID" : "IOS",
+                        instanceAPIBase.defaults.headers.common['Authorization'] = "Bearer " + accessToken;
+                    instanceAPIBase.defaults.headers.common['keyprivate'] = PRIVATE_KEY_SERVER;
+                    instanceAPIBase.defaults.headers.common['token'] = accessToken;
+                }
                 response = await instanceAPIBase.put(url, params, axiosRequestConfig);
                 break;
             }

@@ -1,14 +1,14 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import { View, StyleSheet } from 'react-native';
 
-const Index = () => {
+const AssistiveTouchLiveIOS = () => {
     return (
         <View>
-            
+
         </View>
     );
 }
 
 const styles = StyleSheet.create({})
 
-export default Index;
+export { AssistiveTouchLiveIOS };
