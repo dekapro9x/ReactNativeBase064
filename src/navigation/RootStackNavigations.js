@@ -30,7 +30,7 @@ import Chart from "@screen/Chart";
 import FireBase from "@screen/FireBase";
 import Security from "@screen/Security";
 import MiniApp from "@screen/MiniApp";
-
+import FrequentlyQuestions from "@screen/FrequentlyQuestions";
 //Stack Bottom Tab Menu Home:
 import { RootStackBottomTab } from "./RootStackBottomTab";
 
@@ -96,6 +96,7 @@ export default RootNavigations = () => {
         <RootStack.Screen name={keyNavigation.FIRE_BASE} component={FireBase} />
         <RootStack.Screen name={keyNavigation.SECURITY} component={Security} />
         <RootStack.Screen name={keyNavigation.MINI_APP} component={MiniApp} />
+        <RootStack.Screen name={keyNavigation.FREQUENTLY_QUESTIONS} component={FrequentlyQuestions} />
       </RootStack.Navigator>
       <AppModalContent ref={ServiceAppAlertModal.modalRef} />
     </>

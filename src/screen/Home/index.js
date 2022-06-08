@@ -99,7 +99,7 @@ const mapStateToProps = (GlobalState) => {
         iconColor: "blue",
         iconName: "logo-firebase",
         iconType: "Ionicons",
-        iconImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/YouTube_icon_%282013-2017%29.svg/2048px-YouTube_icon_%282013-2017%29.svg.png",
+        iconImg: "https://vi.seaicons.com/wp-content/uploads/2016/10/video-icon.png",
         iconSizeMenu: iconMenuSize,
         endpointVersion: versionsBuildsAPK
       },
@@ -248,7 +248,7 @@ const mapStateToProps = (GlobalState) => {
       },
       {
         title: translations[LanguageReducer.language]?.frequentlyQuestions || setTextMenuInit("frequentlyQuestions"),
-        id: keyNavigation.SERVER_NODEJS,
+        id: keyNavigation.FREQUENTLY_QUESTIONS,
         sortIndex: 16,
         iconColor: "blue",
         iconName: "logo-firebase",
