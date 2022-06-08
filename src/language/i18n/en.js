@@ -12,7 +12,7 @@ export default {
     'this-is-setting-page': 'This is setting page',
     'set-language': 'Switch language',
     //Menu Home:
-    'animations': 'Animations',
+    'animations': 'Animations/UI',
     'maps': 'Maps',
     'camera': 'Camera',
     'file': 'File',

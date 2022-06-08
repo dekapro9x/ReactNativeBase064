@@ -1,13 +1,8 @@
 const jwt = require("jsonwebtoken");
 const authConfig = require("../config/auth.json");
+const { CODE_1000 } = require("../middelewares/codeAuth");
 
-function generateToken(params = {}) {
-  return jwt.sign(params, authConfig.secret, {
-    expiresIn: 783000,
-  });
-}
-
-module.exports = {
+const UserController = {
   async login(request, response) {
     try {
       const { ten_dang_nhap, mat_khau } = request.body.body;
@@ -16,22 +11,22 @@ module.exports = {
       console.log("Mật khẩu:", mat_khau);
       if (!ten_dang_nhap) {
         return response.status(200).json({
-          message: "Username invalid!",
+          mess: "Username invalid!",
           data: {},
           isError: true
         });
       }
       if (!mat_khau) {
         return response.status(200).send({
-          message: "Password invalid!",
+          mess: "Password invalid!",
           data: {},
           isError: true
         });
       }
       const token = generateToken({ id: ten_dang_nhap });
-      return response.status(200).send.json({
-        code: 1000,
-        message: "Login success!",
+      return response.status(200).json({
+        code: CODE_1000,
+        mess: "Login success!",
         ten_dang_nhap,
         token,
         isError: false
@@ -42,3 +37,11 @@ module.exports = {
     }
   },
 };
+
+function generateToken(params = {}) {
+  return jwt.sign(params, authConfig.secret, {
+    expiresIn: 783000,
+  });
+}
+
+module.exports = UserController;

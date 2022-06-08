@@ -1,0 +1,1 @@
+https://help.dfinery.io/hc/vi/articles/360039757433-Deeplink-T%C3%ACm-hi%E1%BB%83u-v%C3%A0-ph%C3%A2n-bi%E1%BB%87t-URI-Scheme-Universal-Link-App-Link

@@ -241,13 +241,13 @@ class ZoomImgPanResponder extends React.Component {
     render() {
         return (
             <View style={{ flex: 1, height: SizeRpScreen.device_height, width: SizeRpScreen.device_width , justifyContent: "center"}}>
-                <ZoomImgPanResponderComponent imageWidth={SizeRpScreen.device_width} imageHeight={SizeRpScreen.device_height / 5} source={"https://images.pexels.com/photos/1632790/pexels-photo-1632790.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}></ZoomImgPanResponderComponent>
+                <ZoomImgPanResponderComponent  imageWidth={SizeRpScreen.device_width} imageHeight={SizeRpScreen.device_height / 5} source={"https://images.pexels.com/photos/1632790/pexels-photo-1632790.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}></ZoomImgPanResponderComponent>
             </View>
         )
     }
 }
 
-ZoomImgPanResponder.propTypes = {
+ZoomImgPanResponderComponent.propTypes = {
     imageWidth: PropTypes.number.isRequired,
     imageHeight: PropTypes.number.isRequired,
     source: PropTypes.object.isRequired
