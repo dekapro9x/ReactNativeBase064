@@ -28,7 +28,7 @@ export default {
     'miniApp': 'Mini App',
     'nativeAndroid':'Native Android',
     'nativeIOS':'Native IOS',
-    'socketIO':'套接字 IO',
+    'socketIO':'Socket IO',
     'fireBase':'Fire Base',
     "webView":"Web View",
     "deepLink": "Deep Link",

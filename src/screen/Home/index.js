@@ -231,7 +231,7 @@ const mapStateToProps = (GlobalState) => {
         iconColor: "blue",
         iconName: "logo-firebase",
         iconType: "Ionicons",
-        iconImg: "https://www.nicepng.com/png/full/207-2077577_server-png-web-hosting-banner-png.png",
+        iconImg: "https://cdn-amz.fadoglobal.io/images/I/61ioFHqXsqL.jpg",
         iconSizeMenu: iconMenuSize,
         endpointVersion: versionsBuildsAPK
       },
