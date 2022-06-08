@@ -2,7 +2,7 @@ import { postAPI } from '@api/AxiosAPI';
 import { Api } from '@api/ListAPI';
 import { IP_CONFIG } from '@api/Setting';
 import { FontAppType } from '@const/TypeFontFamily';
-import { blueGrey900 } from '@css/Color';
+import { black, blue900, blueGrey900 } from '@css/Color';
 import AppLinearGradient from '@element/AppLinearGradient';
 import { AppText } from '@element/AppText';
 import { AppTextInput } from '@element/AppTextInput';
@@ -79,7 +79,8 @@ const FetchAPI = () => {
             <AppText style={{ fontSize: 16, color: 'white', alignSelf: "center", marginTop: 45 }}>{server}</AppText>
             <AppText style={{ fontSize: 16, color: 'white', alignSelf: "center", marginTop: 15 }}>API:{Api.login()}</AppText>
             <AppText style={{ fontSize: 16, color: 'white', alignSelf: "center", marginTop: 15 }}>Response API</AppText>
-            <AppText style={{ fontSize: 16, color: 'white', alignSelf: "center", marginTop: 15 }}> {responseAPI?.mess}</AppText>
+            <AppText style={{ fontSize: 16, color: 'white', alignSelf: "center", marginTop: 15, color: black, fontSize: 16 }}> {responseAPI?.mess}</AppText>
+            <AppText style={{ fontSize: 16, color: 'white', alignSelf: "center", marginTop: 15, color: blue900, fontSize: 14, textAlign: 'center'}}> {responseAPI?.token}</AppText>
             {/* Nút login */}
             <DebounceButton
                 title="Login"

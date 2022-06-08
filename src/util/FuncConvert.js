@@ -20,4 +20,13 @@ const removeCharacterVietnameseToLowerCase = (str) => {
   return str.toLowerCase();
 }
 
-export { colorRgbaConvert, removeCharacterVietnameseToLowerCase };
+function isJSON(str) {
+  try {
+    JSON.parse(str);
+  } catch (e) {
+    return false;
+  }
+  return true;
+}
+
+export { colorRgbaConvert, removeCharacterVietnameseToLowerCase, isJSON };

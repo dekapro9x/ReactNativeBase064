@@ -14,6 +14,7 @@ import { StyledComponent } from "./components/lib/styled-components";
 import { TouchHandleAnimations } from "./components/extend/TouchHandleAnimations";
 import { ZoomImgPanResponder } from "./components/extend/ZoomImgPanResponder";
 import { TouchRecordAnimations } from "./components/extend/TouchRecordAnimations";
+import {AssistiveTouchLiveIOS} from "./components/extend/AssistiveTouchLiveIOS";
 export const MenuAnimations = [
     {
         id: 1,
@@ -104,6 +105,11 @@ export const MenuAnimations = [
             {
                 name: 'Touch Record Animations',
                 component: <TouchRecordAnimations />,
+                description: ""
+            },
+            {
+                name: 'Touch Record Animations',
+                component: <AssistiveTouchLiveIOS />,
                 description: ""
             },
         ],
