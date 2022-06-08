@@ -14,7 +14,7 @@ import { StyleSheet, TouchableOpacity, View } from 'react-native';
 export default function HomeMenu(props) {
   const { colorApp } = useContext(ContextContainer);
   const [menuHome, setStateMenuHome] = useState([]);
-  const numberColum = useRef(3).current;
+  const numberColum = useRef(5).current;
 
   useEffect(() => {
     const { dataMenu } = props;
@@ -30,16 +30,17 @@ export default function HomeMenu(props) {
 
   const renderItemMenu = (item, index) => {
     return <TouchableOpacity
+      activeOpacity={0.8}
       key={`${index}`}
       onPress={navigateToScreen(item)}
       style={{
-        height: SizeRpScreen.device_width / numberColum - 20 + 12,
-        width: SizeRpScreen.device_width / numberColum - 20,
+        height: SizeRpScreen.device_width / numberColum - 5 + 12,
+        width: SizeRpScreen.device_width / numberColum - 5,
         backgroundColor: white, 
-        margin: 5,
-        borderWidth: SizeRpScreen.device_width * 0.005,
+        margin: 1,
+        borderWidth: SizeRpScreen.device_width * 0.002,
         borderColor: green400,
-        borderRadius: 12,
+        borderRadius: 0,
         alignItems: "center", justifyContent: "center"
       }}>
       {item?.iconImg ?
@@ -49,7 +50,7 @@ export default function HomeMenu(props) {
           style={{ height: 30, width: 30 }}></AppImage> :
         <AppIcon type={item.iconType} name={item.iconName} color={item.iconColor} iconSize={item.iconSizeMenu}>
         </AppIcon>}
-      <AppText style={{ fontSize: 16, textAlign: 'center', fontFamily: FontAppType.Champagne, fontWeight: "bold" }}>{item.title}</AppText>
+      <AppText style={{ fontSize: 12, textAlign: 'center', fontFamily: FontAppType.Champagne, fontWeight: "bold" }}>{item.title}</AppText>
     </TouchableOpacity>
   }
 

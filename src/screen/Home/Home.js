@@ -94,7 +94,7 @@ export default function Home(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    height: SizeRpScreen.height(100) * 2
+    height: SizeRpScreen.height(100) * 1
   },
   containerBanner: {
     height: SizeRpScreen.width(100) * 9 / 16,
