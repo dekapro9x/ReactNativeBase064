@@ -1,6 +1,8 @@
+import { IP_CONFIG } from "@api/Setting";
+
 export default {
     'greeting': 'Hi!',
-    'news':"News",
+    'news': "News",
     'home': 'Home',
     "notifications": "Notifications",
     "discovery": 'Discovery',
@@ -19,8 +21,16 @@ export default {
     'PDF': 'PDF',
     'video': 'Video',
     'chart': 'Chart',
-    'sound':"Sound",
-    'storage':"Storage",
-    'security':"Security",
-    'server':'Server NodeJS'
+    'sound': "Sound",
+    'storage': "Storage",
+    'security': "Security",
+    'server': `Server NodeJS ${IP_CONFIG}`,
+    'miniApp': 'Mini App',
+    'nativeAndroid':'Native Android',
+    'nativeIOS':'Native IOS',
+    'socketIO':'套接字 IO',
+    'fireBase':'Fire Base',
+    "webView":"Web View",
+    "deepLink": "Deep Link",
+    "pushNotifications":"Push Notifications",
 };

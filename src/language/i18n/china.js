@@ -22,5 +22,13 @@ export default {
     'sound':"聲音",
     'storage':"貯存",
     'security':'安全',
-    'server':'服務器 NodeJS'
+    'server':'服務器 NodeJS',
+    'miniApp': '小程序',
+    'nativeAndroid':'原生安卓',
+    'nativeIOS':'原生 IOS',
+    'socketIO':'套接字 IO',
+    'fireBase':'消防基地',
+    "webView":"網頁視圖",
+    "deepLink":"深度鏈接",
+    "pushNotifications":"推送通知",
 };

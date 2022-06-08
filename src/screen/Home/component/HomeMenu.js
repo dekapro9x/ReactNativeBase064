@@ -36,7 +36,7 @@ export default function HomeMenu(props) {
       style={{
         height: SizeRpScreen.device_width / numberColum - 5 + 12,
         width: SizeRpScreen.device_width / numberColum - 5,
-        backgroundColor: white, 
+        backgroundColor: white,
         margin: 1,
         borderWidth: SizeRpScreen.device_width * 0.002,
         borderColor: green400,
@@ -50,7 +50,7 @@ export default function HomeMenu(props) {
           style={{ height: 30, width: 30 }}></AppImage> :
         <AppIcon type={item.iconType} name={item.iconName} color={item.iconColor} iconSize={item.iconSizeMenu}>
         </AppIcon>}
-      <AppText style={{ fontSize: 12, textAlign: 'center', fontFamily: FontAppType.Champagne, fontWeight: "bold" }}>{item.title}</AppText>
+      <AppText style={{ fontSize: item.title && item.title.length > 15 ? 10 : 12, textAlign: 'center', fontFamily: FontAppType.Champagne, fontWeight: "bold" }}>{item.title}</AppText>
     </TouchableOpacity>
   }
 

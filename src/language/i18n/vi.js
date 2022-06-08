@@ -23,5 +23,13 @@ export default {
     'sound':"Âm thanh",
     'storage':"Kho dữ liệu",
     'security':"Bảo mật",
-    'server':'Máy chủ NodeJS'
+    'server':'Máy chủ NodeJS',
+    'miniApp':'Ứng dụng mini',
+    'nativeAndroid':'Native Android',
+    'nativeIOS':'Native IOS',
+    'socketIO':'Socket IO',
+    'fireBase':'Fire Base',
+    "webView":"Web View",
+    "deepLink": "Deep Link",
+    "pushNotifications":"Thông báo đẩy",
 };

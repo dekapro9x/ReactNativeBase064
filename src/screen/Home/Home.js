@@ -45,19 +45,25 @@ export default function Home(props) {
           </SkeletonPlaceholder.Item>
           <SkeletonPlaceholder.Item width={SizeRpScreen.device_width - SizeRpScreen.width(1)} height={SizeRpScreen.height(15)} borderRadius={5} marginTop={2} />
           <SkeletonPlaceholder.Item flexDirection="row" justifyContent="center" marginTop={5}>
-            <SkeletonPlaceholder.Item width={SizeRpScreen.height(15)} height={SizeRpScreen.height(15)} borderRadius={5} marginTop={2} marginLeft={5} marginRight={5} />
-            <SkeletonPlaceholder.Item width={SizeRpScreen.height(15)} height={SizeRpScreen.height(15)} borderRadius={5} marginTop={2} marginLeft={5} marginRight={5} />
-            <SkeletonPlaceholder.Item width={SizeRpScreen.height(15)} height={SizeRpScreen.height(15)} borderRadius={5} marginTop={2} marginLeft={5} marginRight={5} />
+            <SkeletonPlaceholder.Item width={SizeRpScreen.height(9)} height={SizeRpScreen.height(9)} borderRadius={0} marginTop={2} marginLeft={2} marginRight={2} />
+            <SkeletonPlaceholder.Item width={SizeRpScreen.height(9)} height={SizeRpScreen.height(9)} borderRadius={0} marginTop={2} marginLeft={2} marginRight={2} />
+            <SkeletonPlaceholder.Item width={SizeRpScreen.height(9)} height={SizeRpScreen.height(9)} borderRadius={0} marginTop={2} marginLeft={2} marginRight={2} />
+            <SkeletonPlaceholder.Item width={SizeRpScreen.height(9)} height={SizeRpScreen.height(9)} borderRadius={0} marginTop={2} marginLeft={2} marginRight={2} />
+            <SkeletonPlaceholder.Item width={SizeRpScreen.height(9)} height={SizeRpScreen.height(9)} borderRadius={0} marginTop={2} marginLeft={2} marginRight={2} />
           </SkeletonPlaceholder.Item>
           <SkeletonPlaceholder.Item flexDirection="row" justifyContent="center" marginTop={5}>
-            <SkeletonPlaceholder.Item width={SizeRpScreen.height(15)} height={SizeRpScreen.height(15)} borderRadius={5} marginTop={2} marginLeft={5} marginRight={5} />
-            <SkeletonPlaceholder.Item width={SizeRpScreen.height(15)} height={SizeRpScreen.height(15)} borderRadius={5} marginTop={2} marginLeft={5} marginRight={5} />
-            <SkeletonPlaceholder.Item width={SizeRpScreen.height(15)} height={SizeRpScreen.height(15)} borderRadius={5} marginTop={2} marginLeft={5} marginRight={5} />
+            <SkeletonPlaceholder.Item width={SizeRpScreen.height(9)} height={SizeRpScreen.height(9)} borderRadius={0} marginTop={2} marginLeft={2} marginRight={2} />
+            <SkeletonPlaceholder.Item width={SizeRpScreen.height(9)} height={SizeRpScreen.height(9)} borderRadius={0} marginTop={2} marginLeft={2} marginRight={2} />
+            <SkeletonPlaceholder.Item width={SizeRpScreen.height(9)} height={SizeRpScreen.height(9)} borderRadius={0} marginTop={2} marginLeft={2} marginRight={2} />
+            <SkeletonPlaceholder.Item width={SizeRpScreen.height(9)} height={SizeRpScreen.height(9)} borderRadius={0} marginTop={2} marginLeft={2} marginRight={2} />
+            <SkeletonPlaceholder.Item width={SizeRpScreen.height(9)} height={SizeRpScreen.height(9)} borderRadius={0} marginTop={2} marginLeft={2} marginRight={2} />
           </SkeletonPlaceholder.Item>
           <SkeletonPlaceholder.Item flexDirection="row" justifyContent="center" marginTop={5}>
-            <SkeletonPlaceholder.Item width={SizeRpScreen.height(15)} height={SizeRpScreen.height(15)} borderRadius={5} marginTop={2} marginLeft={5} marginRight={5} />
-            <SkeletonPlaceholder.Item width={SizeRpScreen.height(15)} height={SizeRpScreen.height(15)} borderRadius={5} marginTop={2} marginLeft={5} marginRight={5} />
-            <SkeletonPlaceholder.Item width={SizeRpScreen.height(15)} height={SizeRpScreen.height(15)} borderRadius={5} marginTop={2} marginLeft={5} marginRight={5} />
+            <SkeletonPlaceholder.Item width={SizeRpScreen.height(9)} height={SizeRpScreen.height(9)} borderRadius={0} marginTop={2} marginLeft={2} marginRight={2} />
+            <SkeletonPlaceholder.Item width={SizeRpScreen.height(9)} height={SizeRpScreen.height(9)} borderRadius={0} marginTop={2} marginLeft={2} marginRight={2} />
+            <SkeletonPlaceholder.Item width={SizeRpScreen.height(9)} height={SizeRpScreen.height(9)} borderRadius={0} marginTop={2} marginLeft={2} marginRight={2} />
+            <SkeletonPlaceholder.Item width={SizeRpScreen.height(9)} height={SizeRpScreen.height(9)} borderRadius={0} marginTop={2} marginLeft={2} marginRight={2} />
+            <SkeletonPlaceholder.Item width={SizeRpScreen.height(9)} height={SizeRpScreen.height(9)} borderRadius={0} marginTop={2} marginLeft={2} marginRight={2} />
           </SkeletonPlaceholder.Item>
         </SkeletonPlaceholder>
       </View>
