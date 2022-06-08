@@ -29,7 +29,7 @@ export default {
     'nativeIOS':'Native IOS',
     'socketIO':'Socket IO',
     'fireBase':'Fire Base',
-    "webView":"Web View",
+    "webView":"Trình duyệt WebView",
     "deepLink": "Deep Link",
     "pushNotifications":"Thông báo đẩy",
 };

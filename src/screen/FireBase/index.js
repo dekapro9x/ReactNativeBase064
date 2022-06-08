@@ -1,17 +1,15 @@
-import { connect } from "react-redux";
-import FireBaseAuthScreen from "./FireBaseScreen";
-
-const mapStateToProps = (GlobalState) => {
+import { connect } from 'react-redux';
+import FireBaseScreenMenu from './FireBaseScreenMenu';
+import { MenuFireBase } from './DataMenuFireBase';
+const mapStateToProps = GlobalState => {
   const { LanguageReducer } = GlobalState;
+
   return {
-    languageCurrent: LanguageReducer.language
+    languageCurrent: LanguageReducer.language,
+    MenusAppList: MenuFireBase,
+    nameScreen: "FIRE BASE"
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
 
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(FireBaseAuthScreen);
+export default connect(mapStateToProps)(FireBaseScreenMenu);

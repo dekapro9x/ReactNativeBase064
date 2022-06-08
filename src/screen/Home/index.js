@@ -105,7 +105,7 @@ const mapStateToProps = (GlobalState) => {
       },
       {
         title: translations[LanguageReducer.language]?.chart || setTextMenuInit("chart"),
-        id: keyNavigation.DISCOVERY_CHAT,
+        id: keyNavigation.CHART,
         sortIndex: 6,
         iconColor: "blue",
         iconName: "logo-firebase",
@@ -149,7 +149,7 @@ const mapStateToProps = (GlobalState) => {
       },
       {
         title: translations[LanguageReducer.language]?.fireBase|| setTextMenuInit("fireBase"),
-        id: keyNavigation.DISCOVERY_CHAT,
+        id: keyNavigation.FIRE_BASE,
         sortIndex: 10,
         iconColor: "blue",
         iconName: "logo-firebase",
@@ -159,7 +159,7 @@ const mapStateToProps = (GlobalState) => {
         endpointVersion: versionsBuildsAPK
       },
       {
-        title: translations[LanguageReducer.language]?.fireBase|| setTextMenuInit("fireBase"),
+        title: translations[LanguageReducer.language]?.webView|| setTextMenuInit("webView"),
         id: keyNavigation.WEBVIEW,
         sortIndex: 11,
         iconColor: "blue",
@@ -215,7 +215,7 @@ const mapStateToProps = (GlobalState) => {
       },
       {
         title: translations[LanguageReducer.language]?.security || setTextMenuInit("security"),
-        id: keyNavigation.DISCOVERY_CHAT,
+        id: keyNavigation.SECURITY,
         sortIndex: 15,
         iconColor: "blue",
         iconName: "logo-firebase",
