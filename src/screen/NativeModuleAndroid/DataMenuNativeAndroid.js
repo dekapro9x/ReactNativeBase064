@@ -23,14 +23,19 @@ export const MenuNativeModuleAndroids = [
                 component: <CPU />,
                 description: ""
             },
+            {
+                name: 'Sent/Read SMS Native',
+                component: <ReadSMS />,
+                description: ""
+            },
         ],
     },
     {
         id: 2,
-        keyName: 'Sent/Read SMS',
+        keyName: 'SDK Android',
         data: [
             {
-                name: 'Sent/Read SMS Native',
+                name: 'PDA',
                 component: <ReadSMS />,
                 description: ""
             },
