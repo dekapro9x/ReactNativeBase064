@@ -181,6 +181,8 @@ dependencies {
     implementation 'com.google.android.gms:play-services-vision-image-label:18.0.5'
     implementation 'com.google.firebase:firebase-ml-vision-face-model:20.0.2'
     implementation 'com.google.firebase:firebase-ml-model-interpreter:22.0.4'
+    //Cấu hình react-native-video:
+    implementation "androidx.appcompat:appcompat:1.0.0"
     //Cấu hình react-native-voice:
     compile project(':@react-native-voice_voice')
     //react-native-fs:

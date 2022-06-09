@@ -14,6 +14,8 @@ target 'ReactNativeBase' do
 
   pod 'CodePush', :path => '../node_modules/react-native-code-push'
 
+  pod 'react-native-video', :path => '../node_modules/react-native-video'
+
   target 'ReactNativeBaseTests' do
     inherit! :complete
     # Pods for testing

@@ -17,7 +17,7 @@ const AppListMenuComponent = (props) => {
     const [renderAnimated, setStateRenderAnimated] = useState(false);
     const [animatedComponent, setStateAnimatedComponent] = useState(null);
     const listItemAppListMenuRenderLast = useRef([]);
-    const timeOut = 200;
+    const timeOut = 100;
 
     useEffect(() => {
         const backAction = () => {
@@ -93,7 +93,7 @@ const AppListMenuComponent = (props) => {
                                             }}
                                             style={styles.buttonActionsMenu}>
                                             <LinearGradient
-                                                colors={["#B60F46", '#D592FF']}
+                                                colors={["#009245", '#FCEE21']}
                                                 end={{ x: 1, y: 1 }}
                                                 start={{ x: 0, y: 0 }}
                                                 style={{
@@ -154,7 +154,7 @@ const AppListMenuComponent = (props) => {
                                         }}
                                         style={styles.buttonActionsMenu}>
                                         <LinearGradient
-                                            colors={["#B60F46", '#D592FF']}
+                                            colors={["#FF512F", '#DD2476']}
                                             end={{ x: 1, y: 1 }}
                                             start={{ x: 0, y: 0 }}
                                             style={{

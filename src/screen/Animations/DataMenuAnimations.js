@@ -18,7 +18,7 @@ import {AssistiveTouchLiveIOS} from "./components/extend/AssistiveTouchLiveIOS";
 export const MenuAnimations = [
     {
         id: 1,
-        keyName: 'Animated Core',
+        keyName: 'Animations Basic',
         data: [
             {
                 name: 'Animated.timing()',
@@ -59,7 +59,7 @@ export const MenuAnimations = [
     },
     {
         id: 2,
-        keyName: 'Library',
+        keyName: 'Animations UI Library',
         data: [
             {
                 name: 'react-native-animatable (Slider)',

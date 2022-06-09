@@ -155,7 +155,7 @@ export class AppRecordSoundTouch extends Component {
                     opacity: this.opacity,
                     alignItems: "center",
                     justifyContent: "center",
-                    backgroundColor: "red",
+                    backgroundColor: "#F00",
                     height: height,
                     width: width,
                     borderRadius: borderRadius,
@@ -165,7 +165,7 @@ export class AppRecordSoundTouch extends Component {
                         }
                     ]
                 }}>
-                    <AppIcon type={"MaterialCommunityIcons"} name={"microphone-outline"} color={"#FFFFFF"} sizeIcon={50}></AppIcon>
+                    <AppIcon type={"MaterialCommunityIcons"} name={"microphone-outline"} color={"#900"} sizeIcon={50}></AppIcon>
                 </Animated.View>
             );
         } else {
@@ -173,12 +173,12 @@ export class AppRecordSoundTouch extends Component {
                 <View style={{
                     alignItems: 'center',
                     justifyContent: "center",
-                    backgroundColor: "blue",
+                    backgroundColor: "#F2F2F2",
                     height: height,
                     width: width,
                     borderRadius: borderRadius,
                 }}>
-                    <AppIcon type={"MaterialCommunityIcons"} name={"microphone-outline"} color={"#FFFFFF"} sizeIcon={50}></AppIcon>
+                    <AppIcon type={"MaterialCommunityIcons"} name={"microphone-outline"} color={"#900"} sizeIcon={50}></AppIcon>
                 </View>
             );
         }

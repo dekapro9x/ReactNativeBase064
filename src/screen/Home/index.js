@@ -7,7 +7,6 @@ import Eng from '@language/i18n/en';
 import Vi from '@language/i18n/vi';
 import China from "@language/i18n/china";
 import { versionsBuildsAPK } from "@const/Setting";
-import { IP_CONFIG } from "@api/Setting";
 const mapStateToProps = (GlobalState) => {
   const { LanguageReducer } = GlobalState;
   const { translations } = I18n;
@@ -100,13 +99,13 @@ const mapStateToProps = (GlobalState) => {
         iconColor: "blue",
         iconName: "logo-firebase",
         iconType: "Ionicons",
-        iconImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/YouTube_icon_%282013-2017%29.svg/2048px-YouTube_icon_%282013-2017%29.svg.png",
+        iconImg: "https://vi.seaicons.com/wp-content/uploads/2016/10/video-icon.png",
         iconSizeMenu: iconMenuSize,
         endpointVersion: versionsBuildsAPK
       },
       {
         title: translations[LanguageReducer.language]?.chart || setTextMenuInit("chart"),
-        id: keyNavigation.DISCOVERY_CHAT,
+        id: keyNavigation.CHART,
         sortIndex: 6,
         iconColor: "blue",
         iconName: "logo-firebase",
@@ -116,7 +115,7 @@ const mapStateToProps = (GlobalState) => {
         endpointVersion: versionsBuildsAPK
       },
       {
-        title: "Native Android",
+        title: translations[LanguageReducer.language]?.nativeAndroid || setTextMenuInit("nativeAndroid"),
         id: keyNavigation.NATIVE_MODULE_ANDROID,
         sortIndex: 7,
         iconColor: "blue",
@@ -127,7 +126,7 @@ const mapStateToProps = (GlobalState) => {
         endpointVersion: versionsBuildsAPK
       },
       {
-        title: "Native IOS",
+        title: translations[LanguageReducer.language]?.nativeIOS|| setTextMenuInit("nativeIOS"),
         id: keyNavigation.DISCOVERY_CHAT,
         sortIndex: 8,
         iconColor: "blue",
@@ -138,7 +137,7 @@ const mapStateToProps = (GlobalState) => {
         endpointVersion: versionsBuildsAPK
       },
       {
-        title: "Socket IO",
+        title: translations[LanguageReducer.language]?.socketIO|| setTextMenuInit("socketIO"),
         id: keyNavigation.SOCKET,
         sortIndex: 9,
         iconColor: "blue",
@@ -149,8 +148,8 @@ const mapStateToProps = (GlobalState) => {
         endpointVersion: versionsBuildsAPK
       },
       {
-        title: "Fire Base",
-        id: keyNavigation.DISCOVERY_CHAT,
+        title: translations[LanguageReducer.language]?.fireBase|| setTextMenuInit("fireBase"),
+        id: keyNavigation.FIRE_BASE,
         sortIndex: 10,
         iconColor: "blue",
         iconName: "logo-firebase",
@@ -160,7 +159,7 @@ const mapStateToProps = (GlobalState) => {
         endpointVersion: versionsBuildsAPK
       },
       {
-        title: "WebView",
+        title: translations[LanguageReducer.language]?.webView|| setTextMenuInit("webView"),
         id: keyNavigation.WEBVIEW,
         sortIndex: 11,
         iconColor: "blue",
@@ -182,7 +181,7 @@ const mapStateToProps = (GlobalState) => {
         endpointVersion: versionsBuildsAPK
       },
       {
-        title: "DeepLink",
+        title:translations[LanguageReducer.language]?.deepLink || setTextMenuInit("deepLink"),
         id: keyNavigation.SOUND,
         sortIndex: 12,
         iconColor: "blue",
@@ -193,7 +192,7 @@ const mapStateToProps = (GlobalState) => {
         endpointVersion: versionsBuildsAPK
       },
       {
-        title: "Push Notifications",
+        title: translations[LanguageReducer.language]?.pushNotifications || setTextMenuInit("pushNotifications"),
         id: keyNavigation.DISCOVERY_CHAT,
         sortIndex: 13,
         iconColor: "blue",
@@ -216,7 +215,7 @@ const mapStateToProps = (GlobalState) => {
       },
       {
         title: translations[LanguageReducer.language]?.security || setTextMenuInit("security"),
-        id: keyNavigation.DISCOVERY_CHAT,
+        id: keyNavigation.SECURITY,
         sortIndex: 15,
         iconColor: "blue",
         iconName: "logo-firebase",
@@ -226,13 +225,35 @@ const mapStateToProps = (GlobalState) => {
         endpointVersion: versionsBuildsAPK
       },
       {
-        title: translations[LanguageReducer.language]?.server || setTextMenuInit("server") + `${IP_CONFIG}`,
+        title: translations[LanguageReducer.language]?.miniApp || setTextMenuInit("miniApp"),
+        id: keyNavigation.MINI_APP,
+        sortIndex: 16,
+        iconColor: "blue",
+        iconName: "logo-firebase",
+        iconType: "Ionicons",
+        iconImg: "https://cdn-amz.fadoglobal.io/images/I/61ioFHqXsqL.jpg",
+        iconSizeMenu: iconMenuSize,
+        endpointVersion: versionsBuildsAPK
+      },
+      {
+        title: translations[LanguageReducer.language]?.server || setTextMenuInit("server"),
         id: keyNavigation.SERVER_NODEJS,
         sortIndex: 16,
         iconColor: "blue",
         iconName: "logo-firebase",
         iconType: "Ionicons",
         iconImg: "https://www.nicepng.com/png/full/207-2077577_server-png-web-hosting-banner-png.png",
+        iconSizeMenu: iconMenuSize,
+        endpointVersion: versionsBuildsAPK
+      },
+      {
+        title: translations[LanguageReducer.language]?.frequentlyQuestions || setTextMenuInit("frequentlyQuestions"),
+        id: keyNavigation.FREQUENTLY_QUESTIONS,
+        sortIndex: 16,
+        iconColor: "blue",
+        iconName: "logo-firebase",
+        iconType: "Ionicons",
+        iconImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0nOjFkPeK13zP6mq7J-X2jQV6ZY6UFY0VgrwbjvocYarxK0osryTtq5_Gp108Mw6A3i0&usqp=CAU",
         iconSizeMenu: iconMenuSize,
         endpointVersion: versionsBuildsAPK
       },

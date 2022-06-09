@@ -1,4 +1,6 @@
 import { isAndroid } from "@const/Setting";
+import { writeLogSystem } from "@logEventSystem/";
+import { keyLogSystem } from "@logEventSystem/keyLogSystem";
 import { isJSON } from "@util/FuncConvert";
 import axios from "axios";
 import { Alert } from "react-native";
@@ -18,6 +20,7 @@ instanceAPIBase.defaults.headers.common['Accept'] = 'application/json';
 
 
 async function requestAPI(url, params, type, axiosRequestConfig) {
+    writeLogSystem(keyLogSystem.callAPI,`\nURL: ${url} \nParams:${JSON.stringify(params)} \nType: ${type}`)
     console.log("Url:", url);
     console.log("Params:", params);
     try {

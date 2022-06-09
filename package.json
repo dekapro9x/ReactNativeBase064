@@ -81,6 +81,7 @@
     "react-native-skeleton-placeholder": "^5.0.0",
     "react-native-svg": "^12.1.1",
     "react-native-vector-icons": "^9.0.0",
+    "react-native-video": "^5.2.0",
     "react-native-vision-camera": "^2.13.3",
     "react-native-webview": "^11.18.2",
     "react-native-youtube": "^2.0.2",

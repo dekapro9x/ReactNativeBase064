@@ -26,7 +26,11 @@ import Webview from "@screen/WebView";
 import Video from "@screen/Video";
 import Socket from "@screen/Socket";
 import ServeNodeJS from "@screen/ServerNodeJS";
-
+import Chart from "@screen/Chart";
+import FireBase from "@screen/FireBase";
+import Security from "@screen/Security";
+import MiniApp from "@screen/MiniApp";
+import FrequentlyQuestions from "@screen/FrequentlyQuestions";
 //Stack Bottom Tab Menu Home:
 import { RootStackBottomTab } from "./RootStackBottomTab";
 
@@ -88,6 +92,11 @@ export default RootNavigations = () => {
         <RootStack.Screen name={keyNavigation.VIDEO} component={Video} />
         <RootStack.Screen name={keyNavigation.SOCKET} component={Socket} />
         <RootStack.Screen name={keyNavigation.SERVER_NODEJS} component={ServeNodeJS} />
+        <RootStack.Screen name={keyNavigation.CHART} component={Chart} />
+        <RootStack.Screen name={keyNavigation.FIRE_BASE} component={FireBase} />
+        <RootStack.Screen name={keyNavigation.SECURITY} component={Security} />
+        <RootStack.Screen name={keyNavigation.MINI_APP} component={MiniApp} />
+        <RootStack.Screen name={keyNavigation.FREQUENTLY_QUESTIONS} component={FrequentlyQuestions} />
       </RootStack.Navigator>
       <AppModalContent ref={ServiceAppAlertModal.modalRef} />
     </>
