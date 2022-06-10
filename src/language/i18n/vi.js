@@ -32,5 +32,7 @@ export default {
     "webView":"Trình duyệt WebView",
     "deepLink": "Deep Link",
     "pushNotifications":"Thông báo đẩy",
-    "frequentlyQuestions":"Câu hỏi thường gặp"
+    "sdk":"SDK",
+    "vr_ar":"Thực tế ảo",
+    "frequentlyQuestions":"Câu hỏi thường gặp",
 };

@@ -50,16 +50,11 @@ export const MenuAnimations = [
                 component: <SpringAnimatedComponent />,
                 description: ""
             },
-            {
-                name: 'Animated Extend',
-                component: null,
-                description: ""
-            },
         ],
     },
     {
         id: 2,
-        keyName: 'Animations UI Library',
+        keyName: 'Animations/UI Library',
         data: [
             {
                 name: 'react-native-animatable (Slider)',

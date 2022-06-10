@@ -247,6 +247,28 @@ const mapStateToProps = (GlobalState) => {
         endpointVersion: versionsBuildsAPK
       },
       {
+        title: translations[LanguageReducer.language]?.sdk || setTextMenuInit("sdk"),
+        id: keyNavigation.FREQUENTLY_QUESTIONS,
+        sortIndex: 16,
+        iconColor: "blue",
+        iconName: "logo-firebase",
+        iconType: "Ionicons",
+        iconImg: "https://miro.medium.com/max/1400/1*RRKd-7TW4jQDG-6ODLUKWw.png",
+        iconSizeMenu: iconMenuSize,
+        endpointVersion: versionsBuildsAPK
+      },
+      {
+        title: translations[LanguageReducer.language]?.vr_ar || setTextMenuInit("vr_ar"),
+        id: keyNavigation.FREQUENTLY_QUESTIONS,
+        sortIndex: 16,
+        iconColor: "blue",
+        iconName: "logo-firebase",
+        iconType: "Ionicons",
+        iconImg: "https://cdn.tgdd.vn/Files/2017/03/01/955930/vrandar2_800x450.jpg",
+        iconSizeMenu: iconMenuSize,
+        endpointVersion: versionsBuildsAPK
+      },
+      {
         title: translations[LanguageReducer.language]?.frequentlyQuestions || setTextMenuInit("frequentlyQuestions"),
         id: keyNavigation.FREQUENTLY_QUESTIONS,
         sortIndex: 16,

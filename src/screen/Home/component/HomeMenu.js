@@ -45,12 +45,12 @@ export default function HomeMenu(props) {
       }}>
       {item?.iconImg ?
         <AppImage
-          resizeMode={"cover"}
+          resizeMode={"center"}
           source={{ uri: item.iconImg }}
-          style={{ height: 30, width: 30 }}></AppImage> :
+          style={{ height: 35, width: 35 }}></AppImage> :
         <AppIcon type={item.iconType} name={item.iconName} color={item.iconColor} iconSize={item.iconSizeMenu}>
         </AppIcon>}
-      <AppText style={{ fontSize: item.title && item.title.length > 15 ? 10 : 12, textAlign: 'center', fontFamily: FontAppType.Champagne, fontWeight: "bold" }}>{item.title}</AppText>
+      <AppText style={{ fontSize: item.title && item.title.length > 10 ? 10 : 12, textAlign: 'center', fontFamily: FontAppType.Champagne, fontWeight: "bold" }}>{item.title}</AppText>
     </TouchableOpacity>
   }
 

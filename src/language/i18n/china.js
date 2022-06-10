@@ -31,5 +31,7 @@ export default {
     "webView":"網頁視圖",
     "deepLink":"深度鏈接",
     "pushNotifications":"推送通知",
+    "sdk":"軟件開發工具包",
+    "vr_ar":"虛擬現實",
     "frequentlyQuestions":"問題 面試"
 };

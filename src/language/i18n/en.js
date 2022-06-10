@@ -33,5 +33,7 @@ export default {
     "webView":"Web View",
     "deepLink": "Deep Link",
     "pushNotifications":"Push Notifications",
+    "sdk":"SDK",
+    "vr_ar":"VR-AR",
     "frequentlyQuestions":"Questions Interview"
 };
