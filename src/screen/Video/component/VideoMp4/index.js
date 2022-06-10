@@ -8,7 +8,7 @@ const VideoMp4 = () => {
         <View style={styles.backgroundVideo}>
             <Video
                 resizeMode={"cover"}
-                poster={"https://baconmockup.com/300/200/"}
+                poster={"https://img.phonandroid.com/2021/02/Google-Earth.jpg"}
                 isPlat
                 playInBackground={false}
                 source={require('../../../../images/Earn.mp4')}
