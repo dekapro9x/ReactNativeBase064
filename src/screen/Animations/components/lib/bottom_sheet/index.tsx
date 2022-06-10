@@ -1,3 +1,4 @@
+import { colorArray } from "@css/Color";
 import { AppText } from "@element/AppText";
 import BottomSheet from "@gorhom/bottom-sheet";
 import { SizeRpScreen } from "@resources/ResponsiveScreen";
@@ -6,8 +7,8 @@ import { View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 const BottomSheetComponent = () => {
     const bottomSheetRef = useRef<BottomSheet>(null);
-    const snapPoints = useMemo(() => ["10%", "25%", "50%"], []);
-    const arrayMapItem = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17"]
+    const snapPoints = useMemo(() => ["6%", "25%", "50%"], []);
+    const arrayMapItem = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17"];
     const handleSheetChanges = useCallback((index: number) => {
         bottomSheetRef.current?.snapTo(index);
     }, []);
@@ -16,8 +17,8 @@ const BottomSheetComponent = () => {
         return (
             <View style={{ flex: 1, backgroundColor: "red", alignItems: "center", justifyContent: "center" }}>
                 <ScrollView>
-                    {arrayMapItem.map((item) => {
-                        return <View style={{ height: 85, width: SizeRpScreen.device_width, borderWidth: 1, borderColor: "black" }}>
+                    {arrayMapItem.map((item, index) => {
+                        return <View style={{ height: 85, width: SizeRpScreen.device_width, borderWidth: 1, backgroundColor: colorArray[index], justifyContent: "center" }}>
                             <AppText style={{ fontSize: 25, textAlign: "center" }}>{item}</AppText>
                         </View>
                     })}
@@ -28,10 +29,10 @@ const BottomSheetComponent = () => {
 
     return (
         <>
-            <View style={{ height: SizeRpScreen.device_height, width: SizeRpScreen.device_width, backgroundColor: "green" }}>
+            <View style={{ height: SizeRpScreen.device_height, width: SizeRpScreen.device_width }}>
                 <ScrollView>
-                    {arrayMapItem.map((item) => {
-                        return <View style={{ height: 85, width: SizeRpScreen.device_width, borderWidth: 1, borderColor: "black" }}>
+                    {arrayMapItem.map((item, index) => {
+                        return <View style={{ height: 85, width: SizeRpScreen.device_width, borderWidth: 1, borderColor: "black", backgroundColor: colorArray[index], justifyContent: "center" }}>
                             <AppText style={{ fontSize: 25, textAlign: "center" }}>{item}</AppText>
                         </View>
                     })}

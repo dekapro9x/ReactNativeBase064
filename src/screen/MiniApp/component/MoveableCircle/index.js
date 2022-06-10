@@ -1,7 +1,7 @@
 import { SizeRpScreen } from '@resources/ResponsiveScreen';
 import React, { Component } from 'react';
 import { PanResponder, Platform, StatusBar, StyleSheet, View } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 class MoveableCircle extends Component {
 
@@ -83,7 +83,7 @@ class MoveableCircle extends Component {
       <View ref={(circle) => { this.circle = circle }}
         style={styles.MoveableCircle}
         {...this._panResponder.panHandlers}>
-        <Icon ref="baseball" name={touch ? "bulb-sharp" : "bulb-outline"} color={this.state.color} size={180}></Icon>
+        <Icon ref="baseball" name={touch ? "circle" : "circle-thin"} color={this.state.color} size={180}></Icon>
       </View>
     )
   }

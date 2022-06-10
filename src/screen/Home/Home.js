@@ -9,6 +9,7 @@ import BannerHome from "./component/BannerHome";
 import DateAndWeather from "./component/DateAndWeather";
 import HomeMenu from "./component/HomeMenu";
 import { RightHeaderComponent } from "./component/RightHeader";
+import { SubMenu } from "./component/SubMenu";
 LogBox.ignoreLogs(['Warning: ...']);
 LogBox.ignoreAllLogs();
 
@@ -75,6 +76,7 @@ export default function Home(props) {
         </View>
         <ViewLoadingContainerHOC isLoading={false}>
           <DateAndWeather navigation={navigation} />
+          <SubMenu></SubMenu>
           <HomeMenu navigation={navigation} dataMenu={props.homeMenu} />
         </ViewLoadingContainerHOC>
       </>
@@ -100,7 +102,7 @@ export default function Home(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    height: SizeRpScreen.height(100) * 1
+    minHeight: SizeRpScreen.height(100) * 1
   },
   containerBanner: {
     height: SizeRpScreen.width(100) * 9 / 16,
