@@ -54,7 +54,33 @@ export const MenuAnimations = [
     },
     {
         id: 2,
-        keyName: 'Animations/UI Library',
+        keyName: 'Animations Extend',
+        data: [
+            {
+                name: 'Assistive Touch Handle',
+                component: <TouchHandleAnimations />,
+                description: ""
+            },
+            {
+                name: 'ZoomImg PanResponder',
+                component: <ZoomImgPanResponder />,
+                description: ""
+            },
+            {
+                name: 'Touch Record Animations',
+                component: <TouchRecordAnimations />,
+                description: ""
+            },
+            {
+                name: 'Touch Record Animations',
+                component: <AssistiveTouchLiveIOS />,
+                description: ""
+            },
+        ],
+    },
+    {
+        id: 3,
+        keyName: 'UI/Library UI',
         data: [
             {
                 name: 'react-native-animatable (Slider)',
@@ -79,32 +105,6 @@ export const MenuAnimations = [
             {
                 name: 'react-native-bottom-sheet',
                 component: <StyledComponent />,
-                description: ""
-            },
-        ],
-    },
-    {
-        id: 3,
-        keyName: 'Animations Extend',
-        data: [
-            {
-                name: 'Assistive Touch Handle',
-                component: <TouchHandleAnimations />,
-                description: ""
-            },
-            {
-                name: 'ZoomImg PanResponder',
-                component: <ZoomImgPanResponder />,
-                description: ""
-            },
-            {
-                name: 'Touch Record Animations',
-                component: <TouchRecordAnimations />,
-                description: ""
-            },
-            {
-                name: 'Touch Record Animations',
-                component: <AssistiveTouchLiveIOS />,
                 description: ""
             },
         ],
