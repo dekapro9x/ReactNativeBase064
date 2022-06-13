@@ -31,4 +31,20 @@ export const MenuCameras = [
             },
         ],
     },
+    {
+        id: 1,
+        keyName: 'Handle Images',
+        data: [
+            {
+                name: 'Select File Images',
+                component: <TakePictureCamera />,
+                description: ""
+            },
+            {
+                name: 'Crop Images',
+                component: <TakePictureCamera />,
+                description: ""
+            },
+        ],
+    },
 ];

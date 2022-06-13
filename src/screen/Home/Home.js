@@ -76,7 +76,7 @@ export default function Home(props) {
         </View>
         <ViewLoadingContainerHOC isLoading={false}>
           <DateAndWeather navigation={navigation} />
-          <SubMenu></SubMenu>
+          <SubMenu dataSubMenu={[]}></SubMenu>
           <HomeMenu navigation={navigation} dataMenu={props.homeMenu} />
         </ViewLoadingContainerHOC>
       </>
