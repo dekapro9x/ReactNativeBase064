@@ -12,6 +12,7 @@ import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { keyAsyncStorage } from "@const/KeySyncStorage";
+import { AppIcon } from "@element/AppIcon";
 interface MyTestProps {
     dataSubMenu: {}[],
     navigation: {}
@@ -61,7 +62,10 @@ export class SubMenu extends React.Component<MyTestProps, MyTestState>{
     render() {
         return (
             <>
-                <AppText style={{ fontSize: 16, fontFamily: FontAppType.LetterMagic, marginLeft: 12 }}>Danh sách menu hay dùng:</AppText>
+                <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
+                    <AppText style={{ fontSize: 14, fontFamily: FontAppType.LetterMagic, marginLeft: 12 }}>Danh sách menu hay dùng:</AppText>
+                    <AppIcon style={{ marginRight: 12 }} type={"FontAwesome"} name={"sort-amount-asc"} sizeIcon={14} color={"black"}></AppIcon>
+                </View>
                 <View style={styles.wrapper}>
                     <DraggableGrid
                         numColumns={5}

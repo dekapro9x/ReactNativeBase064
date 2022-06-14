@@ -1,3 +1,4 @@
+import { AppIcon } from '@element/AppIcon';
 import { AppText } from '@element/AppText';
 import { readLogSystem, removeFile, writeLogSystem } from '@logEventSystem/';
 import { keyLogSystem } from '@logEventSystem/keyLogSystem';
@@ -30,7 +31,7 @@ function InfoDevicesApp({ navigation, router }) {
     }
 
     const removeFileLog = () => {
-        Alert.alert("Remove file log!", "", [{ text: "No", onPress: () => { } }, { text: "Yes", onPress: () => { confirmRemoveFileLog() } }])
+        Alert.alert("Cảnh báo", "Xóa dữ liệu log?", [{ text: "No", onPress: () => { } }, { text: "Yes", onPress: () => { confirmRemoveFileLog() } }])
     }
 
     const confirmRemoveFileLog = () => {
@@ -41,15 +42,26 @@ function InfoDevicesApp({ navigation, router }) {
 
     const renderListButton = () => {
         const arrButton = [
-            { id: 1, name: "Write", color: "red", onPress: () => { logFileSystem() } },
-            { id: 3, name: "Remove", color: "green", onPress: () => { removeFileLog() } }];
+            // { id: 1, name: "Write", color: "red", onPress: () => { logFileSystem() } },
+            { id: 3, name: "Remove", color: "#F2F2F2", onPress: () => { removeFileLog() } }];
         return arrButton.map((item, index) => {
             return (
                 <TouchableOpacity
                     key={`${index}`}
                     onPress={item.onPress}
-                    style={{ flex: 1, borderWidth: 1, borderColor: "black", backgroundColor: item.color, alignItems: "center", justifyContent: "center" }}>
-                    <AppText style={{ fontSize: 16, fontWeight: "bold", color: "white" }}>{item.name}</AppText>
+                    style={{
+                        height: 30,
+                        width: 30,
+                        borderWidth: 1,
+                        borderColor: "black",
+                        backgroundColor: item.color,
+                        alignItems: "center",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        position: "absolute",
+                        top: 0, right: 12,
+                    }}>
+                    <AppIcon type={"MaterialCommunityIcons"} name={"delete-circle"} size={22} color={"black"}></AppIcon>
                 </TouchableOpacity>
             )
         })
@@ -66,7 +78,7 @@ function InfoDevicesApp({ navigation, router }) {
                 <TouchableOpacity
                     onPress={pressGoBack}
                     activeOpacity={0.8}
-                    style={{ minHeight: SizeRpScreen.device_height, width: SizeRpScreen.device_width - 12, marginLeft:12 }}>
+                    style={{ minHeight: SizeRpScreen.device_height, width: SizeRpScreen.device_width - 12, marginLeft: 12 }}>
                     <AppText>{log}</AppText>
                 </TouchableOpacity>
             </ScrollView>
@@ -88,8 +100,8 @@ function InfoDevicesApp({ navigation, router }) {
                 flexDirection: "row",
                 bottom: 0
             }}>
-                {renderListButton()}
             </View>
+            {renderListButton()}
         </AppContainer>
     );
 }

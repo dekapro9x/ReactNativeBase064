@@ -10,6 +10,7 @@ import { ButtonAnimationsClass } from "./components/lib/animatable/ButtonAnimati
 import { MaskedViewAnimations } from "./components/lib/masked_view";
 import { BottomSheetComponent } from "./components/lib/bottom_sheet";
 import { StyledComponent } from "./components/lib/styled-components";
+import {Table} from "./components/lib/table";
 //Extend:
 import { TouchHandleAnimations } from "./components/extend/TouchHandleAnimations";
 import { ZoomImgPanResponder } from "./components/extend/ZoomImgPanResponder";
@@ -100,6 +101,11 @@ export const MenuAnimations = [
             {
                 name: 'react-native-bottom-sheet',
                 component: <BottomSheetComponent />,
+                description: ""
+            },
+            {
+                name: 'react-native-paper',
+                component: <Table/>,
                 description: ""
             },
             {
