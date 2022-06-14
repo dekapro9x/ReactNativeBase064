@@ -7,10 +7,10 @@ checkReleaseBuilds false
 
 # 2.Lệnh code push:
 
-const VersionApp = "1.0.25";
+const VersionApp = "1.0.26";
 const VersionCodePush = 1";
-git commit -m"Build bundle JS code push versions 1 for 1.0.25"
-git commit -m"Build APK 1.0.25"
+git commit -m"Build bundle JS code push versions 1 for 1.0.26"
+git commit -m"Build APK 1.0.26"
 appcenter codepush release-react -a dekapro9x-gmail.com/ReactNativeBase -d Staging -m
 
 # Note Versions:
@@ -44,3 +44,5 @@ OppoF9 phù hợp với file : armeabi-v7a APK
 # 1.0.24 Update server - client: API login, axios, nodeJsServer.
 
 # 1.0.25 react-native-video
+
+# 1.0.26 Update animations/UI table (react-native-paper)
