@@ -10,6 +10,7 @@ import { Alert, Linking, NativeEventEmitter, NativeModules, PermissionsAndroid, 
 const ReadSMS = () => {
   const [pingSms, setStatePingSms] = useState("Ping Listen SMS:...Click here...");
   const [numberPhoneCurrent, setStateNumberPhoneCurrent] = useState("191");
+  const [sms, setStateSms] = useState("");
   useEffect(() => {
     checkPermissionSMSAndroid();
     checkPermissionReadPhoneAndroid();
@@ -74,11 +75,10 @@ const ReadSMS = () => {
   const startReadSmsAndroid = (isReadSms) => {
     if (isReadSms) {
       NativeModules.ReadSms.startReadSMS((result) => {
-        console.log("result", result)
         new NativeEventEmitter(NativeModules.ReadSms)
           .addListener('received_sms', (sms) => {
-            console.log("SMS", sms);
-            Alert.alert("Read SMS to Devices:", `${sms}`)
+            console.log("sms", sms);
+            setStateSms(sms);
           })
       },
         (error) => { console.log("Lỗi đọc SMS", error) });
@@ -147,7 +147,7 @@ const ReadSMS = () => {
         placeholder={"phone"}
         styleContainer={styles.textInput}
         styleTitle={styles.textTitleInput}
-        styleInput={{ backgroundColor: greenA400, borderRadius: 10 }}
+        styleInput={{ borderRadius: 10, }}
         onChangeText={onChangeText} />
       {/* Ping Native */}
       <AppText style={{ fontSize: 16, textAlign: 'center', marginTop: 20 }}>{pingSms}</AppText>
@@ -163,6 +163,8 @@ const ReadSMS = () => {
         style={{ height: 40, width: 250, borderRadius: 12, borderWidth: 2, borderColor: green400, alignItems: "center", justifyContent: "center", marginTop: 25 }}>
         <AppText>Request SMS</AppText>
       </TouchableOpacity>
+      {/* Nội dung tin nhắn: */}
+      <AppText style={{ fontSize: 16, textAlign: 'center', marginTop: 20 }}>{sms}</AppText>
     </View>
   );
 }
@@ -177,7 +179,7 @@ const styles = StyleSheet.create({
   textTitleInput: {
     fontFamily: FontAppType.LetterMagic,
     fontSize: 12,
-    color: "black"
+    color: "black",
   },
 })
 
