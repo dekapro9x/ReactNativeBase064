@@ -3,3 +3,40 @@ workflows:
     scripts:
       - name: say hello
         script: echo "Hello Codemagician!"
+workflows:
+  android:
+    name: build, test & publish Android version
+    scripts:
+      - ...
+  ios:
+    name: build, test & publish iOS version
+    scripts:
+      - ...
+workflows:
+  my-workflow:
+    environment:
+      ndk: r23
+workflows:
+  my-workflow:
+    scripts:
+      - name: Launch emulator
+        script: |
+          set -e # exit on first failed command
+
+          cd $ANDROID_HOME/tools
+          emulator -avd emulator &
+          adb wait-for-device
+workflows:
+  my-workflow:
+    scripts:
+      - name: Build Android APK
+        working_directory: android
+        script: ./gradlew assembleRelease
+    artifacts:
+      - app/build/outputs/reactnativebase.apk
+workflows:
+  my-workflow:
+    publishing:
+      email:
+        recipients:
+          - dekapro9x@gmai.com
