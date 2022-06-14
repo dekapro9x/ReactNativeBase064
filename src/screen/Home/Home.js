@@ -10,12 +10,15 @@ import DateAndWeather from "./component/DateAndWeather";
 import HomeMenu from "./component/HomeMenu";
 import { RightHeaderComponent } from "./component/RightHeader";
 import { SubMenu } from "./component/SubMenu";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { keyAsyncStorage } from "@const/KeySyncStorage";
 LogBox.ignoreLogs(['Warning: ...']);
 LogBox.ignoreAllLogs();
 
 export default function Home(props) {
   const [loadingHome, useStateLoadingHome] = useState(true);
   const { colorApp } = useContext(ContextContainer);
+  const [subMenu, setStateSubMenu] = useState([]);
   let timeCount = useRef(0).current;
   const { navigation, router } = props;
   const { languageCurrent } = props;
@@ -35,6 +38,25 @@ export default function Home(props) {
     timeCount = setTimeout(() => {
       useStateLoadingHome(false);
     }, 1250);
+  }
+
+  useEffect(() => {
+    getListSubMenu()
+  }, [])
+
+  const getListSubMenu = async () => {
+    const { homeMenu } = props;
+    const subMEnu = await AsyncStorage.getItem(keyAsyncStorage.subMenu);
+    if (!subMEnu) {
+      let subMEnuInit = [homeMenu[2], homeMenu[3], homeMenu[5], homeMenu[22], homeMenu[10]];
+      subMEnuInit = subMEnuInit.map((el) => ({ ...el, name: el.title, key: el.id }))
+      setStateSubMenu(subMEnuInit);
+      const jsonSubMEnu = JSON.stringify(subMEnuInit);
+      await AsyncStorage.setItem(keyAsyncStorage.subMenu, jsonSubMEnu);
+    } else {
+      const subMenuPath = JSON.parse(subMEnu);
+      setStateSubMenu(subMenuPath);
+    }
   }
 
   const renderContent = () => {
@@ -76,7 +98,7 @@ export default function Home(props) {
         </View>
         <ViewLoadingContainerHOC isLoading={false}>
           <DateAndWeather navigation={navigation} />
-          <SubMenu dataSubMenu={[]}></SubMenu>
+          <SubMenu navigation={navigation} dataSubMenu={subMenu}></SubMenu>
           <HomeMenu navigation={navigation} dataMenu={props.homeMenu} />
         </ViewLoadingContainerHOC>
       </>

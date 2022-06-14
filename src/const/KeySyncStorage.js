@@ -3,6 +3,7 @@ const keyAsyncStorage = {
   agreePolicyClick : "agreePolicyClick",
   accountLogin:"accountLogin",
   language : "language",
-  applicationConfiguration : "applicationConfiguration"
+  applicationConfiguration : "applicationConfiguration",
+  subMenu : "subMenu",
 };
 export { keyAsyncStorage };
