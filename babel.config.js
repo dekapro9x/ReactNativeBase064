@@ -20,7 +20,9 @@ module.exports = api => {
             allowUndefined: true
           }
         ],
-      // "react-native-reanimated/plugin" //Thêm cuối cùng ra khỏi plugins vì nó là 1 giải pháp tăng hiệu năng App.
+        ['react-native-paper/babel'],
+        // ['react-native-reanimated/plugin']
+        // "react-native-reanimated/plugin" //Thêm cuối cùng ra khỏi plugins vì nó là 1 giải pháp tăng hiệu năng App.
       ]
     };
   }
@@ -39,6 +41,8 @@ module.exports = api => {
           allowUndefined: true
         }
       ],
+      ['react-native-paper/babel'],
+      // ['react-native-reanimated/plugin']
       // "react-native-reanimated/plugin" //Thêm cuối cùng ra khỏi plugins vì nó là 1 giải pháp tăng hiệu năng App.
     ]
   };

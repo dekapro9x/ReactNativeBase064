@@ -26,6 +26,7 @@ import { AppText } from "./AppText";
 import { DebounceButton } from "./DebounceButton";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { keyAsyncStorage } from "@const/KeySyncStorage";
+
 const mapStateToProps = (GlobalState) => {
   const { LanguageReducer } = GlobalState;
   return {
