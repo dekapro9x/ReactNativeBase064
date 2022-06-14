@@ -55,11 +55,14 @@ export default function HomeMenu(props) {
   }
 
   return (
-    <View style={[styles.container, { backgroundColor: colorApp.backgroundColor, justifyContent: "center" }]}>
-      {menuHome.map((item, index) => {
-        return renderItemMenu(item, index)
-      })}
-    </View>
+    <>
+      <AppText style={{ fontSize: 16, fontFamily: FontAppType.LetterMagic, marginLeft: 12 }}>Danh sách menu:</AppText>
+      <View style={[styles.container, { backgroundColor: colorApp.backgroundColor, justifyContent: "center" }]}>
+        {menuHome.map((item, index) => {
+          return renderItemMenu(item, index)
+        })}
+      </View>
+    </>
   );
 }
 
