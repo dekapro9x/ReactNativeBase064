@@ -15,8 +15,8 @@ export const RightHeaderComponent = ({ navigation }) => {
             case "JS_DefaultScreen":
                 navigation.navigate(keyNavigation.BASIC_JS);
                 break;
-            case "TS_DefaultScreen":
-                navigation.navigate(keyNavigation.BASIC_TS);
+            case "LogSystem":
+                navigation.navigate(keyNavigation.SYSTEM_LOG);
                 break;
             case "Setting":
                 ServiceAppModalContent.showModal(<AppSetting />);
@@ -37,19 +37,19 @@ export const RightHeaderComponent = ({ navigation }) => {
                 style={styles.touchConfigColorApp}
             >
                 <AppIcon
-                    type="AntDesign"
-                    name="twitter"
+                    type="FontAwesome"
+                    name="sort-amount-asc"
                     iconSize={25}
                     color={lightBlue800}
                 />
             </TouchableOpacity>
             <TouchableOpacity
-                onPress={pressElementRightHeader("TS_DefaultScreen")}
+                onPress={pressElementRightHeader("LogSystem")}
                 style={styles.touchConfigColorApp}
             >
                 <AppIcon
-                    type="AntDesign"
-                    name="facebook-square"
+                    type="MaterialCommunityIcons"
+                    name="file-cog"
                     iconSize={25}
                     color={lightBlueA700}
                 />
