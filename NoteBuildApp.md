@@ -47,8 +47,9 @@ OppoF9 phù hợp với file : armeabi-v7a APK
 
 # 1.0.26 Update animations/UI table (react-native-paper)
 
-# 1.0.27 Config CI/CD https://codemagic.io/
-
+# 1.0.27 Config CI/CD 
+https://codemagic.io/
+https://morioh.com/p/a551f81cc201 (Example)
 git add codemagic.yaml
 git commit -m "Update Codemagic configuration"
 git push origin root

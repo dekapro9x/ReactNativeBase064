@@ -1,42 +1,46 @@
+# Check out https://docs.codemagic.io/yaml/building-a-react-native-app/ for more information
+# https://docs.codemagic.io/yaml-quick-start/building-a-native-android-app/
 workflows:
-  my-workflow:
-    scripts:
-      - name: say hello
-        script: echo "Hello Codemagician!"
-workflows:
-  android:
-    name: build, test & publish Android version
-    scripts:
-      - ...
-  ios:
-    name: build, test & publish iOS version
-    scripts:
-      - ...
-workflows:
-  my-workflow:
-    environment:
-      ndk: r23
-workflows:
-  my-workflow:
-    scripts:
-      - name: Launch emulator
-        script: |
-          set -e # exit on first failed command
-
-          cd $ANDROID_HOME/tools
-          emulator -avd emulator &
-          adb wait-for-device
-workflows:
-  my-workflow:
-    scripts:
-      - name: Build Android APK
-        working_directory: android
-        script: ./gradlew assembleRelease
-    artifacts:
-      - app/build/outputs/reactnativebase.apk
-workflows:
-  my-workflow:
-    publishing:
-      email:
-        recipients:
-          - dekapro9x@gmai.com
+  react-native-android:
+      name: React Native Android
+      max_build_duration: 120
+      instance_type: HP
+      environment:
+      android_signing: 
+            vars:
+                PACKAGE_NAME: "com.reactnativebase"
+            node: latest
+        triggering:
+            events:
+                - push
+                - tag
+                - pull_request
+            branch_patterns:
+                - pattern: develop
+                  include: true
+                  source: true
+        scripts:
+            - name: Install npm dependencies
+              script: |
+                                npm install
+            - name: 31
+              script: |
+                                echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/android/local.properties"
+            - name: ReactNativeBase
+              script: |
+                # Set environment variable so it can be used to increment build number in android/app/build.gradle
+                # Note that tracks can be specified when retrieving latest build number from Google Play, for example:
+                # export NEW_BUILD_NUMBER=$(($(google-play get-latest-build-number --package-name "$PACKAGE_NAME" --tracks alpha) + 1))
+                export NEW_BUILD_NUMBER=$(($(google-play get-latest-build-number --package-name "$PACKAGE_NAME") + 1))
+                cd android && ./gradlew bundleRelease  # To generate an .apk use--> ./gradlew assembleRelease                
+        artifacts:
+            - android/app/build/outputs/**/*.aab
+            - android/app/build/outputs/**/*.apk
+        publishing:
+            email:
+                recipients:
+                    - dekapro9x@gmail.com
+                notify:
+                  success: true     # To not receive a notification when a build succeeds
+                  failure: false    # To not receive a notification when a build fails
+    
