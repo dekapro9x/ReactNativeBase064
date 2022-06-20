@@ -22,7 +22,7 @@ workflows:
                 - tag
                 - pull_request
             branch_patterns:
-                - pattern: develop
+                - pattern: root
                   include: true
                   source: true
         scripts:
@@ -66,4 +66,6 @@ workflows:
                 notify:
                   success: true     # To not receive a notification when a build succeeds
                   failure: false    # To not receive a notification when a build fails
+                scripts:
+            - echo 'Post-publish script'
     
