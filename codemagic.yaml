@@ -5,7 +5,7 @@
 # https://github.com/codemagic-ci-cd/codemagic-sample-projects/blob/main/react-native/react-native-demo-project/codemagic.yaml
 workflows:
     react-native-android:
-        name: React Native Android
+        name: React Native Android  #Tên nhánh CI/CD sẽ build (Đổi tên tạo nhánh build mới)
         max_build_duration: 120
         instance_type: mac_mini
         environment:
@@ -14,7 +14,7 @@ workflows:
                 - other
             vars:
                 PACKAGE_NAME: "com.reactnativebase"
-            node: v16.13.1
+            node: v16.13.1          # Ver Node JS local
         triggering:
             events:
                 - push
@@ -26,8 +26,8 @@ workflows:
                   source: true
         scripts:
             - name: Install npm dependencies
-              script: |
-                npm install
+              script: |   # Thay  npm install =>  npm install --legacy-peer-deps tránh conflict node module.
+                npm install --legacy-peer-deps    
             - name: Set Android SDK location
               script: |
                 echo "sdk.dir=$ANDROID_SDK_ROOT" > "$FCI_BUILD_DIR/android/local.properties"
