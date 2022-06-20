@@ -4,6 +4,7 @@
 # Please review and update values
 # https://github.com/codemagic-ci-cd/codemagic-sample-projects/blob/main/react-native/react-native-demo-project/codemagic.yaml
 workflows:
+      #Setup máy build:
     react-native-android:
         name: React Native Android  #Tên nhánh CI/CD sẽ build (Đổi tên tạo nhánh build mới)
         max_build_duration: 120
@@ -42,14 +43,20 @@ workflows:
                     # storeFile=/tmp/keyStoreRnBase.keystore
                     # EOF               
             - name: Build Android release
+            # Thực hiện dòng lệnh:
+            #Bug 1: https://stackoverflow.com/questions/64936044/fix-the-upstream-dependency-conflict-installing-npm-packages
+            #Bug 2: https://www.cloudhadoop.com/gradlew-permission-denied/
               script: |
-                git update-index --chmod=+x gradlew
+                git update-index --chmod=+x gradlew 
                 git add .
                 git commit -m "Update execute permission for gradlew command"
                 git push
-                cd android && ./gradlew assembleRelease
+                cd android 
+                ./gradlew clean 
+                ./gradlew assembleRelease
         artifacts:
             - android/app/release/release/rnbase.apk
+            # Đẩy APK => 3 lựa chọn: AppStore, Gmail và Slack
         publishing:
             email:
                 recipients:
