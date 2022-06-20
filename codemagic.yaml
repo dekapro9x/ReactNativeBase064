@@ -55,6 +55,8 @@ workflows:
                 ./gradlew clean 
                 ./gradlew assembleRelease
         artifacts:
+            - app/build/outputs/**/**/*.aab
+            - app/build/outputs/**/**/*.apk
             - android/app/release/release/rnbase.apk
             # Đẩy APK => 3 lựa chọn: AppStore, Gmail và Slack
         publishing:
