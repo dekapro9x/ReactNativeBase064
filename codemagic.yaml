@@ -7,7 +7,7 @@ workflows:
     react-native-android:
         name: React Native Android  #Tên nhánh CI/CD sẽ build (Đổi tên tạo nhánh build mới)
         max_build_duration: 120
-        instance_type: mac_mini
+        instance_type: mac_mini  # Chỉ chọn được các dòng máy gồm : mac_mini , mac_mini_m1...
         environment:
             groups:
                 - keystore_credentials 
@@ -43,6 +43,10 @@ workflows:
                     # EOF               
             - name: Build Android release
               script: |
+                git update-index --chmod=+x gradlew
+                git add .
+                git commit -m "Update execute permission for gradlew command"
+                git push
                 cd android && ./gradlew assembleRelease
         artifacts:
             - android/app/release/release/rnbase.apk
