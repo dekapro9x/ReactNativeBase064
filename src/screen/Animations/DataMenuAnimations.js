@@ -11,6 +11,7 @@ import { MaskedViewAnimations } from "./components/lib/masked_view";
 import { BottomSheetComponent } from "./components/lib/bottom_sheet";
 import { StyledComponent } from "./components/lib/styled-components";
 import {Table} from "./components/lib/table";
+import {SwipeableItem} from "./components/extend/SwipeableItem";
 //Extend:
 import { TouchHandleAnimations } from "./components/extend/TouchHandleAnimations";
 import { ZoomImgPanResponder } from "./components/extend/ZoomImgPanResponder";
@@ -75,6 +76,11 @@ export const MenuAnimations = [
             {
                 name: 'Touch Record Animations',
                 component: <AssistiveTouchLiveIOS />,
+                description: ""
+            },
+            {
+                name: 'Swipeable Item',
+                component: <SwipeableItem />,
                 description: ""
             },
         ],
