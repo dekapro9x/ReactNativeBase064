@@ -24,6 +24,13 @@ export default class AnimatedLoader extends React.PureComponent {
     loop: PropTypes.bool,
   };
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      visible: this.props.visible
+    }
+  }
+
   animation = React.createRef();
 
   componentDidMount() {
@@ -54,17 +61,24 @@ export default class AnimatedLoader extends React.PureComponent {
     );
   };
 
+  hideModalLoading = () => {
+    this.setState({ visible: false });
+  }
+
   render() {
-    const { visible, overlayColor, animationType , styleContainer} = this.props;
+    const { visible } = this.state;
+    const { overlayColor, animationType, styleContainer } = this.props;
     return (
       <Modal
         transparent
         visible={visible}
         animationType={animationType}
         supportedOrientations={['portrait']}
-        onRequestClose={() => {}}
+        onRequestClose={() => {
+          this.hideModalLoading()
+        }}
       >
-        <View style={[styles.container, { backgroundColor: overlayColor },styleContainer]}>
+        <View style={[styles.container, { backgroundColor: overlayColor }, styleContainer]}>
           <View>{this._renderLottie()}</View>
           {this.props.children}
         </View>

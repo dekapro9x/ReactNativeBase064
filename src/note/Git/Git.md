@@ -1,6 +1,7 @@
 # Tạo git cho projects : git init.
-# Xem account git : git config --list
-Chuyển tài khoản git : 
+
+# Xem cấu hình git : git config --list
+# Chuyển tài khoản git : 
 B1: git config --global user.email "<your-email-address>"
 B2: git config --global user.name "<name>"
 VD:
@@ -15,6 +16,7 @@ Sau khi reset xong phải dùng : git push --force mới push code được bằ
 + Commit code : git commit -m"<name-commit>"
 + Push code : git push
 + Tạo branch mới : git checkout -b <branch-name>
++ Hiển thị tất cả thông tin cấu hình git: git config --list
 
 
 # Chuyển git sang ip mới:
