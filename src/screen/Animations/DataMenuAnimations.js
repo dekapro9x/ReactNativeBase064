@@ -12,6 +12,7 @@ import { BottomSheetComponent } from "./components/lib/bottom_sheet";
 import { StyledComponent } from "./components/lib/styled-components";
 import {Table} from "./components/lib/table";
 import {SwipeableItem} from "./components/extend/SwipeableItem";
+import {ListSwipeableItem} from "./components/extend/ListSwipeableItem"
 //Extend:
 import { TouchHandleAnimations } from "./components/extend/TouchHandleAnimations";
 import { ZoomImgPanResponder } from "./components/extend/ZoomImgPanResponder";
@@ -74,13 +75,18 @@ export const MenuAnimations = [
                 description: ""
             },
             {
-                name: 'Touch Record Animations',
+                name: 'Assistive Touch Live IOS',
                 component: <AssistiveTouchLiveIOS />,
                 description: ""
             },
             {
-                name: 'Swipeable Item',
+                name: 'Swipeable Item Animated',
                 component: <SwipeableItem />,
+                description: ""
+            },
+            {
+                name: 'List Swipeable Custom',
+                component: <ListSwipeableItem />,
                 description: ""
             },
         ],
