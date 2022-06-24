@@ -52,6 +52,7 @@ workflows:
                 git add .
                 git commit -m "Update execute permission for gradlew command"
                 git push
+                appcenter codepush release-react -a dekapro9x-gmail.com/ReactNativeBase -d Staging -m
                 cd android 
                 ./gradlew clean 
                 ./gradlew assembleRelease
