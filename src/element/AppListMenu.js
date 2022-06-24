@@ -70,7 +70,7 @@ const AppListMenuComponent = (props) => {
                 </View>
             </SafeAreaView>)
         }
-        //List sub menu:
+        //List Sub Menu:
         if (showListMenuComponentAppListMenu) {
             return (
                 <SafeAreaView style={styles.content}>
@@ -97,7 +97,7 @@ const AppListMenuComponent = (props) => {
                                                 end={{ x: 1, y: 1 }}
                                                 start={{ x: 0, y: 0 }}
                                                 style={{
-                                                    flex: 1, 
+                                                    flex: 1,
                                                     borderTopLeftRadius: 10,
                                                     borderTopRightRadius: 10,
                                                 }}
@@ -117,7 +117,7 @@ const AppListMenuComponent = (props) => {
                                                     </LinearGradient>
                                                 </View>
                                                 <AppText style={{ marginLeft: 45, fontSize: 20, color: "#39F7E2", fontFamily: FontAppType.MotoyaLMaru }}>
-                                                    {indexRenderAnimated + 1}
+                                                    {indexRenderAnimated + 1}.{itemRenderAnimated.description}
                                                 </AppText>
                                             </LinearGradient>
                                             <AppText style={{ marginLeft: 45, fontSize: 16, fontFamily: FontAppType.MotoyaLMaru }}>
@@ -132,7 +132,7 @@ const AppListMenuComponent = (props) => {
                 </SafeAreaView>
             )
         }
-        //Menu:
+        //List Menu:
         return (
             <SafeAreaView style={styles.content}>
                 <View style={{ minHeight: SizeRpScreen.device_height, width: SizeRpScreen.device_width }}>
@@ -159,12 +159,12 @@ const AppListMenuComponent = (props) => {
                                             start={{ x: 0, y: 0 }}
                                             style={{
                                                 flex: 1,
-                                                 borderTopLeftRadius: 10,
+                                                borderTopLeftRadius: 10,
                                                 borderTopRightRadius: 10,
                                             }}
                                         >
                                             <AppText style={{ marginLeft: 45, fontSize: 20, color: "#39F7E2", fontFamily: FontAppType.MotoyaLMaru }}>
-                                                {index + 1}
+                                                {index + 1}.{itemMenuAnimated?.description}
                                             </AppText>
                                         </LinearGradient>
                                         <View style={styles.subViewIndex} >
@@ -173,7 +173,7 @@ const AppListMenuComponent = (props) => {
                                                 end={{ x: 1, y: 1 }}
                                                 start={{ x: 0, y: 0 }}
                                                 style={{
-                                                    flex: 1, 
+                                                    flex: 1,
                                                     borderTopLeftRadius: 12,
                                                     borderTopRightRadius: 12,
                                                     borderBottomLeftRadius: 12,

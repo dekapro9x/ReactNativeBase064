@@ -14,9 +14,10 @@ const AnimationsMenusScreen = (props) => {
 
   }
   return (
-    <AppListMenuComponent MenusAppList={props.MenusAppList} nameScreen={getNameMenuClick() || props.nameScreen} navigation={navigation}>
-
-    </AppListMenuComponent>
+    <AppListMenuComponent
+      MenusAppList={props.MenusAppList}
+      nameScreen={getNameMenuClick() || props.nameScreen}
+      navigation={navigation} />
   );
 }
 

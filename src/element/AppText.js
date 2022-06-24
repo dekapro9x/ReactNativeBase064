@@ -1,6 +1,7 @@
+import { black } from "@css/Color";
+import PropTypes from "prop-types";
 import React from "react";
 import { Text } from "react-native";
-import { black } from "@css/Color";
 import { FontAppType } from "../const/TypeFontFamily";
 import { SizeRpScreen } from "../resources/ResponsiveScreen";
 
@@ -22,6 +23,13 @@ const AppText = props => {
       {children}
     </Text>
   );
+};
+
+AppText.propTypes = {
+  style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  fontFamily:PropTypes.string,
+  color: PropTypes.string,
+  onPress: PropTypes.func,
 };
 
 export { AppText };
