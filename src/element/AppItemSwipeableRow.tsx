@@ -1,15 +1,11 @@
 import React, { Component, PropsWithChildren } from 'react';
 import {
   Animated,
-  StyleSheet,
-  Text,
-  View,
-  I18nManager,
-  Alert,
+  StyleSheet
 } from 'react-native';
 
-import { Swipeable, RectButton } from 'react-native-gesture-handler';
 import PropTypes from "prop-types";
+import { RectButton, Swipeable } from 'react-native-gesture-handler';
 
 
 export default class AppItemSwipeableRow extends Component<PropsWithChildren<unknown>> {
