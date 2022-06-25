@@ -49,10 +49,10 @@ Thêm #import <GoogleMaps/GoogleMaps.h> vào dòng 7.
 
 # Cấu hình Map:
 
-rn_maps_path = '../node_modules/react-native-maps'
-pod 'react-native-google-maps', :path => rn_maps_path
-pod 'GoogleMaps'
-pod 'Google-Maps-iOS-Utils'
+platform :ios, '12.0' (Nhớ kiểm tra ver IOS yêu cầu 12)
+# React Native Maps dependencies
+  rn_maps_path = '../node_modules/react-native-maps'
+  pod 'react-native-google-maps', :path => rn_maps_path
 
 cd ios && pod install
 
