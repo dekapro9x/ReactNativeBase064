@@ -71,7 +71,7 @@ export const MenuAnimations = [
             {
                 name: 'Assistive Touch Handle',
                 component: <TouchHandleAnimations />,
-                description: ""
+                description: "Di chuyển vị trí nút trên màn hình"
             },
             {
                 name: 'ZoomImg PanResponder',

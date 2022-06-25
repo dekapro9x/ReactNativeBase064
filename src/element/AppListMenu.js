@@ -93,7 +93,7 @@ const AppListMenuComponent = (props) => {
                                             }}
                                             style={styles.buttonActionsMenu}>
                                             <LinearGradient
-                                                colors={["#009245", '#FCEE21']}
+                                                colors={["#834d9b", '#d04ed6']}
                                                 end={{ x: 1, y: 1 }}
                                                 start={{ x: 0, y: 0 }}
                                                 style={{
@@ -116,7 +116,7 @@ const AppListMenuComponent = (props) => {
                                                         }}>
                                                     </LinearGradient>
                                                 </View>
-                                                <AppText style={{ marginLeft: 45, fontSize: 20, color: "#39F7E2", fontFamily: FontAppType.MotoyaLMaru }}>
+                                                <AppText style={{ marginLeft: 45, fontSize: itemRenderAnimated.description && itemRenderAnimated.description.length < 25 ? 20 : 16, color: "#39F7E2", fontFamily: FontAppType.MotoyaLMaru }}>
                                                     {indexRenderAnimated + 1}.{itemRenderAnimated.description}
                                                 </AppText>
                                             </LinearGradient>
@@ -154,7 +154,7 @@ const AppListMenuComponent = (props) => {
                                         }}
                                         style={styles.buttonActionsMenu}>
                                         <LinearGradient
-                                            colors={["#FF512F", '#DD2476']}
+                                            colors={["#834d9b", '#d04ed6']}
                                             end={{ x: 1, y: 1 }}
                                             start={{ x: 0, y: 0 }}
                                             style={{
