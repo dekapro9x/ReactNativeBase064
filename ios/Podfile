@@ -18,9 +18,15 @@ target 'ReactNativeBase' do
   rn_maps_path = '../node_modules/react-native-maps'
   pod 'react-native-google-maps', :path => rn_maps_path
   
+  use_react_native!(
+    :path => config[:reactNativePath],
+    # to enable hermes on iOS, change `false` to `true` and then install pods
+    :hermes_enabled => false
+  )
 
   target 'ReactNativeBaseTests' do
     inherit! :complete
+    pod 'Google-Maps-iOS-Utils', '~> 4.1.0'
     # Pods for testing
   end
 

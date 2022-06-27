@@ -23,6 +23,10 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
+	<string>$(PRODUCT_NAME) sử dụng vị trí để chấm công</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>$(PRODUCT_NAME) sử dụng vị trí để theo dõi quãn đường di chuyển</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
