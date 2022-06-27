@@ -9,7 +9,12 @@ import DatePicker from 'react-native-datepicker';
 import { SizeRpScreen } from '@resources/ResponsiveScreen';
 import { black, green400, grey400, grey500 } from '@css/Color';
 import { isIOS } from '@const/Setting';
+import PropTypes from 'prop-types';
 export default class AppCalendar extends Component {
+  static propTypes = {
+    style: PropTypes.object,
+  };
+
   constructor(props) {
     super(props);
     const { value } = this.props;
