@@ -62,9 +62,9 @@ const styles = StyleSheet.create({
         fontWeight: "bold"
     },
     box: {
-        height: 50,
-        width: 50,
-        borderRadius: 25,
+        height: 80,
+        width: 80,
+        borderRadius: 40,
         backgroundColor: "blue",
         position: "absolute"
     }

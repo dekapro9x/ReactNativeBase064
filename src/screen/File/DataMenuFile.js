@@ -14,22 +14,22 @@ export const MenuFiles = [
             {
                 name: 'Read file PDF',
                 component: <ReadPDF />,
-                description: ""
+                description: "Đọc file .pdf"
             },
             {
                 name: 'Read file JSON',
                 component: <ReadJSON />,
-                description: ""
+                description: "Đọc file .JSON"
             },
             {
                 name: 'Read file MP3',
                 component: <ReadMp3 />,
-                description: ""
+                description: "Đọc file .mp3"
             },
             {
                 name: 'Read file MP4',
                 component: <ReadMp4 />,
-                description: ""
+                description: "Đọc file .mp4"
             },
         ],
     },
@@ -40,7 +40,7 @@ export const MenuFiles = [
             {
                 name: 'Write file system.log',
                 component: <WriteTxt/>,
-                description: ""
+                description: "Ghi và đọc file log hệ thống"
             },
         ],
     },
@@ -51,7 +51,7 @@ export const MenuFiles = [
             {
                 name: 'Share File',
                 component: <WriteTxt/>,
-                description: ""
+                description: "Chia sẻ file"
             },
         ],
     },
