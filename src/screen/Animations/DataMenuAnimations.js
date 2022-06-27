@@ -24,6 +24,7 @@ import { AssistiveTouchLiveIOS } from "./components/extend/AssistiveTouchLiveIOS
 
 //Element Reuse:
 import {AppTextElementReuse} from "./components/elementReuse/AppTextElementReuse";
+import { AppDebounceButtonElementReuse } from "./components/elementReuse/AppDebounceButtonElementReuse";
 
 export const MenuAnimations = [
     {
@@ -150,12 +151,12 @@ export const MenuAnimations = [
             {
                 name: 'App Text Element Reuse',
                 component: <AppTextElementReuse />,
-                description: ""
+                description: "Chữ toàn app"
             },
             {
                 name: 'App Button Debounce Element Reuse',
-                component: <AppTextElementReuse />,
-                description: ""
+                component: <AppDebounceButtonElementReuse />,
+                description: "Nút bấm chặn double click"
             },
             {
                 name: 'App Text Element Reuse',
