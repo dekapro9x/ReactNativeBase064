@@ -8,7 +8,7 @@ public class MainActivity extends ReactActivity {
   protected String getMainComponentName() {
     return "ReactNativeBase";
   }
-  //Thêm dòng này để cấu hình React -navigation scree
+  //Thêm dòng này để cấu hình React -navigation screen
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(null);

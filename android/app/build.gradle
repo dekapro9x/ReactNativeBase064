@@ -156,6 +156,8 @@ android {
 }
 
 dependencies {
+    //SDK máy quét PDA:
+    compileOnly 'com.symbol:emdk:9.1.1'
     //Fix bug Android 11 not working:
     implementation("com.squareup.okhttp3:okhttp:4.9.1")
     implementation("com.squareup.okhttp3:okhttp-urlconnection:4.9.1")

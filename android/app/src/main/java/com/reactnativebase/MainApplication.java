@@ -23,7 +23,8 @@ import com.microsoft.codepush.react.CodePush;
 //com.calculator
 //com.sms
 //com.lifecycel
-
+//com.PDA
+import com.bittee.modules.UsbPackage;
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost =
@@ -44,6 +45,8 @@ public class MainApplication extends Application implements ReactApplication {
           packages.add(new CalculatorPackages());
           packages.add(new ReadSmsPackage());
           packages.add(new LifeCyclePackages());
+          packages.add(new PDAPackage());
+           packages.add(new UsbPackage());
           return packages;
         }
 
