@@ -4,7 +4,7 @@ const { SizeRpScreen } = require("../resources/ResponsiveScreen");
 
 const heightElementDefault = 50;
 
-const AppLinearGradient = ["#481E34", "#16192B"]
+const AppLinearGradient = ["#c21500", "#ffc500"]
 
 const iconMenuSize = 32;
 
@@ -32,7 +32,7 @@ const titleDebounceButtonDefault = {
 const debounceButtonDefault = {
     height: heightElementDefault,
     width: SizeRpScreen.width(96),
-    backgroundColor: "#481E34",
+    backgroundColor: "#c21500",
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 12,

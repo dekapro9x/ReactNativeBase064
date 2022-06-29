@@ -10,7 +10,7 @@ const AppContext = props => {
     logoApp: AppLogo,
     linearGradientApp: AppLinearGradient,
     colorApp: {
-      backgroundColor: black,
+      backgroundColor: "#33FFCC",
       backgroundColorButton: blue900,
       colorText: black
     }
