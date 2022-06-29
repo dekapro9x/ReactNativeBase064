@@ -4,15 +4,18 @@ import CalculatorNative from "./component/NativeModule/CalculatorNative";
 import CPU from "./component/NativeModule/CPU";
 import ReadSMS from "./component/ReadSMS";
 import {PDAScannerQrCode} from "./component/PDA";
+import { keyNavigation } from "@navigation/KeyNavigations";
+import { typeNavigationElement } from "@const/TypeNavigationElement";
 export const MenuNativeModuleAndroids = [
     {
         id: 1,
-        keyName: 'Native Android',
+        keyName: 'Native Android', 
+        description:"Future Native Module Android ",
         data: [
             {
                 name: 'LifeCycle',
                 component: <LifeCycle />,
-                description: ""
+                description: "" 
             },
             {
                 name: 'Calculator',
@@ -39,7 +42,9 @@ export const MenuNativeModuleAndroids = [
             {
                 name: 'PDA',
                 component: <PDAScannerQrCode />,
-                description: "SDK máy quét mã vạch PDA-Zebra-TC21-2D"
+                description: "SDK máy quét mã vạch PDA-Zebra-TC21-2D",
+                typeNavigationElement:typeNavigationElement.screen,
+                keyNavigationElement:keyNavigation.PDA
             },
         ],
     },

@@ -1,0 +1,356 @@
+// 'use strict';
+
+// import React, {Component} from 'react';
+// import PropTypes from 'prop-types';
+
+// import {
+//   StyleSheet,
+//   Dimensions,
+//   Vibration,
+//   Animated,
+//   Easing,
+//   View,
+//   Platform,
+//   PermissionsAndroid,
+//   Alert,
+//   Linking
+// } from 'react-native';
+
+// import Permissions, {PERMISSIONS, RESULTS} from 'react-native-permissions';
+// import {RNCamera as Camera} from 'react-native-camera';
+// import { STRING } from './String';
+// import { AppText } from '@element/AppText';
+// import { SizeRpScreen } from '@resources/ResponsiveScreen';
+
+// export default class QRCodeScanner extends Component {
+//   static propTypes = {
+//     onRead: PropTypes.func.isRequired,
+//     vibrate: PropTypes.bool,
+//     reactivate: PropTypes.bool,
+//     reactivateTimeout: PropTypes.number,
+//     fadeIn: PropTypes.bool,
+//     showMarker: PropTypes.bool,
+//     cameraType: PropTypes.oneOf(['front', 'back']),
+//     customMarker: PropTypes.element,
+//     containerStyle: PropTypes.any,
+//     cameraStyle: PropTypes.any,
+//     markerStyle: PropTypes.any,
+//     topViewStyle: PropTypes.any,
+//     bottomViewStyle: PropTypes.any,
+//     topContent: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+//     bottomContent: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+//     notAuthorizedView: PropTypes.element,
+//     permissionDialogTitle: PropTypes.string,
+//     permissionDialogMessage: PropTypes.string,
+//     checkAndroid6Permissions: PropTypes.bool,
+//     cameraProps: PropTypes.object,
+//     onDenyPermission: PropTypes.func,
+//   };
+
+//   static defaultProps = {
+//     onRead: () => console.log('QR code scanned!'),
+//     reactivate: false,
+//     vibrate: true,
+//     reactivateTimeout: 0,
+//     fadeIn: true,
+//     showMarker: false,
+//     cameraType: 'back',
+//     notAuthorizedView: (
+//       <View
+//         style={{
+//           flex: 1,
+//           alignItems: 'center',
+//           justifyContent: 'center',
+//         }}>
+//         <AppText
+//           style={{
+//             textAlign: 'center',
+//             fontSize: 16,
+//             marginTop: SizeRpScreen.height(5),
+//           }}>
+//           カメラが許可されていません
+//         </AppText>
+//       </View>
+//     ),
+//     pendingAuthorizationView: (
+//       <View
+//         style={{
+//           flex: 1,
+//           alignItems: 'center',
+//           justifyContent: 'center',
+//         }}>
+//         <AppText
+//           style={{
+//             textAlign: 'center',
+//             fontSize: 16,
+//           }}></AppText>
+//       </View>
+//     ),
+//     permissionDialogTitle: STRING.notification,
+//     permissionDialogMessage: STRING.need_enable_camera,
+//     checkAndroid6Permissions: false,
+//     cameraProps: {},
+//   };
+
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       scanning: false,
+//       fadeInOpacity: new Animated.Value(0),
+//       isAuthorized: false,
+//       isAuthorizationChecked: false,
+//       disableVibrationByUser: false,
+//       timeCountCheckPermission: 0,
+//     };
+
+//     this._handleBarCodeRead = this._handleBarCodeRead.bind(this);
+//   }
+//   checkPermission() {
+//     if (Platform.OS === 'ios') {
+//       Permissions.request(PERMISSIONS.IOS.CAMERA).then((response) => {
+//         this.setState({
+//           isAuthorized: response === RESULTS.GRANTED,
+//           isAuthorizationChecked: true,
+//         });
+//         if (response !== RESULTS.GRANTED) {
+//           setTimeout(() => {
+//             Alert.alert(
+//               STRING.notification,
+//               STRING.need_enable_camera_with_setting_android,
+//               [
+//                 {text: STRING.cancel, onPress: this.props.onDenyPermission},
+//                 {
+//                   text: STRING.ok,
+//                   onPress: () =>
+//                     isIos ? Permissions.openSettings() : () => {},
+//                 },
+//               ],
+//               {cancelable: false},
+//             );
+//           }, 100);
+//         }
+//       });
+//     } else if (
+//       Platform.OS === 'android' &&
+//       this.props.checkAndroid6Permissions
+//     ) {
+//       if (Platform.Version < 23) {
+//         this.setState({isAuthorized: true, isAuthorizationChecked: true});
+//       } else {
+//         PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.CAMERA, {
+//           title: this.props.permissionDialogTitle,
+//           message: this.props.permissionDialogMessage,
+//         }).then((granted) => {
+//           const isAuthorized =
+//             Platform.Version >= 23
+//               ? granted === PermissionsAndroid.RESULTS.GRANTED
+//               : granted === true;
+
+//           this.setState({isAuthorized, isAuthorizationChecked: true});
+//           if (granted == 'never_ask_again') {
+//             setTimeout(() => {
+//               Alert.alert(
+//                 STRING.notification,
+//                 STRING.need_enable_camera_with_setting_android,
+//                 [
+//                   {
+//                     text: 'キャンセル',
+//                     style: 'cancel',
+//                   },
+//                   {
+//                     text: 'OK',
+//                     style: 'cancel',
+//                     onPress: () => {
+//                       Linking.openSettings();
+//                     },
+//                   },
+//                 ],
+//                 {cancelable: false},
+//               );
+//             }, 100);
+//           } else if (granted == RESULTS.DENIED) {
+//             this.props.onDenyPermission();
+//           }
+//         });
+//       }
+//     } else {
+//       this.setState({isAuthorized: true, isAuthorizationChecked: true});
+//     }
+//   }
+
+//   componentDidMount() {
+//     let {timeCountCheckPermission} = this.state;
+//     timeCountCheckPermission = setTimeout(() => {
+//       this.checkPermission();
+//     }, 1000);
+//     if (this.props.fadeIn) {
+//       Animated.sequence([
+//         Animated.delay(1000),
+//         Animated.timing(this.state.fadeInOpacity, {
+//           toValue: 1,
+//           easing: Easing.inOut(Easing.quad),
+//         }),
+//       ]).start();
+//     }
+//   }
+//   componentWillUnmount() {
+//     const {timeCountCheckPermission} = this.state;
+//     clearTimeout(timeCountCheckPermission);
+//   }
+//   disable() {
+//     this.setState({disableVibrationByUser: true});
+//   }
+//   enable() {
+//     this.setState({disableVibrationByUser: false});
+//   }
+
+//   _setScanning(value) {
+//     this.setState({scanning: value});
+//   }
+
+//   _handleBarCodeRead(e) {
+//     if (!this.state.scanning && !this.state.disableVibrationByUser) {
+//       if (this.props.vibrate) {
+//         Vibration.vibrate();
+//       }
+//       this._setScanning(true);
+//       this.props.onRead(e);
+//       if (this.props.reactivate) {
+//         setTimeout(
+//           () => this._setScanning(false),
+//           this.props.reactivateTimeout,
+//         );
+//       }
+//     }
+//   }
+
+//   _renderTopContent() {
+//     if (this.props.topContent) {
+//       return this.props.topContent;
+//     }
+//     return null;
+//   }
+
+//   _renderBottomContent() {
+//     if (this.props.bottomContent) {
+//       return this.props.bottomContent;
+//     }
+//     return null;
+//   }
+
+//   _renderCameraMarker() {
+//     if (this.props.showMarker) {
+//       if (this.props.customMarker) {
+//         return this.props.customMarker;
+//       } else {
+//         return (
+//           <View style={styles.rectangleContainer}>
+//             <View
+//               style={[
+//                 styles.rectangle,
+//                 this.props.markerStyle ? this.props.markerStyle : null,
+//               ]}
+//             />
+//           </View>
+//         );
+//       }
+//     }
+//     return null;
+//   }
+
+//   _renderCamera() {
+//     const {
+//       notAuthorizedView,
+//       pendingAuthorizationView,
+//       cameraType,
+//     } = this.props;
+//     const {isAuthorized, isAuthorizationChecked} = this.state;
+//     if (isAuthorized) {
+//       if (this.props.fadeIn) {
+//         return (
+//           <Animated.View
+//             style={{
+//               opacity: this.state.fadeInOpacity,
+//               backgroundColor: 'transparent',
+//             }}>
+//             <Camera
+//               captureAudio={false}
+//               style={[styles.camera, this.props.cameraStyle]}
+//               onBarCodeRead={this._handleBarCodeRead.bind(this)}
+//               type={this.props.cameraType}
+//               {...this.props.cameraProps}>
+//               {this._renderCameraMarker()}
+//             </Camera>
+//           </Animated.View>
+//         );
+//       }
+//       return (
+//         <Camera
+//           type={cameraType}
+//           style={[styles.camera, this.props.cameraStyle]}
+//           onBarCodeRead={this._handleBarCodeRead.bind(this)}
+//           {...this.props.cameraProps}>
+//           {this._renderCameraMarker()}
+//         </Camera>
+//       );
+//     } else if (!isAuthorizationChecked) {
+//       return pendingAuthorizationView;
+//     } else {
+//       return notAuthorizedView;
+//     }
+//   }
+
+//   reactivate() {
+//     this._setScanning(false);
+//   }
+
+//   render() {
+//     return (
+//       <View style={[styles.mainContainer, this.props.containerStyle]}>
+//         <View style={[styles.infoView, this.props.topViewStyle]}>
+//           {this._renderTopContent()}
+//         </View>
+//         {this._renderCamera()}
+//         <View style={[styles.infoView, this.props.bottomViewStyle]}>
+//           {this._renderBottomContent()}
+//         </View>
+//       </View>
+//     );
+//   }
+// }
+
+// const styles = StyleSheet.create({
+//   mainContainer: {
+//     flex: 1,
+//   },
+//   infoView: {
+//     flex: 2,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     width: Dimensions.get('window').width,
+//   },
+
+//   camera: {
+//     flex: 0,
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     backgroundColor: 'transparent',
+//     height: Dimensions.get('window').width,
+//     width: Dimensions.get('window').width,
+//   },
+
+//   rectangleContainer: {
+//     flex: 1,
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     backgroundColor: 'transparent',
+//   },
+
+//   rectangle: {
+//     height: 250,
+//     width: 250,
+//     borderWidth: 2,
+//     borderColor: '#00FF00',
+//     backgroundColor: 'transparent',
+//   },
+// });

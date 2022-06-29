@@ -9,15 +9,12 @@ import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {
   Camera, CameraDeviceFormat,
   CameraRuntimeError,
-  FrameProcessorPerformanceSuggestion, frameRateIncluded, PhotoFile,
-  sortFormats,
+  FrameProcessorPerformanceSuggestion, frameRateIncluded, sortFormats,
   useCameraDevices,
-  useFrameProcessor,
-  VideoFile
+  useFrameProcessor
 } from 'react-native-vision-camera';
 import { examplePlugin } from './frame-processors/ExamplePlugin';
 import { useIsForeground } from './hooks/useIsForeground';
-import { CaptureButton } from './views/CaptureButton';
 
 const SAFE_AREA_PADDING = 25;
 

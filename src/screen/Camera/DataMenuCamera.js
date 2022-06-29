@@ -3,11 +3,10 @@ import QrScannerCamera from "./component/CameraRoot/QR";
 //Camera Root:
 import TakePictureCamera from "./component/CameraRoot/TakePicture";
 import VideoRecords from "./component/CameraRoot/VideoRecords";
-import { CameraVisionsCore } from "./component/VisionsCamera/Core";
 export const MenuCameras = [
     {
         id: 1,
-        keyName: 'Take Picture Camera',
+        keyName: 'Camera',
         data: [
             {
                 name: 'Take Picture',
@@ -22,11 +21,6 @@ export const MenuCameras = [
             {
                 name: 'Record Video',
                 component: <VideoRecords />,
-                description: ""
-            },
-            {
-                name: "react-native-vision-camera (lib)",
-                component: <CameraVisionsCore />,
                 description: ""
             },
         ],

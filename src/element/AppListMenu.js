@@ -1,14 +1,17 @@
 import { FontAppType } from "@const/TypeFontFamily";
+import { typeNavigationElement } from "@const/TypeNavigationElement";
 import { AppContainer } from "@element/AppContainer";
 import { AppText } from "@element/AppText";
 import { writeLogSystem } from "@logEventSystem/";
 import { keyLogSystem } from "@logEventSystem/keyLogSystem";
 import { SizeRpScreen } from "@resources/ResponsiveScreen";
+import { navigate } from "@services/NavigationService";
 import PropTypes from 'prop-types';
 import React, { useEffect, useRef, useState } from "react";
-import { BackHandler, SafeAreaView, StyleSheet, TouchableOpacity, View, ScrollView } from "react-native";
+import { BackHandler, SafeAreaView, ScrollView, StyleSheet, TouchableOpacity, View } from "react-native";
 import { View as ViewAnimated } from 'react-native-animatable';
 import LinearGradient from "react-native-linear-gradient";
+
 
 const AppListMenuComponent = (props) => {
     const { nameScreen, MenusAppList, navigation } = props;
@@ -62,6 +65,18 @@ const AppListMenuComponent = (props) => {
         }
     }
 
+    const pressRenderElementItem = (itemRenderAnimated) => () => {
+        console.log("Vào đây...",itemRenderAnimated)
+        if (itemRenderAnimated?.typeNavigationElement == typeNavigationElement.screen) {
+            console.log("Vào tiếp đây")
+            navigate(itemRenderAnimated.keyNavigationElement)
+        } else {
+            console.log("Xuống đây")
+            setStateRenderAnimated(true);
+            setStateAnimatedComponent(itemRenderAnimated);
+        }
+    }
+
     const renderContent = () => {
         if (renderAnimated) {
             return (<SafeAreaView style={styles.content}>
@@ -87,10 +102,7 @@ const AppListMenuComponent = (props) => {
                                         delay={(indexRenderAnimated + 1) * timeOut}
                                     >
                                         <TouchableOpacity
-                                            onPress={() => {
-                                                setStateRenderAnimated(true);
-                                                setStateAnimatedComponent(itemRenderAnimated);
-                                            }}
+                                            onPress={pressRenderElementItem(itemRenderAnimated)}
                                             style={styles.buttonActionsMenu}>
                                             <LinearGradient
                                                 colors={["#834d9b", '#d04ed6']}
