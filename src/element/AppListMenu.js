@@ -66,7 +66,7 @@ const AppListMenuComponent = (props) => {
     }
 
     const pressRenderElementItem = (itemRenderAnimated) => () => {
-        console.log("Vào đây...",itemRenderAnimated)
+        console.log("Vào đây...", itemRenderAnimated)
         if (itemRenderAnimated?.typeNavigationElement == typeNavigationElement.screen) {
             console.log("Vào tiếp đây")
             navigate(itemRenderAnimated.keyNavigationElement)
@@ -175,7 +175,7 @@ const AppListMenuComponent = (props) => {
                                                 borderTopRightRadius: 10,
                                             }}
                                         >
-                                            <AppText style={{ marginLeft: 45, fontSize: 20, color: "#39F7E2", fontFamily: FontAppType.MotoyaLMaru }}>
+                                            <AppText style={{ marginLeft: 45, fontSize: itemMenuAnimated?.description.length > 30 ? 16 : 20, color: "#39F7E2", fontFamily: FontAppType.MotoyaLMaru }}>
                                                 {index + 1}.{itemMenuAnimated?.description}
                                             </AppText>
                                         </LinearGradient>

@@ -244,6 +244,8 @@ apply from: file("../../node_modules/@react-native-community/cli-platform-androi
 project.ext.vectoricons = [
     iconFontNames: [ 'MaterialIcons.ttf', 'EvilIcons.ttf' ] // Name of the font files you want to copy
 ]
+//Sửa bản cập nhật lib mới code push:
+// apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
 //Sửa lỗi react-native-vector-icons hiển thị sai icon:
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 
