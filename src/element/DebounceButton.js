@@ -8,7 +8,8 @@ export class DebounceButton extends Component {
     useLoading: PropTypes.bool.isRequired,
     useDelay: PropTypes.bool.isRequired,
     onPress: PropTypes.func.isRequired,
-    timeDelay: PropTypes.number
+    timeDelay: PropTypes.number,
+    title:PropTypes.string
   };
 
   constructor(props) {
