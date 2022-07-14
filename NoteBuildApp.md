@@ -7,10 +7,10 @@ checkReleaseBuilds false
 
 # 2.Lệnh code push:
 
-const VersionApp = "1.0.26";
+const VersionApp = "1.0.28";
 const VersionCodePush = 1";
-git commit -m"Build bundle JS code push versions 1 for 1.0.26"
-git commit -m"Build APK 1.0.26"
+git commit -m"Build bundle JS code push versions 1 for 1.0.28"
+git commit -m"Build APK 1.0.28"
 appcenter codepush release-react -a dekapro9x-gmail.com/ReactNativeBase -d Staging -m
 
 # Note Versions:
@@ -54,3 +54,5 @@ git add codemagic.yaml
 git commit -m "Update Codemagic configuration"
 git push origin root
 
+# 1.0.28 react-native-image-picker && react-native-camera-roll
+Xử lý file ảnh trong media file
