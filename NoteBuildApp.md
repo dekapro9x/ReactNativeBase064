@@ -53,3 +53,4 @@ https://morioh.com/p/a551f81cc201 (Example)
 git add codemagic.yaml
 git commit -m "Update Codemagic configuration"
 git push origin root
+
