@@ -4,6 +4,7 @@ import QrScannerCamera from "./component/CameraRoot/QR";
 import TakePictureCamera from "./component/CameraRoot/TakePicture";
 import VideoRecords from "./component/CameraRoot/VideoRecords";
 import MediaPicture from "./component/MediaImage";
+import ImagePicker from "./component/ImagePicker";
 export const MenuCameras = [
     {
         id: 1,
@@ -36,6 +37,11 @@ export const MenuCameras = [
                 name: 'Get Album Images By Camera Roll',
                 component: <MediaPicture />,
                 description: "Lấy danh sách ảnh trong album ảnh bằng camera-roll"
+            },
+            {
+                name: 'Get Album Images By Image Picker',
+                component: <ImagePicker />,
+                description: "Lấy danh sách ảnh trong album bằng image-picker"
             },
             {
                 name: 'Crop Images',

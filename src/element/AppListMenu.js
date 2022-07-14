@@ -66,12 +66,9 @@ const AppListMenuComponent = (props) => {
     }
 
     const pressRenderElementItem = (itemRenderAnimated) => () => {
-        console.log("Vào đây...", itemRenderAnimated)
         if (itemRenderAnimated?.typeNavigationElement == typeNavigationElement.screen) {
-            console.log("Vào tiếp đây")
             navigate(itemRenderAnimated.keyNavigationElement)
         } else {
-            console.log("Xuống đây")
             setStateRenderAnimated(true);
             setStateAnimatedComponent(itemRenderAnimated);
         }
@@ -128,7 +125,7 @@ const AppListMenuComponent = (props) => {
                                                         }}>
                                                     </LinearGradient>
                                                 </View>
-                                                <AppText style={{ marginLeft: 45, fontSize: itemRenderAnimated.description && itemRenderAnimated.description.length < 25 ? 20 : 16, color: "#39F7E2", fontFamily: FontAppType.MotoyaLMaru }}>
+                                                <AppText style={{ marginLeft: 45, fontSize: itemRenderAnimated?.description && itemRenderAnimated?.description?.length < 25 ? 20 : 16, color: "#39F7E2", fontFamily: FontAppType.MotoyaLMaru }}>
                                                     {indexRenderAnimated + 1}.{itemRenderAnimated.description}
                                                 </AppText>
                                             </LinearGradient>
@@ -175,7 +172,7 @@ const AppListMenuComponent = (props) => {
                                                 borderTopRightRadius: 10,
                                             }}
                                         >
-                                            <AppText style={{ marginLeft: 45, fontSize: itemMenuAnimated?.description.length > 30 ? 16 : 20, color: "#39F7E2", fontFamily: FontAppType.MotoyaLMaru }}>
+                                            <AppText style={{ marginLeft: 45, fontSize: itemMenuAnimated?.description?.length > 30 ? 16 : 20, color: "#39F7E2", fontFamily: FontAppType.MotoyaLMaru }}>
                                                 {index + 1}.{itemMenuAnimated?.description}
                                             </AppText>
                                         </LinearGradient>
