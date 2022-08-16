@@ -21,7 +21,9 @@ const ImagePicker = () => {
     const getListImagesAlbum = () => {
         const options = {
             includeBase64: false,
-            multiple: true
+            multiple: true,
+            selectionLimit: 0,
+            mediaType: "1"
         };
         launchImageLibrary(options, (response) => {
             if (response && Array.isArray(response.assets) && response.assets.length > 0) {
@@ -52,7 +54,7 @@ const ImagePicker = () => {
 
     return (
         <View style={{ flex: 1 }}>
-            <View style={{ flex: 1 , justifyContent: "center"}}>
+            <View style={{ flex: 1, justifyContent: "center" }}>
                 {renderImageSelect()}
             </View>
             <View style={{ flex: 1 }}>
