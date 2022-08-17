@@ -109,6 +109,7 @@ const AppListMenuComponent = (props) => {
                                                     flex: 1,
                                                     borderTopLeftRadius: 10,
                                                     borderTopRightRadius: 10,
+                                                    justifyContent: 'center'
                                                 }}
                                             >
                                                 <View style={styles.subViewIndex} >
@@ -125,7 +126,7 @@ const AppListMenuComponent = (props) => {
                                                         }}>
                                                     </LinearGradient>
                                                 </View>
-                                                <AppText style={{ marginLeft: 45, fontSize: itemRenderAnimated?.description && itemRenderAnimated?.description?.length < 25 ? 20 : 16, color: "#39F7E2", fontFamily: FontAppType.MotoyaLMaru }}>
+                                                <AppText style={{ marginLeft: 45, fontSize: itemRenderAnimated?.description && itemRenderAnimated?.description?.length < 22 ? 20 : 16, color: "#39F7E2", fontFamily: FontAppType.MotoyaLMaru }}>
                                                     {indexRenderAnimated + 1}.{itemRenderAnimated.description}
                                                 </AppText>
                                             </LinearGradient>
@@ -170,9 +171,10 @@ const AppListMenuComponent = (props) => {
                                                 flex: 1,
                                                 borderTopLeftRadius: 10,
                                                 borderTopRightRadius: 10,
+                                                justifyContent: 'center'
                                             }}
                                         >
-                                            <AppText style={{ marginLeft: 45, fontSize: itemMenuAnimated?.description?.length > 30 ? 16 : 20, color: "#39F7E2", fontFamily: FontAppType.MotoyaLMaru }}>
+                                            <AppText style={{ marginLeft: 45, fontSize: itemMenuAnimated?.description?.length > 22 ? 16 : 20, color: "#39F7E2", fontFamily: FontAppType.MotoyaLMaru }}>
                                                 {index + 1}.{itemMenuAnimated?.description}
                                             </AppText>
                                         </LinearGradient>

@@ -34,5 +34,6 @@ export default {
     "pushNotifications":"Thông báo đẩy",
     "sdk":"SDK",
     "vr_ar":"Thực tế ảo",
+    "algorithm":"Thuật toán",
     "frequentlyQuestions":"Câu hỏi thường gặp",
 };
