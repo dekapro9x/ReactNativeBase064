@@ -35,5 +35,6 @@ export default {
     "pushNotifications":"Push Notifications",
     "sdk":"SDK",
     "vr_ar":"VR-AR",
+    "algorithm":"Algorithm",
     "frequentlyQuestions":"Questions Interview"
 };

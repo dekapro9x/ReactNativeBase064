@@ -33,5 +33,6 @@ export default {
     "pushNotifications":"推送通知",
     "sdk":"軟件開發工具包",
     "vr_ar":"虛擬現實",
+    "algorithm":"算法",
     "frequentlyQuestions":"問題 面試"
 };
