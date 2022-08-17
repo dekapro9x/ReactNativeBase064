@@ -22,8 +22,6 @@ export const LongShortAnimations = () => {
         }).start();
     };
 
-    console.log("longWidth", longWidth);
-
     return (
         <View style={animatedComponent}>
             <Text

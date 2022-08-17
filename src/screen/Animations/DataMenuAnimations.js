@@ -30,44 +30,44 @@ export const MenuAnimations = [
     {
         id: 1,
         keyName: 'Animations Basic',
-        description:"Hiệu ứng cơ bản",
+        description:"Basic",
         data: [
             {
-                name: 'Animated.timing()',
+                name: 'Method Animated: Animated.timing()',
                 component: <TimingAnimatedComponent />,
-                description: "Hiệu ứng theo thời gian"
+                description: "Ánh xạ với phạm vi thời gian để Easing value"
             },
             {
-                name: 'Animated.decay()',
+                name: 'Method Animated: Animated.decay()',
                 component: <DecayAnimatedComponent />,
-                description: "Hiệu ứng theo gia tốc"
+                description: "Bắt đầu với một vận tốc ban đầu và dần dần dừng lại"
             },
             {
-                name: 'Animated.spring()',
+                name: 'Method Animated: Animated.spring()',
                 component: <SpringAnimatedComponent />,
-                description: ""
+                description: "Cung cấp một mô hình vật lý spring cơ bản"
             },
             {
-                name: 'Animated.parallel()',
+                name: 'Composing method: Animated.parallel()',
                 component: <SpringAnimatedComponent />,
-                description: ""
+                description: "hực hiện các animation cùng một thời điểm"
             },
             {
-                name: 'Animated.sequence()',
+                name: 'Composing method: Animated.sequence()',
                 component: <SpringAnimatedComponent />,
-                description: ""
+                description: "Thực hiện các animation một cách tuần tự"
             },
             {
-                name: 'Animated.stagger()',
+                name: 'Composing method: Animated.stagger()',
                 component: <SpringAnimatedComponent />,
-                description: ""
+                description: "Thực hiện các animation với sự kết hợp cả tuần tự và song song"
             },
         ],
     },
     {
         id: 2,
         keyName: 'Animations Extend',
-        description:"Hiệu ứng nâng cao",
+        description:"Extend",
         data: [
             {
                 name: 'Assistive Touch Handle',
@@ -104,7 +104,7 @@ export const MenuAnimations = [
     {
         id: 3,
         keyName: 'UI/Library UI',
-        description:"Thư viện hiệu ứng/UI",
+        description:"Lib/UI",
         data: [
             {
                 name: 'react-native-animatable (Slider)',
@@ -146,22 +146,22 @@ export const MenuAnimations = [
     {
         id: 4,
         keyName: 'App element reuse',
-        description:"Thành phần tái sử dụng",
+        description:"Element Component Reuse",
         data: [
             {
                 name: 'App Text Element Reuse',
                 component: <AppTextElementReuse />,
-                description: "Chữ toàn app"
+                description: "AppText"
             },
             {
                 name: 'App Button Debounce Element Reuse',
                 component: <AppDebounceButtonElementReuse />,
-                description: "Nút bấm chặn double click"
+                description: "App Touchable Debounces"
             },
             {
                 name: 'App calendar Element Reuse',
                 component: <AppCalendarElementReuse />,
-                description: "Lịch ứng dụng"
+                description: "App Calendar"
             },
         ],
     },
