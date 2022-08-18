@@ -1,14 +1,15 @@
 import React from "react"
-import Lib1 from "./component/lib1"
+import FireBaseAuth from "./component/FireBaseAuth";
 export const MenuFireBase= [
     {
         id: 1,
         keyName: 'FireBase',
+        description: "FireBase Services",
         data: [
             {
-                name: 'Fire Base Authentication',
-                component: <Lib1/>,
-                description: ""
+                name: 'FireBase Authentication',
+                component: <FireBaseAuth/>,
+                description: "Authentication Account "
             },
         ],
     },

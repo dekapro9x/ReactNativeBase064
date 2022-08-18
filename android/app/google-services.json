@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "965809574853",
+    "project_id": "reactnativebase-348506",
+    "storage_bucket": "reactnativebase-348506.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:965809574853:android:2aa3dcb87819e4653871ac",
+        "android_client_info": {
+          "package_name": "com.reactnativebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "965809574853-hq897v5sh2hq64s3p1m19gtrcnsffknk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACpLPg8EH6l4Alhmc5TzioemIwjrCtyHE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "965809574853-hq897v5sh2hq64s3p1m19gtrcnsffknk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
