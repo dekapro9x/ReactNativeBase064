@@ -3,6 +3,7 @@ import React from "react";
 import { DecayAnimatedComponent } from "./components/core/decay";
 import { SpringAnimatedComponent } from "./components/core/spring";
 import { TimingAnimatedComponent } from "./components/core/timing";
+import {ParallelAnimations} from "./components/core/parallel";
 
 //Library:
 import { SliderAnimations } from "./components/lib/animatable/SliderAnimations";
@@ -49,7 +50,7 @@ export const MenuAnimations = [
             },
             {
                 name: 'Composing method: Animated.parallel()',
-                component: <SpringAnimatedComponent />,
+                component: <ParallelAnimations />,
                 description: "hực hiện các animation cùng một thời điểm"
             },
             {
