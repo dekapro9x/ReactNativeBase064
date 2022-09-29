@@ -4,6 +4,7 @@
 ./gradlew assembleRelease : tạo file APK
 ./gradlew clean 
 ./gradlew bundleRelease : tạo file aab đẩy lên CH PLay
+./gradlew signingReport :Lấy mã hash SHA - SHA256
 npm install -g yarn :  update yarn 
 sudo n latest : update Node JS bản mới nhất
 react-native init App: Tao App mới

@@ -1,5 +1,5 @@
 //Dev:
-const IP_CONFIG = "192.168.0.178";
+const IP_CONFIG = "192.168.0.76";
 const API_BASE = `http://${IP_CONFIG}:3000/`;
 const END_POINT = "DEV";
 const PRIVATE_KEY_SERVER = "d94991ad39bfb31b809da1435c1d1a4c3434";

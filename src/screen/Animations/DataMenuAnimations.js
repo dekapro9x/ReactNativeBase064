@@ -27,6 +27,7 @@ import { AssistiveTouchLiveIOS } from "./components/extend/AssistiveTouchLiveIOS
 import {AppTextElementReuse} from "./components/elementReuse/AppTextElementReuse";
 import { AppDebounceButtonElementReuse } from "./components/elementReuse/AppDebounceButtonElementReuse";
 import { AppCalendarElementReuse } from "./components/elementReuse/AppCalendarElementReuse";
+import {AppImagesRenderSizeElementReuse} from "./components/elementReuse/AppImagesRenderSizeElementReuse";
 export const MenuAnimations = [
     {
         id: 1,
@@ -163,6 +164,11 @@ export const MenuAnimations = [
                 name: 'App calendar Element Reuse',
                 component: <AppCalendarElementReuse />,
                 description: "App Calendar"
+            },
+            {
+                name: 'App Iamge Render Size Element Reuse',
+                component: <AppImagesRenderSizeElementReuse />,
+                description: "App Images"
             },
         ],
     },

@@ -4,11 +4,12 @@ export const MenuQuestion= [
     {
         id: 1,
         keyName: 'JS',
+        description: "Câu hỏi phỏng vấn Js",
         data: [
             {
-                name: 'JS là gì?',
+                name: 'JS',
                 component: <Lib1/>,
-                description: ""
+                description: "Câu hỏi phỏng vấn về JS"
             },
         ],
     },

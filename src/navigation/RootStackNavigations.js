@@ -33,17 +33,20 @@ import MiniApp from "@screen/MiniApp";
 import FrequentlyQuestions from "@screen/FrequentlyQuestions";
 import PDA from "@screen/PDA";
 import Algorithm from "@screen/Algorithm";
+
 //Stack Bottom Tab Menu Home:
 import { RootStackBottomTab } from "./RootStackBottomTab";
 
 //Màn Basic:
+import actions from "@redux/actions";
 import BasicJsScreen from "../screen/BasicJS";
 import BasicTsScreen from "../screen/BasicTS";
 import { useDispatch } from 'react-redux';
-import actions from "@redux/actions";
 import { keyAsyncStorage } from "@const/KeySyncStorage";
 import { LanguageAppType } from "@const/TypeLanguage";
+
 const RootStack = createNativeStackNavigator();
+
 export default RootNavigations = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -51,14 +54,16 @@ export default RootNavigations = () => {
     return () => {
     };
   }, []);
+
   const languageSetup = async () => {
     const languageCurrent = await AsyncStorage.getItem(keyAsyncStorage.language);
     if (!languageCurrent) {
-      languageCurrent = LanguageAppType.en
+      languageCurrent = LanguageAppType.en;
       await AsyncStorage.setItem(keyAsyncStorage.language, LanguageAppType.en);
     }
     await dispatch(actions.changeLanguages(languageCurrent));
   }
+
   return (
     <>
       <RootStack.Navigator

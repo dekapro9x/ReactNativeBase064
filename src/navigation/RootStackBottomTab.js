@@ -13,7 +13,9 @@ import Vi from "../language/i18n/vi";
 import { keyNavigation } from "./KeyNavigations";
 import { RootStackDrawer } from "./RootStackDrawer";
 import News from "@screen/News";
+
 const BottomStack = createMaterialBottomTabNavigator();
+
 const mapStateToProps = (GlobalState) => {
   const { LanguageReducer } = GlobalState;
   return {
