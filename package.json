@@ -43,7 +43,7 @@
     "lottie-ios": "3.2.3",
     "lottie-react-native": "^5.0.1",
     "mobile-device-detect": "^0.4.3",
-    "moment": "^2.29.1",
+    "moment": "^2.29.4",
     "mongojs": "^3.1.0",
     "nodemon": "^2.0.16",
     "patch-package": "^6.4.7",
