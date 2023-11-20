@@ -4324,10 +4324,10 @@ cross-spawn@^7.0.2, cross-spawn@^7.0.3:
     shebang-command "^2.0.0"
     which "^2.0.1"
 
-crypto-js@^3.2.0:
-  version "3.3.0"
-  resolved "https://registry.npmjs.org/crypto-js/-/crypto-js-3.3.0.tgz"
-  integrity sha512-DIT51nX0dCfKltpRiXV+/TVZq+Qq2NgF4644+K7Ttnla7zEzqc+kjJyiB96BHNyUTBxyjzRcZYpUdZa+QAqi6Q==
+crypto-js@4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-4.2.0.tgz#4d931639ecdfd12ff80e8186dba6af2c2e856631"
+  integrity sha512-KALDyEYgpY+Rlob/iriUtjV6d5Eq+Y191A5g4UqLAi8CyGP9N1+FdVbkc1SxKc2r4YAYqG8JzO2KGL+AizD70Q==
 
 crypto-random-string@^2.0.0:
   version "2.0.0"
@@ -9399,12 +9399,13 @@ react-native-parsed-text@0.0.22:
   dependencies:
     prop-types "^15.7.x"
 
-react-native-pdf@^6.5.0:
-  version "6.5.0"
-  resolved "https://registry.npmjs.org/react-native-pdf/-/react-native-pdf-6.5.0.tgz"
-  integrity sha512-R/RNF+/nhFXBkhrdAWLQRhtg9xcZkq/3wC+wq9lA+ORgn1sx+6VDtU7hWnY047FK0FRG8REUj4jILVSdpG2zDg==
+react-native-pdf@^6.7.2:
+  version "6.7.3"
+  resolved "https://registry.yarnpkg.com/react-native-pdf/-/react-native-pdf-6.7.3.tgz#810ace573029de686624629ad77814cb147bab50"
+  integrity sha512-bK1fVkj18kBA5YlRFNJ3/vJ1bEX3FDHyAPY6ArtIdVs+vv0HzcK5WH9LSd2bxUsEMIyY9CSjP4j8BcxNXTiQkQ==
   dependencies:
-    crypto-js "^3.2.0"
+    crypto-js "4.2.0"
+    deprecated-react-native-prop-types "^2.3.0"
 
 react-native-permissions@^3.2.0:
   version "3.2.0"
